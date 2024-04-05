@@ -1,17 +1,19 @@
 import React from "react";
 import "./navbar.css";
-// import { IonIcon } from "@ionic/react";
-import { logoIonic } from "ionicons/icons";
+import { FiShoppingCart } from "react-icons/fi";
+import { FaRegHeart } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+
 const Navbar = () => {
   return (
     <div>
       <header>
-        <div class="menu">
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
+        <div className="menu">
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
         </div>
-        <ul class="menu-options">
+        <ul className="menu-options">
           <li>
             <a href="#">Women's Fashion</a>
           </li>
@@ -25,59 +27,49 @@ const Navbar = () => {
             <a href="#">Home & Electronics</a>
           </li>
         </ul>
-        <div class="logo_container">
+        <div className="logo_container">
           <a href="#">
-            {" "}
-            <img class="store_logo" src="/logo.svg" alt="myntra logo" />
+            <img className="store_logo" src="/logo.svg" alt="myntra logo" />
           </a>
         </div>
 
-        <nav class="nav_bar">
-          <a href="./index.php">Home</a>
+        <nav className="nav_bar">
+          <a href="/">Home</a>
           <a href="./about.php">About</a>
-          <a href="contact.php">Contact Us</a>
-          <a href="event.php">Events</a>
+          <a href="/contact-us">Contact Us</a>
+          {/* <a href="event.php">Events</a> */}
           <a href="fan_club.php">Fan Clubs</a>
         </nav>
 
-        <div class="search_bar">
-          <span class="material-symbols-outlined search_icon"> search </span>
+        <div className="search_bar">
+          <span className="material-symbols-outlined search_icon">
+            <FaSearch />
+          </span>
           <input
-            class="search_input"
+            className="search_input"
             placeholder="Search for products, brands and more"
           />
         </div>
-        <div></div>
 
-        <div class="action_bar">
-          <div class="action_container">
-            <ion-icon name="person-outline"></ion-icon>
-            <a href="./profile.php">
-              <span class="action_name">Profile</span>
+        <div>
+          <a href="#">
+            <button className="log">Login</button>
+          </a>
+        </div>
+
+        <div className="action_bar">
+          <div className="action_container">
+            <a href="#" class="material-symbols-outlined action_icon">
+              <FaRegHeart />
             </a>
-          </div>
-          <div class="action_container">
-            <a
-              href="./wishlist.php"
-              class="material-symbols-outlined action_icon"
-            >
-              {" "}
-              favorite
-            </a>
-            <a href="./wishlist.php">
-              {" "}
-              <span class="action_name">Wishlist</span>
-            </a>
+            <span className="action_name">Wishlist</span>
           </div>
 
-          <div class="action_container">
-            <a href="./cart_details.php" class="material-symbols-outlined">
-              shopping_cart
+          <div className="action_container">
+            <a href="#" class="material-symbols-outlined action_icon">
+              <FiShoppingCart />
             </a>
-            <a href="./cart_details.php">
-              {" "}
-              <span class="action_name">Cart</span>
-            </a>
+            <span className="action_name">Cart</span>
           </div>
         </div>
       </header>

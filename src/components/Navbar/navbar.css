@@ -124,16 +124,6 @@ button {
   border: 1px solid rgba(104, 85, 224, 1);
 }
 
-.greet {
-  font-size: 14px;
-  letter-spacing: 0.3px;
-  color: #282c3f;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 15px 0;
-}
-
 div > a > button:hover {
   color: white;
   width: ;
@@ -152,8 +142,12 @@ div > a > button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 10px;
 }
 
+.action_icon {
+  font-size: 25px;
+}
 .action_container a {
   color: #282c3f;
 }
