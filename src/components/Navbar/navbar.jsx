@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.css";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { navBarLinks } from "../../../constants/constant";
 
-const Navbar = () => {
+const Navbar = ({ active, setActive }) => {
+  const toggleClass = () => {
+    setActive("active");
+  };
+
   return (
     <div>
       <header>
         <div className="menu">
-          <div className="dot"></div>
-          <div className="dot"></div>
-          <div className="dot"></div>
+          <RxHamburgerMenu />
         </div>
         <ul className="menu-options">
           <li>
@@ -34,11 +38,18 @@ const Navbar = () => {
         </div>
 
         <nav className="nav_bar">
-          <a href="/">Home</a>
-          <a href="./about.php">About</a>
-          <a href="/contact-us">Contact Us</a>
-          {/* <a href="event.php">Events</a> */}
-          <a href="fan_club.php">Fan Clubs</a>
+          {navBarLinks.map((Element) => {
+            return (
+              <a
+                key={Element.name}
+                className={Element.link === "/" ? "active" : ""}
+                href={Element.link}
+                onClick={toggleClass}
+              >
+                {Element.name}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="search_bar">
@@ -59,20 +70,21 @@ const Navbar = () => {
 
         <div className="action_bar">
           <div className="action_container">
-            <a href="#" class="material-symbols-outlined action_icon">
+            <a href="#" className="material-symbols-outlined action_icon">
               <FaRegHeart />
             </a>
             <span className="action_name">Wishlist</span>
           </div>
 
           <div className="action_container">
-            <a href="#" class="material-symbols-outlined action_icon">
+            <a href="#" className="material-symbols-outlined action_icon">
               <FiShoppingCart />
             </a>
             <span className="action_name">Cart</span>
           </div>
         </div>
       </header>
+      <hr />
     </div>
   );
 };
