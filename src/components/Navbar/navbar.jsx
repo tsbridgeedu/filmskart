@@ -5,12 +5,9 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { navBarLinks } from "../../../constants/constant";
+import { NavLink } from "react-router-dom";
 
-const Navbar = ({ active, setActive }) => {
-  const toggleClass = () => {
-    setActive("active");
-  };
-
+const Navbar = () => {
   return (
     <div>
       <header>
@@ -33,21 +30,22 @@ const Navbar = ({ active, setActive }) => {
         </ul>
         <div className="logo_container">
           <a href="#">
-            <img className="store_logo" src="/logo.svg" alt="myntra logo" />
+            <img className="store_logo" src="/logo.jpeg" alt="myntra logo" />
           </a>
         </div>
 
         <nav className="nav_bar">
           {navBarLinks.map((Element) => {
             return (
-              <a
-                key={Element.name}
-                className={Element.link === "/" ? "active" : ""}
-                href={Element.link}
-                onClick={toggleClass}
-              >
-                {Element.name}
-              </a>
+              <div className="activeHandler">
+                <NavLink
+                  className="navElements"
+                  key={Element.name}
+                  to={Element.link}
+                >
+                  {Element.name}
+                </NavLink>
+              </div>
             );
           })}
         </nav>
