@@ -2,6 +2,9 @@ import React from "react";
 import "./banner.css";
 import { Zoom } from "@mui/material";
 import {Slide} from '@mui/material'
+// import { IonIcon } from '@ionic/react';
+// import { logoIonic } from 'ionicons/icons';
+
 const Banner = () => {
   return (
     <div  className="container">
