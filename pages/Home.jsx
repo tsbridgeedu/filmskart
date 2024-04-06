@@ -6,9 +6,8 @@ import Hero from "../src/components/Hero/hero.jsx";
 const Home = () => {
   return (
     <div>
-      {/* <Navbar></Navbar> */}
-      {/* <Banner /> 
-       <Hero /> */}
+      <Banner />
+      <Hero />
     </div>
   );
 };

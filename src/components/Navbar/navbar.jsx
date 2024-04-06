@@ -37,10 +37,10 @@ const Navbar = () => {
         <nav className="nav_bar">
           {navBarLinks.map((Element) => {
             return (
-              <div className="activeHandler">
+              <div key={Element.link} className="activeHandler">
                 <NavLink
                   className="navElements"
-                  key={Element.name}
+                  key={Element.link}
                   to={Element.link}
                 >
                   {Element.name}

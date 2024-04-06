@@ -1,46 +1,46 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid;
-    height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  height: 90vh;
 }
 
 .inner-container {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    height: 100%;
-    border: solid;
-    width: 100%;
-    margin-right: 10px;
-    margin-left: 10px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100%;
+  /* border: solid; */
+  width: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
-.banner-container{
-    width: 70%;
-    height: 60%;
-    border: solid;
-    display: flex;
-    justify-content: start;
+.banner-container {
+  width: 70%;
+  height: 60%;
+  /* border: solid; */
+  display: flex;
+  justify-content: start;
 }
 
-.banner-container img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.banner-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .t-shirt_container {
-    width:30%;
-    height: 75%;
-    border: solid;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 30%;
+  height: 75%;
+  /* border: solid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.t-shirt_container h1{
-    text-align: center;
+.t-shirt_container h1 {
+  text-align: center;
 }
