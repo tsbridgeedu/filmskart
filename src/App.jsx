@@ -13,6 +13,7 @@ import Signup from "../pages/Signup";
 import Product from "../pages/Product";
 import Products from "../pages/Products";
 import Navbar from "./components/Navbar/navbar";
+import Footer from "./components/Footer/footer";
 
 const App = () => {
   // const [active, setActive] = useState("");
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
       </Routes>
+      <Footer />
     </>
   );
 };

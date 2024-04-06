@@ -4,8 +4,6 @@ import Banner from "../src/components/Banner/banner.jsx";
 import Hero from "../src/components/Hero/hero.jsx";
 
 const Home = () => {
-  // const [selectTab, setSelectTab] = useState("Home");
-
   return (
     <div>
       {/* <Navbar></Navbar> */}
