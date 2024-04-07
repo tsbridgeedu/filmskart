@@ -7,6 +7,11 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { navBarLinks } from "../../../constants/constant";
 import { NavLink } from "react-router-dom";
 
+//yaha likhna hai only sidebar Data
+
+
+
+
 const Navbar = () => {
   return (
     <div>
@@ -62,7 +67,7 @@ const Navbar = () => {
 
         <div>
           <a href="#">
-            <button className="log"><a href="/admin">Login</a></button>
+            <button className="log"><a href="/admin/dashboard">Login</a></button>
           </a>
         </div>
 
