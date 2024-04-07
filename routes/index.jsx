@@ -12,11 +12,11 @@ import Navbar from "../src/components/Navbar/navbar";
 import Footer from "../src/components/Footer/footer";
 import Event from "../pages/Event";
 
+import Admin from "../pages/Admin/Admin";
 
- const RoutesPath = () => {
-return (
+export function RoutesPath() {
+  return (
     <div>
-        <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/contact-us" element={<Contact />}></Route>
@@ -27,10 +27,8 @@ return (
         <Route path="/products" element={<Products />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/admin" element={<Admin />}></Route>
       </Routes>
-      <Footer />
     </div>
-)
+  );
 }
-
-export default RoutesPath;
