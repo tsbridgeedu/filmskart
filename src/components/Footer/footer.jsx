@@ -65,7 +65,7 @@ const Footer = () => {
       </div>
 
       <div className="copyright">
-        @ Copyright Rimel 2022. All rights reserved.
+        @2024 TS Bridge Edu. All rights reserved.
       </div>
     </footer>
   );
