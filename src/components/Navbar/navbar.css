@@ -39,8 +39,8 @@ header {
 }
 
 .store_logo {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -102,6 +102,9 @@ button {
   transition: 0.4s;
 }
 .logo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 15px;
 }
 .log {
@@ -158,4 +161,16 @@ div > a > button:hover {
 .activeHandler a.active {
   background-color: rgba(104, 85, 224, 1);
   color: white;
+}
+
+@media (max-width: 768px){
+  .menu ul {
+    height: 4rem;
+    grid-template-columns: 1rem 2fr 1fr 1fr 1rem;
+  }
+}
+
+.logo_container {
+  height: 4rem;
+  grid-template-columns: 1rem 2fr 2fr 1fr 1rem;
 }
