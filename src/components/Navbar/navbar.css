@@ -39,8 +39,8 @@ header {
 }
 
 .store_logo {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -102,6 +102,9 @@ button {
   transition: 0.4s;
 }
 .logo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 15px;
 }
 .log {

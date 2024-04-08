@@ -3,9 +3,46 @@ import "./navbar.css";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RiMenu2Fill } from "react-icons/ri";
 import { navBarLinks } from "../../../constants/constant";
 import { NavLink } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
+import MailIcon from '@mui/icons-material/Mail';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import GroupIcon from '@mui/icons-material/Group';
+import PermMediaIcon from '@mui/icons-material/PermMedia';
+
+[
+{
+  title: "Home",
+  icon: <HomeIcon/>,
+  link:"/home"
+},
+{
+  title: "MailBox",
+  icon: <MailIcon/>,
+  link:"/mailbox"
+},{
+  title: "Analytics",
+  icon: <AssessmentIcon/>,
+  link:"/analytics"
+},{
+  title: "Dashboard",
+  icon: <DashboardIcon/>,
+  link:"/dashboard"
+},
+{
+  title: "Friends",
+  icon: <GroupIcon/>,
+  link:"/friends"
+},{
+  title: "Images",
+  icon: <PermMediaIcon/>,
+  link:"/images"
+},
+];
+
 
 //yaha likhna hai only sidebar Data
 
@@ -13,12 +50,24 @@ import { NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
+  const [menuToggle, setMenuToggle] = useState(false)
+  const mobileMenu = ()=> {setMenuToggle(!menuToggle)}
+  console.log(menuToggle);
   return (
     <div>
       <header>
-        <div className="menu">
-          <RxHamburgerMenu />
+        <div className="menu" onClick={mobileMenu}>
+          < RiMenu2Fill />
         </div>
+        { menuToggle && <li key= {key} onClick={()=> {window.location.pathname = val.link}}>
+          {" "}
+          <div> {val.icon}</div>{""}
+          <div>
+            {val.title}
+          </div>
+          </li>
+          }
+          
         <ul className="menu-options">
           <li>
             <a href="#">Women's Fashion</a>
