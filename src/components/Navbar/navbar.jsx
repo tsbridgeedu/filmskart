@@ -44,6 +44,11 @@ import PermMediaIcon from '@mui/icons-material/PermMedia';
 ];
 
 
+//yaha likhna hai only sidebar Data
+
+
+
+
 const Navbar = () => {
   const [menuToggle, setMenuToggle] = useState(false)
   const mobileMenu = ()=> {setMenuToggle(!menuToggle)}
@@ -111,7 +116,7 @@ const Navbar = () => {
 
         <div>
           <a href="#">
-            <button className="log">Login</button>
+            <button className="log"><a href="/admin/dashboard">Login</a></button>
           </a>
         </div>
 

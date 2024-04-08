@@ -8,15 +8,19 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Product from "../pages/Product";
 import Products from "../pages/Products";
-import Navbar from "../src/components/Navbar/navbar";
-import Footer from "../src/components/Footer/footer";
+import CategoriesAdmin from "../pages/Admin/CategoriesAdmin";
+import InsertProduct from "../pages/Admin/InsertProduct";
+import Tags from "../pages/Admin/Tags";
+import Theme from "../pages/Admin/Theme";
+import UpcomingMovies from "../pages/Admin/UpcomingMovies";
+import UploadBanner from "../pages/Admin/UploadBanner";
 import Event from "../pages/Event";
 
+import Dashboard from "../pages/Admin/Dashboard";
 
- const RoutesPath = () => {
-return (
+export function RoutesPath() {
+  return (
     <div>
-        <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/contact-us" element={<Contact />}></Route>
@@ -27,10 +31,20 @@ return (
         <Route path="/products" element={<Products />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/admin/dashboard" element={<Dashboard />}></Route>
+        <Route path="/admin/insert-product" element={<InsertProduct />}></Route>
+        <Route path="/admin/upload-banner" element={<UploadBanner />}></Route>
+        <Route
+          path="/admin/categories-admin"
+          element={<CategoriesAdmin />}
+        ></Route>
+        <Route
+          path="/admin/insert-upcoming-movies"
+          element={<UpcomingMovies />}
+        ></Route>
+        <Route path="/admin/theme" element={<Theme />}></Route>
+        <Route path="/admin/tags" element={<Tags />}></Route>
       </Routes>
-      <Footer />
     </div>
-)
+  );
 }
-
-export default RoutesPath;

@@ -1,3 +1,5 @@
+
+
 export const navBarLinks = [
   { name: "Home", link: "/", className: "active" },
   { name: "About", link: "/about", className: "active" },
@@ -5,3 +7,4 @@ export const navBarLinks = [
   { name: "Fan Club", link: "/fan-club", className: "active" },
   { name: "Event", link: "/event", className: "active" },
 ];
+
