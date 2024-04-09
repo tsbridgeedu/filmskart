@@ -9,7 +9,24 @@ const Banner = () => {
   return (
     <div  className="container">
 <div className="inner-container">
-  <div className="banner-container"><img src='banner.jpg' alt="banner" /></div>
+  <div className="banner-container">
+  <div id='slider'>
+      <figure>
+        <img src='\public\imgcorosal1.jpg'></img>
+        <img src='\public\imgcorosal2.jpg'></img>
+        <img src='\public\imgcorosal3.jpg'></img>
+        <img src='\public\imgcorosal4.jpg'></img>
+        
+        
+      </figure>
+      </div>
+    
+    
+    
+    
+    
+    
+    </div>
   <div className="t-shirt_container">
     <img src="/t-shirt1.png" alt="t-shirt" />
     <h1>Your T-Shirt</h1>
