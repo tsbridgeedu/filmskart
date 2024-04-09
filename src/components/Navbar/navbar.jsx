@@ -113,9 +113,10 @@ const Navbar = () => {
         </div>
 
         <div>
-          <a href="#">
-            <button className="log"><a href="/admin/dashboard">Login</a></button>
-          </a>
+        <a href="/admin/dashboard">
+            <button className="log">Login</button>
+            </a>
+         
         </div>
 
         <div className="action_bar">

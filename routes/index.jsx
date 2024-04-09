@@ -15,6 +15,7 @@ import Theme from "../pages/Admin/Theme";
 import UpcomingMovies from "../pages/Admin/UpcomingMovies";
 import UploadBanner from "../pages/Admin/UploadBanner";
 import Event from "../pages/Event";
+import TermsAndConditions from '../pages/TermsAndConditions'
 
 import Dashboard from "../pages/Admin/Dashboard";
 
@@ -44,6 +45,7 @@ export function RoutesPath() {
         ></Route>
         <Route path="/admin/theme" element={<Theme />}></Route>
         <Route path="/admin/tags" element={<Tags />}></Route>
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />}></Route>
       </Routes>
     </div>
   );
