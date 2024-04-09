@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <div>
     <Navbar />
-    <SingleBanner />
+    
     Contact
     <Footer />
     </div>

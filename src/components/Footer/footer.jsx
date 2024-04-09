@@ -68,22 +68,22 @@ const Footer = () => {
           <p>@{new Date().getFullYear()} TS Bridge Edu. All rights reserved</p>
         </div>
         <div className="sb__footer-below-links">
-          <NavLink href="/terms">
+          <NavLink to="/terms-and-conditions">
             <div>
               <p>Terms & Conditions</p>
             </div>
           </NavLink>
-          <NavLink href="/privacy-policy">
+          <NavLink to="/privacy-policy">
             <div>
               <p>Privacy Policy</p>
             </div>
           </NavLink>
-          <NavLink href="/faq">
+          <NavLink to="/faq">
             <div>
               <p>FAQ's</p>
             </div>
           </NavLink>
-          <NavLink href="/contact">
+          <NavLink to="/contact">
             <div>
               <p>Contact Us</p>
             </div>
