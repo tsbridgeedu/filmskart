@@ -1,73 +1,96 @@
 import React from "react";
-import "./footer.css";
+import { NavLink } from "react-router-dom";
+import { Instagram, Facebook, Twitter } from "lucide-react";
+import './footer.css'
+
 const Footer = () => {
   return (
-    <footer className="mt-5">
-      <div className="footer_container">
-        <div className="footer_column">
-          <h3>Exclusive</h3>
-          <a href="#">Subscribe</a>
-          <a href="#">Get 10% off Your first order</a>
-          <input className="placeholder" placeholder="Enter your email " />
-        </div>
-        <div className="footer_column">
-          <h3>Support</h3>
-          <a href="#">
-            111 Bijoy sarani,Dhaka <br />
-            DH 1515,Bangladesh.
-          </a>
-          <a href="#">exclusive@gmail.com</a>
-          <a href="#">+880015-88888-9999</a>
-        </div>
+    <div className="footer">
+      <div className="sb__footer section_padding">
+        <div className="sb__footer-links">
+          <div className="sb__footer-links-div">
+            <h4>For Business</h4>
+            <NavLink to={"/"}>
+              <p>Employer</p>
+            </NavLink>
+            <NavLink to={"/"}>
+              <p>Get in Touch</p>
+            </NavLink>
+            <NavLink to={"/"}>
+              <p>Individuals</p>
+            </NavLink>
+          </div>
 
-        <div className="footer_column">
-          <h3>Account</h3>
-          <a href="#">My Account</a>
-          <a href="#">Login / Register</a>
-          <a href="#">Cart</a>
-          <a href="#">Wishlist</a>
-          <a href="#">Shop</a>
-        </div>
+          <div className="sb__footer-links-div">
+            <h4>Account</h4>
+            <NavLink to={"/"}>
+              <p>My Account</p>
+            </NavLink>
+            <NavLink to={"/"}>
+              <p>Login / Register</p>
+            </NavLink>
+            <NavLink to={"/"}>
+              <p>Cart</p>
+            </NavLink>
+            <NavLink to={"/"}>
+              <p>Wishlist</p>
+            </NavLink>
+            <NavLink to={"/"}>
+              <p>Shop</p>
+            </NavLink>
+          </div>
 
-        <div className="footer_column">
-          <h3>Quick Link</h3>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms Of Use</a>
-          <a href="#">FAQ</a>
-          <a href="#">Contact</a>
-        </div>
+          <div className="sb__footer-links-div">
+            <h4>Address: </h4>
+            <p>VijayNagar, Downtown Area, Los Santos, Hyderabad - 511001</p>
+          </div>
 
-        <div className="footer_column">
-          <h3>Download App</h3>
-          <a href="#">save $3 with App New User Only</a>
-          <div className="images">
-            <img className="barcode" src="/barcode.jpeg" alt="bar" />
-            <div className="stors">
-              <img className="stor" src="/googleplay.jpeg" alt="google" />
-              <img className="stor" src="/appstore.jpeg" alt="app" />
+          <div className="sb__footer-links-div">
+            <h4>Follow us on: </h4>
+            <div className="socialmedia">
+              <p>
+                <Instagram />
+              </p>
+              <p>
+                <Facebook />
+              </p>
+              <p>
+                <Twitter />
+              </p>
             </div>
           </div>
-          <div className="icon">
-            <a href="#">
-              <i className="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="#">
-              <i className="fa-brands fa-twitter"></i>
-            </a>
-            <a href="#">
-              <i className="fa-brands fa-instagram"></i>
-            </a>
-            <a href="#">
-              <i className="fa-brands fa-linkedin-in"></i>
-            </a>
-          </div>
         </div>
       </div>
 
-      <div className="copyright">
-        @2024 TS Bridge Edu. All rights reserved.
+      <hr />
+      <div className="sb__footer-below">
+        <div className="sb__footer-copyright">
+          <p>@{new Date().getFullYear()} TS Bridge Edu. All rights reserved</p>
+        </div>
+        <div className="sb__footer-below-links">
+          <NavLink href="/terms">
+            <div>
+              <p>Terms & Conditions</p>
+            </div>
+          </NavLink>
+          <NavLink href="/privacy-policy">
+            <div>
+              <p>Privacy Policy</p>
+            </div>
+          </NavLink>
+          <NavLink href="/faq">
+            <div>
+              <p>FAQ's</p>
+            </div>
+          </NavLink>
+          <NavLink href="/contact">
+            <div>
+              <p>Contact Us</p>
+            </div>
+          </NavLink>
+        </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

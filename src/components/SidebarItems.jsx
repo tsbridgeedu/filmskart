@@ -14,7 +14,7 @@ export function SidebarItems({ icon, text, alert, link }) {
       className={({ isActive, isPending, isTransitioning }) =>
         [
           isPending ? "pending" : "",
-          isActive ? "active" : "",
+          isActive ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800" : "",
           isTransitioning ? "transitioning" : "",
         ]
       }
@@ -24,7 +24,7 @@ export function SidebarItems({ icon, text, alert, link }) {
       className={`
         relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer
-        transition-colors group
+        transition-colors group mt-5
         ${
           active
             ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"

@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       <Navbar />
-      About
+      
       <Footer />
     </div>
   )
