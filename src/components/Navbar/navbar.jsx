@@ -44,7 +44,7 @@ import PermMediaIcon from '@mui/icons-material/PermMedia';
 ];
 
 
-//yaha likhna hai only sidebar Data
+
 
 
 
@@ -56,18 +56,15 @@ const Navbar = () => {
   return (
     <div>
       <header>
-        <div className="menu" onClick={mobileMenu}>
+      
+        <div className="menu " onClick={mobileMenu}>
           < RiMenu2Fill />
+
+         
         </div>
-        { menuToggle && <li key= {key} onClick={()=> {window.location.pathname = val.link}}>
-          {" "}
-          <div> {val.icon}</div>{""}
-          <div>
-            {val.title}
-          </div>
-          </li>
-          }
+   
           
+        <div className="flex">
         <ul className="menu-options">
           <li>
             <a href="#">Women's Fashion</a>
@@ -82,9 +79,10 @@ const Navbar = () => {
             <a href="#">Home & Electronics</a>
           </li>
         </ul>
+        </div>
         <div className="logo_container">
           <a href="#">
-            <img className="store_logo" src="/logo.jpeg" alt="myntra logo" />
+            <img className="store_logo " src="/logo.jpeg" alt="myntra logo" />
           </a>
         </div>
 
