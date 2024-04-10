@@ -4,16 +4,25 @@ import { privacyContent } from "../../../constants/constant";
 import { Cookie } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { NavLink } from "react-router-dom";
 
 const PrivacyContent = () => {
   const [hide, setHide] = useState(true);
+  const [home, setHome] = useState(false);
+
+const showToggle = () => {
+  setHome(!home)
+}
 
   const acceptToggle = () => {
     setHide(!hide)
+    // setHome(!home)
+    showToggle();
     toast('Congrats! Accepted')
   }
   const declineToggle = () => {
     setHide(!hide)
+    showToggle();
     toast('Uhh Ohh! Declined')
   }
 
@@ -50,6 +59,9 @@ const PrivacyContent = () => {
           </button>
           <button className={hide ? 'decline_btn' : 'display-none'} onClick={acceptToggle}>
             Accept
+          </button>
+          <button className={home ? 'decline_btn' : 'display-none'} >
+            <NavLink to="/">Home</NavLink>
           </button>
         </div>
       </div>

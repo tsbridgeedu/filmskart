@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { SquareTerminal } from "lucide-react";
 
+import { NavLink } from "react-router-dom";
+
 import "./terms.css";
 import { termsData } from "../../../constants/constant";
 
@@ -8,16 +10,25 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Terms = () => {
-  const [hide, setHide] = useState(true);
+  const [hide,setHide] = useState(true)
+  const [home, setHome] = useState(false);
 
-  const acceptToggle = () => {
-    setHide(!hide);
-    toast("Congrats! Accepted");
-  };
-  const declineToggle = () => {
-    setHide(!hide);
-    toast("Uhh Ohh! Declined");
-  };
+  const showToggle = () => {
+    setHome(!home)
+   
+  }
+  
+    const acceptToggle = () => {
+      setHide(!hide)
+      // setHome(!home)
+      showToggle();
+      toast('Congrats! Accepted')
+    }
+    const declineToggle = () => {
+      setHide(!hide)
+      showToggle();
+      toast('Uhh Ohh! Declined')
+    }
   return (
     <div className="wrapper flex_align_justify bg-color scrollbar">
       <ToastContainer theme="dark" draggable transition:Bounce />
@@ -34,7 +45,7 @@ const Terms = () => {
         <div className="tc_item tc_body scrollbar">
           {termsData.map((item) => {
             return (
-              <ol>
+              <ol key={item.heading}>
                 <li>
                   <h3>{item.heading} :</h3>
                   <p>{item.content}</p>
@@ -55,6 +66,9 @@ const Terms = () => {
             onClick={acceptToggle}
           >
             Accept
+          </button>
+          <button className={home ? 'decline_btn' : 'display-none'} >
+            <NavLink to="/">Home</NavLink>
           </button>
         </div>
       </div>
