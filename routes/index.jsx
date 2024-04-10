@@ -16,6 +16,7 @@ import UpcomingMovies from "../pages/Admin/UpcomingMovies";
 import UploadBanner from "../pages/Admin/UploadBanner";
 import Event from "../pages/Event";
 import TermsAndConditions from '../pages/TermsAndConditions'
+import PrivacyPolicy from '../pages/PrivacyPolicy'
 
 import Dashboard from "../pages/Admin/Dashboard";
 
@@ -30,6 +31,8 @@ export function RoutesPath() {
         <Route path="/event" element={<Event />}></Route>
         <Route path="/product" element={<Product />}></Route>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />}></Route>
+        <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/admin/dashboard" element={<Dashboard />}></Route>
@@ -45,7 +48,6 @@ export function RoutesPath() {
         ></Route>
         <Route path="/admin/theme" element={<Theme />}></Route>
         <Route path="/admin/tags" element={<Tags />}></Route>
-        <Route path="/terms-and-conditions" element={<TermsAndConditions />}></Route>
       </Routes>
     </div>
   );

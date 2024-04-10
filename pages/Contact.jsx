@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../src/components/Navbar/navbar.jsx";
 import Footer from "../src/components/Footer/footer.jsx";
-import SingleBanner from "../src/components/SingleBanner.jsx";
+import ContactContent from '../src/components/ContactContent/contact-content.jsx'
 const Contact = () => {
   return (
     <div>
     <Navbar />
-    <SingleBanner />
-    Contact
+    
+    <ContactContent />
     <Footer />
     </div>
   )
