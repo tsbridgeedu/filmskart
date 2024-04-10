@@ -25,7 +25,7 @@ export function RoutesPath() {
     <div>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/contact-us" element={<Contact />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/fan-club" element={<FanClub />}></Route>
         <Route path="/event" element={<Event />}></Route>
