@@ -12,10 +12,10 @@ const Banner = () => {
   <div className="banner-container">
   <div id='slider'>
       <figure>
-        <img src='\public\imgcorosal1.jpg'></img>
-        <img src='\public\imgcorosal2.jpg'></img>
-        <img src='\public\imgcorosal3.jpg'></img>
-        <img src='\public\imgcorosal4.jpg'></img>
+        <img src='imgcorosal1.jpg'></img>
+        <img src='imgcorosal2.jpg'></img>
+        <img src='imgcorosal3.jpg'></img>
+        <img src='imgcorosal4.jpg'></img>
         
         
       </figure>
