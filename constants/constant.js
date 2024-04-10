@@ -3,7 +3,7 @@
 export const navBarLinks = [
   { name: "Home", link: "/", className: "active" },
   { name: "About", link: "/about", className: "active" },
-  { name: "Contact Us", link: "/contact-us", className: "active" },
+  { name: "Contact Us", link: "/contact", className: "active" },
   { name: "Fan Club", link: "/fan-club", className: "active" },
   { name: "Event", link: "/event", className: "active" },
 ];
@@ -73,3 +73,18 @@ export const privacyContent = [
     content: `If you have any questions or concerns about our Privacy Policy or the handling of your personal information, please contact us at privacy@website.com.`
   }
 ]
+
+export const contactContent = [
+  {
+    heading: 'E-mail Us',
+    content: 'Reach out to us via email for any inquiries or assistance you may need. '
+  },
+  {
+    heading: 'Call Us',
+    content: 'Feel free to give us a call if you prefer to speak directly with our team. '
+  },
+  {
+    heading: 'Chat',
+    content: 'Engage in a live chat session with our support team for immediate assistance. '
+  }
+];
