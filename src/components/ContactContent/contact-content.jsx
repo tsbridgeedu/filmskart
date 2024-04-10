@@ -1,5 +1,5 @@
 import React from 'react'
-import './terms.css'
+import '../TermsContent/terms.css'
 const ContactContent = () => {
   return (
     <div>ContactContent</div>
