@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../TermsContent/terms.css";
 import { privacyContent } from "../../../constants/constant";
 import { Cookie } from "lucide-react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import {Toaster, toast} from 'react-hot-toast'
+
 import { NavLink } from "react-router-dom";
 
 const PrivacyContent = () => {
@@ -18,19 +18,17 @@ const showToggle = () => {
     setHide(!hide)
     // setHome(!home)
     showToggle();
-    toast('Congrats! Accepted')
+    toast.success('Congrats! Accepted')
   }
   const declineToggle = () => {
     setHide(!hide)
     showToggle();
-    toast('Uhh Ohh! Declined')
+    toast.error('Uhh Ohh! Declined')
   }
 
   return (
     <div className="wrapper flex_align_justify bg-color scrollbar">
-          <ToastContainer theme="dark" draggable 
-          transition: Bounce
-/>
+         <Toaster position='top-center' />
       <div className="terms_services ">
         <div className="tc_item tc_head flex_align_justify mobile">
           <div className="icon flex_align_justify ">
