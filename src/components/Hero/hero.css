@@ -1,19 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-body {
-    background-color: rgb(217, 198, 233);
-}
 
 .card-container {
+    background-color: rgb(217, 198, 233);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .card {
