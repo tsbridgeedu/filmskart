@@ -89,6 +89,7 @@ export const contactContent = [
       "Engage in a live chat session with our support team for immediate assistance. ",
   },
 ];
+
 export const productCards = [
   {
     img: "image1.jpg",
@@ -116,6 +117,41 @@ export const productCards = [
   },
   {
     img: "image1.jpg",
+    desc: "xl-tshirt",
+    discprice: "800",
+    orgprice: "1000",
+    star: 4,
+    review: "15",
+  },
+];
+
+export const upcomingMovies = [
+  {
+    img: "image1.jpg",
+    desc: "Singham Again",
+    discprice: "800",
+    orgprice: "1000",
+    star: 4,
+    review: "15",
+  },
+  {
+    img: "Pushpa 2",
+    desc: "xl-tshirt",
+    discprice: "800",
+    orgprice: "1000",
+    star: 4,
+    review: "15",
+  },
+  {
+    img: "Kalki 2898 A.D",
+    desc: "xl-tshirt",
+    discprice: "800",
+    orgprice: "1000",
+    star: 5,
+    review: "15",
+  },
+  {
+    img: "",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",

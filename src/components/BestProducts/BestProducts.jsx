@@ -5,8 +5,8 @@ import { productCards } from "../../../constants/constant";
 import { Star } from "lucide-react";
 const BestProducts = () => {
   return (
-    <div className="mb-24 mt-24">
-      <div className="flex justify-evenly items-center ">
+    <div className="mb-24 mt-24 w-full">
+      <div className="flex justify-evenly items-center w-full">
         <div className="start flex justify-center items-center">
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
           <div className="text-red-500 font-semibold text-2xl ml-3 tracking-wider">
@@ -15,7 +15,7 @@ const BestProducts = () => {
         </div>
 
         <div className="flex">
-          <p className="text-black text-6xl font-bold tracking-wide">Best Selling</p>
+          <p className="text-black text-6xl font-bold tracking-wide m-head">Best Selling</p>
         </div>
 
         
