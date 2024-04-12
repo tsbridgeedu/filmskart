@@ -1,11 +1,13 @@
 
+
+
 .card-container {
     /* background-color: rgb(217, 198, 233); */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;    
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .card {
