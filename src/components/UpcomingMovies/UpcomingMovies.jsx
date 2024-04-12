@@ -1,6 +1,6 @@
 import React from "react";
 import "../Hero/hero.css";
-import { productCards } from "../../../constants/constant";
+import { productCards, upcomingMovies } from "../../../constants/constant";
 
 import { Star } from "lucide-react";
 const UpcomingMovies = () => {
@@ -32,7 +32,7 @@ const UpcomingMovies = () => {
       <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
       </div>
       <div className="card-container ">
-        {productCards.map((card) => {
+        {upcomingMovies.map((card) => {
           const starsQuantity = parseInt(card.star, 10);
           const stars = Array.from({ length: starsQuantity }).map((_, i) => (
             <Star key={i} size={24} color="#FFD700" />
