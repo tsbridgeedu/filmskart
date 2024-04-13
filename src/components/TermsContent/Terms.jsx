@@ -6,8 +6,7 @@ import { NavLink } from "react-router-dom";
 import "./terms.css";
 import { termsData } from "../../../constants/constant";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Toaster,toast } from "react-hot-toast";
 
 const Terms = () => {
   const [hide,setHide] = useState(true)
@@ -22,16 +21,16 @@ const Terms = () => {
       setHide(!hide)
       // setHome(!home)
       showToggle();
-      toast('Congrats! Accepted')
+      toast.success('Congrats! Accepted')
     }
     const declineToggle = () => {
       setHide(!hide)
       showToggle();
-      toast('Uhh Ohh! Declined')
+      toast.error('Uhh Ohh! Declined')
     }
   return (
     <div className="wrapper flex_align_justify bg-color scrollbar">
-      <ToastContainer theme="dark" draggable transition:Bounce />
+      <Toaster position ="top-center"/>
       <div className="terms_services ">
         <div className="tc_item tc_head flex_align_justify">
           <div className="icon flex_align_justify">
