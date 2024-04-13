@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import "./navbar.css";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
@@ -7,13 +7,19 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { navBarLinks } from "../../../constants/constant";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+class Navbar extends Component {
+
+  state = {clicked: false};
+  handleClick  = () =>{
+    this.setState({clicked:!this.state.clicked});
+  }
+  render(){
   return (
     <div>
       <header>
-        <div className="menu">
+        {/* <div className="menu">
           <RxHamburgerMenu />
-        </div>
+        </div> */}
         <ul className="menu-options">
           <li>
             <a href="#">Women's Fashion</a>
@@ -34,7 +40,7 @@ const Navbar = () => {
           </a>
         </div>
 
-        <nav className="nav_bar">
+        <nav id = "navbar" className={this.state.clicked? "#navbar active" : "#navbar"} >
           {navBarLinks.map((Element) => {
             return (
               <div key={Element.link} className="activeHandler">
@@ -47,7 +53,8 @@ const Navbar = () => {
                 </NavLink>
               </div>
             );
-          })}
+          })
+          }
         </nav>
 
         <div className="search_bar">
@@ -71,20 +78,23 @@ const Navbar = () => {
             <a href="#" className="material-symbols-outlined action_icon">
               <FaRegHeart />
             </a>
-            <span className="action_name">Wishlist</span>
+            {/* <span className="action_name">Wish</span> */}
           </div>
 
           <div className="action_container">
             <a href="#" className="material-symbols-outlined action_icon">
               <FiShoppingCart />
             </a>
-            <span className="action_name">Cart</span>
+            {/* <span className="action_name">Cart</span> */}
           </div>
+        </div>
+        <div id="iconbar" onClick={this.handleClick}>
+            <i id= "bar" className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
       </header>
       <hr />
     </div>
   );
 };
-
+}
 export default Navbar;
