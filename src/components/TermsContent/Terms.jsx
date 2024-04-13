@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import "./terms.css";
 import { termsData } from "../../../constants/constant";
 
-import { Toaster,toast } from "react-hot-toast";
+import {Toaster, toast} from 'react-hot-toast'
 
 const Terms = () => {
   const [hide,setHide] = useState(true)
@@ -30,7 +30,7 @@ const Terms = () => {
     }
   return (
     <div className="wrapper flex_align_justify bg-color scrollbar">
-      <Toaster position ="top-center"/>
+      <ToastContainer theme="dark" draggable transition:Bounce />
       <div className="terms_services ">
         <div className="tc_item tc_head flex_align_justify">
           <div className="icon flex_align_justify">

@@ -1,35 +1,38 @@
 import React from "react";
-import "./hero.css";
-import { productCards } from "../../../constants/constant";
+import "../Hero/hero.css";
+import { productCards, upcomingMovies } from "../../../constants/constant";
 
 import { Star } from "lucide-react";
-const Hero = () => {
+const UpcomingMovies = () => {
   return (
-    <div className="mb-24 mt-36">
-      <div className="flex justify-evenly items-center ">
+    <div className="mb-24 mt-24 w-full">
+      <div className="flex justify-evenly items-center w-full">
         <div className="start flex justify-center items-center">
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
           <div className="text-red-500 font-semibold text-2xl ml-3 tracking-wider">
-            Our Products
+           Hot Deals
           </div>
         </div>
 
         <div className="flex">
-          <p className="text-black text-6xl font-bold tracking-wide m-heading ">Explore Products</p>
+          <p className="text-black text-6xl font-bold tracking-wide m-head">Upcoming Movies</p>
         </div>
 
+        
         <div className="start flex justify-center items-center">
           <div className="text-red-500 font-semibold text-2xl mr-3 tracking-wider">
            Celebrity Store
           </div>
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
         </div>
+        
       </div>
-      <div className="product-breaker flex ml-32 mr-32 mt-5">
-        <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
+
+      <div className="product-breaker flex ml-36 mr-36 mt-5">
+      <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
       </div>
       <div className="card-container ">
-        {productCards.map((card) => {
+        {upcomingMovies.map((card) => {
           const starsQuantity = parseInt(card.star, 10);
           const stars = Array.from({ length: starsQuantity }).map((_, i) => (
             <Star key={i} size={24} color="#FFD700" />
@@ -67,4 +70,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default UpcomingMovies;

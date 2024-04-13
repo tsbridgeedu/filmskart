@@ -65,7 +65,7 @@ const Footer = () => {
       <hr />
       <div className="sb__footer-below">
         <div className="sb__footer-copyright">
-          <p>@{new Date().getFullYear()} TS Bridge Edu. All rights reserved</p>
+          <p className="font-bold tracking-widest text-base">@{new Date().getFullYear()} <a href="https://www.tsbridgeedu.in" className="no-underline ">TS Bridge Edu. All rights reserved</a></p>
         </div>
         <div className="sb__footer-below-links">
           <NavLink to="/terms-and-conditions">

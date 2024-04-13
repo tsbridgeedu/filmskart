@@ -1,65 +1,67 @@
-.container{
-	display:flex;
-	margin-left:30px;
-	margin-right: 30px;
-  width:100%;
-   height: 80vh;
-   }
-  .heading{
-       margin-left: 540px;
-  }
-  .heading h1{
-    font-size: 300%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	background: -webkit-linear-gradient(#f3ec78,#af4261);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+
+
+
+.card-container {
+    /* background-color: rgb(217, 198, 233); */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;    
+    margin-top: 100px;
+    margin-bottom: 50px;
 }
- .container-1{
-	padding: 23px 12px ;
-	
-	border-radius: 4px;
-	margin: 23px 15px;
-	
-	
-	width:500px;
-	height:100px;
-	text-align: center;
-	font-family:Georgia, 'Times New Roman', Times, serif;
-   
- }    
- .container-2{
-	padding: 23px 12px  ;
-	
-	border-radius: 4px;
-	margin: 23px 15px;
-	
-	width:500px;
-	height:200px;
-	 font-family:Georgia, 'Times New Roman', Times, serif;
-	text-align:center;
-	
 
- }    
- .container-3{
-	padding: 23px 12px;
-	
-	border-radius: 4px;
-	margin: 23px 15px;
+.card {
+    width:325px;
+    background-color:white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    margin: 20px;
+}
 
-	width:500px;
-	height:200px;
-	text-align: center; font-family:Georgia, 'Times New Roman', Times, serif;
-	
- }    
- 
- .container-4{
-	padding: 23px 12px;
-	border-radius: 4px;
-	margin: 23px 15px;
-	
-	width:500px;
-	height:200px;
-	text-align: center; font-family:Georgia, 'Times New Roman', Times, serif;
-	
- }    
+.card img {
+    width: 100%;
+    height: auto;
+} 
+
+.card-content {
+    padding: 16px;
+}
+
+.card-content h3 {
+    /* font-size: 10px; */
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    font-weight: 500;
+    /* font-size: 15px; */
+    line-height: 1.3;
+}
+
+.card-content .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #6a4271;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 16px;
+    color: #fff;
+
+}
+
+
+@media (min-width: 768px) {
+    .m-heading {
+        font-size: 2.25rem/* 36px */;
+        line-height: 2.5rem/* 40px */;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .m-heading {
+        font-size: 2.25rem/* 36px */;
+        line-height: 2.5rem/* 40px */;
+    }
+}
