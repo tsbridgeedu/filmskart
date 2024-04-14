@@ -10,6 +10,7 @@ const Footer = () => {
         <div className="sb__footer-links">
           <div className="sb__footer-links-div">
             <h4>For Business</h4>
+            <hr className="bg-red-500 mb-7 w-[45%]"/>
             <NavLink to={"/"}>
               <p>Employer</p>
             </NavLink>
@@ -23,6 +24,7 @@ const Footer = () => {
 
           <div className="sb__footer-links-div">
             <h4>Account</h4>
+            <hr/>
             <NavLink to={"/"}>
               <p>My Account</p>
             </NavLink>
@@ -41,15 +43,17 @@ const Footer = () => {
           </div>
 
           <div className="sb__footer-links-div">
-            <h4>Address: </h4>
-            <p>VijayNagar, Downtown Area, Los Santos, Hyderabad - 511001</p>
+            <h4>Address</h4> 
+            <hr/>
+            <p style={{lineHeight:"1.5"}}>VijayNagar, Downtown Area, Los Santos, Hyderabad - 511001</p>
           </div>
 
           <div className="sb__footer-links-div">
-            <h4>Follow us on: </h4>
-            <div className="socialmedia">
+            <h4>Follow us on </h4>
+            <hr className="text-black"/>
+            <div className="socialmedia">   
               <p>
-                <Instagram />
+                <Instagram /> 
               </p>
               <p>
                 <Facebook />
