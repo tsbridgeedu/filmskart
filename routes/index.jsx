@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Product from "../pages/Product";
 import Products from "../pages/Products";
+import Movie from "../pages/Movie";
 import CategoriesAdmin from "../pages/Admin/CategoriesAdmin";
 import InsertProduct from "../pages/Admin/InsertProduct";
 import Tags from "../pages/Admin/Tags";
@@ -31,6 +32,7 @@ export function RoutesPath() {
         <Route path="/event" element={<Event />}></Route>
         <Route path="/product" element={<Product />}></Route>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/movie" element={<Movie />}></Route>
         <Route path="/terms-and-conditions" element={<TermsAndConditions />}></Route>
         <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
         <Route path="/login" element={<Login />}></Route>
