@@ -9,10 +9,9 @@ const Sidebar = ({ children }) => {
   const [expanded, setExpanded] = useState(true);
   return (
     <aside className="h-screen">
-      <nav className="h-full flex flex-col bg-white border-r shadow-sm">
-        <div className="p-4 pb-2 flex justify-between items-center mb-1">
-          
-          <h2 className={`${expanded ? 'font-bold text-xl' : 'hidden' } `}>Admin Panel</h2>
+      <nav className="h-full flex flex-col bg-white border-r shadow-sm overflow-hidden">
+        <div className="p-3 flex justify-between items-center">
+          <h2 className={`${expanded ? 'font-bold text-xl ml-2' : 'hidden' } `}>Admin Panel</h2>
           <button
             onClick={() => setExpanded((curr) => !curr)}
             className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 w-0 m-3"
@@ -23,10 +22,10 @@ const Sidebar = ({ children }) => {
         <hr />
 
         <SidebarContext.Provider value={{ expanded }}>
-          <ul className="flex-1 px-3 mt-8">{children}</ul>
+          <ul className="flex-1 px-2">{children}</ul>
         </SidebarContext.Provider>
 
-        <div className="border-t flex p-3">
+        <div className= {`${expanded?"border-t flex p-3":"hidden"}`}>
           <img
             src={faker.image.avatar()}
             alt=""

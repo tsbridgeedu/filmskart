@@ -1,4 +1,5 @@
 import Layout from "./Layout";
+import AdminNav from "../../src/components/AdminNav/AdminNav.jsx";
 
 const Dashboard = () => {
   
@@ -7,6 +8,7 @@ const Dashboard = () => {
    
     <div className="flex">
       <Layout />
+      <AdminNav />
     </div>
   );
 };
