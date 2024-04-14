@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import AdminNav from "../../src/components/AdminNav/AdminNav.jsx";
 import {
   LayoutDashboard,
   SquareKanban,
@@ -68,6 +68,7 @@ const Layout = () => {
           );
         })}
       </Sidebar>
+      {/* <AdminNav/> */}
     </main>
   );
 };

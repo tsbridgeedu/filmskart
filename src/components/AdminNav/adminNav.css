@@ -1,13 +1,15 @@
-.admin-nav-container {
-    display: flex;
-    justify-content: flex-end;
-    
-    height: 3rem;
-    /* width: calc(100vw-) */
-    /* background-color: black; */
-    width: calc(100vw - 85%);
+*{
+    box-sizing: border-box;
 }
 
-.nav-bar{
-    background-color: black;
+.admin-nav-container {
+    /* display: flex;
+    justify-content: flex-end;
+    align-items: center; */
+    /* width: 100vw;
+    height: 60px; */
+    background-color: rgb(255,255,255);
+    /* width: calc(100vw-) */
+    /* background-color: black; */
+    /* width: calc(100vw - 85%); */
 }
