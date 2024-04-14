@@ -34,7 +34,7 @@ export function SidebarItems({ icon, text, alert, link }) {
     >
       {icon}
       <span
-        className={`overflow-hidden transition-all ${
+        className={`overflow-hidden transition-all text-base ${
           expanded ? "w-52 ml-3" : "w-0"
         }`}
       >
