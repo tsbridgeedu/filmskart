@@ -9,6 +9,28 @@ const Hero = () => {
       <div>
         <div className="bg-red-500 w-3 h-10 rounded-md"> </div>
         <div className="text-red-500 font-bold text-xl ml-4">Our Products</div>
+    <div className="mb-24 mt-36">
+      <div className="flex justify-evenly items-center ">
+        <div className="start flex justify-center items-center">
+          <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
+          <div className="text-red-500 font-semibold text-2xl ml-3 tracking-wider">
+            Our Products
+          </div>
+        </div>
+
+        <div className="flex">
+          <p className="text-black text-6xl font-bold tracking-wide m-heading ">Explore Products</p>
+        </div>
+
+        <div className="start flex justify-center items-center">
+          <div className="text-red-500 font-semibold text-2xl mr-3 tracking-wider">
+           Celebrity Store
+          </div>
+          <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
+        </div>
+      </div>
+      <div className="product-breaker flex ml-32 mr-32 mt-5">
+        <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
       </div>
       {productCards.map((card) => {
         const starsQuantity = parseInt(card.star, 10); // Parse star quantity from card data

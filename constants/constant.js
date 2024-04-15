@@ -89,6 +89,7 @@ export const contactContent = [
       "Engage in a live chat session with our support team for immediate assistance. ",
   },
 ];
+
 export const productCards = [
   {
     img: "image1.jpg",
@@ -117,6 +118,41 @@ export const productCards = [
   {
     img: "image1.jpg",
     desc: "xl-tshirt",
+    discprice: "800",
+    orgprice: "1000",
+    star: 4,
+    review: "15",
+  },
+];
+
+export const upcomingMovies = [
+  {
+    img: "image1.jpg",
+    desc: "Singham Again",
+    discprice: "800",
+    orgprice: "1000",
+    star: 4,
+    review: "15",
+  },
+  {
+    img: "image1.jpg",
+    desc: "Pushpa 2",
+    discprice: "800",
+    orgprice: "1000",
+    star: 4,
+    review: "15",
+  },
+  {
+    img: "image1.jpg",
+    desc: "Kalki 2898 A.D",
+    discprice: "800",
+    orgprice: "1000",
+    star: 5,
+    review: "15",
+  },
+  {
+    img: "image1.jpg",
+    desc: "Devara: Part-I",
     discprice: "800",
     orgprice: "1000",
     star: 4,
