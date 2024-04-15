@@ -8,6 +8,7 @@ const MovieBanner = () => {
     <div className='flex flex-1 mb-[40px] justify-center items-center'>
       <img src="kalkibannerimg.jpg" alt="kalki movie banner" className='w-full h-auto '></img>
     </div>
+
   )
 }
 
