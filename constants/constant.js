@@ -89,6 +89,30 @@ export const contactContent = [
   },
 ];
 
+export const aboutData = [
+  {
+    heading: "Our Story",
+    content: `Welcome to Celebrity Store, where fandom meets fashion! We are passionate about bringing you the latest and greatest merchandise inspired by your favorite movies. From iconic T-shirts to collectible coffee mugs, we've got everything you need to showcase your love for cinema.`,
+  },
+  {
+    heading: "Quality Guarantee",
+    content: `At Celebrity Store, we prioritize quality above all else. Each product in our collection is carefully curated and crafted to meet the highest standards. We stand behind the quality of our merchandise and strive to exceed your expectations with every purchase.`,
+  },
+  {
+    heading: "Exclusive Designs",
+    content: `Discover exclusive designs you won't find anywhere else at Celebrity Store. Our team of talented artists works tirelessly to create unique and eye-catching merchandise that celebrates the magic of cinema. Stand out from the crowd with our one-of-a-kind creations.`,
+  },
+  {
+    heading: "Fan Community",
+    content: `Join our vibrant fan community and connect with fellow movie enthusiasts from around the world. Share your passion, swap stories, and stay up-to-date on the latest releases and exclusive offers. At Celebrity Store, fandom knows no bounds.`,
+  },
+  {
+    heading: "Customer Satisfaction",
+    content: `Your satisfaction is our top priority at Celebrity Store. We're committed to providing you with a seamless shopping experience from start to finish. If you have any questions or concerns, our dedicated customer support team is here to help.`,
+  },
+];
+
+
 export const productCards = [
   {
     img: "image1.jpg",

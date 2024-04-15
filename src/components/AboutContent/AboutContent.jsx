@@ -3,12 +3,12 @@ import { SquareTerminal } from "lucide-react";
 
 import { NavLink } from "react-router-dom";
 
-import "./terms.css";
-import { termsData } from "../../../constants/constant";
+import "../TermsContent/terms.css";
+import { aboutData} from "../../../constants/constant";
 
 import {Toaster, toast} from 'react-hot-toast'
 
-const Terms = () => {
+const AboutContent = () => {
   const [hide,setHide] = useState(true)
   const [home, setHome] = useState(false);
 
@@ -37,17 +37,17 @@ const Terms = () => {
             <SquareTerminal />
           </div>
           <div className="text">
-            <h2>TERMS OF SERVICE</h2>
+            <h2>About Us</h2>
             <p>Last updated on APRIL 2024</p>
           </div>
         </div>
         <div className="tc_item tc_body scrollbar">
-          {termsData.map((item) => {
+          {aboutData.map((item) => {
             return (
               <ol key={item.heading}>
                 <li>
-                  <h3>{item.heading} :</h3>
-                  <p>{item.content}</p>
+                  <h3 className="text-lg font-extrabold text-white">{item.heading} :</h3>
+                  <p className="text-white">{item.content}</p>
                 </li>
               </ol>
             );
@@ -75,4 +75,4 @@ const Terms = () => {
   );
 };
 
-export default Terms;
+export default AboutContent;
