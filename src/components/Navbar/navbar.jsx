@@ -7,6 +7,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { navBarLinks } from "../../../constants/constant";
 import { NavLink } from "react-router-dom";
 
+import {motion} from 'framer-motion'
+
 class Navbar extends Component {
   state = { clicked: false };
   handleClick = () => {

@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.heading {
+    /* font-size: 52px; */
+    font-weight: bold;
+    color: #333;     
+  }
+
+  .style {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .about {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+
+
