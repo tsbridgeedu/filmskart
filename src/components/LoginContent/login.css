@@ -1,0 +1,313 @@
+.main-login {
+  background: url("bg-image.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ffffff;
+}
+
+.login_container {
+  height: 550px;
+  width: 450px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.login_container .form h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+}
+
+.form .LoginForm {
+  position: absolute;
+  transform: translateX(0px) rotate(0deg);
+  transition: 0.5s ease;
+  transition-delay: 0.4s;
+}
+
+.form .LoginForm.active {
+  transform: translateX(-450px) rotate(-45deg);
+  transition-delay: 0.2s;
+}
+
+.form .RegisterForm {
+  transform: translateX(450px) rotate(45deg);
+  transition: 0.5s ease;
+  transition-delay: 0.2s;
+}
+
+.form .RegisterForm.active {
+  transform: translateX(0px) rotate(0deg);
+  transition-delay: 0.4s;
+}
+
+.form .input-box {
+  margin: 35px 0;
+  width: 330px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.form .input-box {
+  margin: 35px 0;
+  width: 330px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.form .input-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  padding: 0 35px 0 5px;
+}
+
+.form .input-box label {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.5s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+}
+
+.input-box i {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.forget-section {
+  display: flex;
+  justify-content: space-between;
+  font: 15px;
+  margin: -15px 0 15px;
+}
+
+.forget-section p {
+  display: flex;
+  align-items: center;
+}
+
+.forget-section p input {
+  accent-color: rgb(113, 156, 222);
+  margin: 0 3px;
+}
+
+.forget-section a {
+  text-decoration: none;
+}
+
+.forget-section a:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+.btn_poojya {
+  height: 50px;
+  width: 100%;
+  margin: 10px;
+  border-radius: 50px;
+  color: white;
+  background: #55179c;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.btn_poojya:hover {
+  transform: scale(1.1);
+  color: #55179c;
+  background-color: #ffffff;
+}
+
+.register {
+  text-align: center;
+  margin: 25px 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.register span a {
+  text-decoration: none;
+}
+
+.register a:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+.login {
+  text-align: center;
+  margin: 25px 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.login span a {
+  text-decoration: none;
+}
+
+.login a:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 550px;
+    width: 380px;
+  }
+
+  .container .form h2 {
+    font-size: 32px;
+  }
+
+  .form .input-box label {
+    font-size: 14px;
+  }
+
+  .form .input-box {
+    margin: 35px 0;
+    width: 300px;
+  }
+
+  .form .input-box i {
+    font-size: 18px;
+  }
+
+  .forget-section {
+    font-size: 13px;
+  }
+
+  .btn_poojya {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .register {
+    font-size: 13px;
+  }
+
+  .login {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    height: 450px;
+    width: 310px;
+  }
+
+  .container .form h2 {
+    font-size: 26px;
+  }
+
+  .form .input-box label {
+    font-size: 12px;
+  }
+
+  .form .input-box {
+    margin: 30px 0;
+    width: 260px;
+  }
+
+  .form .input-box i {
+    font-size: 16px;
+  }
+
+  .forget-section p input {
+    font-size: 11px;
+  }
+
+  .forget-section {
+    font-size: 11px;
+  }
+
+  .btn_poojya {
+    height: 35px;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .register {
+    font-size: 11px;
+  }
+
+  .login {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 365px) {
+  .container {
+    height: 420px;
+    width: 280px;
+  }
+
+  .container .form h2 {
+    font-size: 24px;
+  }
+
+  .form .input-box label {
+    font-size: 10px;
+  }
+
+  .form .input-box {
+    margin: 22px 0;
+    width: 260px;
+  }
+
+  .form .input-box i {
+    font-size: 13px;
+  }
+
+  .forget-section {
+    font-size: 10px;
+  }
+
+  .btn_poojya {
+    height: 30px;
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .register {
+    font-size: 10px;
+  }
+
+  .link {
+    font-size: 10px;
+  }
+}
