@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="sb__footer-links">
           <div className="sb__footer-links-div">
             <h4>For Business</h4>
-            <hr className="bg-red-500 mb-7 w-[45%]"/>
+            <hr/>
             <NavLink to={"/"}>
               <p>Employer</p>
             </NavLink>
@@ -50,7 +50,7 @@ const Footer = () => {
 
           <div className="sb__footer-links-div">
             <h4>Follow us on </h4>
-            <hr className="text-black"/>
+            <hr/>
             <div className="socialmedia">   
               <p>
                 <Instagram /> 
