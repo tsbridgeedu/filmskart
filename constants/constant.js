@@ -159,3 +159,12 @@ export const upcomingMovies = [
     review: "15",
   },
 ];
+
+export const imagesProducts = [
+  { src: "image1.jpg", key: 1 },
+  { src: "image2.jpg", key: 2 },
+  { src: "image3.jpg", key: 3 },
+  { src: "image2.jpg", key: 4 },
+  { src: "image1.jpg", key: 5 },
+  { src: "image2.jpg", key: 6 },
+];
