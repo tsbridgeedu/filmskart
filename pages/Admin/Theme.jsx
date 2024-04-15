@@ -1,11 +1,12 @@
 import React from "react";
 import Layout from "./Layout";
+import AdminNav from "../../src/components/AdminNav/AdminNav.jsx";
 
 const Theme = () => {
   return (
-    <div>
+    <div className="flex">
       <Layout />
-      heme
+      <AdminNav/>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import Footer from "../src/components/Footer/footer.jsx";
 const Product = () => {
   return (
     <div>
+      {/* made changes */}
       <Navbar />
       <ProductContent />
       <Footer />
