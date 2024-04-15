@@ -36,15 +36,15 @@ const Hero = () => {
           ));
           return (
             <div className="card transform hover:scale-110 duration-300 transition cursor-pointer">
-              <img src={card.img} />
-              <div className="card-content">
-                <h3 className="font-medium text-2xl">{card.desc}</h3>
-                <hr className="w-full mb-3" />
-                <div className="price flex justify-between items-center">
-                  <p className="text-red-500">₹{card.discprice}</p>
-                  <p className="mr-4 text-[#b6b7b7]">
-                    ₹<s>{card.orgprice}</s>
-                  </p>
+            <img src={card.img} />
+            <div className="card-content">
+              <h3 className="font-medium text-2xl">{card.desc}</h3>
+              <hr className="w-full mb-3" />
+              <div className="price flex justify-between items-center">
+                <p className="text-red-500">₹{card.discprice}</p>
+                <p className="mr-4 text-[#b6b7b7]">
+                  ₹<s>{card.orgprice}</s>
+                </p>
                 </div>
                 <div className="flex justify-start mt-4">
                   <div className="flex justify-center items-center reviews">

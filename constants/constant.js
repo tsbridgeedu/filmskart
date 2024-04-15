@@ -1,4 +1,3 @@
-import { ImGift } from "react-icons/im";
 
 export const navBarLinks = [
   { name: "Home", link: "/", className: "active" },
@@ -127,7 +126,7 @@ export const productCards = [
 
 export const upcomingMovies = [
   {
-    img: "image1.jpg",
+    img: "pushpa2.jpeg",
     desc: "Singham Again",
     discprice: "800",
     orgprice: "1000",
@@ -135,7 +134,7 @@ export const upcomingMovies = [
     review: "15",
   },
   {
-    img: "image1.jpg",
+    img: "pushpa2.jpeg",
     desc: "Pushpa 2",
     discprice: "800",
     orgprice: "1000",
@@ -143,7 +142,7 @@ export const upcomingMovies = [
     review: "15",
   },
   {
-    img: "image1.jpg",
+    img: "pushpa2.jpeg",
     desc: "Kalki 2898 A.D",
     discprice: "800",
     orgprice: "1000",
@@ -151,7 +150,7 @@ export const upcomingMovies = [
     review: "15",
   },
   {
-    img: "image1.jpg",
+    img: "pushpa2.jpeg",
     desc: "Devara: Part-I",
     discprice: "800",
     orgprice: "1000",
