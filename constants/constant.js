@@ -1,4 +1,3 @@
-
 export const navBarLinks = [
   { name: "Home", link: "/", className: "active" },
   { name: "About", link: "/about", className: "active" },
@@ -91,69 +90,65 @@ export const contactContent = [
 
 export const productCards = [
   {
-    img: "image1.jpg",
-    desc: "xl-tshirt",
-    discprice: "800",
-    orgprice: "1000",
+    img: "image1.avif",
+    desc: "Casual Shirt",
+    discprice: "799",
+    orgprice: "1,999",
     star: 4,
     review: "15",
   },
   {
-    img: "image1.jpg",
-    desc: "xl-tshirt",
-    discprice: "800",
-    orgprice: "1000",
+    img: "image2.avif",
+    desc: "Formal Shirt",
+    discprice: "898",
+    orgprice: "2,299",
     star: 4,
-    review: "15",
+    review: "19",
   },
   {
-    img: "image1.jpg",
-    desc: "xl-tshirt",
-    discprice: "800",
-    orgprice: "1000",
+    img: "image3.avif",
+    desc: "Regular Fit Check",
+    discprice: "999",
+    orgprice: "1,999",
     star: 5,
-    review: "15",
+    review: "21",
   },
   {
-    img: "image1.jpg",
-    desc: "xl-tshirt",
-    discprice: "800",
-    orgprice: "1000",
+    img: "image4.avif",
+    desc: "Cotton T-Shirt",
+    discprice: "539",
+    orgprice: "1,499",
     star: 4,
-    review: "15",
+    review: "14",
   },
 ];
 
 export const upcomingMovies = [
   {
-    img: "pushpa2.jpeg",
+    img: "Singham.jpg",
     desc: "Singham Again",
-    discprice: "800",
-    orgprice: "1000",
+
     star: 4,
     review: "15",
   },
   {
-    img: "pushpa2.jpeg",
+    img: "Pushpa.jpg",
     desc: "Pushpa 2",
-    discprice: "800",
-    orgprice: "1000",
+
     star: 4,
     review: "15",
   },
   {
-    img: "pushpa2.jpeg",
-    desc: "Kalki 2898 A.D",
-    discprice: "800",
-    orgprice: "1000",
+    img: "sarfira.jpg",
+    desc: "Sarfira",
+
     star: 5,
     review: "15",
   },
   {
-    img: "pushpa2.jpeg",
+    img: "Devara.jpg",
     desc: "Devara: Part-I",
-    discprice: "800",
-    orgprice: "1000",
+
     star: 4,
     review: "15",
   },
