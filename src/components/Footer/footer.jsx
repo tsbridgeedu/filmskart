@@ -86,7 +86,7 @@ const Footer = () => {
     //         <div>
     //           <p>FAQ's</p>
     //         </div>
-    //       </NavLink>
+    //       </Nk>
     //       <NavLink to="/contact">
     //         <div>
     //           <p>Contact Us</p>
@@ -101,45 +101,45 @@ const Footer = () => {
         <div>
           <h1>Celebrity Store</h1>
           <div>
-            <Navlink><h2>Subscribe</h2></Navlink>
-            <Navlink><p>Get 10% off on your first order</p></Navlink>
+            <NavLink><h2>Subscribe</h2></NavLink>
+            <NavLink><p>Get 10% off on your first order</p></NavLink>
             <input placeholder="Enter your email"></input>
           </div>
         </div>
         <div>
           <h1>Support</h1>
           <div>
-            <Navlink><p>My Account</p></Navlink>
-            <Navlink><p>Login/Register</p></Navlink>
-            <Navlink><p>Cart</p></Navlink>
-            <Navlink><p>Wishlist</p></Navlink>
-            <Navlink><p>Shop</p></Navlink>
+            <NavLink><p>My Account</p></NavLink>
+            <NavLink><p>Login/Register</p></NavLink>
+            <NavLink><p>Cart</p></NavLink>
+            <NavLink><p>Wishlist</p></NavLink>
+            <NavLink><p>Shop</p></NavLink>
           </div>
         </div>
         <div>
           <h1>Account</h1>
           <div>
-            <Navlink><p>My Account</p></Navlink>
-            <Navlink><p>Login/Register</p></Navlink>
-            <Navlink><p>Cart</p></Navlink>
-            <Navlink><p>Wishlist</p></Navlink>
-            <Navlink><p>Shop</p></Navlink>
+            <NavLink><p>My Account</p></NavLink>
+            <NavLink><p>Login/Register</p></NavLink>
+            <NavLink><p>Cart</p></NavLink>
+            <NavLink><p>Wishlist</p></NavLink>
+            <NavLink><p>Shop</p></NavLink>
           </div>
         </div>
         <div>
           <h1>Quick Link</h1>
           <div>
-            <Navlink><p>Privacy Policy</p></Navlink>
-            <Navlink><p>Terms Of Use</p></Navlink>
-            <Navlink><p>FAQ</p></Navlink>
-            <Navlink><p>Contact</p></Navlink>
+            <NavLink><p>Privacy Policy</p></NavLink>
+            <NavLink><p>Terms Of Use</p></NavLink>
+            <NavLink><p>FAQ</p></NavLink>
+            <NavLink><p>Contact</p></NavLink>
           </div>
         </div>
         <div>
           <h1>Download App</h1>
           <div>
-            <Navlink><h2>Subscribe</h2></Navlink>
-            <Navlink><p>Get 10% off on your first order</p></Navlink>
+            <NavLink><h2>Subscribe</h2></NavLink>
+            <NavLink><p>Get 10% off on your first order</p></NavLink>
             <input placeholder="Enter your email"></input>
           </div>
         </div>
