@@ -8,6 +8,7 @@ import { navBarLinks } from "../../../constants/constant";
 import { NavLink } from "react-router-dom";
 
 import {motion} from 'framer-motion'
+import { Heart, Search, ShoppingCart } from "lucide-react";
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -15,96 +16,25 @@ class Navbar extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
   render() {
-    return (
-      <div>
-        <header>
-          {/* <div className="menu">
-          <RxHamburgerMenu />
-        </div> */}
-          <ul className="menu-options">
-            <li>
-              <a href="#">Women's Fashion</a>
-            </li>
-            <li>
-              <a href="#">Men's fashion</a>
-            </li>
-            <li>
-              <a href="#">Electronics</a>
-            </li>
-            <li>
-              <a href="#">Home & Electronics</a>
-            </li>
-          </ul>
-          <div className="logo_container">
-            <a href="#">
-              <img className="store_logo" src="/logo.jpeg" alt="myntra logo" />
-            </a>
-          </div>
-
-          <nav
-            id="navbar"
-            className={this.state.clicked ? "#navbar active" : "#navbar"}
-          >
-            {navBarLinks.map((Element) => {
-              return (
-                <div key={Element.link} className="activeHandler ">
-                  <NavLink
-                    className="navElements "
-                    key={Element.link}
-                    to={Element.link}
-                  >
-                    {Element.name}
-                  </NavLink>
-                </div>
-              );
-            })}
-          </nav>
-
-          <div className="search_bar">
-            <span className="material-symbols-outlined search_icon">
-              <FaSearch />
-            </span>
-            <input
-              className="search_input"
-              placeholder="Search for products..."
-            />
-          </div>
-
-         <div className="right-elements">
-         <div className="action_bar">
-            <div className="action_container">
-              <a href="#" className="material-symbols-outlined action_icon">
-                <FaRegHeart />
-              </a>
-              {/* <span className="action_name">Wish</span> */}
-            </div>
-
-            <div className="action_container">
-              <a href="#" className="material-symbols-outlined action_icon">
-                <FiShoppingCart />
-              </a>
-              {/* <span className="action_name">Cart</span> */}
-            </div>
-          </div>
-
-          <div className="login_button">
-            <button className="log">
-              <a href="/login">Login</a>
-            </button>
-          </div>
-         </div>
-
-         
-          <div id="iconbar" onClick={this.handleClick}>
-            <i
-              id="bar"
-              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-            ></i>
-          </div>
-        </header>
-        <hr />
+    return <div className="navbar">
+      <div className="navbar_box">
+        <h1>Celebrity Store</h1>
       </div>
-    );
+      <div className="navbar_box">
+        <NavLink>Home</NavLink>
+        <NavLink>Contact</NavLink>
+        <NavLink>About</NavLink>
+        <NavLink>Sign Up</NavLink>
+      </div>
+      <div className="navbar_box">
+        <div className="navbar_search_div">
+          <input type="text" placeholder="What are you looking for?"></input>
+          <div style={{width:"24px"}}><Search/></div>
+        </div>
+        <NavLink><Heart/></NavLink>
+        <NavLink><ShoppingCart/></NavLink>
+      </div>
+    </div>;
   }
 }
 export default Navbar;
