@@ -8,9 +8,8 @@ import UpcomingMovies from "../src/components/UpcomingMovies/UpcomingMovies.jsx"
 
 const Home = () => {
   return (
-    <div>
+    <div className='flex flex-col'>
       <Navbar />
-
       <Banner />
       <UpcomingMovies />
       <BestProducts />
