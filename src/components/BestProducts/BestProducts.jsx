@@ -10,26 +10,26 @@ const BestProducts = () => {
         <div className="start flex justify-center items-center">
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
           <div className="text-red-500 font-semibold text-2xl ml-3 tracking-wider">
-           This Month
+            This Month
           </div>
         </div>
 
         <div className="flex">
-          <p className="text-black text-6xl font-bold tracking-wide m-head">Best Selling</p>
+          <p className="text-black text-6xl font-bold tracking-wide m-head">
+            Best Selling
+          </p>
         </div>
 
-        
         <div className="start flex justify-center items-center">
           <div className="text-red-500 font-semibold text-2xl mr-3 tracking-wider">
-           Celebrity Store
+            Celebrity Store
           </div>
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
         </div>
-        
       </div>
 
       <div className="product-breaker flex ml-36 mr-36 mt-5">
-      <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
+        <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
       </div>
       <div className="card-container ">
         {productCards.map((card) => {
