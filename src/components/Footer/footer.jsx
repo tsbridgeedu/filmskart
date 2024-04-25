@@ -59,17 +59,17 @@ const Footer = () => {
                     </div>
                   </div>
                   <div className="footer_data_icons">
-                      <FacebookIcon/>
-                      <TwitterIcon/>
-                      <Instagram/>
-                      <Linkedin/>
+                      <FacebookIcon className="cursor-pointer hover:scale-110 hover:ease-in-out duration-300 transition-all"/>
+                      <TwitterIcon className="cursor-pointer hover:scale-110 hover:ease-in-out duration-300 transition-all"/>
+                      <Instagram className="cursor-pointer hover:scale-110 hover:ease-in-out duration-300 transition-all"/>
+                      <Linkedin className="cursor-pointer hover:scale-110 hover:ease-in-out duration-300 transition-all"/>
                   </div> 
               </div>
           </div>        
       </div>
       <hr style={{height:"3px", color:"white"}}/>
       <div className="footer_copyright_box">
-        <p className="cursor-pointer hover:text-white"><NavLink to='https://tsbridgeedu.in'>
+        <p className="cursor-pointer hover:text-white text-sm tracking-wide"><NavLink to='https://tsbridgeedu.in'>
           
           @ Copyright Startapodero Ventures. All right reserved
           </NavLink>

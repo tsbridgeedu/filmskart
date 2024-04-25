@@ -1,16 +1,13 @@
 import React, { Component, useState } from "react";
 import "./navbar.css";
-import { FiShoppingCart } from "react-icons/fi";
-import { FaRegHeart } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
-import * as FaIcons from "react-icons/fa";
-import * as IoIcons from "react-icons/io";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { navBarLinks } from "../../../constants/constant";
+
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, Search, ShoppingCart } from "lucide-react";
-import SearchForm from "../SearchForm";
+import { Heart, Search, ShoppingCart, User } from "lucide-react";
+
+import AccountButton from "../AccountButton";
+import MobileSidebar from "../MobileSidebar";
+import MobileSearch from "../MobileSearch";
 
 class Navbar extends Component {
   state = { clicked: false };
@@ -33,12 +30,10 @@ class Navbar extends Component {
         <div className="navbar_box">
           <h1 className="">Filmskart</h1>
         </div>
-        <div>
+        <div className="nav__elements">
           <ul
-            id="nav_collapse"
-            className={
-              this.state.clicked ? "#nav_collapse open" : "#nav_collapse"
-            }
+            className="list-none flex justify-center gap-10 "
+            
           >
             <li>
               <NavLink className="nav-items font-semibold text-base uppercase" to={'/'}>
@@ -91,7 +86,7 @@ class Navbar extends Component {
             }}
             whileTap={{ scale: 0.9 }}
           >
-            <Search size={25} className="mobile-search" />
+            <MobileSearch className="mobile-search" />
           </motion.div>
           <motion.div
             whileHover={{
@@ -119,26 +114,43 @@ class Navbar extends Component {
               5
             </span>
           </motion.div>
+          <motion.div
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.3 },
+          }}
+          whileTap={{ scale: 0.9 }}
+          className="relative cursor-pointer">
+            {/* <User size={22} /> */}
+{/* 
+            <Avatar
+  alt=""
+  src={<User size={22} />}
+  sx={{ width: 24, height: 24 }}
+/> */}
+
+<AccountButton  />
+
+
+          </motion.div>
         </div>
-        <div id="menu" onClick={this.handleClick}>
+        {/* <div id="menu" onClick={this.handleClick}>
           <motion.i
           // animate={{ x: 0 }}
           transition={{ delay: 1 }}
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
           ></motion.i>
-        </div>
-        {/* {this.state.isCartOpen && (
-          <motion.div
-            className="cart-popout"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            transition={{ type: "spring", stiffness: 120, damping: 10 }}
-          >
-            <p>This is the pop-out cart content.</p>
-          </motion.div>
-        )} */}
+        </div> */}
+
+        <motion.div>
+          <MobileSidebar />
+        </motion.div>
+        
       </div>
     );
   }
 }
 export default Navbar;
+
+
+

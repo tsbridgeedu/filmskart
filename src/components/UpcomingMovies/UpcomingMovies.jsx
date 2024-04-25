@@ -42,8 +42,8 @@ const UpcomingMovies = () => {
   };
 
   return (
-    <div className="mb-24 mt-24 w-full">
-      <div className="flex justify-evenly items-center w-full">
+    <div className="mb-26 mt-20 w-full">
+      <div className="flex justify-evenly items-center w-full ">
         <div className="start flex justify-center items-center">
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
           <div className="text-red-500 font-semibold lg:text-2xl   ml-3 tracking-wider">
@@ -65,10 +65,8 @@ const UpcomingMovies = () => {
         </div>
       </div>
 
-      <div className="product-breaker flex ml-36 mr-36 mt-5">
-        <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
-      </div>
-      <div className="card-slider">
+      
+      <div className="card-slider lg:mt-20">
         <div
           className="card-container" style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >

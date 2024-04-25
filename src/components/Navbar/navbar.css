@@ -86,6 +86,10 @@
     flex-shrink: 1;
   }
 
+  .nav__elements {
+    display: none;
+  }
+
   .navbar_search_div {
     display: none;
   }
@@ -238,6 +242,8 @@
   .mobile-search {
     display: block;
   }
+
+  
 
   #nav_collapse {
     display: flex;
