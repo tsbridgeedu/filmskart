@@ -20,6 +20,7 @@ import TermsAndConditions from '../pages/TermsAndConditions'
 import PrivacyPolicy from '../pages/PrivacyPolicy'
 
 import Dashboard from "../pages/Admin/Dashboard";
+import AddtoCart from "../src/components/AddToCart/AddtoCart";
 
 export function RoutesPath() {
   return (
@@ -40,6 +41,7 @@ export function RoutesPath() {
         <Route path="/admin/dashboard" element={<Dashboard />}></Route>
         <Route path="/admin/insert-product" element={<InsertProduct />}></Route>
         <Route path="/admin/upload-banner" element={<UploadBanner />}></Route>
+        <Route path="/add-to-cart" element={<AddtoCart />}></Route>
         <Route
           path="/admin/categories-admin"
           element={<CategoriesAdmin />}

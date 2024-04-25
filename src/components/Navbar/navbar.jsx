@@ -38,7 +38,7 @@ class Navbar extends Component {
           <div style={{width:"24px"}}><Search/></div>
         </div>
         <NavLink><Heart/></NavLink>
-        <NavLink><ShoppingCart/></NavLink>
+        <NavLink to="add-to-cart"><ShoppingCart/></NavLink>
       </div >
       <div id="menu" onClick={this.handleClick}>
         <i className={this.state.clicked?'fas fa-times':'fas fa-bars'}></i>
