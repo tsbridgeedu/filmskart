@@ -38,7 +38,7 @@ const BestProducts = () => {
             <Star key={i} size={24} color="#FFD700" />
           ));
           return (
-            <div className="card transform hover:scale-110 duration-300 transition cursor-pointer">
+            <div className="card transform hover:scale-110 duration-300 transition cursor-pointer" key={card.review}>
               <img src={card.img} />
               <div className="card-content">
                 <h3 className="font-medium text-2xl">{card.desc}</h3>

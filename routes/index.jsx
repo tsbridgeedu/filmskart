@@ -20,7 +20,7 @@ import TermsAndConditions from '../pages/TermsAndConditions'
 import PrivacyPolicy from '../pages/PrivacyPolicy'
 
 import Dashboard from "../pages/Admin/Dashboard";
-import AddtoCart from "../src/components/AddToCart/AddtoCart";
+import AddtoCart from "../pages/AddtoCart";
 
 export function RoutesPath() {
   return (

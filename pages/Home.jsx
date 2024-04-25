@@ -10,6 +10,7 @@ const Home = () => {
   return (
     <div className='flex flex-col'>
       <Navbar />
+      <hr className="h-[5px]"></hr>
       <Banner />
       <UpcomingMovies />
       <BestProducts />

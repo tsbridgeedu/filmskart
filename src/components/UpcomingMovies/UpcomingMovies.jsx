@@ -46,19 +46,19 @@ const UpcomingMovies = () => {
       <div className="flex justify-evenly items-center w-full">
         <div className="start flex justify-center items-center">
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
-          <div className="text-red-500 font-semibold text-2xl ml-3 tracking-wider">
+          <div className="text-red-500 font-semibold lg:text-2xl   ml-3 tracking-wider">
             Hot Deals
           </div>
         </div>
 
         <div className="flex">
-          <p className="text-black text-6xl font-bold tracking-wide m-head">
+          <p className="text-black lg:text-6xl   font-bold tracking-wide ">
             Upcoming Movies
           </p>
         </div>
 
         <div className="start flex justify-center items-center ">
-          <div className="text-red-500 font-semibold text-2xl mr-3 tracking-wider ">
+          <div className="text-red-500 font-semibold lg:text-2xl md:text-xl mr-3 tracking-wider ">
             {formatTime(countdown)}
           </div>
           <div className="bg-red-500 w-[10px] h-10 rounded-md"> </div>
@@ -77,7 +77,7 @@ const UpcomingMovies = () => {
           {
             
             return (
-              <div className="card transform hover:scale-110 duration-300 transition cursor-pointer">
+              <div className="card transform hover:scale-110 duration-300 transition cursor-pointer" key={card.desc}>
                 <img src={card.img} className="w-full h-full object-cover"/>
                 <div className="card-content">
                   <h3 className="font-medium text-2xl">{card.desc}</h3>

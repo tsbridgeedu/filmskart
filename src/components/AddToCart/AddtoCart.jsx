@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './addtocart.css'
 
-const AddtoCart = () => {
+const AddtoCartContent = () => {
   return (
     <div className='AddtoCart'>
        <div className='AddtoCart-innerbox-1'>
@@ -58,4 +58,4 @@ const AddtoCart = () => {
   )
 }
 
-export default AddtoCart
+export default AddtoCartContent
