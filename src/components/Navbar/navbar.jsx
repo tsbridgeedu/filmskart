@@ -25,7 +25,7 @@ class Navbar extends Component {
         <h1>Celebrity Store</h1>
       </div>
       <div >
-        <ul id="nav_collapse" className={this.state.clicked?"#nav_collapse active":"#nav_collapse"}>
+        <ul id="nav_collapse" className={this.state.clicked?"#nav_collapse open":"#nav_collapse"}>
           <li><NavLink className="nav-items">Home</NavLink></li>
           <li><NavLink className="nav-items">Contact</NavLink></li>
           <li><NavLink className="nav-items">About</NavLink></li>
@@ -35,10 +35,10 @@ class Navbar extends Component {
       <div className="navbar_box">
         <div className="navbar_search_div">
           <input type="text" placeholder="What are you looking for?"></input>
-          <div style={{width:"24px"}}><Search/></div>
-        </div>
-        <NavLink><Heart/></NavLink>
-        <NavLink><ShoppingCart/></NavLink>
+          <div style={{width:"24px"}}><Search size={25}/></div>
+        </div >
+        <NavLink ><Heart/></NavLink>
+        <NavLink ><ShoppingCart/></NavLink>
       </div >
       <div id="menu" onClick={this.handleClick}>
         <i className={this.state.clicked?'fas fa-times':'fas fa-bars'}></i>
