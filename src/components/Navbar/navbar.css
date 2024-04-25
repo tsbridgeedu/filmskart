@@ -18,7 +18,7 @@
 #nav_collapse {
   display: flex;
   gap: 45px;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 18px;
   /* border: 1px solid black; */
 }
