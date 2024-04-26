@@ -9,12 +9,11 @@ import UpcomingMovies from "../src/components/UpcomingMovies/UpcomingMovies.jsx"
 const Home = () => {
   return (
     <div className="flex flex-col">
-      <Navbar />
+      <hr className="h-[5px]"></hr>
       <Banner />
       <UpcomingMovies />
       <BestProducts />
       <Hero />
-      <Footer />
     </div>
   );
 };

@@ -5,10 +5,10 @@ import ContactContent from '../src/components/ContactContent/contact-content.jsx
 const Contact = () => {
   return (
     <div>
-    <Navbar />
+    
     
     <ContactContent />
-    <Footer />
+   
     </div>
   )
 };

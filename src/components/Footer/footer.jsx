@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="footer_data_box">
           <div>
             <div className="footer_data_inner-box">
-              <h1>Celebrity Store</h1>
+              <h1>Filmskart</h1>
               <NavLink><h2 >Subscribe</h2></NavLink>
               <NavLink><p>Get 10% off on your first order</p></NavLink>
               <input placeholder="Enter your email"></input>
@@ -21,30 +21,30 @@ const Footer = () => {
           <div>
             <div className="footer_data_inner-box">
               <h2>Support</h2>
-              <NavLink><p>My Account</p></NavLink>
-              <NavLink><p>Login/Register</p></NavLink>
-              <NavLink><p>Cart</p></NavLink>
-              <NavLink><p>Wishlist</p></NavLink>
-              <NavLink><p>Shop</p></NavLink>
+              <NavLink to={'/contact'}><p>Email Us</p></NavLink>
+              <NavLink to={'/contact'}><p>Chat with us</p></NavLink>
+              <NavLink to={'/contact'}><p>Call Us</p></NavLink>
+              <NavLink to={'/contact'}><p>Report</p></NavLink>
+              
             </div>
           </div>
           <div>
             <div className="footer_data_inner-box">
               <h2>Account</h2>
-              <NavLink><p>My Account</p></NavLink>
-              <NavLink><p>Login/Register</p></NavLink>
-              <NavLink><p>Cart</p></NavLink>
-              <NavLink><p>Wishlist</p></NavLink>
-              <NavLink><p>Shop</p></NavLink> 
+              <NavLink to={'/profile'}><p>My Account</p></NavLink>
+              <NavLink to={'/login'}><p>Login</p></NavLink>
+              <NavLink to={'/cart'}><p>Cart</p></NavLink>
+              <NavLink to={'/wishlist'}><p>Wishlist</p></NavLink>
+             
             </div>
           </div>
           <div>
             <div className="footer_data_inner-box">
               <h2>Quick Link</h2>
-              <NavLink><p>Privacy Policy</p></NavLink>
-              <NavLink><p>Terms Of Use</p></NavLink>
-              <NavLink><p>FAQ</p></NavLink>
-              <NavLink><p>Contact</p></NavLink>
+              <NavLink to={'/privacy-policy'}><p>Privacy Policy</p></NavLink>
+              <NavLink to={'/terms-and-conditions'}><p>Terms Of Use</p></NavLink>
+              <NavLink to={'/'}><p>FAQ</p></NavLink>
+              <NavLink to={'/contact'}><p>Contact</p></NavLink>
             </div>
           </div>
 

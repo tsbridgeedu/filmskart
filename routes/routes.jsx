@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
@@ -17,6 +17,7 @@ import UploadBanner from "../pages/Admin/UploadBanner";
 import Event from "../pages/Event";
 import TermsAndConditions from "../pages/TermsAndConditions";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import Layout   from "../src/layout/Layout";
 
 import Dashboard from "../pages/Admin/Dashboard";
 import AddtoCart from "../pages/AddtoCart";
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
         element: <Movie />,
       },
       {
-        path: "/add-to-cart",
+        path: "/cart",
         element: <AddtoCart />,
       },
       {
@@ -79,6 +80,16 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <Signup />,
       },
+      {
+        path:'/login',
+        element: <Login />
+      },
+      {
+        path: '/signup',
+        element: <Signup />
+      }
     ],
   },
 ]);
+
+export default router;

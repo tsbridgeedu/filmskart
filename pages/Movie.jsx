@@ -9,10 +9,10 @@ import "slick-carousel/slick/slick-theme.css";
 const Movie = () => {
   return (
     <div className='flex flex-col '>
-        <Navbar/>
+        
         <MovieBanner/>
         <MovieDesc />
-        <Footer/>
+        
     </div>
   )
 }
