@@ -1,11 +1,10 @@
 import React from "react";
-import Navbar from "../src/components/Navbar/navbar.jsx";
-import Footer from "../src/components/Footer/footer.jsx";
+import FanClubContent from '../src/components/FanClubContent/FanClubContent.jsx'
 const FanClub = () => {
   return <div>
-    <Navbar />
-    FanClub
-    <Footer />
+   
+    <FanClubContent />
+    
     </div>;
 };
 
