@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+  .input {
+    @apply h-[50px] rounded-[8px] w-full outline-none px-6 text-primary;
+  }
+}
 
 * {
   margin: 0;

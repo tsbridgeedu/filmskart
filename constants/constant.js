@@ -126,7 +126,7 @@ export const productCards = [
     discprice: "800",
     orgprice: "1000",
     star: 4,
-    review: "15",
+    review: "14",
   },
   {
     img: "image1.jpg",
@@ -134,7 +134,7 @@ export const productCards = [
     discprice: "800",
     orgprice: "1000",
     star: 5,
-    review: "15",
+    review: "13",
   },
   {
     img: "image1.jpg",
@@ -142,7 +142,7 @@ export const productCards = [
     discprice: "800",
     orgprice: "1000",
     star: 4,
-    review: "15",
+    review: "12",
   },
 ];
 
@@ -224,3 +224,15 @@ export const imagesProducts = [
   { src: "image1.jpg", key: 5 },
   { src: "image2.jpg", key: 6 },
 ];
+
+
+
+export const bannerContent = [
+  // {id:'1',img:'1.jpg', product:'tshirt.png',title:'We design', desc:'Style Inspired by Cinema'},
+  {id:'2',img:'2.jpg', product:'tshirt2.png',title:'Personalise Design', desc:'Customize Your Tshirt'},
+  {id:'3',img:'3.jpg', product:'tshirt3.png',title:'We design', desc:'Wear the Magic of Movies'},
+  {id:'4',img:'4.jpg', product:'tshirt4.png',title:'Personalise Design', desc:'Where Film Meets Fashion'},
+];
+
+
+

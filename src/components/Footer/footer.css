@@ -1,166 +1,90 @@
-/* .section__padding {
-  
-} */
-
-.footer {
-  /* background-color: #9393ed; */
-  background-image: url("https://c0.wallpaperflare.com/preview/129/130/329/apparel-attire-blur-boutique.jpg");
-  background-repeat: no-repeat; 
-  background-size: cover;
-  background-position: center;
-  /* backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, 0.5); */
+.footer{
+  background-color: black;
 }
 
-.sb__footer {
+.footer_data_box{
+  /* border: 1px solid white; */
+  padding: 70px 80px;
+  color:white;
   display: flex;
-  flex-direction: column;
-  padding: 3rem 7rem;
-}
-
-.sb__footer-links {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-  text-align: left;
-  /* margin-bottom: 2rem; */
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 80px;
 }
 
-.sb__footer-links-div {
-  width: 170px;
-  margin: 1rem;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  color: white;
-}
-
-.sb__footer-links-div hr{
-  width: 45%;
-  margin-bottom: 7px;
-}
-
-a {
-  color: rgb(175, 175, 179);
-  text-decoration: none;
-}
-  
-.socialmedia{
-  display: flex;
-  flex-direction: column;
-}
-
-.socialmedia svg {
-  width: 80%;
-}
-
-.socialmedia p:hover{
-  font-size: 19px;
-}
-
-.sb__footer-links-div h4 {
-  font-size: 24px;
+.footer_data_box h1{
+  font-size: 25px;
   font-weight: 700;
-  line-height: 19px;
-  margin-bottom: 0.9rem;
-  cursor: pointer;
-  transition: font-size 0.3s;
 }
 
-.sb__footer-links-div h4:hover {
-  font-size: 26px;
-}
-
-.sb__footer-links-div p {
-  font-size: 17px;
+.footer_data_box h2{
+  font-size: 20px;
   font-weight: 500;
-  line-height: 17px;
-  margin: 0.5rem 0;
-  cursor: pointer;
-  transition: font-size 0.3s;
+}
+.footer_data_box p{
+  font-size: 16px;
 }
 
-.sb__footer-links-div p:hover {
-  font-size: 19px;
+.footer_data_inner-box{
+  margin: 10px 0px;
+  display: flex;
+  /* min-width: 150px; */
+  justify-content: space-between;
+  /* align-items: center; */
+  flex-direction: column;
+  gap: 16px;
+}
+.footer_data_inner-box>input{
+  border: 2px solid white;
+  padding: 8px 10px;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  border-radius: 4px;
 }
 
-.sb__footer-below {
+.footer_data_photos{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 0.2rem;
-  padding: 1.5rem 7rem;
-  color: white;
+  gap: 8px;
+  /* align-items: center; */
+}
+.footer_data_store-imgs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.sb__footer-below-links {
+.footer_data_store-imgs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-left: 20px;
+  cursor:pointer;
+}
+
+.footer_data_icons{
   display: flex;
   flex-direction: row;
+  gap: 25px;
+  align-items: center;
 }
 
-.sb__footer-below-links p {
-  font-size: 15px;
-  line-height: 15px;
-  margin-left: 2rem;
-  font-weight: 700;
-}
-
-hr {
-  /* color: black !important; */
+.footer_copyright_box{
+  padding: 20px 100px;
+  color:grey;
+  display: flex;
   width: 100%;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: center;
+  align-content: center;
 }
 
-.sb__footer-copyright p {
-  font-size: 13px;
-  line-height: 15px;
-  font-weight: 600;
-  cursor: pointer;
-}
 
-
-@media screen and (max-width: 850px) {
-  .sb__footer-heading h1{
-    font-size: 44px;
-    line-height: 50px;
-  }
-}
-
-@media screen and (max-width: 550px){
-  .sb__footer-heading h1 {
-    font-size: 34px;
-    line-height: 42px;
-  }
-
-  .sb__footer-links div {
-    margin: 1rem 0;
-  }
-
-  .sb__footer-btn p {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .sb__footer-below{
-    flex-direction: column;
-    justify-content: left;
-  }
-
-  .sb__footer-below-links{
-    flex-direction: column;
-  }
-
-  .sb__footer-below-links p{
-    margin-left: 0rem;
-    margin-top: 1rem;
-  }
-}
-
-@media screen and (max-width: 400px){
-  .sb__footer-heading h1{
-    font-size: 27px;
-    line-height: 38px;
-  }
-}
