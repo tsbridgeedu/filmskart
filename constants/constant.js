@@ -1,4 +1,3 @@
-
 export const navBarLinks = [
   { name: "Home", link: "/", className: "active" },
   { name: "About", link: "/about", className: "active" },
@@ -112,7 +111,6 @@ export const aboutData = [
   },
 ];
 
-
 export const productCards = [
   {
     img: "image1.jpg",
@@ -145,6 +143,41 @@ export const productCards = [
     orgprice: "1000",
     star: 4,
     review: "15",
+  },
+];
+
+export const relatedProducts = [
+  {
+    img: "card1.jpg",
+    desc: "XL T-shirt",
+    discprice: 800,
+    orgprice: 1000,
+    star: 4,
+    review: 15,
+  },
+  {
+    img: "card2.jpg",
+    desc: "M Hoodie",
+    discprice: 1200,
+    orgprice: 1500,
+    star: 5,
+    review: 10,
+  },
+  {
+    img: "card3.jpg",
+    desc: "S Jeans",
+    discprice: 900,
+    orgprice: 1100,
+    star: 4,
+    review: 20,
+  },
+  {
+    img: "card4.jpg",
+    desc: "L Dress",
+    discprice: 1500,
+    orgprice: 1800,
+    star: 3,
+    review: 12,
   },
 ];
 
