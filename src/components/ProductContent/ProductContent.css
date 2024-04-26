@@ -75,10 +75,12 @@
     width: 40px;
   }
   .heighlight .buy {
-    width: 25px;
-    height: 25px;
+    /* width: 35px; */
+    /* height: 25px; */
+    display: flex;
+    align-items: center;
     font-size: 15px;
-    padding: 2px 25px;
+    padding: 10px 20px;
   }
   .heighlight .cart {
     margin-left: 10px;

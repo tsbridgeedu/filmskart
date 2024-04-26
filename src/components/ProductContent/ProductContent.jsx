@@ -123,7 +123,7 @@ const ProductContent = () => {
             "
             >
               <div className="buy bg-red-500 text-white font-semibold outline-none px-12 flex items-center rounded-md text-lg ">
-                Buy
+                <button>Buy</button>
               </div>
             </div>
             <div className="cart border-[1px] border-[#808080] rounded-md p-1 ml-16 cursor-pointer">
