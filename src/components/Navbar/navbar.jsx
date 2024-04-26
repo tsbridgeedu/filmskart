@@ -9,6 +9,9 @@ import AccountButton from "../AccountButton";
 import MobileSidebar from "../MobileSidebar";
 import MobileSearch from "../MobileSearch";
 
+
+
+
 class Navbar extends Component {
   state = { clicked: false };
   handleClick = () => {
@@ -25,6 +28,9 @@ class Navbar extends Component {
   };
 
   render() {
+
+    
+
     return (
       <div className="navbar">
         <div className="navbar_box">
@@ -108,7 +114,7 @@ class Navbar extends Component {
           }}
           whileTap={{ scale: 0.9 }}
           className="relative">
-            <NavLink to="add-to-cart" >
+            <NavLink to="/cart" >
               <ShoppingCart size={22} />
             </NavLink>
             <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">

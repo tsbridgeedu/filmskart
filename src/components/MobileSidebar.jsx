@@ -21,12 +21,12 @@ import HomeIcon from "@mui/icons-material/Home";
 import CloseFullscreenIcon from "@mui/icons-material/CloseFullscreen";
 import { NavLink } from "react-router-dom";
 
-const icons = [
-  <HomeIcon />,
-  <InfoIcon />,
-  <ConnectWithoutContactIcon />,
-  <StadiumIcon />,
-  <Groups2Icon />,
+const elements = [
+  {index: '1',icon:<HomeIcon />, title: 'Home', link: '/'},
+  {index: '2',icon:<InfoIcon />, title: 'About', link: '/about'},
+  {index: '3',icon:<ConnectWithoutContactIcon />, title: 'Contact', link: '/contact'},
+  {index: '4',icon:<StadiumIcon />, title: 'Events', link: '/event'},
+  {index: '5',icon:<Groups2Icon />, title: 'Fan Club', link: '/fan-club'},
 ];
 
 export default function MobileSidebar() {
@@ -64,30 +64,21 @@ export default function MobileSidebar() {
         <CloseFullscreenIcon fontSize="30" className="bg-gray-500 rounded-xl text-white text-xl  "  />
       </div>
       <List>
-        {["Home", "About", "Contact", "Events", "Fan Club"].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding>
+        {elements.map(
+          (element) => (
+            <ListItem key={element.index} disablePadding>
+                <NavLink to={element.link} >
               <ListItemButton>
-                <ListItemIcon>{icons[index]}</ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemIcon>{element.icon}</ListItemIcon>
+                <ListItemText primary={element.title} />
               </ListItemButton>
+                </NavLink>
             </ListItem>
           )
         )}
       </List>
       <Divider />
-      {/* <List>
-        {['Login'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? < InfoIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
+   
 
       <div className="flex justify-center items-center mt-10">
         <button className="px-5 py-2 bg-red-500 text-white rounded-md">

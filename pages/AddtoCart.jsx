@@ -6,9 +6,9 @@ import Footer from '../src/components/Footer/footer'
 const AddtoCart = () => {
   return (
     <div>
-        <Navbar />
+        
         <AddtoCartContent />
-        <Footer />
+       
     </div>
   )
 }

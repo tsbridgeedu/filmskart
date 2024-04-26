@@ -14,9 +14,9 @@ throw new Error('Key Missing')
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-    <BrowserRouter>
+    
     <App />
-    </BrowserRouter>
+    
     </ClerkProvider>
   </React.StrictMode>,
 )

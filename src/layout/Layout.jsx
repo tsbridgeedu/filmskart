@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar/navbar";
 import Footer from "../components/Footer/footer";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
@@ -12,4 +13,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Layout ;
