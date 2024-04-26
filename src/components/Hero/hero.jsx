@@ -6,7 +6,7 @@ import { Star } from "lucide-react";
 const Hero = () => {
   return (
     <div className="mb-24 mt-30">
-      <div className="flex justify-between items-center lg:px-10 relative px-4">
+      <div className="flex justify-evenly items-center lg:px-10 relative px-4">
         <div className="start flex justify-center items-center ">
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
           <div className="text-red-500 font-semibold flex  lg:text-3xl ml-3 tracking-wider">
@@ -14,22 +14,18 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* <div className="flex">
+        <div className="flex">
           <p className="text-black lg:text-6xl font-bold tracking-wide m-heading ">Explore Products</p>
-        </div> */}
+        </div>
 
-        {/* <div className="start flex flex-0 justify-center items-center">
-          <div className="text-red-500  font-semibold lg:text-2xl mr-3 tracking-wider">
-           Celebrity Store
+        <div className="end-1  flex  justify-center items-center">
+          <div className="text-red-500  font-semibold lg:text-2xl lg:mr-3 tracking-wider">
+           Filmskart Store
           </div>
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
-        </div> */}
+        </div>
 
-        {/* <div className="absolute top-3 right-0 z-10">
-          <div className="bg-red-500 text-white py-4 px-3 rounded-tl-md">
-            Filmskart Excluzive
-          </div>
-        </div> */}
+       
       </div>
       <div className="product-breaker flex ml-32 mr-32 mt-5">
         <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />

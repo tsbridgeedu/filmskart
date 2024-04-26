@@ -33,8 +33,12 @@ class Navbar extends Component {
 
     return (
       <div className="navbar">
-        <div className="navbar_box">
-          <h1 className="">Filmskart</h1>
+        <div className="navbar_box flex w-[9rem] cursor-pointer ">
+          {/* <h1 className="">Filmskart</h1> */}
+
+          <NavLink to={'/'}>
+          <img src='/logo.png' />
+          </NavLink>
         </div>
         <div className="nav__elements">
           <ul
