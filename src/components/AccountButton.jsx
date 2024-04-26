@@ -13,6 +13,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Avatar } from '@mui/material';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
+import { NavLink } from 'react-router-dom';
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -92,12 +93,16 @@ export default function AccountButton() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose} disableRipple>
+          <NavLink to={'/login'}>
           <LoginIcon />
           Login
+          </NavLink>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
+          <NavLink to={'/signup'}>
           <HowToRegIcon />
           Sign Up
+          </NavLink>
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
         <MenuItem onClick={handleClose} disableRipple>

@@ -62,7 +62,7 @@ class Navbar extends Component {
             </li>
           </ul>
         </div>
-        <div className="navbar_box">
+        {/* <div className="navbar_box">
           <div className="navbar_search_div ">
             <input type="text" placeholder="What are you looking for? " className=""></input>
             <motion.div 
@@ -75,7 +75,7 @@ class Navbar extends Component {
               <Search size={20}  />
             </motion.div>
           </div>
-        </div>
+        </div> */}
 
         
         <div className="flex gap-4 xl:gap-5 justify-end -mr-5">
@@ -85,8 +85,9 @@ class Navbar extends Component {
               transition: { duration: 1 },
             }}
             whileTap={{ scale: 0.9 }}
+            className="cursor-pointer"
           >
-            <MobileSearch className="mobile-search" />
+            <MobileSearch className="mobile-search " />
           </motion.div>
           <motion.div
             whileHover={{
@@ -142,7 +143,7 @@ class Navbar extends Component {
           ></motion.i>
         </div> */}
 
-        <motion.div>
+        <motion.div className="md:hidden lg:hidden">
           <MobileSidebar />
         </motion.div>
         
