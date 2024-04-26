@@ -10,11 +10,13 @@ import { Search } from "lucide-react";
 
 export default function InputForm() {
   return (
-    <Box sx={{ "& > :not(style)": { m: 1 } }} className="bg-white">
+    <Box sx={{ "& > :not(style)": { m: 1 } }} className="">
+       
       <FormControl variant="standard">
-        <Box sx={{ display: "flex", alignItems: "flex-end", justifyItems: 'center' }}>
-          <TextField id="input-with-sx" label="With sx" variant="standard" />
-          <Search sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+        <Box sx={{ display: "flex", alignItems: "flex-end", justifyItems: 'center' }} className='gap-2 w-full relative'>
+
+          <TextField id="input-with-sx" label="Search products..." variant="standard" className=""/>
+          <Search sx={{ color: "action.active", mr: 1, my: 0.5 }} className="cursor-pointer hover:scale-110 hover:ease-in-out transition-all duration-300" />
         </Box>
       </FormControl>
     </Box>
