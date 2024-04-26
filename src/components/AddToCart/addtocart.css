@@ -1,119 +1,120 @@
-.AddtoCart{
-    /* border:10px solid black; */
-    padding:100px 150px;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+.AddtoCart {
+  /* border:10px solid black; */
+  padding: 100px 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
-.AddtoCart-innerbox-1{
-    /* border: 1px solid black; */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.AddtoCart-innerbox-1 {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.AddtoCart-rows{
-    display: flex;
-    justify-content: space-between;
-    /* padding: 10px 0px; */
+.AddtoCart-rows {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 10px 0px; */
 }
-.item-info>h2{
-    font-weight: 500;
+.item-info > h2 {
+  font-weight: 500;
 }
-.item-info{
-    width: 200px;
-    padding: 20px 40px;
-    /* border: 1px solid black; */
-    /* padding: 20px 50px; */
-}
-
-.AddtoCart button{
-    padding: 10px 30px;
-    border: 1px solid black;
-    border-radius: 2px;
-    outline: none;
-    font-weight: 500;
+.item-info {
+  width: 200px;
+  padding: 20px 40px;
+  /* border: 1px solid black; */
+  /* padding: 20px 50px; */
 }
 
-.AddtoCart-innerbox-2{
-    display: flex;
-    justify-content: space-between;
+.AddtoCart button {
+  padding: 10px 30px;
+  border: 1px solid black;
+  border-radius: 2px;
+  outline: none;
+  font-weight: 500;
 }
 
-.AddtoCart-couponcode{
-    display: flex;
-    gap: 20px;
-    /* border: 1px solid black; */
-    align-items: start;
+.AddtoCart-innerbox-2 {
+  display: flex;
+  justify-content: space-between;
 }
 
-.AddtoCart-couponcode>input{
-    padding: 10px 12px;
-    border: 1px solid black;
-    border-radius: 2px;
+.AddtoCart-couponcode {
+  display: flex;
+  gap: 20px;
+  /* border: 1px solid black; */
+  align-items: start;
 }
-.AddtoCart-couponcode>button{
-    background-color: brown;
-    border: none;
-    color: white;
+
+.AddtoCart-couponcode > input {
+  padding: 10px 12px;
+  border: 1px solid black;
+  border-radius: 2px;
 }
-.AddtoCart-cart-total{
-    width: 400px;
-    border: 1px solid black;
-    border-radius: 2px;
-    padding: 15px 30px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
-    gap: 15px;
-    
+.AddtoCart-couponcode > button {
+  background-color: brown;
+  border: none;
+  color: white;
 }
-.AddtoCart-cart-total>h2{
-    font-weight: 600;
+.AddtoCart-cart-total {
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  gap: 15px;
 }
-.AddtoCart-cart-total>button{
-    background-color: brown;
-    border: none;
-    color: white;
+.AddtoCart-cart-total > h2 {
+  font-weight: 600;
 }
-.AddtoCart-cart-total-details{
-    display: flex;
-    justify-content: space-between;
+.AddtoCart-cart-total > button {
+  background-color: brown;
+  border: none;
+  color: white;
+}
+.AddtoCart-cart-total-details {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Media queries for tablet and phone screens */
 @media screen and (max-width: 768px) {
-    .AddtoCart {
-      padding: 10px; 
-    }
-  
-    .item-info {
-      padding: 5px; 
-    }
-  
-    .AddtoCart button {
-      padding: 8px 15px;
-    }
-  
-    .AddtoCart-innerbox-2 {
-      flex-direction: column; 
-      gap: 30px;
-    }
-  
-    .AddtoCart-couponcode,
-    .AddtoCart-cart-total {
-      width: 100%; 
-    }
-  
-    .AddtoCart-couponcode > input {
-      padding: 8px;
-    }
-  
-    .AddtoCart-couponcode > button {
-      padding: 8px 15px; 
-    }
-  
-    .AddtoCart-cart-total > button {
-      padding: 8px 15px; 
-    }
+  .AddtoCart {
+    padding: 10px;
   }
-  
+
+  .item-info {
+    padding: 5px;
+  }
+
+  .AddtoCart button {
+    padding: 8px 15px;
+  }
+
+  .AddtoCart-innerbox-2 {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .AddtoCart-couponcode,
+  .AddtoCart-cart-total {
+    width: 100%;
+  }
+
+  .AddtoCart-couponcode > input {
+    padding: 5px;
+    width: 120px;
+    font-size: 15px;
+  }
+
+  .AddtoCart-couponcode > button {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
+  .AddtoCart-cart-total > button {
+    padding: 8px 15px;
+  }
+}
