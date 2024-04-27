@@ -139,7 +139,7 @@ export const upcomingMovies = [
     review: "15",
   },
   {
-    img: "sarfira.jpg",
+    img: "sarfira1.jpg",
     desc: "Sarfira",
 
     star: 5,
