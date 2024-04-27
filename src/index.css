@@ -21,17 +21,17 @@
 
 .scrollbar::-webkit-scrollbar {
   width: 10px;
-  background-color: transparent;
+  background-color: #dcdcdc;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background-color: transparent;
+  background-color: #dcdcdc;
 }
 
 .scrollbar:hover::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background: var(--white);
+  background: #dcdcdc;
 }
 
 

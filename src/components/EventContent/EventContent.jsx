@@ -15,16 +15,14 @@ import {
   TicketPercent,
 } from "lucide-react";
 
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 
 import EventVideo from "../../assets/event.mp4";
 import EventSearch from "../EventSearch";
-
-
-
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
 
 const EventContent = () => {
-    
   return (
     <>
       <Swiper
@@ -46,11 +44,53 @@ const EventContent = () => {
         </SwiperSlide>
       </Swiper>
 
-      <div className="flex justify-center my-16 px-2" id='event__search__organize'>
-        <EventSearch />
-      </div>
-     
-     
+      <div
+            className="flex justify-center mb-16 mt-16 px-2 evnts__buttons__sch_org"
+            id="event__search__organize"
+          >
+            <EventSearch />
+          </div>
+
+
+      <section className="flex my-16 md:px-2">
+        <div className="flex flex-col items-center w-full py-5 relative justify-center">
+          <div className="absolute w-full  top-0  bottom-0 -z-10">
+            <img
+              src="event-hero.jpeg"
+              className="object-cover w-full h-full blur-[3px]"
+            />
+          </div>
+          <Stack className="flex justify-center  w-full h-full">
+            <Typography
+              variant="h1"
+              sx={{
+                color: "#ffffff",
+                textAlign: "center",
+                fontWeight: "500",
+                letterSpacing: "5px",
+              }}
+              className="uppercase  "
+            >
+              Eve<span className="">nts</span>
+            </Typography>
+            <Stack className="flex justify-center">
+            <Typography variant="h5" sx={{
+              color: '#fff',
+              textAlign: 'center',
+              fontWeight: '500',
+              letterSpacing: '5px',
+              
+              
+            }}>
+          <span className="bg-red-500 px-1.5 rounded-md mr-3"> </span> Featured  Events
+        </Typography>
+            </Stack>
+          </Stack>
+        </div>
+      </section>
+          
+
+      
     </>
   );
 };
@@ -58,22 +98,22 @@ const EventContent = () => {
 export default EventContent;
 
 const EventsBanner = () => {
-    const scrollOnClick = () => {
-        window.scrollTo({
-          top: window.pageYOffset + window.innerHeight * 0.5, 
-          behavior: 'smooth',
-        });
-      };
+  const scrollOnClick = () => {
+    window.scrollTo({
+      top: window.pageYOffset + window.innerHeight * 0.5,
+      behavior: "smooth",
+    });
+  };
 
-      const redirectToOrgButton = () => {
-        const element = document.getElementById('event__organize__button');
-        if(element){
-            window.scrollTo({
-                top: element.offsetTop,
-                behavior: 'smooth',
-              });
-        }
-      }
+  const redirectToOrgButton = () => {
+    const element = document.getElementById("event__organize__button");
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <>
       <Link className="relative block">
@@ -96,7 +136,9 @@ const EventsBanner = () => {
 
         <div className="absolute bottom-5  right-0 z-10">
           <div className="py-1 px-2 bg-red-500 flex gap-2 items-center">
-            <button className="text-white " onClick={redirectToOrgButton}>Organize</button>
+            <button className="text-white " onClick={redirectToOrgButton}>
+              Organize
+            </button>
             <TicketPercent size={20} className="text-white" />
           </div>
         </div>
@@ -111,9 +153,7 @@ const EventsBanner = () => {
               className="bg-red-500 flex justify-center items-center ml-4 rounded-md"
               onClick={scrollOnClick}
             >
-              <NavLink to={''}>
               <ArrowBigDown className="" />
-              </NavLink>
             </motion.div>
           </motion.div>
         </div>
