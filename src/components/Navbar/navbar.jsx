@@ -13,20 +13,7 @@ import MobileSearch from "../MobileSearch";
 
 
 class Navbar extends Component {
-  state = { clicked: false };
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
-  };
-
-  state = { isCartOpen: false };
-
-  toggleCart = () => {
-    console.log('clicked')
-    this.setState((prevState) => ({
-      isCartOpen: !prevState.isCartOpen,
-    }));
-  };
-
+  
   render() {
 
     
