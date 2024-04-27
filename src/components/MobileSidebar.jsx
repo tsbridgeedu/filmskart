@@ -17,16 +17,43 @@ import Groups2Icon from "@mui/icons-material/Groups2";
 import StadiumIcon from "@mui/icons-material/Stadium";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import HomeIcon from "@mui/icons-material/Home";
-
 import CloseFullscreenIcon from "@mui/icons-material/CloseFullscreen";
+import { useUser } from "@clerk/clerk-react";
 import { NavLink } from "react-router-dom";
 
 const elements = [
-  {index: '1',icon:<HomeIcon />, title: 'Home', link: '/'},
-  {index: '2',icon:<InfoIcon />, title: 'About', link: '/about'},
-  {index: '3',icon:<ConnectWithoutContactIcon />, title: 'Contact', link: '/contact'},
-  {index: '4',icon:<StadiumIcon />, title: 'Events', link: '/event'},
-  {index: '5',icon:<Groups2Icon />, title: 'Fan Club', link: '/fan-club'},
+  {
+    index: "1",
+    icon: <HomeIcon className="bg-red-500 text-white rounded-xl " />,
+    title: "Home",
+    link: "/",
+  },
+  {
+    index: "2",
+    icon: <InfoIcon className="bg-red-500 text-white rounded-xl " />,
+    title: "About",
+    link: "/about",
+  },
+  {
+    index: "3",
+    icon: (
+      <ConnectWithoutContactIcon className="bg-red-500 text-white rounded-xl " />
+    ),
+    title: "Contact",
+    link: "/contact",
+  },
+  {
+    index: "4",
+    icon: <StadiumIcon className="bg-red-500 text-white rounded-xl " />,
+    title: "Events",
+    link: "/event",
+  },
+  {
+    index: "5",
+    icon: <Groups2Icon className="bg-red-500 text-white rounded-xl " />,
+    title: "Fan Club",
+    link: "/fan-club",
+  },
 ];
 
 export default function MobileSidebar() {
@@ -46,12 +73,12 @@ export default function MobileSidebar() {
 
     setState({ ...state, [anchor]: open });
   };
-  
+
   const toggleClose = () => {
     setState({ ...state, [anchor]: open });
-    
-  }
+  };
 
+  const { isSignedIn, user } = useUser();
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
@@ -60,31 +87,39 @@ export default function MobileSidebar() {
       onKeyDown={toggleDrawer(anchor, false)}
       className="mt-10 "
     >
-      <div className="flex justify-start items-center px-4 mb-5" onClick={toggleClose}>
-        <CloseFullscreenIcon fontSize="30" className="bg-gray-500 rounded-xl text-white text-xl  "  />
+      <div className="flex items-center px-4 mb-5 gap-7 " onClick={toggleClose}>
+        <div className="flex justify-center">
+          {" "}
+          <CloseFullscreenIcon
+            fontSize="30"
+            className="bg-gray-500 rounded-xl text-white text-xl  "
+          />
+        </div>
+        <div className="flex w-full">
+          <img src="/logo.png" alt="logo" className="w-32" />
+        </div>
       </div>
-      <List>
-        {elements.map(
-          (element) => (
-            <ListItem key={element.index} disablePadding>
-                <NavLink to={element.link} >
+      <List className="">
+        {elements.map((element) => (
+          <ListItem key={element.index} disablePadding className="">
+            <NavLink to={element.link}>
               <ListItemButton>
-                <ListItemIcon>{element.icon}</ListItemIcon>
+                <ListItemIcon className="">{element.icon}</ListItemIcon>
                 <ListItemText primary={element.title} />
               </ListItemButton>
-                </NavLink>
-            </ListItem>
-          )
-        )}
+            </NavLink>
+          </ListItem>
+        ))}
       </List>
       <Divider />
-   
 
       <div className="flex justify-center items-center mt-10">
         <button className="px-5 py-2 bg-red-500 text-white rounded-md">
-          <NavLink to={'/login'}>
-            Login
-          </NavLink>
+          {isSignedIn ? (
+            `Hey ${user.firstName}`
+          ) : (
+            <NavLink to={"/login"}>Login</NavLink>
+          )}
         </button>
       </div>
     </Box>

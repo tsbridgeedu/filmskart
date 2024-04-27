@@ -84,9 +84,9 @@ export default function AccountButton() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         variant="contained"
-        disableElevation
+        
         onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
+        
       />
       <StyledMenu
         id="demo-customized-menu"
