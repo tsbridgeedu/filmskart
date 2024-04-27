@@ -21,6 +21,7 @@ import Layout   from "../src/layout/Layout";
 
 import Dashboard from "../pages/Admin/Dashboard";
 import AddtoCart from "../pages/AddtoCart";
+import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup />
+      },
+      {
+        path: '/sso-callback',
+        element: <AuthenticateWithRedirectCallback />
       }
     ],
   },
