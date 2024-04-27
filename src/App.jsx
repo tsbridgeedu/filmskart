@@ -1,14 +1,16 @@
 import React from "react";
+import { RouterProvider } from "react-router-dom";
+
+import router from "../routes/routes";
 
 import "./App.css";
 
-import { RoutesPath } from "../routes/index";
 
 const App = () => {
   return (
-    <div className="scrollbar">
-      <RoutesPath />
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 };
 

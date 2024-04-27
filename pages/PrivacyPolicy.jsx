@@ -6,9 +6,9 @@ import Footer from '../src/components/Footer/footer'
 const PrivacyPolicy = () => {
   return (
     <div>
-        {/* <Navbar /> */}
+        
         <PrivacyContent />
-        <Footer />
+       
     </div>
   )
 }

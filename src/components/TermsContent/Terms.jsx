@@ -30,7 +30,7 @@ const Terms = () => {
     }
   return (
     <div className="wrapper flex_align_justify bg-color scrollbar">
-      <ToastContainer theme="dark" draggable transition:Bounce />
+      <Toaster position='top-center' />
       <div className="terms_services ">
         <div className="tc_item tc_head flex_align_justify">
           <div className="icon flex_align_justify">
