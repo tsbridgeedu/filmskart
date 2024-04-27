@@ -113,7 +113,7 @@ export const aboutData = [
 
 export const productCards = [
   {
-    img: "image1.jpg",
+    img: "image1.avif",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",
@@ -121,7 +121,7 @@ export const productCards = [
     review: "15",
   },
   {
-    img: "image1.jpg",
+    img: "image1.avif",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",
@@ -129,7 +129,7 @@ export const productCards = [
     review: "14",
   },
   {
-    img: "image1.jpg",
+    img: "image1.avif",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",
@@ -137,7 +137,7 @@ export const productCards = [
     review: "13",
   },
   {
-    img: "image1.jpg",
+    img: "image1.avif",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",
@@ -217,11 +217,11 @@ export const upcomingMovies = [
 ];
 
 export const imagesProducts = [
-  { src: "image1.jpg", key: 1 },
+  { src: "image1.avif", key: 1 },
   { src: "image2.jpg", key: 2 },
   { src: "image3.jpg", key: 3 },
   { src: "image2.jpg", key: 4 },
-  { src: "image1.jpg", key: 5 },
+  { src: "image1.avif", key: 5 },
   { src: "image2.jpg", key: 6 },
 ];
 
