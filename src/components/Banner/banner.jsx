@@ -1,110 +1,52 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
-import './banner.css';
+import React, { useRef } from "react";
+import './banner.css'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { bannerContent } from "../../../constants/constant";
+import BannerContent from "../BannerContent";
 
 const Banner = () => {
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s, time, progress) => {
+    progressCircle.current.style.setProperty("--progress", 1 - progress);
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  };
+
   return (
-        <div className='slider'>
-          <figure>
-        
-    <div className="hero-banner-container  h-full ">
-      <div>
-        <p className="beats-solo">Celebrity Store</p>
-        <h3>We design</h3>
-        <h1>Customize Your Tshirt</h1>
-        <img src="tshirt.png" alt="headphones" className="hero-banner-image" />
-
-        <div>
-          <NavLink to="/">
-            <button type="button">Explore Now</button>
-          </NavLink>
-         
-        </div>
-      </div>
-
-     
-    </div>
+    <Swiper
     
-     
+      centeredSlides={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      modules={[Autoplay, Pagination, Navigation]}
+      className="mySwiper"
+      // onAutoplayTimeLeft={onAutoplayTimeLeft}
+    >
+      <>
+        {bannerContent.map((banner) => {
+          return (
+            <div key={banner.id} >
+              <SwiperSlide key={banner.id} className="py-3 px-2 rounded-lg">
+               
+                <BannerContent content={banner} />
+              </SwiperSlide>
+            </div>
+          );
+        })}
+      </>
+    </Swiper>
+  );
+};
 
-
-    
-    <div className="hero-banner-container  h-full ">
-      <div>
-        <p className="beats-solo">Celebrity Store</p>
-        <h3>Personalise Design</h3>
-        <h1>Style Inspired by Cinema</h1>
-        <img src="tshirt3.png" alt="headphones" className="hero-banner-image" />
-
-        <div>
-          <NavLink to="/">
-            <button type="button">Explore Now</button>
-          </NavLink>
-         
-        </div>
-      </div>
-
-     
-  
-    </div>
-
-
-    <div className="hero-banner-container  h-full ">
-      <div>
-        <p className="beats-solo-2">Celebrity Store</p>
-        <h3>Personalise Design</h3>
-        <h1>Wear the Magic of Movies</h1>
-        <img src="tshirt2.png" alt="headphones" className="hero-banner-image" />
-
-        <div>
-          <NavLink to="/">
-            <button type="button">Explore Now</button>
-          </NavLink>
-         
-        </div>
-      </div>
-
-     
-  
-    </div>
-
-    <div className="hero-banner-container  h-full ">
-      <div>
-        <p className="beats-solo text-red-500 font-semibold tracking-wide mb-4">Celebrity Store</p>
-        <h3>Personalise Design</h3>
-        <h1>Where Film Meets Fashion</h1>
-        <img src="tshirt4.png" alt="headphones" className="hero-banner-image" />
-
-        <div>
-          <NavLink to="/">
-            <button type="button">Explore Now</button>
-          </NavLink>
-         
-        </div>
-      </div>
-
-     
-  
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </figure>
-   </div>
-    
-  )
-}
-
-export default Banner
+export default Banner;

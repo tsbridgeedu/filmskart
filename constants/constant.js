@@ -1,4 +1,3 @@
-
 export const navBarLinks = [
   { name: "Home", link: "/", className: "active" },
   { name: "About", link: "/about", className: "active" },
@@ -112,10 +111,9 @@ export const aboutData = [
   },
 ];
 
-
 export const productCards = [
   {
-    img: "image1.jpg",
+    img: "image1.avif",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",
@@ -123,28 +121,63 @@ export const productCards = [
     review: "15",
   },
   {
-    img: "image1.jpg",
+    img: "image1.avif",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",
     star: 4,
-    review: "15",
+    review: "14",
   },
   {
-    img: "image1.jpg",
+    img: "image1.avif",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",
     star: 5,
-    review: "15",
+    review: "13",
   },
   {
-    img: "image1.jpg",
+    img: "image1.avif",
     desc: "xl-tshirt",
     discprice: "800",
     orgprice: "1000",
     star: 4,
-    review: "15",
+    review: "12",
+  },
+];
+
+export const relatedProducts = [
+  {
+    img: "card1.jpg",
+    desc: "XL T-shirt",
+    discprice: 800,
+    orgprice: 1000,
+    star: 4,
+    review: 15,
+  },
+  {
+    img: "card2.jpg",
+    desc: "M Hoodie",
+    discprice: 1200,
+    orgprice: 1500,
+    star: 5,
+    review: 10,
+  },
+  {
+    img: "card3.jpg",
+    desc: "S Jeans",
+    discprice: 900,
+    orgprice: 1100,
+    star: 4,
+    review: 20,
+  },
+  {
+    img: "card4.jpg",
+    desc: "L Dress",
+    discprice: 1500,
+    orgprice: 1800,
+    star: 3,
+    review: 12,
   },
 ];
 
@@ -184,10 +217,22 @@ export const upcomingMovies = [
 ];
 
 export const imagesProducts = [
-  { src: "image1.jpg", key: 1 },
+  { src: "image1.avif", key: 1 },
   { src: "image2.jpg", key: 2 },
   { src: "image3.jpg", key: 3 },
   { src: "image2.jpg", key: 4 },
-  { src: "image1.jpg", key: 5 },
+  { src: "image1.avif", key: 5 },
   { src: "image2.jpg", key: 6 },
 ];
+
+
+
+export const bannerContent = [
+  // {id:'1',img:'1.jpg', product:'tshirt.png',title:'We design', desc:'Style Inspired by Cinema'},
+  {id:'2',img:'2.jpg', product:'tshirt2.png',title:'Personalise Design', desc:'Customize Your Tshirt'},
+  {id:'3',img:'3.jpg', product:'tshirt3.png',title:'We design', desc:'Wear the Magic of Movies'},
+  {id:'4',img:'4.jpg', product:'tshirt4.png',title:'Personalise Design', desc:'Where Film Meets Fashion'},
+];
+
+
+

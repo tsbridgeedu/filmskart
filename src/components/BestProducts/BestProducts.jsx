@@ -6,30 +6,30 @@ import { Star } from "lucide-react";
 const BestProducts = () => {
   return (
     <div className="mb-24 mt-24 w-full">
-      <div className="flex justify-evenly items-center w-full">
+      <div className="flex justify-between items-center w-full lg:px-10 relative px-4">
         <div className="start flex justify-center items-center">
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
-          <div className="text-red-500 font-semibold text-2xl ml-3 tracking-wider">
-           This Month
+          <div className="text-red-500 font-semibold lg:text-2xl ml-3 tracking-wider">
+            This Month
           </div>
         </div>
 
-        <div className="flex">
-          <p className="text-black text-6xl font-bold tracking-wide m-head">Best Selling</p>
+        {/* <div className="flex">
+          <p className="text-black lg:text-6xl font-bold tracking-wide m-head">
+            Best Selling
+          </p>
         </div>
 
-        
         <div className="start flex justify-center items-center">
-          <div className="text-red-500 font-semibold text-2xl mr-3 tracking-wider">
-           Celebrity Store
+          <div className="text-red-500 font-semibold lg:text-2xl mr-3 tracking-wider">
+            Celebrity Store
           </div>
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
-        </div>
-        
+        </div> */}
       </div>
 
       <div className="product-breaker flex ml-36 mr-36 mt-5">
-      <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
+        <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
       </div>
       <div className="card-container ">
         {productCards.map((card) => {
@@ -38,7 +38,10 @@ const BestProducts = () => {
             <Star key={i} size={24} color="#FFD700" />
           ));
           return (
-            <div className="card transform hover:scale-110 duration-300 transition cursor-pointer">
+            <div
+              className="card transform hover:scale-110 duration-300 transition cursor-pointer"
+              key={card.review}
+            >
               <img src={card.img} />
               <div className="card-content">
                 <h3 className="font-medium text-2xl">{card.desc}</h3>
