@@ -99,7 +99,7 @@ const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: "#/sso-callback",
+        path: "*#/sso-callback",
         element: <AuthenticateWithRedirectCallback />,
       },
     ],
