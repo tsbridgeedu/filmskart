@@ -21,20 +21,44 @@
 
 .scrollbar::-webkit-scrollbar {
   width: 10px;
-  background-color: transparent;
+  background-color: #dcdcdc;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background-color: transparent;
+  background-color: #dcdcdc;
 }
 
 .scrollbar:hover::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background: var(--white);
+  background: #dcdcdc;
 }
 
 
 .css-sghohy-MuiButtonBase-root-MuiButton-root {
   background-color: #ef4444;
+}
+
+.cl-formButtonPrimary {
+  background-color: #ee2222; 
+  transition: 0.3s ease-in;
+}
+
+.cl-internal-ttumny[data-variant='solid'][data-color='primary']{
+  box-shadow: #222 0px 0px 5px 0px;
+}
+
+.cl-formButtonPrimary:hover{
+  background-color: #ef4444;
+  transform: scale(1.1);
+}
+
+.cl-rootBox {
+  margin-top: 50px;
+  /* margin-bottom: 50px; */
+}
+
+.cl-formFieldInput:focus {
+  color: red;
+  
 }

@@ -21,8 +21,12 @@ import Layout   from "../src/layout/Layout";
 
 import Dashboard from "../pages/Admin/Dashboard";
 import AddtoCart from "../pages/AddtoCart";
+
 import Checkout from "../pages/Checkout";
 import CheckoutContent from "../src/components/CheckoutContent";
+
+import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -85,13 +89,19 @@ const router = createBrowserRouter([
         path:'/login',
         element: <Login />
       },
+     
       {
+
         path: '/signup',
         element: <Signup />
       },
       {
         path: '/checkout',
         element : <Checkout/>
+
+        path: '#/sso-callback',
+        element: <AuthenticateWithRedirectCallback />
+
       }
     ],
   },
