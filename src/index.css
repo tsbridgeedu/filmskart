@@ -36,7 +36,7 @@
 
 
 .css-sghohy-MuiButtonBase-root-MuiButton-root {
-  background-color: #ef4444;
+  background-color: #e85a4f;
 }
 
 .cl-formButtonPrimary {
@@ -49,7 +49,7 @@
 }
 
 .cl-formButtonPrimary:hover{
-  background-color: #ef4444;
+  background-color: #e85a4f;
   transform: scale(1.1);
 }
 
@@ -59,7 +59,7 @@
 }
 
 .cl-formFieldInput:focus {
-  color: red;
+  color: #e85a4f;
   
 }
 
@@ -73,5 +73,5 @@
 }
 
 .cl-internal-27wqok {
-  color: '#ef4444'
+  color: #e85a4f;
 }
