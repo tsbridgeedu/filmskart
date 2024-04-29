@@ -6,7 +6,7 @@ import { SignIn } from "@clerk/clerk-react";
 
 const Login = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen mb-24 ">
       
       
       <SignIn />

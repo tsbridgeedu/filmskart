@@ -6,7 +6,7 @@ import '../src/index.css'
 
 const Signup = () => {
   return (
-    <div className="flex justify-center items-center h-screen mt-25">
+    <div className="flex justify-center items-center h-screen mt-24 mb-24">
       
       
       <SignUp />
