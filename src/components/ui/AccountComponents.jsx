@@ -1,6 +1,6 @@
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import { SignOutButton, useUser } from "@clerk/clerk-react";
+import { SignInButton, SignOutButton, SignUpButton, useUser } from "@clerk/clerk-react";
 
 import {
   AccountCircleOutlined,
@@ -67,16 +67,21 @@ export const SignedOutAccountComponents = ({ handleClose }) => {
       </MenuItem>
       <Divider sx={{ my: 0.5 }} />
       <MenuItem onClick={handleClose} disableRipple>
-        <NavLink to={"/login"}>
+        
           <LoginIcon />
+          <SignInButton>
+
           Login
-        </NavLink>
+          </SignInButton>
+       
       </MenuItem>
       <MenuItem onClick={handleClose} disableRipple>
-        <NavLink to={"/signup"}>
+       
           <HowToRegIcon />
+          <SignUpButton>
           Sign Up
-        </NavLink>
+       
+          </SignUpButton>
       </MenuItem>
      
     </>

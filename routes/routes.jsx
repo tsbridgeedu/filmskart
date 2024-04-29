@@ -84,18 +84,18 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
-        children: {
-          path: "#/sso-callback",
-          element: <AuthenticateWithRedirectCallback />,
-        },
+        // children: {
+        //   path: "#/sso-callback",
+        //   element: <AuthenticateWithRedirectCallback />,
+        // },
       },
       {
         path: "/login",
         element: <Login />,
-        children: {
-          path: "#/sso-callback",
-          element: <AuthenticateWithRedirectCallback />,
-        },
+        // children: {
+        //   path: "#/sso-callback",
+        //   element: <AuthenticateWithRedirectCallback />,
+        // },
       },
 
       {

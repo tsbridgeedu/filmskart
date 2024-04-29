@@ -114,6 +114,8 @@ const CheckoutContent = () => {
         $1750
        </Typography>
        </Stack>
+
+       
       
 
        <Stack sx={{display:'flex', flexDirection:'row',marginLeft:'20px',marginRight:'20px' }}>
