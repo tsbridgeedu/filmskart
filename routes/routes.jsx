@@ -17,7 +17,7 @@ import UploadBanner from "../pages/Admin/UploadBanner";
 import Event from "../pages/Event";
 import TermsAndConditions from "../pages/TermsAndConditions";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
-import Layout   from "../src/layout/Layout";
+import Layout from "../src/layout/Layout";
 
 import Dashboard from "../pages/Admin/Dashboard";
 import AddtoCart from "../pages/AddtoCart";
@@ -86,23 +86,22 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path:'/login',
-        element: <Login />
+        path: "/login",
+        element: <Login />,
       },
-     
-      {
 
-        path: '/signup',
-        element: <Signup />
+      {
+        path: "/signup",
+        element: <Signup />,
       },
       {
-        path: '/checkout',
-        element : <Checkout/>
-
-        path: '#/sso-callback',
-        element: <AuthenticateWithRedirectCallback />
-
-      }
+        path: "/checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "#/sso-callback",
+        element: <AuthenticateWithRedirectCallback />,
+      },
     ],
   },
 ]);
