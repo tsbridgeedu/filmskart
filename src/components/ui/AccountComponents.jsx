@@ -26,7 +26,7 @@ export const SignedAccountComponents = ({ handleClose }) => {
       <MenuItem sx={{ my: 0.5 }} onClick={handleClose}>
         <Stack className="flex items-center justify-center w-full">
           <AccountCircleOutlined sx={{ ml: 1 }} />
-          Hey {user.firstName}!
+          Hey {user.firstName || user.username}!
         </Stack>
       </MenuItem>
       <Divider sx={{ my: 0.5 }} />
