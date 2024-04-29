@@ -21,7 +21,8 @@ import Layout   from "../src/layout/Layout";
 
 import Dashboard from "../pages/Admin/Dashboard";
 import AddtoCart from "../pages/AddtoCart";
-
+import Checkout from "../pages/Checkout";
+import CheckoutContent from "../src/components/CheckoutContent";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup />
+      },
+      {
+        path: '/checkout',
+        element : <Checkout/>
       }
     ],
   },
