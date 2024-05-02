@@ -1,22 +1,30 @@
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import { SignOutButton, useUser } from "@clerk/clerk-react";
+import {
+  
+  SignInButton,
+  SignOutButton,
+  SignUpButton,
+  useUser,
+} from "@clerk/clerk-react";
+
+import "../../index.css";
 
 import {
   AccountCircleOutlined,
-  SettingsApplicationsOutlined,
+ 
 } from "@mui/icons-material";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+
 
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
-import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+
 
 import { NavLink } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { BsBagX, BsCart2 } from "react-icons/bs";
-import { ShoppingCart } from "lucide-react";
+
+import { LogOut, Settings2, SquareUser } from "lucide-react";
 
 export const SignedAccountComponents = ({ handleClose }) => {
   const { user } = useUser();
@@ -26,20 +34,32 @@ export const SignedAccountComponents = ({ handleClose }) => {
       <MenuItem sx={{ my: 0.5 }} onClick={handleClose}>
         <Stack className="flex items-center justify-center w-full">
           <AccountCircleOutlined sx={{ ml: 1 }} />
-          Hey {user.firstName}!
+          Hey {user.firstName || user.username}!
         </Stack>
       </MenuItem>
       <Divider sx={{ my: 0.5 }} />
-      <MenuItem disableRipple onClick={handleClose}>
-        <NavLink to={"/profile"}>
-          <SettingsApplicationsOutlined />
-          Your Account
+      <MenuItem disableRipple onClick={handleClose} className=" " >
+        <NavLink to={"/profile"} className="flex items-center gap-3">
+          <SquareUser size={18} className="hover:text-red-500" />
+
+          <Typography fontFamily={"Poppins"} fontWeight={'500'} variant="subtitle2 " >
+            Account
+          </Typography>
         </NavLink>
       </MenuItem>
 
-      <MenuItem>
-        <ExitToAppIcon />
-        <SignOutButton />
+      <MenuItem >
+       <NavLink to='/user-profile' className="flex  gap-3">
+       <Settings2 size={18} />
+        <Typography fontFamily={"Poppins"} fontWeight={'500'} variant="subtitle2 ">
+            Settings
+          </Typography>
+       </NavLink>
+      </MenuItem>
+
+      <MenuItem className="flex  gap-3  ">
+        <LogOut size={18} />
+        <SignOutButton className="main__sign__out__btn font-medium hover:text-red-500 hover:font-normal transition-all duration-300" />
       </MenuItem>
     </>
   );
@@ -48,7 +68,7 @@ export const SignedAccountComponents = ({ handleClose }) => {
 export const SignedOutAccountComponents = ({ handleClose }) => {
   return (
     <>
-     <MenuItem onClick={handleClose} disableRipple className="">
+      <MenuItem onClick={handleClose} disableRipple className="">
         {/* <ManageAccountsIcon />
               Profile */}
 
@@ -59,7 +79,7 @@ export const SignedOutAccountComponents = ({ handleClose }) => {
             justifyContent: "center",
             alignItems: "center",
             maxWidth: "100%",
-            marginTop: '2px'
+            marginTop: "2px",
           }}
         >
           <img src="/logo.png" alt="Filmskart Logo" className="w-28" />
@@ -67,18 +87,13 @@ export const SignedOutAccountComponents = ({ handleClose }) => {
       </MenuItem>
       <Divider sx={{ my: 0.5 }} />
       <MenuItem onClick={handleClose} disableRipple>
-        <NavLink to={"/login"}>
-          <LoginIcon />
-          Login
-        </NavLink>
+        <LoginIcon />
+        <SignInButton>Login</SignInButton>
       </MenuItem>
       <MenuItem onClick={handleClose} disableRipple>
-        <NavLink to={"/signup"}>
-          <HowToRegIcon />
-          Sign Up
-        </NavLink>
+        <HowToRegIcon />
+        <SignUpButton>Sign Up</SignUpButton>
       </MenuItem>
-     
     </>
   );
 };

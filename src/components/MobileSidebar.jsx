@@ -116,7 +116,7 @@ export default function MobileSidebar() {
       <div className="flex justify-center items-center mt-10">
         <button className="px-5 py-2 bg-red-500 text-white rounded-md">
           {isSignedIn ? (
-            `Hey ${user.firstName}`
+            `Hey ${user.firstName || user.username}`
           ) : (
             <NavLink to={"/login"}>Login</NavLink>
           )}

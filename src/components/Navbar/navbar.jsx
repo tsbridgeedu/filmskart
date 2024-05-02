@@ -13,7 +13,6 @@ import MobileSearch from "../MobileSearch";
 
 
 class Navbar extends Component {
- 
 
   render() {
 
