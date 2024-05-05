@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { upcomingMovies } from "../../../constants/constant";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import '../Banner/banner.css'
+
 import { Star } from "lucide-react";
 
 import "../Hero/hero.css";
@@ -65,43 +73,76 @@ const UpcomingMovies = () => {
         </div>
       </div>
 
-      
       <div className="card-slider lg:mt-20">
         <div
-          className="card-container" style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          className="card-container"
+          
         >
-        
-          {upcomingMovies.map((card) => 
-          {
+          <Swiper
+          // spaceBetween={200}
+           breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 100,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1440: {
+              slidesPerView: 5,
+              spaceBetween: 30,
+            },
+          }}
+            centeredSlides={true}
+            // centerInsufficientSlides
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: true,
+            }}
             
-            return (
-              <div className="card transform hover:scale-110 duration-300 transition cursor-pointer" key={card.desc}>
-                <img src={card.img} className="w-full h-full object-cover"/>
-                <div className="card-content">
-                  <h3 className="font-medium text-2xl">{card.desc}</h3>
-                  <hr className="w-full mb-3" />
-                  <div className="price flex justify-between items-center">
-                    <p className="text-red-500">₹{card.discprice}</p>
-                    <p className="mr-4 text-[#b6b7b7]">
-                      ₹<s>{card.orgprice}</s>
-                    </p>
-                  </div>
-                  <div className="flex justify-start mt-4">
-                    <div className="flex justify-center items-center reviews">
-                    {[...Array(parseInt(card.star, 10))].map((_, i) => (
-                      <Star key={i} size={24} color="#FFD700" />
-                    ))}
+            navigation={true}
+            modules={[Autoplay, Navigation]}
+            className="mySwiper "
+          >
+            {upcomingMovies.map((card) => {
+              return (
+                <>
+                <SwiperSlide key={card.desc}  className=" ">
+                <div
+                  className="card transform hover:scale-110 duration-300 transition cursor-pointer"
+                  key={card.desc}
+                >
+                  <img src={card.img} className="w-full h-full object-cover" />
+                  <div className="card-content">
+                    <h3 className="font-medium text-2xl">{card.desc}</h3>
+                    <hr className="w-full mb-3" />
+                    <div className="price flex justify-between items-center">
+                      <p className="text-red-500">₹{card.discprice}</p>
+                      <p className="mr-4 text-[#b6b7b7]">
+                        ₹<s>{card.orgprice}</s>
+                      </p>
                     </div>
-                    <div className="flex ml-2">({card.review})</div>
+                    <div className="flex justify-start mt-4">
+                      <div className="flex justify-center items-center reviews">
+                        {[...Array(parseInt(card.star, 10))].map((_, i) => (
+                          <Star key={i} size={24} color="#FFD700" />
+                        ))}
+                      </div>
+                      <div className="flex ml-2">({card.review})</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })
-          
-          
-          
-          }
+                </SwiperSlide>
+                
+                </>
+              );
+            })}
+          </Swiper>
         </div>
       </div>
 

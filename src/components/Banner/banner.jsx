@@ -12,10 +12,7 @@ import BannerContent from "../BannerContent";
 const Banner = () => {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
-  const onAutoplayTimeLeft = (s, time, progress) => {
-    progressCircle.current.style.setProperty("--progress", 1 - progress);
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-  };
+  
 
   return (
     <Swiper
@@ -31,7 +28,7 @@ const Banner = () => {
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper"
-      // onAutoplayTimeLeft={onAutoplayTimeLeft}
+      
     >
       <>
         {bannerContent.map((banner) => {

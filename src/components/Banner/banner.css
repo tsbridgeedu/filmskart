@@ -1,6 +1,9 @@
 .swiper {
   width: 100%;
+  padding: 0px 20px;
   height: 100%;
+  /* place-self: center; */
+ 
 }
 
 .mySwiper .swiper-pagination-bullet {
