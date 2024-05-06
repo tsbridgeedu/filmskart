@@ -7,8 +7,8 @@ const Footer = () => {
   return (
    
 
-    <div className="footer">
-      <div className="footer_data_box">
+    <div className="footer ">
+      <div className="footer_data_box sticky ">
           <div>
             <div className="footer_data_inner-box">
               <h1>Filmskart</h1>
@@ -54,8 +54,8 @@ const Footer = () => {
                   <div className="footer_data_photos">
                     <img src="qr-code.jpeg" style={{width:"100px", height:"100px"}}/>
                     <div className="footer_data_store-imgs">
-                      <img id="image1" src="https://s3-alpha-sig.figma.com/img/a61d/4c71/10b18ab55a1e1a07ebf54a46ebb07284?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fgPJPDOkjOzTLWKR7wszqR0ssOwr3~CZ4YH2bz7g4qIOXB0MF3H1VhvNREaYkkOZilLfzTyiNpyldGbWB2Dy2wOeu3h7Wr49I8CrxYycwsWE1io-EYsnRXN0ZS1yoLHs3B2NrRBgulsj7O9h~IPFFGv33iVw6ZUbysJXp6UmNXfjfy8DJSZ2~d59UVn0BPwhHOz1KuXaiG~zqVLXgommnLIhzZWQ04NrK9GY2zYoMfrybCFtk6Y6e3vJtwgFYKs-t4w-V-uJvxmNopP~4KtvW3qYkg1UWDiZnzBAvquwQ6~kk-JgVm7r2a2GUYy4ZpEpRxzT5GUi8iX0tVtZfdtGTw__" style={{width:"103px",height:"62px", }}/>
-                      <img id="image2" src="https://s3-alpha-sig.figma.com/img/3893/2d5a/ccb54c528f9bcf326ca48ea29bd6d890?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AQLXVPK1Ix9GXVm7URurjHq58dSTWPxrm88s8NHat87d-ino76xn6ibbKjYaaYWsw4nnp39xCMfYMN01WiPtGZdJz408zvMSUalBDY1XaqV8PBOrmIGzW6f3K5C8Z4lNcqifMpkbYXivYh-x01IPnBuTp1q8tERa2PrCMp-7ikalzEmH~TrUZraztT~WnEHt8iBOrUkKrm1mYPm3DExW3cI-C2ekkF0WiR-lGN8jtTYIBBvXkMVFZfUobuLgfL8ohzM0La1jN6TPWnHyvhr73r~Ozc9rTmTe1GJ9XdYRNdZCxcPJ-SottEmqpC~OBSvFSkrjojLiDUeb-cTvvXF1gw__" style={{width:"103px",height:"65px", }} />
+                      <img id="image1" src="/appstore.jpeg" className="w-32  pb-4 pl-3 object-contain"/>
+                      <img id="image2" src="googleplay.jpeg" className="w-32 pb-4 pl-3 object-contain" />
                     </div>
                   </div>
                   <div className="footer_data_icons">

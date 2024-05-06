@@ -237,8 +237,9 @@ const EventContent = () => {
                 </div>
               </div>
             </div>
-           
           </div>
+
+          {/* Sidebar Events */}
 
           <div className="flex flex-col max-[1024px]:w-full max-[1024px]:items-center">
             <div className="flex items-center bg-[#fbf9ff] py-5 px-10">
@@ -254,13 +255,90 @@ const EventContent = () => {
 
             <div className="flex bg-[#fbf9ff] mt-5 px-10 flex-col items-center py-5">
               <h1 className="text-2xl font-semibold">Events Category</h1>
-              <hr className="my-5 h-[1px] w-full"/>
+              <hr className="my-5 h-[1px] w-full" />
               <ul className="flex flex-col gap-4 items-start w-full px-3 pb-4 font-light">
-                <li><a href="#" className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors">All</a></li> <hr className="my-2 h-[1px] w-full"/>
-                <li><a href="#" className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors">Celebration(1)</a></li> <hr className="my-2 h-[1px] w-full"/>
-                <li><a href="#" className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors">EDM(2)</a></li> <hr className="my-2 h-[1px] w-full"/>
-                <li><a href="#" className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors">Show(3)</a></li> <hr className="my-2 h-[1px] w-full"/>
-                <li><a href="#" className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors">Sports(4)</a></li> 
+                <li>
+                  <a
+                    href="#"
+                    className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors"
+                  >
+                    All
+                  </a>
+                </li>{" "}
+                <hr className="my-2 h-[1px] w-full" />
+                <li>
+                  <a
+                    href="#"
+                    className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors"
+                  >
+                    Celebration(1)
+                  </a>
+                </li>{" "}
+                <hr className="my-2 h-[1px] w-full" />
+                <li>
+                  <a
+                    href="#"
+                    className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors"
+                  >
+                    EDM(2)
+                  </a>
+                </li>{" "}
+                <hr className="my-2 h-[1px] w-full" />
+                <li>
+                  <a
+                    href="#"
+                    className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors"
+                  >
+                    Show(3)
+                  </a>
+                </li>{" "}
+                <hr className="my-2 h-[1px] w-full" />
+                <li>
+                  <a
+                    href="#"
+                    className="no-underline cursor-pointer hover:text-red-500 duration-300 transition-colors"
+                  >
+                    Sports(4)
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="flex mt-5 px-10 flex-col items-center py-5 bg-[#fbf9ff]">
+              <h1 className="font-semibold text-2xl">Recent Events</h1>
+              <hr className="my-5 h-[1px] w-full" />
+
+              <ul className="w-full py-3">
+                <li className="flex flex-row gap-8 my-10">
+                  <img src="/kantarabanner.jpg" className="w-24" />
+
+                  <div className="flex-col flex">
+                    <span className="text-base font-normal">
+                      The amazing Hubble
+                    </span>
+                    <span className="text-sm font-light">28th Feb, 2024</span>
+                  </div>
+                </li>
+                <li className="flex flex-row gap-8 my-10">
+                  <img src="/kalkibannerimg.jpg" className="w-24" />
+
+                  <div className="flex-col flex">
+                    <span className="text-base font-normal">
+                      Astronomy or Astrology...
+                    </span>
+                    <span className="text-sm font-light">1st May, 2024</span>
+                  </div>
+                </li>
+                <li className="flex flex-row gap-8 my-10">
+                  <img src="/kantarabanner.jpg" className="w-24" />
+
+                  <div className="flex-col flex">
+                    <span className="text-base font-normal">
+                      Rave Party NCR...
+                    </span>
+                    <span className="text-sm font-light">1st May, 2024</span>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
