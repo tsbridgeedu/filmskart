@@ -53,8 +53,10 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li
-            className="relative flex font-semibold text-base uppercase cursor-pointer"
-            onClick={() => setToggleCat(!toggleCat)}
+            className="relative flex font-semibold text-base uppercase cursor-pointer "
+            onMouseEnter={() => setToggleCat(!toggleCat)}
+            onMouseLeave={() => setToggleCat(!toggleCat)}
+            
           >
             Categories
             <div
@@ -65,7 +67,7 @@ const Navbar = () => {
               <div className="flex justify-center w-full">
                 {toggleCat ? <ChevronDown /> : <ChevronUp />}
               </div>
-              <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-8 rounded-md text-white gap-4">
+              <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-8 rounded-md text-[#222] gap-4">
                 <Typography
                   variant="subtitle2"
                   sx={{
@@ -132,20 +134,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      {/* <div className="navbar_box">
-      <div className="navbar_search_div ">
-        <input type="text" placeholder="What are you looking for? " className=""></input>
-        <motion.div 
-         whileHover={{
-          scale: 1.2,
-          transition: { duration: 0.3 },
-        }}
-        whileTap={{ scale: 0.9 }}
-        style={{ width: "24px" }} className="cursor-pointer">
-          <Search size={20}  />
-        </motion.div>
-      </div>
-    </div> */}
+      
 
       <div className="flex gap-4 xl:gap-5 justify-end -mr-5">
         <motion.div

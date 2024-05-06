@@ -18,6 +18,7 @@ import Event from "../pages/Event";
 import TermsAndConditions from "../pages/TermsAndConditions";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 import Layout from "../src/layout/Layout";
+import Account from '../pages/Account'
 
 import Dashboard from "../pages/Admin/Dashboard";
 import AddtoCart from "../pages/AddtoCart";
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
       {
         path:'/user-profile',
         element:<UserSettings />
+      },
+      {
+        path: '/profile',
+        element: <Account />
       }
     ],
   },
