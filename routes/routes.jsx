@@ -17,11 +17,17 @@ import UploadBanner from "../pages/Admin/UploadBanner";
 import Event from "../pages/Event";
 import TermsAndConditions from "../pages/TermsAndConditions";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
-import Layout   from "../src/layout/Layout";
+import Layout from "../src/layout/Layout";
+import Account from '../pages/Account'
 
 import Dashboard from "../pages/Admin/Dashboard";
 import AddtoCart from "../pages/AddtoCart";
-import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
+
+import Checkout from "../pages/Checkout";
+import CheckoutContent from "../src/components/CheckoutContent";
+
+import { AuthenticateWithRedirectCallback, UserProfile } from "@clerk/clerk-react";
+import UserSettings from "../pages/UserSettings";
 
 const router = createBrowserRouter([
   {
@@ -80,15 +86,29 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+        
       },
       {
-        path:'/login',
-        element: <Login />
+        path: "/login",
+        element: <Login />,
+        
       },
-     
+
       {
-        path: '/sso-callback',
-        element: <AuthenticateWithRedirectCallback />
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
+      },
+      {
+        path:'/user-profile',
+        element:<UserSettings />
+      },
+      {
+        path: '/profile',
+        element: <Account />
       }
     ],
   },

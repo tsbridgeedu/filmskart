@@ -20,6 +20,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import CloseFullscreenIcon from "@mui/icons-material/CloseFullscreen";
 import { useUser } from "@clerk/clerk-react";
 import { NavLink } from "react-router-dom";
+import {ArrowDownAZ} from 'lucide-react'
 
 const elements = [
   {
@@ -44,12 +45,21 @@ const elements = [
   },
   {
     index: "4",
+    icon: (
+      <ArrowDownAZ  className="bg-red-500 text-white rounded-xl " />
+    ),
+    title: "Categories",
+    link: "",
+  },
+
+  {
+    index: "5",
     icon: <StadiumIcon className="bg-red-500 text-white rounded-xl " />,
     title: "Events",
     link: "/event",
   },
   {
-    index: "5",
+    index: "6",
     icon: <Groups2Icon className="bg-red-500 text-white rounded-xl " />,
     title: "Fan Club",
     link: "/fan-club",
@@ -57,7 +67,7 @@ const elements = [
 ];
 
 export default function MobileSidebar() {
-  const isSmOrMd = useMediaQuery("(max-width: 960px)");
+  const isSmOrMd = useMediaQuery("(max-width: 1023px)");
   const [state, setState] = React.useState({
     right: false,
   });
@@ -116,7 +126,7 @@ export default function MobileSidebar() {
       <div className="flex justify-center items-center mt-10">
         <button className="px-5 py-2 bg-red-500 text-white rounded-md">
           {isSignedIn ? (
-            `Hey ${user.firstName}`
+            `Hey ${user.firstName || user.username}`
           ) : (
             <NavLink to={"/login"}>Login</NavLink>
           )}

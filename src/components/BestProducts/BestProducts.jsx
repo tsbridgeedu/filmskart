@@ -6,7 +6,7 @@ import { Star } from "lucide-react";
 const BestProducts = () => {
   return (
     <div className="mb-24 mt-24 w-full">
-      <div className="flex justify-between items-center w-full lg:px-10 relative px-4">
+      <div className="flex justify-evenly items-center w-full lg:px-10 relative px-4">
         <div className="start flex justify-center items-center">
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
           <div className="text-red-500 font-semibold lg:text-2xl ml-3 tracking-wider">
@@ -14,7 +14,7 @@ const BestProducts = () => {
           </div>
         </div>
 
-        {/* <div className="flex">
+        <div className="flex">
           <p className="text-black lg:text-6xl font-bold tracking-wide m-head">
             Best Selling
           </p>
@@ -25,7 +25,7 @@ const BestProducts = () => {
             Celebrity Store
           </div>
           <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
-        </div> */}
+        </div>
       </div>
 
       <div className="product-breaker flex ml-36 mr-36 mt-5">
