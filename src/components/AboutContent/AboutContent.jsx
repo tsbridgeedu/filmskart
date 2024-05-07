@@ -123,44 +123,23 @@ const AboutContent = () => {
             <h1 className="text-5xl font-semibold max-[450px]:font-medium">Our Team</h1>
           </div>
 
-          <div className="flex flex-row flex-wrap w-full h-[500px]">
+          
             <Swiper
-              centeredSlides
-              loop
-              autoplay={{
-                delay: 3500,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              // navigation={true}
-              modules={[Autoplay, Pagination]}
-              breakpoints={{
-                320: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 20,
-                },
-                1440: {
-                  slidesPerView: 3,
-                  spaceBetween: 20,
-                },
-                
-              }}
-              cssMode={true}
-              // slidesPerView={'auto'}
-              className="w-[90vw] h-full teamSwiper"
+               pagination={{ clickable: true }}
+               navigation={true}
+               autoplay={{ delay: 3000, disableOnInteraction: false }}
+               scrollbar={{ draggable: true }}
+               modules={[Autoplay, Pagination, Navigation]}
+               breakpoints={{
+                 320: { slidesPerView: 1, spaceBetween: 30 },
+                 768: { slidesPerView: 2, spaceBetween: 30 },
+                 1024: { slidesPerView: 3, spaceBetween: 30 },
+                 1440: { slidesPerView: 4, spaceBetween: 30 },
+               }}
+               className="mySwiper md:px-10 flex justify-center w-full items-center flex-row h-[500px] max-[767px]:px-10"
             >
-              <SwiperSlide className="w-[320px] h-[450px]">
-                <div className="flex flex-col border border-1 w-[320px] h-[450px] ">
+              <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
+                
                   <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
                     <img
                       src="/team-img-1.png"
@@ -186,39 +165,10 @@ const AboutContent = () => {
                       />
                     </span>
                   </div>
-                </div>
+                
               </SwiperSlide>
-              <SwiperSlide className="w-[320px] h-[450px]">
-                <div className="flex flex-col border border-1 w-[320px] h-[450px] ">
-                  <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
-                    <img
-                      src="/team-img-1.png"
-                      alt="teamImage"
-                      className="w-40 self-center "
-                    />
-                  </div>
-                  <div className="flex flex-col items-start  px-3 py-4 mt-7">
-                    <h2 className="font-medium text-2xl">Mass Gajendra</h2>
-                    <span className="text-sm py-2 ">Co-Founder</span>
-                    <span className="flex items-center text-base gap-4 py-2 ">
-                      <Instagram
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <Facebook
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <TwitterIcon
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                    </span>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="w-[320px] h-[450px]">
-                <div className="flex flex-col border border-1 w-[320px] h-[450px] ">
+              <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
+                
                   <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
                     <img
                       src="/team-img-1.png"
@@ -244,10 +194,94 @@ const AboutContent = () => {
                       />
                     </span>
                   </div>
-                </div>
+                
               </SwiperSlide>
+              <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
+                
+                  <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
+                    <img
+                      src="/team-img-1.png"
+                      alt="teamImage"
+                      className="w-40 self-center "
+                    />
+                  </div>
+                  <div className="flex flex-col items-start  px-3 py-4 mt-7">
+                    <h2 className="font-medium text-2xl">Mohit Makhijani</h2>
+                    <span className="text-sm py-2 ">Sr. App Developer</span>
+                    <span className="flex items-center text-base gap-4 py-2 ">
+                      <Instagram
+                        size={18}
+                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                      />
+                      <Facebook
+                        size={18}
+                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                      />
+                      <TwitterIcon
+                        size={18}
+                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                      />
+                    </span>
+                  </div>
+                
+              </SwiperSlide>
+              <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
+                
+                  <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
+                    <img
+                      src="/team-img-1.png"
+                      alt="teamImage"
+                      className="w-40 self-center "
+                    />
+                  </div>
+                  <div className="flex flex-col items-start  px-3 py-4 mt-7">
+                    <h2 className="font-medium text-2xl">Sumit Singh</h2>
+                    <span className="text-sm py-2 ">Sr. Web Developer</span>
+                    <span className="flex items-center text-base gap-4 py-2 ">
+                      <Instagram
+                        size={18}
+                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                      />
+                      <Facebook
+                        size={18}
+                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                      />
+                      <TwitterIcon
+                        size={18}
+                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                      />
+                    </span>
+                  </div>
+                
+              </SwiperSlide>
+            
             </Swiper>
-          </div>
+
+            {/* <Swiper
+       
+      >
+        {AboutPage.map((aboutUs) => (
+          <SwiperSlide
+            key={aboutUs.id}
+            className="flex justify-center flex-col items-center"
+          >
+            <img className="h-80 mb-5" src={aboutUs.img} alt="" />
+            <div className="image_details flex flex-col items-center">
+              <span className="font-semibold text-xl">{aboutUs.title}</span>
+              <span className="text-xs">{aboutUs.owner}</span>
+            </div>
+            <div className="icon flex mt-2 mx-2 text-sm justify-between">
+              <LuTwitter />
+              <span className="mx-3">
+                {" "}
+                <FaInstagram />
+              </span>
+              <SlSocialLinkedin />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper> */}
+          
         </section>
 
 

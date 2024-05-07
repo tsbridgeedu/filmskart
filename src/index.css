@@ -75,3 +75,23 @@
 .cl-internal-27wqok {
   color: #e85a4f;
 }
+
+
+.mng_pfl_crd {
+  perspective: 1000px;
+}
+
+.mng_pfl_crd_inr{
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.mng_pfl_crd_nr_frt,
+.mng_pfl_crd_nr_bck{
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.mng_pfl_crd_nr_bck{
+  transform: rotateY(180deg);
+}
