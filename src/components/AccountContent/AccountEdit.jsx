@@ -7,7 +7,7 @@ import Avatar from "@mui/material/Avatar";
 
 import { useUser } from "@clerk/clerk-react";
 
-import { MailIcon, Pen, PhoneCall, Plus } from "lucide-react";
+import { MailIcon, Pen, PersonStanding, PhoneCall, Plus, User2Icon } from "lucide-react";
 
 import "../../index.css";
 
@@ -42,11 +42,12 @@ const AccountEdit = () => {
         : setPhoneNumber(item.phoneNumber.slice(0))
     );
     setUserName(user?.fullName);
-  }, [email, phoneNumber, userName]);
+    
+  }, []);
 
   return (
     <>
-      <div className="flex h-[600px] flex-col py-8 rounded-md w-[850px] ml-20 border-1 border max-[1024px]:hidden mng_pfl_crd">
+      <div className="flex  flex-col py-8    max-[1023px]:border max-[1023px]:w-[500px] max-[768px]:w-[340px] max-[1023px]:h-[650px] max-[768px]:ml-3 mng_pfl_crd">
         <motion.div
           className="mng_pfl_crd_inr"
           initial={false}
@@ -61,7 +62,7 @@ const AccountEdit = () => {
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 badgeContent={
                   <SmallAvatar
-                    alt="Add IMage Icon"
+                    alt="Add Image Icon"
                     className="cursor-pointer hover:scale-110 duration-300"
                   >
                     <Plus />
@@ -85,21 +86,21 @@ const AccountEdit = () => {
               </span>
             </div>
 
-            <div className="flex flex-col px-10 pt-10 gap-4">
-              <span className="font-semibold flex gap-2 items-center">
+            <div className="flex flex-col px-10 max-[768px]:px-7 pt-10 gap-4">
+              <span className="font-semibold flex gap-2 items-center max-[768px]:text-sm">
                 <PhoneCall size={18} className="" /> Mobile Number:
-                <span className="font-normal">
+                <span className="font-normal max-[768px]:text-sm text-base font-inter">
                   {phoneNumber || "No phone number"}
                 </span>
               </span>
-              <span className="font-semibold flex gap-2 items-center">
+              <span className="font-semibold flex gap-2 items-center max-[768px]:text-sm">
                 <MailIcon size={18} /> Email:
                 <span className="font-normal">{email || "Add Email"}</span>
               </span>
 
-              <span className="font-semibold flex gap-2 justify-center">
-                <Pen size={30} /> Bio:
-                <span className="font-normal text-start">
+              <span className="font-semibold flex gap-2  max-[768px]:text-sm">
+                <User2Icon size={18} /> Bio:
+                <span className="font-normal text-start w-full">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
                   iste eum veniam aperiam velit. Velit ipsam delectus ut ratione
                   in assumenda soluta, illum, hic amet et nulla, rerum totam
@@ -141,7 +142,7 @@ const AccountEdit = () => {
                   placeholder={userName}
                   className="px-5 py-2 outline-none border border-red-500 rounded-md"
                 />
-                <span className="flex items-center">
+                <span className="flex items-center max-[768px]:hidden">
                   <button className="bg-black/10 px-4 rounded-md mr-2">
                     Edit Name
                   </button>
@@ -154,7 +155,7 @@ const AccountEdit = () => {
                   placeholder={phoneNumber}
                   className="px-5 py-2 outline-none border border-red-500 rounded-md"
                 />
-                <span className="flex items-center">
+                <span className="flex items-center max-[768px]:hidden">
                   <button className="bg-black/10 px-4 rounded-md mr-2">
                     Edit Phone
                   </button>
@@ -167,7 +168,7 @@ const AccountEdit = () => {
                   placeholder={email}
                   className="px-5 py-2 outline-none border border-red-500 rounded-md"
                 />
-                <span className="flex items-center">
+                <span className="flex items-center max-[768px]:hidden">
                   <button className="bg-black/10 px-4 rounded-md mr-2">
                     Edit Email
                   </button>
@@ -192,7 +193,7 @@ const AccountEdit = () => {
               </div>
             </div>
 
-            <div className="flex flex-row justify-end w-full mt-6 gap-10 px-5">
+            <div className="flex flex-row justify-end w-full mt-6 max-[1023px]:mt-12 gap-10 px-5">
               <button
                 className="bg-black/10 py-2 px-3 text-black rounded-md cursor-pointer duration-300 hover:scale-110"
                 onClick={cardFlip}

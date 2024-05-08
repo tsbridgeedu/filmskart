@@ -41,9 +41,9 @@ const AccountContent = () => {
       <div className="flex flex-row lg:items-center lg:justify-center md:py-8 py-8 md:px-16 px-0 ">
         {/* Desktop View */}
 
-        <div className="flex flex-col h-[500px] w-[220px] border-1 border md:rounded-md shadow-md max-[1024px]:hidden ">
+        <div className="flex flex-col lg:h-[500px] lg:w-[240px] border-1 border md:rounded-md shadow-md max-[1024px]:hidden ">
           <div className="flex flex-col py-10 px-4">
-            <h1 className="font-semibold pl-2">Manage My Account</h1>
+            <h1 className="font-semibold pl-2">My Account</h1>
             <ul className="flex flex-col text-sm py-3 gap-3 px-5">
               <li
                 className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
@@ -103,7 +103,7 @@ const AccountContent = () => {
             </ul>
           </div>
         </div>
-        <div className="max-[1023px]:hidden">{innerCntnt}</div>
+        <div className="max-[1023px]:hidden w-[830px] h-[600px] border rounded-md  ml-20">{innerCntnt}</div>
 
         {/* Mobile View */}
 
@@ -126,17 +126,17 @@ const AccountContent = () => {
               {sdbrOpen && (
                 <>
                   <div className="flex flex-col py-10 px-4">
-                    <h1 className="font-semibold">Manage My Account</h1>
+                    <h1 className="font-semibold">My Account</h1>
                     <ul className="flex flex-col text-sm py-3 gap-3 px-5">
                       <li
                         className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                        onClick={() => setRoute("Profile")}
+                        onClick={() => {setRoute("Profile"); setInnerCntnt(<AccountEdit />)}}
                       >
                         <span>My Profile</span>
                       </li>
                       <li
                         className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                        onClick={() => setRoute("Address")}
+                        onClick={() => {setRoute("Address"); setInnerCntnt(<AddressEdit />)}}
                       >
                         <span>Address Book</span>
                       </li>

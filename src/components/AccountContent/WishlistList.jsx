@@ -6,7 +6,7 @@ const WishlistList = () => {
   const starCount = [4];
   return (
     <>
-      <div className="flex h-[600px]   flex-col lg:py-8 rounded-md w-[850px]  ml-20 lg:border-1 lg:border max-[1023px]:w-[470px] z-0 relative max-[768px]:ml-3 max-[768px]:w-[320px] max-[1023px]:items-center mng_pfl_crd">
+      <div className="flex    flex-col lg:py-8 rounded-md max-[1023px]:w-[470px] z-0 relative max-[768px]:ml-3 max-[768px]:w-[320px] max-[1023px]:items-center mng_pfl_crd">
         <div className="flex flex-col px-10 ">
           <div className="flex flex-row px-6 py-5 max-[1023px]:py-7 w-full max-[1023px]:justify-center max-[1023px]:border max-[1023px]:rounded-t-md">
             <h2 className="text-xl font-semibold text-red-500">Wishlist:</h2>

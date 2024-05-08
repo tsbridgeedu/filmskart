@@ -3,7 +3,7 @@ import React from "react";
 const CancellationPolicy = () => {
   return (
     <>
-      <div className="flex h-[450px] flex-col py-8 rounded-md w-[850px] ml-20 border-1 border max-[1023px]:w-[450px] max-[768px]:w-[340px] max-[1023px]:h-[600px] max-[768px]:ml-3 mng_pfl_crd">
+      <div className="flex h-[450px] flex-col py-8 max-[1023px]:border rounded-md max-[1023px]:w-[450px] max-[768px]:w-[340px] max-[1023px]:h-[600px] max-[768px]:ml-3 mng_pfl_crd">
         <div className="flex flex-col px-10 py-6">
           <h2 className="text-xl font-semibold text-red-500">
             Cancellation Policy:

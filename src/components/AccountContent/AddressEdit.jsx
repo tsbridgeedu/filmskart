@@ -20,7 +20,7 @@ const AddressEdit = () => {
 
   return (
     <>
-      <div className="flex h-[600px] flex-col py-8 rounded-md w-[850px] ml-20 border-1 border max-[1024px]:hidden mng_pfl_crd">
+      <div className="flex  flex-col py-8 rounded-md max-[1023px]:border max-[1023px]:w-[500px] max-[768px]:w-[340px] max-[1023px]:h-[650px] max-[768px]:ml-3 mng_pfl_crd">
         <motion.div
           className="mng_pfl_crd_inr"
           initial={false}
@@ -32,13 +32,13 @@ const AddressEdit = () => {
             <div className="flex flex-col w-full overflow-y-scroll scrollbar h-[450px]">
               <h2 className="text-lg font-semibold">Your Saved Addresses:</h2>
 
-              <div className="flex flex-row w-full gap-3 mt-10">
+              <div className="flex flex-row w-full gap-3 mt-10 max-[768px]:flex-col max-[1023px]:mb-12">
                 {" "}
                 <span className="mt-5 font-medium text-lg w-[110px] relative  h-[30px] text-center">
                   Address 1:{" "}
                   <span className="bg-red-500 w-[80%] h-[3px]  bottom-0 left-2 absolute"></span>
                 </span>
-                <div className="w-[650px] h-[140px]  tracking-wide  flex flex-col">
+                <div className="w-[650px] h-[140px] max-[768px]:w-[250px] max-[768px]:h-[180px]  tracking-wide  flex flex-col">
                   <div className="px-5 py-3 rounded-md bg-black/10  flex flex-col shadow-md ">
                     <span className="font-inter ">{user.fullName},</span>
                     <span className="font-inter ">
@@ -49,7 +49,7 @@ const AddressEdit = () => {
                     </span>
                     <span className="font-inter ">+91 86574 98734</span>
                   </div>
-                  <div className="flex flex-row w-full mt-3 px-2 gap-3">
+                  <div className="flex flex-row w-full mt-3 px-2 gap-3 flex-wrap">
                     <span className="text-xs border border-red-500 px-2 rounded-sm shadow-md cursor-pointer">
                       Default
                     </span>
@@ -66,13 +66,13 @@ const AddressEdit = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row w-full gap-3 mt-10">
+              <div className="flex flex-row w-full max-[768px]:flex-col gap-3 mt-10 max-[1023px]:mb-12">
                 {" "}
                 <span className="mt-5 font-medium text-lg w-[110px] relative  h-[30px] text-center">
                   Address 2:{" "}
                   <span className="bg-red-500 w-[80%] h-[3px]  bottom-0 left-2 absolute"></span>
                 </span>
-                <div className="w-[650px] h-[140px]  tracking-wide  flex flex-col">
+                <div className="w-[650px] h-[140px] max-[768px]:w-[250px] max-[768px]:h-[180px]   tracking-wide  flex flex-col">
                   <div className="px-5 py-3 rounded-md bg-black/10  flex flex-col shadow-md">
                     <span className="font-inter">{user.fullName},</span>
                     <span className="font-inter">
@@ -83,7 +83,7 @@ const AddressEdit = () => {
                     </span>
                     <span className="font-inter">+91 86574 98734</span>
                   </div>
-                  <div className="flex flex-row w-full mt-3 px-2 gap-3">
+                  <div className="flex flex-row w-full mt-3 px-2 gap-3 flex-wrap">
                     <span className="text-xs border border-red-500 px-2 rounded-sm shadow-md">
                       Mark as default
                     </span>
@@ -96,13 +96,13 @@ const AddressEdit = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row w-full gap-3 mt-10">
+              <div className="flex flex-row w-full max-[768px]:flex-col gap-3 mt-10 max-[1023px]:mb-12">
                 {" "}
                 <span className="mt-5 font-medium text-lg w-[110px] relative  h-[30px] text-center">
                   Address 3:{" "}
                   <span className="bg-red-500 w-[80%] h-[3px]  bottom-0 left-2 absolute"></span>
                 </span>
-                <div className="w-[650px] h-[140px]  tracking-wide  flex flex-col">
+                <div className="w-[650px] max-[768px]:w-[250px] max-[768px]:h-[180px] h-[140px]  tracking-wide  flex flex-col">
                   <div className="px-5 py-3 rounded-md bg-black/10  flex flex-col shadow-md">
                     <span className="font-inter">{user.fullName},</span>
                     <span className="font-inter">
@@ -113,7 +113,7 @@ const AddressEdit = () => {
                     </span>
                     <span className="font-inter">+91 86574 98734</span>
                   </div>
-                  <div className="flex flex-row w-full mt-3 px-2 gap-3">
+                  <div className="flex flex-row w-full mt-3 px-2 gap-3 flex-wrap">
                     <span className="text-xs border border-red-500 px-2 rounded-sm shadow-md">
                       Mark as default
                     </span>
@@ -137,11 +137,11 @@ const AddressEdit = () => {
             </div>
           </div>
 
-          <div className="mng_pfl_crd_nr_bck px-8 py-5 w-full">
+          <div className="mng_pfl_crd_nr_bck px-8 py-5 max-[768px]:px-4 w-full">
             <div className="flex flex-col w-full overflow-y-scroll scrollbar h-[450px]">
               <h2 className="text-lg font-semibold">Add Address:</h2>
 
-              <div className="flex flex-col mt-10 px-5 border-x-2 ">
+              <div className="flex flex-col mt-10 max-[768px]:px-2 px-5 border-x-2 ">
                 <div className="flex flex-col gap-1 px-10">
                   <label
                     htmlFor="addressName"
