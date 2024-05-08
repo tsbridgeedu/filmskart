@@ -61,7 +61,7 @@ const Navbar = () => {
             Categories
             <div
               className={`flex flex-col items-center max-w-full absolute w-32 top-6 ${
-                toggleCat ? "opacity-100" : "opacity-0"
+                toggleCat ? "opacity-100" : "opacity-0 hidden"
               } transition-opacity duration-500`}
             >
               <div className="flex justify-center w-full">

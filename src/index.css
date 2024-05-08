@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-
   .input {
     @apply h-[50px] rounded-[8px] w-full outline-none px-6 text-primary;
   }
@@ -17,7 +16,6 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
-
 
 .scrollbar::-webkit-scrollbar {
   width: 10px;
@@ -34,21 +32,20 @@
   background: #dcdcdc;
 }
 
-
 .css-sghohy-MuiButtonBase-root-MuiButton-root {
   background-color: #ee2222;
 }
 
 .cl-formButtonPrimary {
-  background-color: #ee2222; 
+  background-color: #ee2222;
   transition: 0.3s ease-in;
 }
 
-.cl-internal-ttumny[data-variant='solid'][data-color='primary']{
+.cl-internal-ttumny[data-variant="solid"][data-color="primary"] {
   box-shadow: #222 0px 0px 5px 0px;
 }
 
-.cl-formButtonPrimary:hover{
+.cl-formButtonPrimary:hover {
   background-color: #e85a4f;
   transform: scale(1.1);
 }
@@ -60,38 +57,44 @@
 
 .cl-formFieldInput:focus {
   color: #e85a4f;
-  
 }
 
-
 .main__sign__out__btn {
-  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .cl-internal-phfxlr {
-  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .cl-internal-27wqok {
   color: #e85a4f;
 }
 
-
 .mng_pfl_crd {
   perspective: 1000px;
 }
 
-.mng_pfl_crd_inr{
+.mng_pfl_crd_inr {
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 
 .mng_pfl_crd_nr_frt,
-.mng_pfl_crd_nr_bck{
+.mng_pfl_crd_nr_bck {
   position: absolute;
   backface-visibility: hidden;
 }
 
-.mng_pfl_crd_nr_bck{
+.mng_pfl_crd_nr_bck {
   transform: rotateY(180deg);
+}
+
+.font-inter {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }

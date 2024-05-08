@@ -9,6 +9,9 @@ export default {
     extend: {
       colors:{
         primary: '#151618'
+      },
+      fontFamily: {
+        inter: ['Inter']
       }
     },
   },

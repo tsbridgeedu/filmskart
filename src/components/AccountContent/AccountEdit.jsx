@@ -21,6 +21,7 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
 const AccountEdit = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [userName, setUserName] = useState("");
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -35,18 +36,16 @@ const AccountEdit = () => {
 
   useEffect(() => {
     setEmail(user?.emailAddresses.map((item) => item.emailAddress));
-  }, []);
-
-  user?.phoneNumbers.map((item) =>
-    item.phoneNumber.charAt(0) === undefined
-      ? setPhoneNumber("Add Phone Number")
-      : setPhoneNumber(item.phoneNumber.slice(0))
-  );
+    user?.phoneNumbers.map((item) =>
+      item.phoneNumber.charAt(0) === undefined
+        ? setPhoneNumber("Add Phone Number")
+        : setPhoneNumber(item.phoneNumber.slice(0))
+    );
+    setUserName(user?.fullName);
+  }, [email, phoneNumber, userName]);
 
   return (
     <>
-     
-
       <div className="flex h-[600px] flex-col py-8 rounded-md w-[850px] ml-20 border-1 border max-[1024px]:hidden mng_pfl_crd">
         <motion.div
           className="mng_pfl_crd_inr"
@@ -79,7 +78,7 @@ const AccountEdit = () => {
               </Badge>
 
               <span className="mt-7 font-semibold text-2xl">
-                {user?.fullName || "Add name"}
+                {userName || "Add name"}
               </span>
               <span className="mt-1 font-normal text-base">
                 Sr. Full Stack Developer
@@ -139,7 +138,7 @@ const AccountEdit = () => {
               <div className="flex flex-row mt-8 gap-5">
                 <input
                   type="text"
-                  placeholder={user.fullName}
+                  placeholder={userName}
                   className="px-5 py-2 outline-none border border-red-500 rounded-md"
                 />
                 <span className="flex items-center">
