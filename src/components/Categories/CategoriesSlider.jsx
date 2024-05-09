@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import './App.css'
-import { IoIosPhonePortrait } from "react-icons/io";
-import { RiComputerLine } from "react-icons/ri";
-import { BsSmartwatch } from "react-icons/bs";
+import React, { useState } from "react";
+import "../../index.css";
+
+import { FcBusinessman, FcBusinesswoman } from "react-icons/fc";
+import { Baby, Coffee } from "lucide-react";
 import { IoCamera } from "react-icons/io5";
-import { FaHeadphones } from "react-icons/fa6";
+import { FaChildReaching, FaHeadphones } from "react-icons/fa6";
 import { SiYoutubegaming } from "react-icons/si";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -12,152 +12,162 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            onClick={onClick}
-            style={{ ...style, display: "block", background: "#f5f5f5", borderRadius: "100%", width: "46px", height: "46px", top: "50%", }}
+import "./CategoriesSlider.css";
 
-        >< IoIosArrowBack className='icon' style={{ position: "absolute", left: "20%", top: "20%" }} size={28} color='black' />
-        </div>
-    );
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      onClick={onClick}
+      style={{
+        ...style,
+        display: "block",
+        background: "#f5f5f5",
+        borderRadius: "100%",
+        width: "46px",
+        height: "46px",
+        top: "50%",
+      }}
+    >
+      <IoIosArrowBack
+        className="bg-red-500 rounded-full hover:cursor-pointer hover:scale-110 duration-300 ease-out"
+        style={{ position: "absolute", left: "20%", top: "20%" }}
+        size={28}
+        color="white "
+      />
+    </div>
+  );
 }
 
 function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "#f5f5f5", borderRadius: "100%", width: "46px", height: "46px", top: "50%", }}
-            onClick={onClick}
-
-        ><  IoIosArrowForward style={{ position: "absolute", left: "20%", top: "20%" }} size={28} color='black' />
-        </div>
-    );
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "#f5f5f5",
+        borderRadius: "100%",
+        width: "46px",
+        height: "46px",
+        top: "50%",
+      }}
+      onClick={onClick}
+    >
+      <IoIosArrowForward
+        style={{ position: "absolute", left: "20%", top: "20%" }}
+        className="bg-red-500 rounded-full text-white hover:cursor-pointer hover:scale-110 duration-300 ease-out"
+        size={28}
+        color=""
+      />
+    </div>
+  );
 }
 
 const data = [
-    {
-        name: 'Phones',
-        icon: <IoIosPhonePortrait />,
-    },
+  {
+    name: "Men",
+    icon: <FcBusinessman />,
+  },
 
-    {
-        name: 'Computers',
-        icon: <RiComputerLine />,
+  {
+    name: "Women",
+    icon: <FcBusinesswoman />,
+  },
 
-    },
+  {
+    name: "Under 13",
+    icon: <Baby size={45} />,
+  },
 
-    {
-        name: 'Smartwatch',
-        icon: <BsSmartwatch />,
+  {
+    name: "Teens",
+    icon: <FaChildReaching />,
+  },
+  {
+    name: 'Coffee Mugs',
+    icon: <Coffee size={45} />
+  }
+];
 
-    },
+export const CategoriesSlider = () => {
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 2500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    pauseOnHover: true,
 
-    {
-        name: 'Camera',
-        icon: <IoCamera />,
+    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow />,
+    swipeToSlide: true,
 
-    },
-
-    {
-        name: 'Headphones',
-        icon: <FaHeadphones />,
-    },
-
-    {
-        name: 'Gaming',
-        icon: <SiYoutubegaming />,
-
-    },
-]
-
-const CategoriesSlider = () => {
-
-    var settings = {
-        dots: false,
-        infinite: true,
-        speed: 1500,
-        autoplay: true,
-        autoplaySpeed: 2500,
-        cssEase: "linear",
-        slidesToShow: 5,
-        slidesToScroll: 5,
-        pauseOnHover: true,
-        // arrows:false,
-        prevArrow: <SamplePrevArrow />,
-        nextArrow: <SampleNextArrow />,
-        swipeToSlide: true,
-        afterChange: function (index) {
-            console.log(
-                `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-            );
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
         },
-        initialSlide: 0,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 0
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    };
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 0,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
-
-    return (
-        <div className='w-full h-auto m-auto p-[40px]'>
-            <div className='container mt-20'>
-                <div className="flex justify-start items-center">
-                    <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
-                    <div className="text-red-500 font-semibold lg:text-2xl ml-3 tracking-wider">
-                        Categories
-                    </div>
-                </div>
-                <div className="product-breaker flex ml-36 mr-36 mt-2 mb-5">
-                    <hr className="flex w-full bg-red-200 h-[2px] rounded-lg" />
-                </div>
-                <div>
-                    <div className="sub-head">Browse by category </div>
-
-                    <Slider {...settings} className="cat-slider">
-                        {data.map((item, index) => {
-                            return (
-                                <div key={index} className='item border-[1px] border-solid rounded border-[#0000004D]'>
-                                    <div className="info flex justify-center items-center flex-col p-[10px] gap-[10px]">
-                                        <div className="item-icon">
-                                            {item.icon}
-                                        </div>
-                                        <div className="item-name">
-                                            {item.name}
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </Slider>
-                </div>
-
-            </div>
+  return (
+    <div className="w-full h-full  p-10 md:px-20  sm:my-8   flex flex-col ">
+      <div className="flex flex-col h-full w-full justify-between items-between gap-2 border-y-2  sm:border-b-2 sm:py-20 py-10">
+        <div className="flex justify-start items-center">
+          <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
+          <div className="text-red-500 font-semibold lg:text-xl ml-3 tracking-wider">
+            Categories
+          </div>
         </div>
-    );
-}
+        <div className="product-breaker flex pb-5 pt-3 ml-1  mt-2 mb-5">
+          <div className="md:text-4xl text-2xl font-semibold font-inter">
+            Browse by category{" "}
+          </div>
+        </div>
+        <div>
+          <Slider {...settings} className=" w-full ">
+            {data.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className=" w-[150px] hover:scale-110 border-[1px] h-[150px] border-solid rounded border-[#0000004D] hover:bg-red-500 hover:text-white hover:cursor-pointer duration-300 ease-out"
+                >
+                  <div className=" flex h-full justify-center items-center flex-col p-2 gap-4">
+                    <div className="text-5xl">{item.icon}</div>
+                    <div className="text-lg">{item.name}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </Slider>
+        </div>
+      </div>
+    </div>
+  );
+};
