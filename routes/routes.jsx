@@ -1,4 +1,4 @@
-import { Routes, Route, createBrowserRouter } from "react-router-dom";
+import { Routes, Route, createBrowserRouter, useRoutes } from "react-router-dom";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
@@ -29,7 +29,8 @@ import CheckoutContent from "../src/components/CheckoutContent";
 import { AuthenticateWithRedirectCallback, UserProfile } from "@clerk/clerk-react";
 import UserSettings from "../pages/UserSettings";
 
-const router = createBrowserRouter([
+const Router = () => {
+return useRoutes([
   {
     path: "/",
     element: <Layout />,
@@ -113,5 +114,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+}
 
-export default router;
+export default Router;

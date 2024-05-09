@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../Hero/hero.css";
-import { productCards } from "../../../constants/constant";
 
 import { Star } from "lucide-react";
+import axios from "axios";
+
 const BestProducts = () => {
+  const [productCards, setProductCards] = useState([]);
+  const BASE_URL = import.meta.env.VITE_NODE_URL;
+  useEffect(() => {
+    async function getProductData() {
+      await axios
+        .get(`${BASE_URL}/product-data`)
+        .then((res) => setProductCards(res.data));
+    }
+    getProductData();
+  }, []);
+
   return (
     <div className="mb-24 mt-24 w-full">
       <div className="flex justify-evenly items-center w-full lg:px-10 relative px-4">
@@ -32,7 +44,7 @@ const BestProducts = () => {
         <hr className="flex w-full  mt-1 bg-red-200 h-[2px] rounded-lg" />
       </div>
       <div className="card-container ">
-        {productCards.map((card) => {
+        {productCards?.map((card) => {
           const starsQuantity = parseInt(card.star, 10);
           const stars = Array.from({ length: starsQuantity }).map((_, i) => (
             <Star key={i} size={24} color="#FFD700" />
