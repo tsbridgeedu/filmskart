@@ -41,7 +41,7 @@ const Navbar = () => {
               className="nav-items font-semibold text-base uppercase "
               to={"/about"}
             >
-              About
+              About Us
             </NavLink>
           </li>
           <li>
@@ -49,7 +49,7 @@ const Navbar = () => {
               className="nav-items font-semibold text-base uppercase"
               to={"/contact"}
             >
-              Contact
+              Contact Us
             </NavLink>
           </li>
           <li
