@@ -100,3 +100,14 @@
 }
 
 
+
+
+.mySwiperSlide  {
+  width: 20%;
+  background: #000;
+}
+
+.cat-slider .slick-slide {
+  padding: 20px 20px;
+  
+}

@@ -18,7 +18,7 @@ import {
 import BannerContent from "../BannerContent";
 
 import axios from "axios";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+
 
 const Banner = () => {
   const BASE_URL = import.meta.env.VITE_NODE_URL;
