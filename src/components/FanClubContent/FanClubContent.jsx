@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import './fanClub.css'
+import './fanClub.css';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowBigDown, ArrowBigDownDash, ArrowBigRight } from "lucide-react";
 import { FaSearch } from "react-icons/fa";
-import { useTypewriter, Cursor } from 'react-simple-typewriter'
-import FanClubVideo from '../../assets/fan-club.mp4'
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import FanClubVideo from '../../assets/fan-club.mp4';
 import CountUp from 'react-countup';
 
 const FanClubContent = () => {
@@ -38,7 +38,7 @@ const FanClubContent = () => {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
-        // onAutoplayTimeLeft={onAutoplayTimeLeft}
+      // onAutoplayTimeLeft={onAutoplayTimeLeft}
       >
         <SwiperSlide className="py-3 px-2 rounded-lg">
           <FanClubBanner />
@@ -46,7 +46,7 @@ const FanClubContent = () => {
       </Swiper>
 
       <div className="flex flex-col justify-between items-center gap-[35px] mt-10 mb-10">
-        
+
         <div className="fan-header flex flex-wrap justify-between items-center gap-16 w-full px-[30px]">
           <div className="flex justify-start items-center">
             <div className="bg-red-500 w-2 h-10 rounded-md"></div>
@@ -54,22 +54,22 @@ const FanClubContent = () => {
               Fan Clubs
             </div>
             <div className="clap-board mb-2 ml-[5px] self-end ">
-              <img className="sm:w-[30px] sm:h-[30px] md:w-[40px] md:h-[40px]" src="clap-board-gif.gif" alt="clap-board-gif" width='45px' height='45px'  />
+              <img className="sm:w-[30px] sm:h-[30px] md:w-[40px] md:h-[40px]" src="clap-board-gif.gif" alt="clap-board-gif" width='45px' height='45px' />
             </div>
           </div>
 
           <div className="search-bar flex items-center rounded-full border-4 border-red-500 lg:w-[500px] md:w-[400px] sm:w-[350px] px-[10px] py-[10px] relative">
-            <div className="px-[5px]"><FaSearch size={20}/></div>
-            <input className='w-full ml-[10px] border-none outline-none' type="search" id="searchItem" name="person_name" placeholder="Search for your favourite star"/>
+            <div className="px-[5px]"><FaSearch size={20} /></div>
+            <input className='w-full ml-[10px] border-none outline-none' type="search" id="searchItem" name="person_name" placeholder="Search for your favourite star" />
           </div>
         </div>
 
         <h1 className="self-start pl-[40px] pr-[10px] text-3xl font-semibold">Fan Clubs Await: Dive In & Connect</h1>
-        
+
 
         <div className="flex justify-center items-center gap-16 flex-wrap mx-5" id="explore-fan-clubs">
-          {data.map((card,index) => {
-            return(
+          {data.map((card, index) => {
+            return (
               <div key={index} className="flex flex-col justify-center items-center min-w-[180px] rounded-xl cursor-pointer shadow-lg shadow-gray-400 hover:shadow-gray-600 transition-transform duration-[0.2s] hover:scale-105">
                 <img
                   className="h-[300px] w-[300px] object-cover rounded-t-xl"
@@ -83,35 +83,33 @@ const FanClubContent = () => {
                   className="w-1/2 mb-5 rounded-full py-2 text-lg text-white font-medium bg-gradient-to-r from-[#f75700] to-[#f90000] hover:bg-gradient-to-l">
                   Join now
                 </button>
-              </div>  
-              )   
-            })}
-        </div> 
+              </div>
+            )
+          })}
+        </div>
       </div>
 
       <div className="font-medium bg-gradient-to-r from-[#f75700] to-[#f90000] flex flex-wrap gap-10 w-full sm:h-44 h-full mt-10 mb-14 justify-around items-center py-5 px-5">
-          <div className="flex flex-col justify-center items-center gap-3 text-[#fff]">
-            <div className="text-5xl"><CountUp start={0} end={20} duration={2} delay={0} separator=""
-  suffix="+"/></div>
-            <div className="bg-white w-[40px] h-[8px]"></div>
-            <p className="text-[22px]">
-              Years in the Business
-            </p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-3 text-[#fff] my-5">
-            <div className="text-5xl"><CountUp start={0} end={100} duration={2} delay={0} separator=""
-  suffix="+"/></div>
-            <div className="bg-white w-[40px] h-[8px]"></div>
-            <p className="text-[22px]">Satisfied Client</p>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-3 text-[#fff] my-5">
-            <div className="text-5xl"><CountUp start={0} end={1000} duration={2} delay={0} separator=""
-  suffix="+" /></div>
-            <div className="bg-white w-[40px] h-[8px]"></div>
-            <p className="text-[22px]">Satisfied Fan</p>
-          </div>
+        <div className="flex flex-col justify-center items-center gap-3 text-[#fff]">
+          <div className="text-5xl"><CountUp start={0} end={20} duration={2} delay={0} separator="" suffix="+" enableScrollSpy={true}>{({ countUpRef }) => <span ref={countUpRef} />}</CountUp><br /><span id="counter" /></div>
+          <div className="bg-white w-[40px] h-[8px]"></div>
+          <p className="text-[22px]">
+            Years in the Business
+          </p>
         </div>
+        <div className="flex flex-col justify-center items-center gap-3 text-[#fff] my-5">
+          <div className="text-5xl"><CountUp start={0} end={100} duration={2} delay={0} separator="" suffix="+" enableScrollSpy={true}>{({ countUpRef }) => <span ref={countUpRef} />}</CountUp></div>
+          <div className="bg-white w-[40px] h-[8px]"></div>
+          <p className="text-[22px]">Satisfied Client</p>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-3 text-[#fff] my-5">
+          <div className="text-5xl"><CountUp start={0} end={1000} duration={2} delay={0} separator="" suffix="+" enableScrollSpy={true}>{({ countUpRef }) => <span ref={countUpRef} />}</CountUp></div>
+          <div className="bg-white w-[40px] h-[8px]"></div>
+          <p className="text-[22px]">Satisfied Fan</p>
+        </div>
+      </div>
 
+      
     </div>
 
   );
@@ -119,60 +117,60 @@ const FanClubContent = () => {
 
 export default FanClubContent;
 
-const data=[
+const data = [
   {
-    name:'Chiranjeevi',
-    img:'/star1.jpg',
+    name: 'Chiranjeevi',
+    img: '/star1.jpg',
   },
 
   {
-    name:'Bala Krishna',
-    img:'/star2.jpg',
+    name: 'Bala Krishna',
+    img: '/star2.jpg',
   },
 
   {
-    name:'Prabhas',
-    img:'/star3.jpg',
+    name: 'Prabhas',
+    img: '/star3.jpg',
   },
 
   {
-    name:'Anushka Shetty',
-    img:'/star8.jpg',
+    name: 'Anushka Shetty',
+    img: '/star8.jpg',
   },
 
   {
-    name:'Mahesh Babu',
-    img:'/star11.jpg',
+    name: 'Mahesh Babu',
+    img: '/star11.jpg',
   },
 
   {
-    name:'Pawan Kalyan',
-    img:'/star12.jpg',
+    name: 'Pawan Kalyan',
+    img: '/star12.jpg',
   },
 
   {
-    name:'Tamanna',
-    img:'/star6.jpg',
+    name: 'Tamanna',
+    img: '/star6.jpg',
   },
 
   {
-    name:'Allu Arjun',
-    img:'/star4.jpg',
+    name: 'Allu Arjun',
+    img: '/star4.jpg',
   },
 
   {
-    name:'Samantha',
-    img:'/star9.jpg',
+    name: 'Samantha',
+    img: '/star9.jpg',
   },
 
   {
-    name:'Nagarjuna',
-    img:'/star10.jpg',
+    name: 'Nagarjuna',
+    img: '/star10.jpg',
   },
 
   {
-    name:'kajal Agarwal',
-    img:'/star7.jpg',
+    name: 'kajal Agarwal',
+    img: '/star7.jpg',
   },
 
 
@@ -190,7 +188,7 @@ const FanClubBanner = () => {
   return (
     <Link className="fan-club-banner relative block w-full xl:h-[85vh] lg:h-[85vh] md:h-[80vh] sm:h-[80vh]">
       <video
-        
+
         className="w-full h-full object-cover blur-[2px]"
 
         alt="fan-club-banner"
