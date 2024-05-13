@@ -12,15 +12,9 @@ import { ArrowBigDown, ArrowBigDownDash, ArrowBigRight } from "lucide-react";
 import { FaSearch } from "react-icons/fa";
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import FanClubVideo from '../../assets/fan-club.mp4'
-import CountUp,{useCountUp} from 'react-countup';
+import CountUp from 'react-countup';
 
 const FanClubContent = () => {
-
-  useCountUp({
-    ref:'counter',
-    enableScrollSpy:true,
-    scrollSpyDelay:1000,
-  });
 
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
@@ -73,7 +67,7 @@ const FanClubContent = () => {
         <h1 className="self-start pl-[40px] pr-[10px] text-3xl font-semibold">Fan Clubs Await: Dive In & Connect</h1>
         
 
-        <div className="flex justify-center items-center gap-16 flex-wrap mx-5">
+        <div className="flex justify-center items-center gap-16 flex-wrap mx-5" id="explore-fan-clubs">
           {data.map((card,index) => {
             return(
               <div key={index} className="flex flex-col justify-center items-center min-w-[180px] rounded-xl cursor-pointer shadow-lg shadow-gray-400 hover:shadow-gray-600 transition-transform duration-[0.2s] hover:scale-105">
@@ -95,23 +89,26 @@ const FanClubContent = () => {
         </div> 
       </div>
 
-      <div class="font-medium bg-gradient-to-r from-[#f75700] to-[#f90000] flex flex-wrap gap-10 w-full sm:h-44 h-full mt-10 mb-14 justify-around items-center py-5 px-5">
-          <div class="flex flex-col justify-center items-center gap-3 text-[#fff]">
-            <div className="text-5xl"><CountUp start={0} end={20} duration={2} delay={0} enableScrollSpy/>+</div>
+      <div className="font-medium bg-gradient-to-r from-[#f75700] to-[#f90000] flex flex-wrap gap-10 w-full sm:h-44 h-full mt-10 mb-14 justify-around items-center py-5 px-5">
+          <div className="flex flex-col justify-center items-center gap-3 text-[#fff]">
+            <div className="text-5xl"><CountUp start={0} end={20} duration={2} delay={0} separator=""
+  suffix="+"/></div>
             <div className="bg-white w-[40px] h-[8px]"></div>
-            <p class="text-[22px]">
+            <p className="text-[22px]">
               Years in the Business
             </p>
           </div>
-          <div class="flex flex-col justify-center items-center gap-3 text-[#fff] my-5">
-            <div className=" text-5xl"><CountUp start={0} end={100} duration={2} delay={0} enableScrollSpy/>+</div>
+          <div className="flex flex-col justify-center items-center gap-3 text-[#fff] my-5">
+            <div className="text-5xl"><CountUp start={0} end={100} duration={2} delay={0} separator=""
+  suffix="+"/></div>
             <div className="bg-white w-[40px] h-[8px]"></div>
-            <p class="text-[22px]">Satisfied Client</p>
+            <p className="text-[22px]">Satisfied Client</p>
           </div>
-          <div class="flex flex-col justify-center items-center gap-3 text-[#fff] my-5">
-            <div className="text-5xl"><CountUp start={0} end={1000} duration={2} delay={0} enableScrollSpy/>+</div>
+          <div className="flex flex-col justify-center items-center gap-3 text-[#fff] my-5">
+            <div className="text-5xl"><CountUp start={0} end={1000} duration={2} delay={0} separator=""
+  suffix="+" /></div>
             <div className="bg-white w-[40px] h-[8px]"></div>
-            <p class="text-[22px]">Satisfied Fan</p>
+            <p className="text-[22px]">Satisfied Fan</p>
           </div>
         </div>
 
