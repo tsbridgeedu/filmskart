@@ -19,6 +19,7 @@ import { Divider, Typography } from "@mui/material";
 
 const Navbar = () => {
   const [toggleCat, setToggleCat] = useState(false);
+  const [toggleAbout, setToggleAbout] = useState(false);
   return (
     <div className="navbar">
       <div className="navbar_box flex w-[9rem] cursor-pointer ">
@@ -36,13 +37,59 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className="nav-items font-semibold text-base uppercase "
-              to={"/about"}
+          <li
+            className="relative flex font-semibold text-base uppercase cursor-pointer "
+            onMouseEnter={() => setToggleAbout(!toggleAbout)}
+            onMouseLeave={() => setToggleAbout(!toggleAbout)}
+          >
+            About Us
+            <div
+              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${
+                toggleAbout ? "opacity-100" : "opacity-0 hidden"
+              } transition-opacity duration-500`}
             >
-              About Us
-            </NavLink>
+              <div className="flex justify-center w-full">
+                {toggleAbout ? <ChevronDown /> : <ChevronUp />}
+              </div>
+              <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-10 rounded-md text-[#222] gap-4">
+                <NavLink to='/about'>
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    textAlign: "center",
+                    letterSpacing: "2px",
+                    fontFamily: "Poppins",
+                    fontWeight: "600",
+                    paddingX: 5,
+                  }}
+                >
+                  Our Story
+                </Typography>
+                </NavLink>
+                <Divider
+                  sx={{
+                    height: "2px",
+                    bgcolor: "#ee2222",
+                  }}
+                />
+              <NavLink to='/partners'>
+              <Typography
+                  variant="subtitle2"
+                  sx={{
+                    textAlign: "center",
+                    letterSpacing: "2px",
+                    fontFamily: "Poppins",
+                    fontWeight: "600",
+                    paddingX: 5,
+                    width: 'full'
+                  }}
+                >
+                  Our Partners
+                </Typography>
+              </NavLink>
+              </div>
+            </div>
+            <div></div>
           </li>
           <li>
             <NavLink
@@ -56,18 +103,17 @@ const Navbar = () => {
             className="relative flex font-semibold text-base uppercase cursor-pointer "
             onMouseEnter={() => setToggleCat(!toggleCat)}
             onMouseLeave={() => setToggleCat(!toggleCat)}
-            
           >
             Categories
             <div
-              className={`flex flex-col items-center max-w-full absolute w-32 top-6 ${
+              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${
                 toggleCat ? "opacity-100" : "opacity-0 hidden"
               } transition-opacity duration-500`}
             >
               <div className="flex justify-center w-full">
                 {toggleCat ? <ChevronDown /> : <ChevronUp />}
               </div>
-              <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-8 rounded-md text-[#222] gap-4">
+              <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
                 <Typography
                   variant="subtitle2"
                   sx={{
@@ -113,6 +159,42 @@ const Navbar = () => {
                 >
                   Teens
                 </Typography>
+                <Divider
+                  sx={{
+                    height: "2px",
+                    bgcolor: "#ee2222",
+                  }}
+                />
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    textAlign: "center",
+                    letterSpacing: "2px",
+                    fontFamily: "Poppins",
+                    fontWeight: "600",
+                    maxWidth: 'full',
+                  }}
+                  className="w-full"
+                >
+                  Coffee Mugs
+                </Typography>
+                <Divider
+                  sx={{
+                    height: "2px",
+                    bgcolor: "#ee2222",
+                  }}
+                />
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    textAlign: "center",
+                    letterSpacing: "2px",
+                    fontFamily: "Poppins",
+                    fontWeight: "600",
+                  }}
+                >
+                  Under 13
+                </Typography>
               </div>
             </div>
           </li>
@@ -134,7 +216,6 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      
 
       <div className="flex gap-4 xl:gap-5 justify-end -mr-5">
         <motion.div
