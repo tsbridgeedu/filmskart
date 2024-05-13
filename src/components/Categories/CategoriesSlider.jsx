@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../../index.css";
-
 import { FcBusinessman, FcBusinesswoman } from "react-icons/fc";
 import { Baby, Coffee } from "lucide-react";
 import { IoCamera } from "react-icons/io5";
