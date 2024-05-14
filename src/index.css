@@ -111,3 +111,19 @@
   padding: 20px 20px;
   
 }
+
+.partner-slider .slick-slide {
+  padding: 20px 20px;
+}
+
+.partner-slider{
+  padding: 0px 10px;
+}
+
+.partner-slider .slick-list{
+  padding: 10px 0px;
+}
+
+.slick-arrow.slick-prev:before, .slick-arrow.slick-next:before{
+  content: '' !important;
+}
