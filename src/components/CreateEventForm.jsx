@@ -81,9 +81,10 @@ export default function CreateEventForm() {
   return (
     <div>
       <Toaster position="top-center" />
+      <NavLink to='/event-creation'>
       <Button
-        onClick={handleOpen}
-        // id='event__organize__button'
+        
+       
         sx={{
           backgroundColor: "#ef4444",
           ":hover": {
@@ -97,8 +98,9 @@ export default function CreateEventForm() {
       >
         Organize an Event
       </Button>
+      </NavLink>
 
-      <Modal
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -367,7 +369,7 @@ export default function CreateEventForm() {
             </Button>
           </Box>
         )}
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
