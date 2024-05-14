@@ -5,11 +5,7 @@
   --white: #fff;
 }
 
-.bg-color {
-  background-color: #3a6ea5;
-  font-size: 15px;
-  letter-spacing: 2px;
-}
+
 .heading {
   font-size: larger;
 }
@@ -123,12 +119,12 @@
 }
 
 .terms_services .tc_foot button.decline_btn:hover {
-  background: var(--bg-clr);
+  background: #ee2222;
   color: var(--white);
 }
 
 .terms_services .tc_foot button.accept_btn:hover {
-  background: var(--bg-clr);
+  background: #ee2222;
   color: var(--white);
 }
 

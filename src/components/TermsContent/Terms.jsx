@@ -29,16 +29,16 @@ const Terms = () => {
       toast.error('Uhh Ohh! Declined')
     }
   return (
-    <div className="wrapper flex_align_justify bg-color scrollbar">
+    <div className="wrapper flex_align_justify bg-color scrollbar text-black bg-red-500">
       <Toaster position='top-center' />
-      <div className="terms_services ">
+      <div className="terms_services my-32 ">
         <div className="tc_item tc_head flex_align_justify">
-          <div className="icon flex_align_justify">
+          <div className="w-10 h-10 bg-red-500 text-white rounded-full flex justify-center items-center mr-5">
             <SquareTerminal />
           </div>
-          <div className="text">
-            <h2>TERMS OF SERVICE</h2>
-            <p>Last updated on APRIL 2024</p>
+          <div className="text-black">
+            <h2 className="font-bold">TERMS OF SERVICE</h2>
+            <p className="text-sm">Last updated on APRIL 2024</p>
           </div>
         </div>
         <div className="tc_item tc_body scrollbar">

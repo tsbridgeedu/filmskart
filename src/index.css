@@ -79,7 +79,16 @@
   perspective: 1000px;
 }
 
+.upcmvs__crd__cntr {
+  perspective: 1000px;
+}
+
 .mng_pfl_crd_inr {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.upcmvs__crd{
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
@@ -90,7 +99,17 @@
   backface-visibility: hidden;
 }
 
+.upcmvs__frt,
+.upcmvs__bck {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
 .mng_pfl_crd_nr_bck {
+  transform: rotateY(180deg);
+}
+
+.upcmvs__bck{
   transform: rotateY(180deg);
 }
 
@@ -99,31 +118,28 @@
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-
-
-
-.mySwiperSlide  {
+.mySwiperSlide {
   width: 20%;
   background: #000;
 }
 
 .cat-slider .slick-slide {
   padding: 20px 20px;
-  
 }
 
 .partner-slider .slick-slide {
   padding: 20px 20px;
 }
 
-.partner-slider{
+.partner-slider {
   padding: 0px 10px;
 }
 
-.partner-slider .slick-list{
+.partner-slider .slick-list {
   padding: 10px 0px;
 }
 
-.slick-arrow.slick-prev:before, .slick-arrow.slick-next:before{
-  content: '' !important;
+.slick-arrow.slick-prev:before,
+.slick-arrow.slick-next:before {
+  content: "" !important;
 }
