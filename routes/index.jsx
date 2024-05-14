@@ -9,6 +9,7 @@ import Signup from "../pages/Signup";
 import Product from "../pages/Product";
 import Products from "../pages/Products";
 import Movie from "../pages/Movie";
+import Partners from "../pages/Partners";
 import CategoriesAdmin from "../pages/Admin/CategoriesAdmin";
 import InsertProduct from "../pages/Admin/InsertProduct";
 import Tags from "../pages/Admin/Tags";
@@ -34,6 +35,7 @@ export function RoutesPath() {
         <Route path="/product" element={<Product />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route path="/movie" element={<Movie />}></Route>
+        <Route path="/partners" element={<Partners />}></Route>
         <Route
           path="/terms-and-conditions"
           element={<TermsAndConditions />}

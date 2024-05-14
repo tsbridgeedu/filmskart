@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content .quote, .content .type-text{
+  font-family: "Raleway", sans-serif;
+}
+
+@media (max-width:640px) {
+    .fan-club-banner{
+        height: 80vh;
+    }
+
+    .content .quote{
+        font-size: 25px;
+    }
+
+    .content .motion-button{
+        font-size: 18px;
+    }
+
+    .fan-header{
+        gap: 2rem !important;
+    }
+
+    .search-bar{
+        width: 100%;
+    }
+
+    .fan-header .fan-club-heading{
+        font-size:24px  ;
+    }
+
+}
