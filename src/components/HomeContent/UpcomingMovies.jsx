@@ -135,7 +135,7 @@ const UpcomingMovies = () => {
               return (
                 <div
                   key={item.id}
-                  className="flex flex-col w-[220px] h-64 border  rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl
+                  className="flex flex-col w-[320px] h-80 border  rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl
                   upcmvs__crd__cntr
                   "
                 >
