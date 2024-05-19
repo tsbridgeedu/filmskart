@@ -140,7 +140,7 @@ const PartnersContent = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-between items-center my-10'>
+      <div className='flex flex-col justify-between items-center gap-16 my-10'>
           <div className='flex flex-col justify-center items-center py-14 relative gap-10 w-full'>
             <div className="absolute w-full top-0 bottom-0 -z-10">
                   <img
