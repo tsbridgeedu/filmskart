@@ -1,16 +1,16 @@
 import React from "react";
-import { RouterProvider } from "react-router-dom";
-
-import router from "../routes/routes";
 
 import "./App.css";
 import Router from "../routes/routes";
-
-
+import StairTransition from "./components/animation/StairTransition";
+import PageTransition from "./components/animation/PageTransition";
 const App = () => {
   return (
     <>
-      <Router />
+      <StairTransition />
+      <PageTransition>
+        <Router />
+      </PageTransition>
     </>
   );
 };

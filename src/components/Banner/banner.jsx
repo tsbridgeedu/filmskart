@@ -29,7 +29,7 @@ const Banner = () => {
   useEffect(() => {
     setIsLoading(true);
     async function getBannerData() {
-      await new Promise((resolve) => setTimeout(resolve, 2800));
+      
       await axios.get(`${BASE_URL}/banner-data`).then((item) => {
         setBannerContent(item.data);
         setIsLoading(false);

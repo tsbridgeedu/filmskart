@@ -121,7 +121,7 @@ const Navbar = () => {
                     letterSpacing: "2px",
                     fontFamily: "Poppins",
                     fontWeight: "600",
-                  }}
+                  }}                                                                        
                 >
                   Men
                 </Typography>

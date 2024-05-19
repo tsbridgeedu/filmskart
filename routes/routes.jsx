@@ -29,6 +29,7 @@ import CheckoutContent from "../src/components/CheckoutContent";
 
 import { AuthenticateWithRedirectCallback, UserProfile } from "@clerk/clerk-react";
 import UserSettings from "../pages/UserSettings";
+import EventCreation from "../pages/EventCreation";
 
 const Router = () => {
 return useRoutes([
@@ -115,6 +116,9 @@ return useRoutes([
       {
         path: '/profile',
         element: <Account />
+      },{
+        path: '/event-creation',
+        element: <EventCreation />
       }
     ],
   },
