@@ -140,7 +140,7 @@ const PartnersContent = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-between items-center gap-16 my-10'>
+      <div className='flex flex-col justify-between items-center my-10'>
           <div className='flex flex-col justify-center items-center py-14 relative gap-10 w-full'>
             <div className="absolute w-full top-0 bottom-0 -z-10">
                   <img
@@ -148,7 +148,7 @@ const PartnersContent = () => {
                     className="object-cover w-full h-full blur-[2px]"
                   />
             </div>
-            <h2 className='text-[#fff] text-4xl font-medium tracking-wide'>
+            <h2 className='text-center text-[#fff] text-4xl font-medium tracking-wide'>
               Elevating Cinema Together: Meet Our Valued Collaborators
             </h2>
             <div className="flex justify-start items-center">
@@ -178,12 +178,12 @@ const PartnersContent = () => {
         </div>
 
         <div className='flex items-center justify-around w-full gap-4 px-8 mb-5'>
-          <p className='text-md font-medium tracking-wide'>Ready to make Elevate Fan Experiences? Partner with Filmskart and create Cinematic Magic Together!</p>
-          <button className='bg-red-500 px-8 py-3 rounded-md text-2xl font-medium bg-gradient-to-r from-[#f75700] to-[#f90000] hover:bg-gradient-to-l text-white transition-transform duration-[0.2s] ease-out hover:scale-105'>Join as Partner</button>
+          <p className='text-md font-medium tracking-wide'>Ready to Elevate Fan Experiences? Partner with Filmskart and create Cinematic Magic Together!</p>
+          <button className='px-8 py-3 rounded-md text-2xl font-medium bg-gradient-to-r from-[#f75700] to-[#f90000] hover:bg-gradient-to-l text-white transition-transform duration-[0.2s] ease-out hover:scale-105'>Join as Partner</button>
         </div>
       </div>      
     </>
   )
-}
+};
 
-export default PartnersContent
+export default PartnersContent;
