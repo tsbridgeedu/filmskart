@@ -7,12 +7,13 @@ import {
   Headset,
   IndianRupee,
   Instagram,
+  Linkedin,
   PlaneTakeoff,
   Store,
   TwitterIcon,
 } from "lucide-react";
 
-import './aboutContent.css'
+import "./aboutContent.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -36,20 +37,21 @@ const AboutContent = () => {
               Our Story
             </h1>
             <span className="text-start ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-              numquam et, nulla nostrum molestias iure sunt delectus
-              voluptatibus harum sint atque porro, eum saepe ipsum at quis
-              facere temporibus explicabo? Esse adipisci expedita aspernatur
-              nisi, aliquam, quisquam voluptatem pariatur officiis vitae
-              repellendus quas repellat voluptatum vel laborum nesciunt
-              perferendis iste suscipit quaerat explicabo nemo. Excepturi atque
-              mollitia sint illo in!
+              At <strong>Filmskart</strong>, we bring the magic of the movies to
+              your wardrobe. We specialize in creating unique and high-quality
+              costumes inspired by your favorite films, with a primary focus on
+              designing custom t-shirts. Whether you're a die-hard fan or just
+              looking to add a touch of cinematic flair to your style, we've got
+              you covered.
             </span>
             <span className="text-start py-5 ">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-              quos officia eius qui, quisquam consequuntur itaque sed soluta
-              voluptas at nobis incidunt nisi, nam reiciendis maxime accusantium
-              deleniti debitis minima.
+              At <strong>Filmskart</strong>, our mission is to make movie magic
+              accessible to everyone. We believe that wearing a piece of your
+              favorite film shouldn't be limited to special occasions or
+              premieres - it should be a part of your everyday life. By offering
+              custom-designed t-shirts inspired by the latest movie releases, we
+              aim to bring joy, creativity, and self-expression to movie lovers
+              around the world.
             </span>
           </div>
           <div className="flex w-[525px] max-[768px]:w-[305px]">
@@ -120,144 +122,136 @@ const AboutContent = () => {
 
         <section className="flex flex-col my-16">
           <div className="flex flex-row justify-center py-16 mb-2 w-full">
-            <h1 className="text-5xl font-semibold max-[450px]:font-medium">Our Team</h1>
+            <h1 className="text-5xl font-semibold max-[450px]:font-medium">
+              Our Team
+            </h1>
           </div>
 
-          
-            <Swiper
-               pagination={{ clickable: true }}
-               navigation={true}
-               autoplay={{ delay: 3000, disableOnInteraction: false }}
-               scrollbar={{ draggable: true }}
-               modules={[Autoplay, Pagination, Navigation]}
-               breakpoints={{
-                 320: { slidesPerView: 1, spaceBetween: 30 },
-                 768: { slidesPerView: 2, spaceBetween: 30 },
-                 1024: { slidesPerView: 3, spaceBetween: 30 },
-                 1440: { slidesPerView: 4, spaceBetween: 30 },
-               }}
-               className="mySwiper md:px-10 flex justify-center w-full items-center flex-row h-[500px] max-[767px]:px-10"
-            >
-              <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
-                
-                  <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
-                    <img
-                      src="/team-img-1.png"
-                      alt="teamImage"
-                      className="w-40 self-center "
-                    />
-                  </div>
-                  <div className="flex flex-col items-start  px-3 py-4 mt-7">
-                    <h2 className="font-medium text-2xl">Mudavath Chandar</h2>
-                    <span className="text-sm py-2 ">Founder & Chairman</span>
-                    <span className="flex items-center text-base gap-4 py-2 ">
-                      <Instagram
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <Facebook
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <TwitterIcon
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                    </span>
-                  </div>
-                
-              </SwiperSlide>
-              <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
-                
-                  <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
-                    <img
-                      src="/team-img-1.png"
-                      alt="teamImage"
-                      className="w-40 self-center "
-                    />
-                  </div>
-                  <div className="flex flex-col items-start  px-3 py-4 mt-7">
-                    <h2 className="font-medium text-2xl">Guru Charan</h2>
-                    <span className="text-sm py-2 ">HR</span>
-                    <span className="flex items-center text-base gap-4 py-2 ">
-                      <Instagram
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <Facebook
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <TwitterIcon
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                    </span>
-                  </div>
-                
-              </SwiperSlide>
-              <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
-                
-                  <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
-                    <img
-                      src="/team-img-1.png"
-                      alt="teamImage"
-                      className="w-40 self-center "
-                    />
-                  </div>
-                  <div className="flex flex-col items-start  px-3 py-4 mt-7">
-                    <h2 className="font-medium text-2xl">Mohit Makhijani</h2>
-                    <span className="text-sm py-2 ">Sr. App Developer</span>
-                    <span className="flex items-center text-base gap-4 py-2 ">
-                      <Instagram
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <Facebook
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <TwitterIcon
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                    </span>
-                  </div>
-                
-              </SwiperSlide>
-              <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
-                
-                  <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
-                    <img
-                      src="/team-img-1.png"
-                      alt="teamImage"
-                      className="w-40 self-center "
-                    />
-                  </div>
-                  <div className="flex flex-col items-start  px-3 py-4 mt-7">
-                    <h2 className="font-medium text-2xl">Sumit Singh</h2>
-                    <span className="text-sm py-2 ">Sr. Web Developer</span>
-                    <span className="flex items-center text-base gap-4 py-2 ">
-                      <Instagram
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <Facebook
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                      <TwitterIcon
-                        size={18}
-                        className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
-                      />
-                    </span>
-                  </div>
-                
-              </SwiperSlide>
-            
-            </Swiper>
+          <Swiper
+            pagination={{ clickable: true }}
+            navigation={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            scrollbar={{ draggable: true }}
+            modules={[Autoplay, Pagination, Navigation]}
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 30 },
+              768: { slidesPerView: 2, spaceBetween: 30 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
+              1440: { slidesPerView: 4, spaceBetween: 30 },
+            }}
+            className="mySwiper md:px-10 flex justify-center w-full items-center flex-row h-[500px] max-[767px]:px-10"
+          >
+            <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
+              <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
+                <img
+                  src="/team-img-1.png"
+                  alt="teamImage"
+                  className="w-40 self-center "
+                />
+              </div>
+              <div className="flex flex-col items-start  px-3 py-4 mt-7">
+                <h2 className="font-medium text-2xl">Mudavath Chandar</h2>
+                <span className="text-sm py-2 ">Founder & Chairman</span>
+                <span className="flex items-center text-base gap-4 py-2 ">
+                  <Linkedin
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                  <Instagram
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                  <TwitterIcon
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                </span>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
+              <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
+                <img
+                  src="/team-img-1.png"
+                  alt="teamImage"
+                  className="w-40 self-center "
+                />
+              </div>
+              <div className="flex flex-col items-start  px-3 py-4 mt-7">
+                <h2 className="font-medium text-2xl">Karthik T.V.V</h2>
+                <span className="text-sm py-2 ">Co-Founder</span>
+                <span className="flex items-center text-base gap-4 py-2 ">
+                  <Linkedin
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                  <Instagram
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                  <TwitterIcon
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                </span>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
+              <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
+                <img
+                  src="/team-img-1.png"
+                  alt="teamImage"
+                  className="w-40 self-center "
+                />
+              </div>
+              <div className="flex flex-col items-start  px-3 py-4 mt-7">
+                <h2 className="font-medium text-2xl">Arun Kumar</h2>
+                <span className="text-sm py-2 ">Co-Founder</span>
+                <span className="flex items-center text-base gap-4 py-2 ">
+                  <Linkedin
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                  <Instagram
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                  <TwitterIcon
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                </span>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
+              <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
+                <img
+                  src="/team-img-1.png"
+                  alt="teamImage"
+                  className="w-40 self-center "
+                />
+              </div>
+              <div className="flex flex-col items-start  px-3 py-4 mt-7">
+                <h2 className="font-medium text-2xl">Rishitha Reddy</h2>
+                <span className="text-sm py-2 ">H.R</span>
+                <span className="flex items-center text-base gap-4 py-2 ">
+                  <Linkedin
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                  <Instagram
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                  <TwitterIcon
+                    size={18}
+                    className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
+                  />
+                </span>
+              </div>
+            </SwiperSlide>
+          </Swiper>
 
-            {/* <Swiper
+          {/* <Swiper
        
       >
         {AboutPage.map((aboutUs) => (
@@ -281,34 +275,35 @@ const AboutContent = () => {
           </SwiperSlide>
         ))}
       </Swiper> */}
-          
         </section>
-
 
         <section className="flex my-20">
           <div className="flex flex-row flex-wrap w-full justify-center gap-20 ">
             <div className="flex flex-col w-[280px] h-[200px] items-center justify-center  shadow-lg bg-red-500 hover:bg-[#ffffff] transition-colors duration-300 ease-out hover:cursor-pointer text-white hover:text-[#000000]">
               <span className="w-20 h-20 bg-[#c1c1c1] rounded-full flex items-center justify-center ">
                 <span className="w-14 h-14 bg-[#000000] z-20 text-white flex justify-center items-center rounded-full ">
-                <PlaneTakeoff size={25} />
+                  <PlaneTakeoff size={25} />
                 </span>
               </span>
 
-              <h2 className="font-semibold text-center text-xl pt-3">Free and Fast Delivery <sup>*</sup></h2>
+              <h2 className="font-semibold text-center text-xl pt-3">
+                Free and Fast Delivery <sup>*</sup>
+              </h2>
 
               <span className="text-xs py-4 font-medium">
-                
-               * Free delivery for order above Rs. 500/-
+                * Free delivery for order above Rs. 500/-
               </span>
             </div>
             <div className="flex flex-col w-[280px] h-[200px] items-center justify-center  shadow-lg hover:bg-red-500 transition-colors duration-300 ease-out hover:cursor-pointer hover:text-white">
               <span className="w-20 h-20 bg-[#c1c1c1] rounded-full flex items-center justify-center ">
                 <span className="w-14 h-14 bg-[#000000] z-20 text-white flex justify-center items-center rounded-full">
-                <Headset size={25}/>
+                  <Headset size={25} />
                 </span>
               </span>
 
-              <h2 className="font-semibold text-xl pt-3">24/7 Customer Service</h2>
+              <h2 className="font-semibold text-xl pt-3">
+                24/7 Customer Service
+              </h2>
 
               <span className="text-xs py-4 font-medium">
                 Friendly customer support 24/7
@@ -317,7 +312,7 @@ const AboutContent = () => {
             <div className="flex flex-col w-[280px] h-[200px] items-center justify-center  shadow-lg bg-red-500 hover:bg-[#ffffff] transition-colors duration-300 ease-out hover:cursor-pointer text-white hover:text-[#000000]">
               <span className="w-20 h-20 bg-[#c1c1c1] rounded-full flex items-center justify-center ">
                 <span className="w-14 h-14 bg-[#000000] z-20 text-white flex justify-center items-center rounded-full">
-                <CircleCheckBig size={25}/>
+                  <CircleCheckBig size={25} />
                 </span>
               </span>
 
@@ -327,7 +322,6 @@ const AboutContent = () => {
                 Settlements on time
               </span>
             </div>
-            
           </div>
         </section>
       </div>

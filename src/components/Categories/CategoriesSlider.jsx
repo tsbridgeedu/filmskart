@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../index.css";
-
 import { FcBusinessman, FcBusinesswoman } from "react-icons/fc";
 import { Baby, Coffee } from "lucide-react";
-import { IoCamera } from "react-icons/io5";
-import { FaChildReaching, FaHeadphones } from "react-icons/fa6";
-import { SiYoutubegaming } from "react-icons/si";
+
+import { FaChildReaching } from "react-icons/fa6";
+
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
+import '../../index.css'
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
@@ -87,9 +85,9 @@ const data = [
     icon: <FaChildReaching />,
   },
   {
-    name: 'Coffee Mugs',
-    icon: <Coffee size={45} />
-  }
+    name: "Coffee Mugs",
+    icon: <Coffee size={45} />,
+  },
 ];
 
 export const CategoriesSlider = () => {
@@ -151,7 +149,7 @@ export const CategoriesSlider = () => {
           </div>
         </div>
         <div>
-          <Slider {...settings} className=" w-full ">
+          <Slider {...settings} className=" w-full cat-slider ">
             {data.map((item, index) => {
               return (
                 <div

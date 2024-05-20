@@ -7,7 +7,14 @@ import Avatar from "@mui/material/Avatar";
 
 import { useUser } from "@clerk/clerk-react";
 
-import { MailIcon, Pen, PersonStanding, PhoneCall, Plus, User2Icon } from "lucide-react";
+import {
+  MailIcon,
+  Pen,
+  PersonStanding,
+  PhoneCall,
+  Plus,
+  User2Icon,
+} from "lucide-react";
 
 import "../../index.css";
 
@@ -42,7 +49,6 @@ const AccountEdit = () => {
         : setPhoneNumber(item.phoneNumber.slice(0))
     );
     setUserName(user?.fullName);
-    
   }, []);
 
   return (

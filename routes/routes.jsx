@@ -8,6 +8,7 @@ import Signup from "../pages/Signup";
 import Product from "../pages/Product";
 import Products from "../pages/Products";
 import Movie from "../pages/Movie";
+import Partners from "../pages/Partners";
 import CategoriesAdmin from "../pages/Admin/CategoriesAdmin";
 import InsertProduct from "../pages/Admin/InsertProduct";
 import Tags from "../pages/Admin/Tags";
@@ -28,6 +29,7 @@ import CheckoutContent from "../src/components/CheckoutContent";
 
 import { AuthenticateWithRedirectCallback, UserProfile } from "@clerk/clerk-react";
 import UserSettings from "../pages/UserSettings";
+import EventCreation from "../pages/EventCreation";
 
 const Router = () => {
 return useRoutes([
@@ -73,6 +75,10 @@ return useRoutes([
         element: <Movie />,
       },
       {
+        path: "/partners",
+        element: <Partners />,
+      },
+      {
         path: "/cart",
         element: <AddtoCart />,
       },
@@ -110,6 +116,9 @@ return useRoutes([
       {
         path: '/profile',
         element: <Account />
+      },{
+        path: '/event-creation',
+        element: <EventCreation />
       }
     ],
   },
