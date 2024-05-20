@@ -109,9 +109,25 @@ export const CategoriesSlider = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1600,
         settings: {
           slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -156,7 +172,7 @@ export const CategoriesSlider = () => {
                   key={index}
                   className=" w-[150px] hover:scale-110 border-[1px] h-[150px] border-solid rounded border-[#0000004D] hover:bg-red-500 hover:text-white hover:cursor-pointer duration-300 ease-out"
                 >
-                  <div className=" flex h-full justify-center items-center flex-col p-2 gap-4">
+                  <div className="flex h-full justify-center items-center flex-col p-2 gap-4">
                     <div className="text-5xl">{item.icon}</div>
                     <div className="text-lg">{item.name}</div>
                   </div>
