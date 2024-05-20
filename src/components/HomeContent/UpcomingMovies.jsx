@@ -140,9 +140,9 @@ const UpcomingMovies = () => {
         ) : (
           <Slider
             {...settings}
-            className="w-full cat-slider flex flex-row shadow-3xl"
+            className="w-full cat-slider flex flex-row shadow-3xl "
           >
-            {movieList.map((item, index) => {
+            {movieList.slice(0, 5).map((item, index) => {
               const isFlipped = index === flippedCardIndex;
               return (
                 <div
@@ -157,15 +157,20 @@ const UpcomingMovies = () => {
                     animate={{ rotateY: isFlipped ? 180 : 0 }}
                     transition={{ duration: 0.6, animationDirection: "normal" }}
                   >
-                    <div className="w-full h-full flex justify-center bg-[#f5f5f5] absolute upcmvs__frt">
+                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
                       <img
                         src={item.img}
                         alt="product-image"
-                        className=" w-full h-full object-cover"
+                        className=" w-full h-full object-contain"
                       />
                     </div>
-                    <div className="w-full h-full flex justify-center bg-[#f5f5f5] absolute upcmvs__bck">
-                      <h1>{item.title}</h1>
+                    <div className="w-full h-full flex flex-col  bg-[#f5f5f5] absolute upcmvs__bck">
+                      <h1 className="px-4 font-bold py-4 font-inter text-lg">{item.title}</h1>
+                  <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
+                  <span className="flex-row flex py-2 px-5 justify-between">
+                    <span className="text-sm font-bold font-inter gap-2">{item.ratings}/10</span>
+                    <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md">Know more</button>
+                  </span>
                     </div>
                   </motion.div>
                 </div>

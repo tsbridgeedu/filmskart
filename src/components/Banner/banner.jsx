@@ -22,6 +22,8 @@ import axios from "axios";
 
 const Banner = () => {
   const BASE_URL = import.meta.env.VITE_NODE_URL;
+  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
+  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
   const [isLoading, setIsLoading] = useState(false);
   const [bannerContent, setBannerContent] = useState([]);
@@ -31,11 +33,17 @@ const Banner = () => {
     async function getBannerData() {
       
       await axios.get(`${BASE_URL}/banner-data`).then((item) => {
-        setBannerContent(item.data);
-        setIsLoading(false);
       });
     }
+    async function getBannerJSONData() {
+      await axios.get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/billboards`).then((item) => {
+        setBannerContent(item.data);
+        setIsLoading(false);
+        // console.log(item.data)
+      })
+    }
     getBannerData();
+    getBannerJSONData();
   }, []);
 
   return (

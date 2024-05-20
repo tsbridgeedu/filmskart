@@ -18,7 +18,7 @@ const BannerContent = ({ content }) => {
     <Link to={content.link} key={content.id} className="relative block">
       <img
         className="w-full h-full xl:h-[85vh] object-contain"
-        src={content.img}
+        src={content.imageUrl}
         alt="Banner"
       />
 
@@ -32,8 +32,8 @@ const BannerContent = ({ content }) => {
         style={{ paddingTop: `${navbarHeight}px` }}
       >
         <div className="flex flex-col items-center text-white">
-          <h2 className="text-4xl font-bold">{content.title}</h2>
-          <p className="text-lg">{content.desc}</p>
+          <h2 className="text-4xl font-bold">{content.label}</h2>
+          <p className="text-lg">{content.description}</p>
           <motion.button
             whileHover={{
               scale: 1.2,
