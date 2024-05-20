@@ -61,7 +61,7 @@ const UpcomingMovies = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -152,7 +152,7 @@ const UpcomingMovies = () => {
                       <img
                         src={item.img}
                         alt="product-image"
-                        className=" w-full h-full object-contain"
+                        className=" w-full h-full object-cover"
                       />
                     </div>
                     <div className="w-full h-full flex justify-center bg-[#f5f5f5] absolute upcmvs__bck">

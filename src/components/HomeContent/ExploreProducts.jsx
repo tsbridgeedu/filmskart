@@ -52,7 +52,7 @@ const ExploreProducts = () => {
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: true,
                 },
@@ -76,7 +76,7 @@ const ExploreProducts = () => {
     };
 
     return (
-        <div className=" flex flex-col w-full mt-20 px-4 md:px-20 mb-12">
+        <div className="flex flex-col w-full px-4 md:px-20 mb-20">
             <div className="w-full h-full flex flex-row items-center gap-2">
                 <div className="w-2 rounded-md h-10 bg-red-500"></div>
                 <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
@@ -88,7 +88,7 @@ const ExploreProducts = () => {
             </div>
             <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
                 <div className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold ">
-                    Explore Products
+                    Explore All Products
                 </div>
             </div>
 
@@ -127,7 +127,7 @@ const ExploreProducts = () => {
                             return (
                                 <div
                                     key={key}
-                                    className="flex flex-col w-[220px] h-64 border  rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl "
+                                    className="flex flex-col w-[220px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl "
                                 >
                                     {" "}
                                     <div className="w-full h-full frt_prdct_flsh">
@@ -135,7 +135,7 @@ const ExploreProducts = () => {
                                             <img
                                                 src={item.img}
                                                 alt="product-image"
-                                                className=" w-full h-full object-contain"
+                                                className=" w-full h-full object-cover"
                                             />
                                         </div>
                                     </div>

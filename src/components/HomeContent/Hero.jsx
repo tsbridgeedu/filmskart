@@ -90,7 +90,7 @@ const Hero = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -198,7 +198,7 @@ const Hero = () => {
               return (
                 <div
                   key={key}
-                  className="flex flex-col w-[220px] h-64 border  rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl "
+                  className="flex flex-col w-[220px] h-80 border  rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl "
                 >
                   {" "}
                   <div className="w-full h-full frt_prdct_flsh">
@@ -206,7 +206,7 @@ const Hero = () => {
                       <img
                         src={item.img}
                         alt="product-image"
-                        className=" w-full h-full object-contain"
+                        className=" w-full h-full object-cover"
                       />
                     </div>
                   </div>

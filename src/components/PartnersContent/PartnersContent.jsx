@@ -105,6 +105,14 @@ const PartnersContent = () => {
     initialSlide: 0,
     responsive: [
       {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
@@ -169,7 +177,9 @@ const PartnersContent = () => {
                   >
                     <div className="flex flex-col w-full h-full justify-center items-center gap-4">
                       <img src={item.img} alt="partners" className='w-full h-full' />
-                      <p className="mb-8 ml-4 mr-4 px-5 py-5 text-center absolute w-3/4 top-auto bottom-0 bg-white border-none rounded-md">{item.name}</p>
+                      <div className="mb-8 ml-4 mr-4 px-5 py-5 text-center absolute w-3/4 top-auto bottom-0 bg-white border-none rounded-md">
+                        <p>{item.name}</p>
+                      </div>
                     </div>
                   </div>
                   );
