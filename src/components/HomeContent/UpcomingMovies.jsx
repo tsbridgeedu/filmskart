@@ -11,14 +11,26 @@ const UpcomingMovies = () => {
   const [loading, setLoading] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [flippedCardIndex, setFlippedCardIndex] = useState(null);
 
   const BASE_URL = import.meta.env.VITE_NODE_URL;
+ 
+  // const cardFlip = () => {
+  //   if (!isAnimating) {
+  //     setIsFlipped(!isFlipped);
+  //     setIsAnimating(true);
+  //   }
+  // };
 
-  const cardFlip = () => {
-    if (!isAnimating) {
-      setIsFlipped(!isFlipped);
-      setIsAnimating(true);
-    }
+ 
+
+// ----------I added here----------
+  const handleMouseEnter = (index) => {
+    setFlippedCardIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setFlippedCardIndex(null);
   };
 
   useEffect(() => {
@@ -45,9 +57,7 @@ const UpcomingMovies = () => {
     slidesToScroll: 1,
     pauseOnHover: true,
     rtl: false,
-
     swipeToSlide: true,
-
     initialSlide: 0,
     responsive: [
       {
@@ -83,8 +93,9 @@ const UpcomingMovies = () => {
       },
     ],
   };
+
   return (
-    <div className=" flex flex-col w-full mt-20 px-4 md:px-20">
+    <div className="flex flex-col w-full mt-20 px-4 md:px-20">
       <div className="w-full h-full flex flex-row items-center gap-2">
         <div className="w-2 rounded-md h-10 bg-red-500"></div>
         <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
@@ -95,12 +106,12 @@ const UpcomingMovies = () => {
         </span>
       </div>
       <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
-        <span className="md:text-4xl text-xl flex flex-row   mt-3 font-inter font-semibold ">
+        <span className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold">
           Upcoming Movies
         </span>
       </div>
 
-      <div className="my-10 container flex flex-row w-full h-full border-y-2 ">
+      <div className="my-10 container flex flex-row w-full h-full border-y-2">
         {loading ? (
           <div className="w-full flex flex-col h-64 justify-center items-center">
             <Puff
@@ -129,30 +140,28 @@ const UpcomingMovies = () => {
         ) : (
           <Slider
             {...settings}
-            className=" w-full cat-slider flex flex-row shadow-3xl "
+            className="w-full cat-slider flex flex-row shadow-3xl"
           >
-            {movieList.map((item, key) => {
+            {movieList.map((item, index) => {
+              const isFlipped = index === flippedCardIndex;
               return (
                 <div
                   key={item.id}
-                  className="flex flex-col w-[320px] h-80 border  rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl
-                  upcmvs__crd__cntr
-                  "
+                  className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  {" "}
                   <motion.div
                     className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
                     initial={false}
-                    animate={{ rotateY: isFlipped ? 180 : 360 }}
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
                     transition={{ duration: 0.6, animationDirection: "normal" }}
-                    onAnimationComplete={() => setIsAnimating(false)}
-                    onMouseEnter={cardFlip}
                   >
                     <div className="w-full h-full flex justify-center bg-[#f5f5f5] absolute upcmvs__frt">
                       <img
                         src={item.img}
                         alt="product-image"
-                        className=" w-full h-full object-contain"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     <div className="w-full h-full flex justify-center bg-[#f5f5f5] absolute upcmvs__bck">
@@ -170,3 +179,6 @@ const UpcomingMovies = () => {
 };
 
 export default UpcomingMovies;
+
+
+
