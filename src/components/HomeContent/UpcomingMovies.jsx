@@ -168,7 +168,7 @@ const UpcomingMovies = () => {
                       <h1 className="px-4 font-bold py-4 font-inter text-lg">{item.title}</h1>
                   <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
                   <span className="flex-row flex py-2 px-5 justify-between">
-                    <span className="text-sm font-bold font-inter gap-2">{item.ratings}/10</span>
+                    <span className="text-sm font-bold font-inter gap-2">{item.rating}/10</span>
                     <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md">Know more</button>
                   </span>
                     </div>
