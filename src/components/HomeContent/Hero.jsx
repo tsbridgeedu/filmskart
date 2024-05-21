@@ -10,7 +10,9 @@ const Hero = () => {
     minutes: "",
     seconds: "",
   });
-  const BASE_URL = import.meta.env.VITE_NODE_URL;
+ 
+  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
+  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
   const [flashProducts, setFlashProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,15 +53,19 @@ const Hero = () => {
     const interval = setInterval(updateCountdown, 1000);
 
     setIsLoading(true);
-    async function getBannerData() {
+
+    async function getProductsData() {
       await new Promise((resolve) => setTimeout(resolve, 2800));
-      await axios.get(`${BASE_URL}/product-data`).then((item) => {
-        console.log(item.data);
-        setFlashProducts(item.data);
-        setIsLoading(false);
-      });
+      await axios
+        .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
+        .then((item) => {
+          // console.log(item.data);
+          setFlashProducts(item.data);
+          setIsLoading(false);
+        });
     }
-    getBannerData();
+
+    getProductsData();
     return () => clearInterval(interval);
   }, []);
 
@@ -197,17 +203,21 @@ const Hero = () => {
             {flashProducts.map((item, key) => {
               return (
                 <div
-                  key={key}
+                  key={item.id}
                   className="flex flex-col w-[220px] h-80 border  rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl "
                 >
                   {" "}
                   <div className="w-full h-full frt_prdct_flsh">
                     <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
-                      <img
-                        src={item.img}
-                        alt="product-image"
-                        className=" w-full h-full object-cover"
-                      />
+                      {item.images.slice(0, 1).map((item, key) => {
+                        return (
+                          <img
+                            src={item.url}
+                            alt="product-image"
+                            className=" w-full h-full object-cover"
+                          />
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
