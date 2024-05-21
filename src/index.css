@@ -139,6 +139,10 @@
   padding: 10px 0px;
 }
 
+.rp-slider .slick-slide{
+  padding: 15px 10px;
+}
+
 .slick-arrow.slick-prev:before,
 .slick-arrow.slick-next:before {
   content: "" !important;

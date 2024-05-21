@@ -11,6 +11,12 @@ import RelatedProducts from "../RelatedProducts/RelatedProducts";
 const ProductContent = () => {
   const [mainImage, setMainImage] = useState("card3.jpg");
 
+  const [toggleState, setToggleState] = useState(1);
+
+  const toggleTab = (index) => {
+    setToggleState(index);
+  }
+
   const handleThumbnailChange = (image) => {
     setMainImage(image);
   };
@@ -21,7 +27,7 @@ const ProductContent = () => {
   ));
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-14 items-center">
 
       <div className="flex flex-col justify-center items-start gap-1 px-14 py-20 w-full h-14 bg-[#ffdede]" >
         <h1 className="text-2xl font-semibold font-inter">Product Details</h1>
@@ -141,28 +147,53 @@ const ProductContent = () => {
                 </div>
                 <div className="wishlist border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
                   <IoMdHeartEmpty size={25} />
-                </div>  
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col bg-[#ffdede] px-20 py-14 gap-8 mb-5">
-        <div className="flex gap-16 text-red-500 underline underline-offset-4 decoration-red">
-          <a href=""><h2 className="font-semibold">Description</h2></a>
-          <a href=""><h2 className="font-semibold">Additional info</h2></a>
-          <a href=""><h2 className="font-semibold">Reviews</h2></a>
+      <div className="info-container flex flex-col bg-[#ffdede] w-full sm:px-14 md:px-20 py-14 gap-8 mb-5 justify-center items-start">
+        <div className="info-head-container flex gap-16 text-red-500 sm:text-lg md:text-xl cursor-pointer items-center">
+          <div className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+            onClick={() => toggleTab(1)}
+          >Description</div>
+          <div className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+            onClick={() => toggleTab(2)}
+          >Additional info</div>
+          <div className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+            onClick={() => toggleTab(3)}
+          >Reviews</div>
         </div>
-        <div className="flex flex-col gap-2">
-          <h3 className="text-xl font-semibold text-red-500">Product Details</h3>
-          <ul className="m-0 p-0 text-[#fe7a7a] marker:text-red-500 flex flex-col list-disc gap-1 pl-4">
+        <div className={toggleState === 1 ? "content active-content" : "content"}>
+          <h1 className="text-lg font-semibold text-red-500">Product Details</h1>
+          <ul className="m-0 text-[#fe6b6b] marker:text-red-500 flex flex-col list-disc gap-1 pl-4">
             <li>Material - 100% Cotton</li>
             <li>Pattern - Solid, Fit Type - Regular Fit, Half Sleeve T-Shirts</li>
             <li>Neck Type - Round Neck</li>
             <li>Great for layering or wearing alone, this T-shirt features a crewneck, short sleeves, and a Label-free neck for everyday comfort</li>
             <li>Softner wash for better hand feel</li>
           </ul>
+        </div>
+
+        <div className={toggleState === 2 ? "content active-content" : "content"}>
+          <div className="content-child flex justify-center w-[50%]">
+            <div className="flex flex-col w-[50%] gap-2 text-red-500 font-semibold">
+              <h1>Manufacturer</h1>
+              <h1>Item Weight</h1>
+              <h1>Generic Name</h1>
+            </div>
+            <div className="flex flex-col w-[50%] gap-2 text-[#fe6b6b]">
+              <p>Filmkart Brand - Symbol</p>
+              <p>250 g</p>
+              <p>Cotton Solid Round Neck Regular Fit T-Shirt</p>
+            </div>
+          </div>
+        </div>
+
+        <div className={toggleState === 3 ? "content active-content" : "content"}>
+          <h1 className="text-lg font-semibold text-red-500 ">Customer Reviews</h1>
         </div>
       </div>
       <RelatedProducts />
