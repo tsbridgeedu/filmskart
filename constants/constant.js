@@ -148,6 +148,7 @@ export const productCards = [
 
 export const relatedProducts = [
   {
+    id:1,
     img: "card1.jpg",
     desc: "XL T-shirt",
     discprice: 800,
@@ -156,6 +157,7 @@ export const relatedProducts = [
     review: 15,
   },
   {
+    id:2,
     img: "card2.jpg",
     desc: "M Hoodie",
     discprice: 1200,
@@ -164,6 +166,7 @@ export const relatedProducts = [
     review: 10,
   },
   {
+    id:3,
     img: "card3.jpg",
     desc: "S Jeans",
     discprice: 900,
@@ -172,12 +175,22 @@ export const relatedProducts = [
     review: 20,
   },
   {
+    id:4,
     img: "card4.jpg",
     desc: "L Dress",
     discprice: 1500,
     orgprice: 1800,
     star: 3,
     review: 12,
+  },
+  {
+    id:5,
+    img: "Devara.jpg",
+    desc: "M Dress",
+    discprice: "800",
+    orgprice: "1000",
+    star: 4,
+    review: "15",
   },
 ];
 

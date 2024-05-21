@@ -161,10 +161,10 @@ const UpcomingMovies = () => {
                       <img
                         src={item.img}
                         alt="product-image"
-                        className=" w-full h-full object-contain"
+                        className=" w-full h-full object-cover"
                       />
                     </div>
-                    <div className="w-full h-full flex flex-col  bg-[#f5f5f5] absolute upcmvs__bck">
+                    <div className="w-full h-full flex flex-col bg-[#f5f5f5] absolute upcmvs__bck">
                       <h1 className="px-4 font-bold py-4 font-inter text-lg">{item.title}</h1>
                   <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
                   <span className="flex-row flex py-2 px-5 justify-between">
