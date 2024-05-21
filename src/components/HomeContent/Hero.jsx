@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Puff, ThreeDots } from "react-loader-spinner";
-
+import { motion } from "framer-motion";
+import '../../index.css'
 import Slider from "react-slick";
+
 const Hero = () => {
   const [countdown, setCountdown] = useState({
     days: "",
@@ -14,6 +16,15 @@ const Hero = () => {
 
   const [flashProducts, setFlashProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [flippedCardIndex, setFlippedCardIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setFlippedCardIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setFlippedCardIndex(null);
+  };
 
   function updateCountdown() {
     const currentTime = new Date().toLocaleString("en-US", {
@@ -192,24 +203,41 @@ const Hero = () => {
         ) : (
           <Slider
             {...settings}
-            className=" w-full cat-slider flex flex-row shadow-3xl "
+            className="w-full cat-slider flex flex-row shadow-3xl "
           >
-            {flashProducts.map((item, key) => {
+            {flashProducts.map((item, index) => {
+              const isFlipped = index === flippedCardIndex;
               return (
                 <div
-                  key={key}
-                  className="flex flex-col w-[220px] h-80 border  rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl "
+                  key={item.id}
+                  className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  {" "}
-                  <div className="w-full h-full frt_prdct_flsh">
-                    <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
-                      <img
-                        src={item.img}
-                        alt="product-image"
-                        className=" w-full h-full object-cover"
-                      />
+                  <motion.div
+                    className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
+                    initial={false}
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
+                    transition={{ duration: 0.6, animationDirection: "normal" }}
+                  >
+                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
+                      <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
+                        <img
+                          src={item.img}
+                          alt="product-image"
+                          className=" w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
-                  </div>
+                    <div className="w-full h-full flex flex-col bg-white absolute upcmvs__bck">
+                      <h1 className="px-4 font-bold py-4 font-inter text-lg">{item.title}</h1>
+                      <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
+                      <span className="flex-row flex py-2 px-5 justify-between">
+                        <span className="text-sm font-bold font-inter gap-2">{item.rating}/10</span>
+                        <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md">Know more</button>
+                      </span>
+                    </div>
+                  </motion.div>
                 </div>
               );
             })}
