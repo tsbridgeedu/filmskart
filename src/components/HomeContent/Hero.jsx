@@ -12,7 +12,9 @@ const Hero = () => {
     minutes: "",
     seconds: "",
   });
-  const BASE_URL = import.meta.env.VITE_NODE_URL;
+ 
+  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
+  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
   const [flashProducts, setFlashProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -62,15 +64,19 @@ const Hero = () => {
     const interval = setInterval(updateCountdown, 1000);
 
     setIsLoading(true);
-    async function getBannerData() {
+
+    async function getProductsData() {
       await new Promise((resolve) => setTimeout(resolve, 2800));
-      await axios.get(`${BASE_URL}/product-data`).then((item) => {
-        console.log(item.data);
-        setFlashProducts(item.data);
-        setIsLoading(false);
-      });
+      await axios
+        .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
+        .then((item) => {
+          // console.log(item.data);
+          setFlashProducts(item.data);
+          setIsLoading(false);
+        });
     }
-    getBannerData();
+
+    getProductsData();
     return () => clearInterval(interval);
   }, []);
 

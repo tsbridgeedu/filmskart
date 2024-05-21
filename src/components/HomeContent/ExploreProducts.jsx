@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import { Puff, ThreeDots } from "react-loader-spinner";
 import Slider from "react-slick";
 import axios from "axios";
@@ -7,6 +7,8 @@ import '../../index.css'
 
 
 const ExploreProducts = () => {
+  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
+  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
     const BASE_URL = import.meta.env.VITE_NODE_URL;
 
@@ -36,72 +38,72 @@ const ExploreProducts = () => {
         getBannerData();
     }, []);
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 2500,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        cssEase: "linear",
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        pauseOnHover: true,
-        rtl: true,
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 2500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    pauseOnHover: true,
+    rtl: true,
 
-        swipeToSlide: true,
+    swipeToSlide: true,
 
-        initialSlide: 0,
-        responsive: [
-            {
-                breakpoint: 1600,
-                settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    initialSlide: 0,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 0,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
-    return (
-        <div className="flex flex-col w-full px-4 md:px-20 mb-20">
-            <div className="w-full h-full flex flex-row items-center gap-2">
-                <div className="w-2 rounded-md h-10 bg-red-500"></div>
-                <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
-                    Products
-                </span>
-                <span className="flex justify-center items-center">
-                    <img src="/shopping-bag-gif1.gif" className="w-[45px] " />
-                </span>
-            </div>
-            <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
-                <div className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold ">
-                    Explore All Products
-                </div>
-            </div>
+  return (
+    <div className="flex flex-col w-full px-4 md:px-20 mb-20">
+      <div className="w-full h-full flex flex-row items-center gap-2">
+        <div className="w-2 rounded-md h-10 bg-red-500"></div>
+        <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
+          Products
+        </span>
+        <span className="flex justify-center items-center">
+          <img src="/shopping-bag-gif1.gif" className="w-[45px] " />
+        </span>
+      </div>
+      <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
+        <div className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold ">
+          Explore All Products
+        </div>
+      </div>
 
             <div className="my-10 container flex flex-row w-full h-full border-y-2 ">
                 {isLoading ? (
