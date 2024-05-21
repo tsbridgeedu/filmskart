@@ -65,15 +65,15 @@ const FormWithYup = () => {
   };
 
   return (
-    <div className=" h-full font-nunito bg-[#EFEDEE] my-32">
-      <div className="  flex justify-center items-center bg-[#EFEDEE]">
-        <div className="w-full bg-[rgba(51,51,51,0.5)] flex flex-col items-center justify-center transition duration-400">
-          <div className="flex max-w-[60vw] w-full rounded-[10px] overflow-hidden absolute transition duration-300 bg-white">
-            <div className=" p-10 bg-white transition duration-500 opacity-100">
+    <div className="h-full font-nunito my-32">
+      <div className=" flex justify-center items-center">
+        <div className="w-full flex flex-col items-center justify-center transition duration-400">
+          <div className="flex max-w-[60vw] w-full rounded-[10px] overflow-hidden transition duration-300 shadow-4xl shadow-gray-500">
+            <div className=" p-10 transition duration-500 opacity-100 ">
               <h1 className="text-4xl text-[#86336e] mb-8">
-                Organise an Event!🤘
+                Organize an Event!🤘
               </h1>
-              <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
+              <form className="flex flex-col gap-1" onSubmit={handleSubmit} >
                 <div className="flex flex-col p-2 border border-[#ddd] rounded-[4px] mb-2 transition duration-300 focus-within:border-[#8c7569]">
                   <label className="text-xs uppercase font-semibold tracking-wide text-[#8c7569] transition duration-300">
                     First Name:
@@ -229,7 +229,7 @@ const FormWithYup = () => {
                   className="mt-2 px-4 py-1 outline-none uppercase border-0 text-white rounded-[4px] bg-[#f2874d] transition duration-300 cursor-pointer font-nunito hover:bg-[#c04803]"
                   type="submit"
                 >
-                  Organise
+                  Organize
                 </button>
               </form>
               <div className="p-2">
