@@ -26,11 +26,12 @@ const AboutContent = () => {
   return (
     <div className="flex h-full scrollbar ">
       <div className="flex h-full w-full flex-col">
+       {/* route */}
         <div className="flex flex-row items-center justify-start gap-3   w-full min-[768px]:py-10 max-[767px]:py-8 max-[767px]:px-8 min-[768px]:px-20  h-[21px]  ">
           <span>Home</span>/
           <span className="">{window.location.pathname.slice(1)}</span>
         </div>
-
+{/* our story */}
         <div className="flex flex-row max-[1096px]:flex-col items-center justify-center gap-4 w-full my-20 max-[768px]:my-12 ">
           <div className="flex flex-col w-[525px] max-[768px]:w-[340px] max-[475px]:px-5 max-[475px]:items-center">
             <h1 className="text-5xl font-semibold mb-10 max-[768px]:text-4xl ">
@@ -57,6 +58,54 @@ const AboutContent = () => {
           <div className="flex w-[525px] max-[768px]:w-[305px]">
             <img
               src="/about-us-1.png"
+              alt="about-us-1"
+              className="w-full object-contain"
+            />
+          </div>
+        </div>
+
+
+        <div className="flex flex-row-reverse max-[1096px]:flex-col items-center justify-center gap-4 w-full my-20 max-[768px]:my-12 ">
+          <div className="flex flex-col w-[525px] max-[768px]:w-[340px] max-[475px]:px-5 max-[475px]:items-center">
+            <h1 className="text-5xl font-semibold mb-10 max-[768px]:text-4xl ">
+            What We Offer
+
+            </h1>
+            <span className="text-start ">
+              
+
+              <strong>Unique Designs: </strong> Our team of talented designers creates original and eye-catching designs inspired by 
+              the latest movie releases. From iconic quotes to memorable characters, our t-shirts capture the essence 
+              of your favorite films in style.
+
+            </span>
+            <span className="text-start ">
+              
+
+              <strong>High-Quality Materials:  </strong> We believe in quality craftsmanship. 
+              That's why all our t-shirts are made from premium materials, ensuring comfort, durability, and a perfect fit.
+
+
+            </span>
+            <span className="text-start ">
+              
+
+              <strong>Home Delivery: </strong> Sit back and relax while we bring the magic to your doorstep. With our convenient home delivery service, you can enjoy your
+               favorite movie-inspired t-shirts without ever leaving the comfort of your home
+
+            </span>
+            <span className="text-start ">
+              
+
+              <strong>Theatre Delivery: </strong> Want to make a statement at the next movie premiere or midnight screening? Choose our theatre delivery option, and we'll have your custom 
+              t-shirt waiting for you at the theatre, so you can step into the spotlight in style.
+
+            </span>
+   
+          </div>
+          <div className="flex w-[525px] max-[768px]:w-[305px]  lg:mr-10  lg:mt-0 mt-10">
+            <img
+              src="/wer.jpg"
               alt="about-us-1"
               className="w-full object-contain"
             />
