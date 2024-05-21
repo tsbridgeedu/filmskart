@@ -10,12 +10,14 @@ import RelatedProducts from "../RelatedProducts/RelatedProducts";
 
 const ProductContent = () => {
   const [mainImage, setMainImage] = useState("card3.jpg");
+  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
+  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
     setToggleState(index);
-  }
+  };
 
   const handleThumbnailChange = (image) => {
     setMainImage(image);
@@ -28,12 +30,10 @@ const ProductContent = () => {
 
   return (
     <div className="flex flex-col gap-14 items-center">
-
-      <div className="flex flex-col justify-center items-start gap-1 px-14 py-20 w-full h-14 bg-[#ffdede]" >
+      <div className="flex flex-col justify-center items-start  px-14 py-20 w-full h-14 gap-5">
         <h1 className="text-2xl font-semibold font-inter">Product Details</h1>
         <div className="flex gap-3">
-          <span>Home</span>/
-          <span className="text-red-500">{window.location.pathname.slice(1)}</span>
+          <span>Home</span>/<span className="text-red-500">Product</span>
         </div>
       </div>
 
@@ -80,9 +80,7 @@ const ProductContent = () => {
           </div>
         </div>
 
-
         <div className="prod_info w-[50%] flex flex-col justify-center gap-2">
-
           <div className="flex flex-col">
             <h1 className="font-semibold text-2xl">Product Name</h1>
             <div className="flex justify-start items-center reviews">
@@ -156,28 +154,49 @@ const ProductContent = () => {
 
       <div className="info-container flex flex-col bg-[#ffdede] w-full sm:px-14 md:px-20 py-14 gap-8 mb-5 justify-center items-start">
         <div className="info-head-container flex gap-16 text-red-500 sm:text-lg md:text-xl cursor-pointer items-center">
-          <div className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+          <div
+            className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
             onClick={() => toggleTab(1)}
-          >Description</div>
-          <div className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+          >
+            Description
+          </div>
+          <div
+            className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
             onClick={() => toggleTab(2)}
-          >Additional info</div>
-          <div className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+          >
+            Additional info
+          </div>
+          <div
+            className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
             onClick={() => toggleTab(3)}
-          >Reviews</div>
+          >
+            Reviews
+          </div>
         </div>
-        <div className={toggleState === 1 ? "content active-content" : "content"}>
-          <h1 className="text-lg font-semibold text-red-500">Product Details</h1>
+        <div
+          className={toggleState === 1 ? "content active-content" : "content"}
+        >
+          <h1 className="text-lg font-semibold text-red-500">
+            Product Details
+          </h1>
           <ul className="m-0 text-[#fe6b6b] marker:text-red-500 flex flex-col list-disc gap-1 pl-4">
             <li>Material - 100% Cotton</li>
-            <li>Pattern - Solid, Fit Type - Regular Fit, Half Sleeve T-Shirts</li>
+            <li>
+              Pattern - Solid, Fit Type - Regular Fit, Half Sleeve T-Shirts
+            </li>
             <li>Neck Type - Round Neck</li>
-            <li>Great for layering or wearing alone, this T-shirt features a crewneck, short sleeves, and a Label-free neck for everyday comfort</li>
+            <li>
+              Great for layering or wearing alone, this T-shirt features a
+              crewneck, short sleeves, and a Label-free neck for everyday
+              comfort
+            </li>
             <li>Softner wash for better hand feel</li>
           </ul>
         </div>
 
-        <div className={toggleState === 2 ? "content active-content" : "content"}>
+        <div
+          className={toggleState === 2 ? "content active-content" : "content"}
+        >
           <div className="content-child flex justify-center w-[50%]">
             <div className="flex flex-col w-[50%] gap-2 text-red-500 font-semibold">
               <h1>Manufacturer</h1>
@@ -192,8 +211,12 @@ const ProductContent = () => {
           </div>
         </div>
 
-        <div className={toggleState === 3 ? "content active-content" : "content"}>
-          <h1 className="text-lg font-semibold text-red-500 ">Customer Reviews</h1>
+        <div
+          className={toggleState === 3 ? "content active-content" : "content"}
+        >
+          <h1 className="text-lg font-semibold text-red-500 ">
+            Customer Reviews
+          </h1>
         </div>
       </div>
       <RelatedProducts />
