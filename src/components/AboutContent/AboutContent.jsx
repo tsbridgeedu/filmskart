@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "lucide-react";
 import {
   BadgeIndianRupee,
   BaggageClaim,
@@ -193,7 +194,7 @@ const AboutContent = () => {
             <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
               <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
                 <img
-                  src="/team-img-1.png"
+                  src="/team-img1.jpg"
                   alt="teamImage"
                   className="w-40 self-center "
                 />
@@ -202,25 +203,31 @@ const AboutContent = () => {
                 <h2 className="font-medium text-2xl">Mudavath Chandar</h2>
                 <span className="text-sm py-2 ">Founder & Chairman</span>
                 <span className="flex items-center text-base gap-4 py-2 ">
+                <a href="https://www.linkedin.com/in/mudavath-chandar-29062b23b">
                   <Linkedin
                     size={18}
                     className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
                   />
+                  </a>
+                  <a href="https://www.instagram.com/tyson_chandu_333?igsh=MXZzejkzNTY3cG9jcA==">
                   <Instagram
                     size={18}
                     className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
                   />
+                  </a>
+                  <a href="https://x.com/Tysonchandu4?t=1SPCltt8eDWKAXXz-M4cgw&s=09">
                   <TwitterIcon
                     size={18}
                     className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
                   />
+                  </a>
                 </span>
               </div>
             </SwiperSlide>
             <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
               <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
                 <img
-                  src="/team-img-1.png"
+                  src="/team-img2.jpg"
                   alt="teamImage"
                   className="w-40 self-center "
                 />
@@ -229,10 +236,13 @@ const AboutContent = () => {
                 <h2 className="font-medium text-2xl">Karthik T.V.V</h2>
                 <span className="text-sm py-2 ">Co-Founder</span>
                 <span className="flex items-center text-base gap-4 py-2 ">
-                  <Linkedin
+                <a href="https://www.linkedin.com/in/karthik-tvv-84146a149?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                <Linkedin
                     size={18}
                     className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
                   />
+                  </a>
+                 
                   <Instagram
                     size={18}
                     className="hover:text-red-500 duration-300 transition-all ease-linear hover:scale-110 cursor-pointer"
@@ -247,13 +257,13 @@ const AboutContent = () => {
             <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
               <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
                 <img
-                  src="/team-img-1.png"
+                  src=""
                   alt="teamImage"
                   className="w-40 self-center "
                 />
               </div>
               <div className="flex flex-col items-start  px-3 py-4 mt-7">
-                <h2 className="font-medium text-2xl">Arun Kumar</h2>
+                <h2 className="font-medium text-2xl"></h2>
                 <span className="text-sm py-2 ">Co-Founder</span>
                 <span className="flex items-center text-base gap-4 py-2 ">
                   <Linkedin
@@ -274,13 +284,13 @@ const AboutContent = () => {
             <SwiperSlide className="w-[320px] h-[450px] flex flex-col border border-1">
               <div className="w-full bg-[#f5f5f5] flex justify-center pt-6">
                 <img
-                  src="/team-img-1.png"
+                  src=""
                   alt="teamImage"
                   className="w-40 self-center "
                 />
               </div>
               <div className="flex flex-col items-start  px-3 py-4 mt-7">
-                <h2 className="font-medium text-2xl">Rishitha Reddy</h2>
+                <h2 className="font-medium text-2xl"></h2>
                 <span className="text-sm py-2 ">H.R</span>
                 <span className="flex items-center text-base gap-4 py-2 ">
                   <Linkedin
