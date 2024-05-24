@@ -2,7 +2,7 @@ import { Puff, ThreeDots } from "react-loader-spinner";
 import Slider from "react-slick";
 import axios from "axios";
 import { motion } from "framer-motion";
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 import '../../index.css'
 
@@ -14,7 +14,7 @@ const UpcomingMovies = () => {
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
 
   const BASE_URL = import.meta.env.VITE_NODE_URL;
- 
+
   // const cardFlip = () => {
   //   if (!isAnimating) {
   //     setIsFlipped(!isFlipped);
@@ -22,9 +22,9 @@ const UpcomingMovies = () => {
   //   }
   // };
 
- 
 
-// ----------I added here----------
+
+  // ----------I added here----------
   const handleMouseEnter = (index) => {
     setFlippedCardIndex(index);
   };
@@ -164,13 +164,13 @@ const UpcomingMovies = () => {
                         className=" w-full h-full object-cover"
                       />
                     </div>
-                    <div className="w-full h-full flex flex-col bg-[#f5f5f5] absolute upcmvs__bck">
+                    <div className="w-full h-full flex flex-col bg-white absolute upcmvs__bck">
                       <h1 className="px-4 font-bold py-4 font-inter text-lg">{item.title}</h1>
-                  <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
-                  <span className="flex-row flex py-2 px-5 justify-between">
-                    <span className="text-sm font-bold font-inter gap-2">{item.rating}/10</span>
-                    <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md">Know more</button>
-                  </span>
+                      <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
+                      <span className="flex-row flex py-2 px-5 justify-between">
+                        <span className="text-sm font-bold font-inter gap-2">{item.rating}/10</span>
+                        <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md">Know more</button>
+                      </span>
                     </div>
                   </motion.div>
                 </div>
