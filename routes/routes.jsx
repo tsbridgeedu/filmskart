@@ -55,7 +55,7 @@ return useRoutes([
         element: <FanClub />,
       },
       {
-        path: "/product",
+        path: "/product/:id",
         element: <Product />,
       },
       {
