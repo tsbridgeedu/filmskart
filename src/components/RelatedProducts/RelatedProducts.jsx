@@ -1,15 +1,14 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../Hero/hero.css";
 import { Puff, ThreeDots } from "react-loader-spinner";
-import Slider from "react-slick";
 import axios from "axios";
 import { motion } from "framer-motion";
 import '../../index.css'
 import { relatedProducts } from "../../../constants/constant";
 import { Star } from "lucide-react";
 
-const RelatedProducts = ({category, productId}) => {
+const RelatedProducts = ({ category, productId }) => {
 
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
@@ -30,13 +29,13 @@ const RelatedProducts = ({category, productId}) => {
   useEffect(() => {
     setIsLoading(true);
     async function getRelatedProducts() {
-      await new Promise((resolve) => setTimeout(resolve, 3200));
+      await new Promise((resolve) => setTimeout(resolve, 2800));
       await axios
         .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
         .then((item) => {
           const filteredProducts = item.data.filter((x) => x.category?.name === category && x.id !== productId);
           setRelatedProducts(filteredProducts);
-          console.log(filteredProducts);
+          console.log(relatedProducts);
           setIsLoading(false);
         });
     }
@@ -48,13 +47,11 @@ const RelatedProducts = ({category, productId}) => {
   //   setFilter(ul);
   // }
 
-  
-
   const settings = {
     dots: false,
     infinite: true,
     speed: 2500,
-    autoplay:false,
+    autoplay: false,
     autoplaySpeed: 2000,
     cssEase: "linear",
     slidesToShow: 5,
@@ -103,9 +100,7 @@ const RelatedProducts = ({category, productId}) => {
         <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
           Related Products
         </span>
-        {/* <button className="bg-blue" onClick={()=>filterProduct("Caps")}>Women</button> */}
       </div>
-
 
       <div className="my-10 container flex flex-row w-full h-full border-y-2 ">
         {isLoading ? (
@@ -134,16 +129,13 @@ const RelatedProducts = ({category, productId}) => {
             </span>
           </div>
         ) : (
-          <Slider
-            {...settings}
-            className="w-full rp-slider shadow-3xl "
-          >
+          <div className="flex justify-center items-center gap-16 flex-wrap mx-5 my-10">
             {relatedProducts.map((item, index) => {
               const isFlipped = index === flippedCardIndex;
               return (
                 <div
                   key={item.id}
-                  className="flex h-80 border rounded-sm cursor-pointer hover:scale-105 duration-200 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                  className="flex justify-center items-center min-w-[180px] w-[200px] h-64 bg-none rounded-sm cursor-pointer shadow-lg shadow-gray-400 hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-4xl upcmvs__crd__cntr"
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -153,30 +145,32 @@ const RelatedProducts = ({category, productId}) => {
                     animate={{ rotateY: isFlipped ? 180 : 0 }}
                     transition={{ duration: 0.6, animationDirection: "normal" }}
                   >
-                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
-                      {item.images.slice(0, 1).map((item) => {
-                        return (
-                          <img
-                            key={item.id}
-                            src={item.url}
-                            alt="product-image"
-                            className=" w-full h-full object-cover"
-                          />
-                        );
-                      })}
+                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md upcmvs__frt">
+                      <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
+                        {item.images.slice(0, 1).map((item) => {
+                          return (
+                            <img
+                              key={item.id}
+                              src={item.url}
+                              alt="product-image"
+                              className="w-full h-full object cover rounded-sm"
+                            />
+                          );
+                        })}
+                      </div>
                     </div>
-                    <div className="w-full h-full items-center justify-center px-2 flex flex-col bg-white absolute upcmvs__bck">
-                      <h1 className="px-4 font-bold py-4 font-inter text-lg">
+                    <div className="w-full h-full items-center justify-center px-2 flex flex-col bg-white upcmvs__bck">
+                      <h1 className="px-4 font-bold py-2 font-inter text-base">
                         {item.name}
                       </h1>
                       <span className="flex px-4 pb-4 leading-snug tracking-tight font-inter text-sm font-medium">
                         {item.description}
                       </span>
 
-                      <span className="flex-row flex py-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
+                      <span className="flex-row flex pb-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
                         Color: <span className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}></span>
                       </span>
-                      <button className="bg-red-500 text-white text-sm mt-3 self py-2 px-2 rounded-md">
+                      <button className="bg-red-500 text-white text-sm mt-2 self py-2 px-2 rounded-md">
                         <Link to={`/product/${item.id}`}> Buy now</Link>
                       </button>
                     </div>
@@ -184,8 +178,7 @@ const RelatedProducts = ({category, productId}) => {
                 </div>
               );
             })}
-          </Slider>
-
+          </div>
         )}
       </div>
     </div>

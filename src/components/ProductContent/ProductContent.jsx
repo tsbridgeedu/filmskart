@@ -119,46 +119,6 @@ const ProductContent = () => {
         <>
           <div className="prod_container mx-[60px] min-w-[90%] relative flex justify-center items-center gap-8 px-8 py-8 shadow-4xl shadow-gray-400">
             <div className="prod_images flex w-[50%] h-full gap-5">
-              {/* <div className="prod_thumbnail_carousel flex flex-col">
-              <img
-              className="prod_thumbnail hover:scale-125 transition duration-300 hover:ease-in w-[120px] h-[80px] object-cover mx-[5px] my-[10px] cursor-pointer"
-              src="card1.jpg"
-              alt=""
-              onMouseEnter={() => handleThumbnailChange("card1.jpg")}
-              onClick={() => handleThumbnailChange("card1.jpg")}
-              />
-              <img
-              className="prod_thumbnail hover:scale-125 transition duration-300 hover:ease-in  w-[120px] h-[80px] object-cover mx-[5px] my-[10px] cursor-pointer"
-              src="card2.jpg"
-              alt=""
-              onMouseEnter={() => handleThumbnailChange("card2.jpg")}
-              onClick={() => handleThumbnailChange("card2.jpg")}
-              />
-              <img
-              className="prod_thumbnail hover:scale-125 transition duration-300 hover:ease-in w-[120px] h-[80px] object-cover mx-[5px] my-[10px] cursor-pointer"
-              src="card3.jpg"
-              alt=""
-              onMouseEnter={() => handleThumbnailChange("card3.jpg")}
-              onClick={() => handleThumbnailChange("card3.jpg")}
-              />
-              <img
-              className="prod_thumbnail hover:scale-125 transition duration-300 hover:ease-in w-[120px] h-[80px] object-cover mx-[5px] my-[10px] cursor-pointer"
-              src="card4.jpg"
-              alt=""
-              onMouseEnter={() => handleThumbnailChange("card4.jpg")}
-              onClick={() => handleThumbnailChange("card4.jpg")}
-              />
-              </div> */}
-              {/* <div className="prod_image">
-              <div className="prod_carousel flex justify-center overflow-x-auto snap-x-mandatory">
-              <img
-                className="w-[300px] h-[400px] object-cover block"
-                src={mainImage}
-                alt=""
-              />
-              </div>
-              </div> */}
-
               <Swiper
                 direction={'vertical'}
                 onSwiper={setThumbsSwiper}
@@ -229,7 +189,7 @@ const ProductContent = () => {
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <span className="text-base font-semibold ">Colors:</span>
-                  <div className={`w-[18px] h-[18px] rounded-lg border-[1px] border-red-500 cursor-pointer bg-${availableColor}`}></div>
+                  <div className={`w-[18px] h-[18px] rounded-lg border-[1px] shadow-gray-300 shadow-md border-gray-300 cursor-pointer bg-${availableColor}`}></div>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-base font-semibold">Size:</span>
