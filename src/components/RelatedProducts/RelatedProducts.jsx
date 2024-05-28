@@ -35,7 +35,7 @@ const RelatedProducts = ({ category, productId }) => {
         .then((item) => {
           const filteredProducts = item.data.filter((x) => x.category?.name === category && x.id !== productId);
           setRelatedProducts(filteredProducts);
-          console.log(relatedProducts);
+          
           setIsLoading(false);
         });
     }
