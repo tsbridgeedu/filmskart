@@ -189,7 +189,7 @@ const FanClubBanner = () => {
     <Link className="fan-club-banner relative block w-full xl:h-[85vh] lg:h-[85vh] md:h-[80vh] sm:h-[80vh]">
       <video
 
-        className="w-full h-full object-cover blur-[2px]"
+        className="w-full h-full object-cover blur-[2px] relative"
 
         alt="fan-club-banner"
         autoPlay
@@ -204,7 +204,8 @@ const FanClubBanner = () => {
           Fan Club
         </div>
       </div>
-      <div className="content absolute top-0 bottom-0 w-full h-full flex flex-col justify-center items-center gap-5 px-8">
+
+      <div className="fan-club-content absolute top-0 bottom-0 w-full h-full flex flex-col justify-center items-center gap-5 px-8">
         <h2 className="quote text-center lg:text-4xl md:text-3xl sm:text-2xl font-bold text-[#fff] lg:leading-[50px]">Unite in Passion: Join Our Fan Clubs and Celebrate Cinema's Greatest Stars!</h2>
 
         <motion.div

@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
+import { Link } from "react-router-dom";
 import "../Hero/hero.css";
 import { Puff, ThreeDots } from "react-loader-spinner";
 import Slider from "react-slick";
 import axios from "axios";
 import { motion } from "framer-motion";
 import '../../index.css'
-
 import { relatedProducts } from "../../../constants/constant";
-
 import { Star } from "lucide-react";
-const RelatedProducts = () => {
 
-  const BASE_URL = import.meta.env.VITE_NODE_URL;
+const RelatedProducts = ({category, productId}) => {
+
+  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
+  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
 
-  const [flashProducts, setFlashProducts] = useState([]);
+  const [relatedProducts, setRelatedProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
 
   const handleMouseEnter = (index) => {
@@ -30,33 +28,39 @@ const RelatedProducts = () => {
   };
 
   useEffect(() => {
-
     setIsLoading(true);
-    async function getBannerData() {
-      await new Promise((resolve) => setTimeout(resolve, 2800));
-      await axios.get(`${BASE_URL}/product-data`).then((item) => {
-        console.log(item.data);
-        setFlashProducts(item.data);
-        setIsLoading(false);
-      });
+    async function getRelatedProducts() {
+      await new Promise((resolve) => setTimeout(resolve, 3200));
+      await axios
+        .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
+        .then((item) => {
+          const filteredProducts = item.data.filter((x) => x.category?.name === category && x.id !== productId);
+          setRelatedProducts(filteredProducts);
+          console.log(filteredProducts);
+          setIsLoading(false);
+        });
     }
-    getBannerData();
+    getRelatedProducts();
   }, []);
+
+  // const filterProduct=(cat)=>{
+  //   const ul=relatedProducts.filter((x)=>x.category?.name===cat);
+  //   setFilter(ul);
+  // }
+
+  
 
   const settings = {
     dots: false,
     infinite: true,
     speed: 2500,
-    autoplay: true,
+    autoplay:false,
     autoplaySpeed: 2000,
     cssEase: "linear",
     slidesToShow: 5,
     slidesToScroll: 1,
     pauseOnHover: true,
-
     swipeToSlide: true,
-
-    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1600,
@@ -99,7 +103,9 @@ const RelatedProducts = () => {
         <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
           Related Products
         </span>
+        {/* <button className="bg-blue" onClick={()=>filterProduct("Caps")}>Women</button> */}
       </div>
+
 
       <div className="my-10 container flex flex-row w-full h-full border-y-2 ">
         {isLoading ? (
@@ -134,14 +140,10 @@ const RelatedProducts = () => {
           >
             {relatedProducts.map((item, index) => {
               const isFlipped = index === flippedCardIndex;
-              const starsQuantity = parseInt(item.star, 10);
-              const stars = Array.from({ length: starsQuantity }).map((_, i) => (
-                <Star key={i} size={20} color="#FFD700" />
-              ));
               return (
                 <div
                   key={item.id}
-                  className="flex flex-col h-80 border rounded-sm cursor-pointer hover:scale-105 duration-200 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                  className="flex h-80 border rounded-sm cursor-pointer hover:scale-105 duration-200 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -152,29 +154,31 @@ const RelatedProducts = () => {
                     transition={{ duration: 0.6, animationDirection: "normal" }}
                   >
                     <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
-                      <img
-                        src={item.img}
-                        alt="product-image"
-                        className=" w-full h-full object-contain"
-                      />
+                      {item.images.slice(0, 1).map((item) => {
+                        return (
+                          <img
+                            key={item.id}
+                            src={item.url}
+                            alt="product-image"
+                            className=" w-full h-full object-cover"
+                          />
+                        );
+                      })}
                     </div>
-                    <div className="w-full h-full flex justify-center item-center bg-[#ffffff] absolute upcmvs__bck">
-                      <div className="card-content flex flex-col w-full h-full justify-start items-start gap-2">
-                        <h3 className="font-medium text-2xl">{item.desc}</h3>
-                        <hr className="w-full mb-2" />
-                        <div className=" w-full price flex justify-start items-center gap-2">
-                          <p className="text-red-500">₹{item.discprice}</p>
-                          <p className="mr-4 text-[#b6b7b7]">
-                            ₹<s>{item.orgprice}</s>
-                          </p>
-                        </div>
-                        <div className="flex justify-start">
-                          <div className="flex justify-center items-center reviews">
-                            {stars}
-                          </div>
-                          <div className="flex ml-2">({item.review})</div>
-                        </div>
-                      </div>
+                    <div className="w-full h-full items-center justify-center px-2 flex flex-col bg-white absolute upcmvs__bck">
+                      <h1 className="px-4 font-bold py-4 font-inter text-lg">
+                        {item.name}
+                      </h1>
+                      <span className="flex px-4 pb-4 leading-snug tracking-tight font-inter text-sm font-medium">
+                        {item.description}
+                      </span>
+
+                      <span className="flex-row flex py-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
+                        Color: <span className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}></span>
+                      </span>
+                      <button className="bg-red-500 text-white text-sm mt-3 self py-2 px-2 rounded-md">
+                        <Link to={`/product/${item.id}`}> Buy now</Link>
+                      </button>
                     </div>
                   </motion.div>
                 </div>

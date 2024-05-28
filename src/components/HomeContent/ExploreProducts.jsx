@@ -52,9 +52,7 @@ import { Link } from "react-router-dom";
       slidesToScroll: 1,
       pauseOnHover: true,
       rtl: true,
-
       swipeToSlide: true,
-
       initialSlide: 0,
       responsive: [
         {
@@ -169,17 +167,17 @@ import { Link } from "react-router-dom";
                         </div>
                       </div>
                       <div className="w-full h-full items-center justify-center px-2 flex flex-col bg-white absolute upcmvs__bck">
-                        <h1 className="px-4 font-bold py-4 font-inter text-lg">
+                        <h1 className="px-4 font-bold py-2 font-inter text-base">
                           {item.name}
                         </h1>
                         <span className="flex px-4 pb-4 leading-snug tracking-tight font-inter text-sm font-medium">
                           {item.description}
                         </span>
                           
-                        <span className="flex-row flex py-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
+                        <span className="flex-row flex pb-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
                         Color: <span className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}></span>
                         </span>
-                          <button className="bg-red-500 text-white text-sm mt-3 self py-2 px-2 rounded-md">
+                          <button className="bg-red-500 text-white text-sm mt-2 self py-2 px-2 rounded-md">
                            <Link to={`/product/${item.id}`}> Buy now</Link>
                           </button>
                       </div>

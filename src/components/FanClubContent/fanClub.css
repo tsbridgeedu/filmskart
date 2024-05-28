@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-.content .quote, .content .type-text{
+.fan-club-content .quote, .fan-club-content .type-text{
   font-family: "Raleway", sans-serif;
 }
 
@@ -16,11 +16,11 @@
         height: 80vh;
     }
 
-    .content .quote{
+    .fan-club-content .quote{
         font-size: 25px;
     }
 
-    .content .motion-button{
+    .fan-club-content .motion-button{
         font-size: 18px;
     }
 
