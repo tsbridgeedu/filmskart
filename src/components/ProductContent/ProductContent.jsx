@@ -176,7 +176,7 @@ const ProductContent = () => {
                         key={image.id}
                         src={image.url}
                         alt={product.name}
-                        className="w-full h-full object-cover object-top cursor-pointer transition duration-200 ease-in hover:scale-110"
+                        className="w-full h-full object-contain  cursor-pointer transition duration-200 ease-in hover:scale-110"
                       />
                     </SwiperSlide>
                   )
@@ -200,7 +200,7 @@ const ProductContent = () => {
                         key={image.id}
                         src={image.url}
                         alt={product.name}
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-contain object-center"
                       />
                     </SwiperSlide>
                   )
