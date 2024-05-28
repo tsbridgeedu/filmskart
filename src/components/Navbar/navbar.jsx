@@ -16,10 +16,12 @@ import AccountButton from "../AccountButton";
 import MobileSidebar from "../MobileSidebar";
 import MobileSearch from "../MobileSearch";
 import { Divider, Typography } from "@mui/material";
-
+import {useSelector} from 'react-redux';
 const Navbar = () => {
   const [toggleCat, setToggleCat] = useState(false);
   const [toggleAbout, setToggleAbout] = useState(false);
+  const cartLength = useSelector((state) => state.product.carts.length)
+  // console.log(cartLength)
   return (
     <div className="navbar">
       <div className="navbar_box flex w-[9rem] cursor-pointer ">
@@ -252,7 +254,7 @@ const Navbar = () => {
             <ShoppingCart size={22} />
           </NavLink>
           <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
-            5
+            {cartLength}
           </span>
         </motion.div>
         <motion.div

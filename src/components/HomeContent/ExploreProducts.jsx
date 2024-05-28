@@ -1,45 +1,41 @@
-  import React, { useState, useEffect } from "react";
-  import { Puff, ThreeDots } from "react-loader-spinner";
-  import Slider from "react-slick";
-  import axios from "axios";
-  import { motion } from "framer-motion";
-  import "../../index.css";
+import React, { useState, useEffect } from "react";
+import { Puff, ThreeDots } from "react-loader-spinner";
+import Slider from "react-slick";
+import axios from "axios";
+import { motion } from "framer-motion";
+import "../../index.css";
 import { Link } from "react-router-dom";
-// import { useProductContext } from "../../context/ProductContext";
 
-  const ExploreProducts = () => {
-    const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
-    const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
+const ExploreProducts = () => {
+  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
+  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
-    // const products = useProductContext();
-    // console.log(products)
+  const [exploreProducts, setExploreProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [flippedCardIndex, setFlippedCardIndex] = useState(null);
 
-    const [exploreProducts, setExploreProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [flippedCardIndex, setFlippedCardIndex] = useState(null);
+  const handleMouseEnter = (index) => {
+    setFlippedCardIndex(index);
+  };
 
-    const handleMouseEnter = (index) => {
-      setFlippedCardIndex(index);
-    };
+  const handleMouseLeave = () => {
+    setFlippedCardIndex(null);
+  };
 
-    const handleMouseLeave = () => {
-      setFlippedCardIndex(null);
-    };
-
-    useEffect(() => {
-      setIsLoading(true);
-      async function getBannerData() {
-        await new Promise((resolve) => setTimeout(resolve, 2800));
-        await axios
-          .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
-          .then((item) => {
-            console.log(item.data);
-            setExploreProducts(item.data);
-            setIsLoading(false);
-          });
-      }
-      getBannerData();
-    }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    async function getBannerData() {
+      await new Promise((resolve) => setTimeout(resolve, 2800));
+      await axios
+        .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
+        .then((item) => {
+          setExploreProducts(item.data);
+          setIsLoading(false);
+        });
+    }
+    getBannerData();
+    // getProduct();
+  }, []);
 
     const settings = {
       dots: false,
@@ -89,22 +85,22 @@ import { Link } from "react-router-dom";
       ],
     };
 
-    return (
-      <div className="flex flex-col w-full px-4 md:px-20 mb-20">
-        <div className="w-full h-full flex flex-row items-center gap-2">
-          <div className="w-2 rounded-md h-10 bg-red-500"></div>
-          <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
-            Products
-          </span>
-          <span className="flex justify-center items-center">
-            <img src="/shopping-bag-gif1.gif" className="w-[45px] " />
-          </span>
+  return (
+    <div className="flex flex-col w-full px-4 md:px-20 mb-20">
+      <div className="w-full h-full flex flex-row items-center gap-2">
+        <div className="w-2 rounded-md h-10 bg-red-500"></div>
+        <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
+          Products
+        </span>
+        <span className="flex justify-center items-center">
+          <img src="/shopping-bag-gif1.gif" className="w-[45px] " />
+        </span>
+      </div>
+      <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
+        <div className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold ">
+          Explore All Products
         </div>
-        <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
-          <div className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold ">
-            Explore All Products
-          </div>
-        </div>
+      </div>
 
         <div className="my-10 container flex flex-row w-full h-full border-y-2 ">
           {isLoading ? (
@@ -192,4 +188,4 @@ import { Link } from "react-router-dom";
     );
   };
 
-  export default ExploreProducts;
+export default ExploreProducts;
