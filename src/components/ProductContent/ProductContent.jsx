@@ -14,6 +14,20 @@ const ProductContent = () => {
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
   const [toggleState, setToggleState] = useState(1);
+  const [quantity,setQuantity]=useState(1);
+
+  const incrementQuantity=()=>{
+    setQuantity((val)=>val+1);
+  }
+
+  const decrementQuantity=()=>{
+    if(quantity>0){
+      setQuantity((val)=>val-1);
+    }else{
+      setQuantity(0);
+    }
+    
+  }
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -126,15 +140,17 @@ const ProductContent = () => {
             </div>
             <div className="highlight flex items-center justify-start gap-3">
               <div className="add_sub flex">
-                <span className="bg-red-500 hover:bg-[#f45e5e] text-white px-2 py-[13px] flex justify-center items-center cursor-pointer border-[1px] border-[#808080] rounded-l-md">
-                  <FaPlus />
-                </span>
-                <span className="digit px-6 py-2 flex justify-center items-center  border-[1px] border-[#808080]">
-                  3
-                </span>
-                <span className="bg-red-500 hover:bg-[#f45e5e] text-white px-2 py-[13px] flex justify-center items-center cursor-pointer border-[1px] border-[#808080] rounded-r-md">
+                <button className="bg-red-500 hover:bg-[#f45e5e] text-white px-2 py-[13px] flex justify-center items-center cursor-pointer border-[1px] border-[#808080] rounded-l-md"
+                  onClick={decrementQuantity}>
                   <FiMinus />
+                </button>
+                <span className="digit px-6 py-2 flex justify-center items-center  border-[1px] border-[#808080]">
+                  {quantity}
                 </span>
+                <button className="bg-red-500 hover:bg-[#f45e5e] text-white px-2 py-[13px] flex justify-center items-center cursor-pointer border-[1px] border-[#808080] rounded-r-md"
+                  onClick={incrementQuantity}>
+                  <FaPlus />
+                </button>
               </div>
               <div className="flex gap-3">
                 <div className="buy bg-red-500 text-white font-semibold outline-none px-12 py-2 flex items-center rounded-md text-lg cursor-pointer">

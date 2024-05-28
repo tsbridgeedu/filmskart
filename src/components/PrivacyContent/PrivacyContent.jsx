@@ -27,12 +27,13 @@ const showToggle = () => {
   }
 
   return (
-    <div className="wrapper flex_align_justify bg-color scrollbar">
+    <div className="wrapper flex_align_justify bg-#EF4444 scrollbar">
          <Toaster position='top-center' />
       <div className="terms_services ">
         <div className="tc_item tc_head flex_align_justify mobile">
-          <div className="icon flex_align_justify ">
-            <Cookie />
+          
+          <div className="icon flex_align_justify " style={{ backgroundColor: "#EF4444" }}>
+            <Cookie style={{ color: "white" }} />
           </div>
           <div className="text">
             <h2>Privacy POLICY</h2>
