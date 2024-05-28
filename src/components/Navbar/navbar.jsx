@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./navbar.css";
 
 import { Link, NavLink } from "react-router-dom";
@@ -16,12 +16,31 @@ import AccountButton from "../AccountButton";
 import MobileSidebar from "../MobileSidebar";
 import MobileSearch from "../MobileSearch";
 import { Divider, Typography } from "@mui/material";
-import {useSelector} from 'react-redux';
+import { useSelector } from "react-redux";
+import axios from "axios";
 const Navbar = () => {
+
+  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
+  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
   const [toggleCat, setToggleCat] = useState(false);
   const [toggleAbout, setToggleAbout] = useState(false);
-  const cartLength = useSelector((state) => state.product.carts.length)
-  // console.log(cartLength)
+  const cartLength = useSelector((state) => state.product.carts.length);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    async function getCategories() {
+      await axios
+        .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/categories`)
+        .then((item) => {
+          setCategories(item.data);
+          setIsLoading(false);
+        });
+      }
+      getCategories();
+    }, []);
+    console.log(categories);
   return (
     <div className="navbar">
       <div className="navbar_box flex w-[9rem] cursor-pointer ">
@@ -54,19 +73,19 @@ const Navbar = () => {
                 {toggleAbout ? <ChevronDown /> : <ChevronUp />}
               </div>
               <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-10 rounded-md text-[#222] gap-4">
-                <NavLink to='/about'>
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                    paddingX: 5,
-                  }}
-                >
-                  Our Story
-                </Typography>
+                <NavLink to="/about">
+                  <Typography
+                    variant="subtitle2"
+                    sx={{
+                      textAlign: "center",
+                      letterSpacing: "2px",
+                      fontFamily: "Poppins",
+                      fontWeight: "600",
+                      paddingX: 5,
+                    }}
+                  >
+                    Our Story
+                  </Typography>
                 </NavLink>
                 <Divider
                   sx={{
@@ -74,21 +93,21 @@ const Navbar = () => {
                     bgcolor: "#ee2222",
                   }}
                 />
-              <NavLink to='/partners'>
-              <Typography
-                  variant="subtitle2"
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                    paddingX: 5,
-                    width: 'full'
-                  }}
-                >
-                  Our Partners
-                </Typography>
-              </NavLink>
+                <NavLink to="/partners">
+                  <Typography
+                    variant="subtitle2"
+                    sx={{
+                      textAlign: "center",
+                      letterSpacing: "2px",
+                      fontFamily: "Poppins",
+                      fontWeight: "600",
+                      paddingX: 5,
+                      width: "full",
+                    }}
+                  >
+                    Our Partners
+                  </Typography>
+                </NavLink>
               </div>
             </div>
             <div></div>
@@ -116,16 +135,20 @@ const Navbar = () => {
                 {toggleCat ? <ChevronDown /> : <ChevronUp />}
               </div>
               <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
-                <Typography
+              {categories.map((item) => {
+                return(
+                  <>
+                    <Typography
                   variant="subtitle2"
+                  key={item.id}
                   sx={{
                     textAlign: "center",
                     letterSpacing: "2px",
                     fontFamily: "Poppins",
                     fontWeight: "600",
-                  }}                                                                        
+                  }}
                 >
-                  Men
+                  {item.name}
                 </Typography>
                 <Divider
                   sx={{
@@ -133,70 +156,9 @@ const Navbar = () => {
                     bgcolor: "#ee2222",
                   }}
                 />
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                  }}
-                >
-                  Women
-                </Typography>
-                <Divider
-                  sx={{
-                    height: "2px",
-                    bgcolor: "#ee2222",
-                  }}
-                />
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                  }}
-                >
-                  Teens
-                </Typography>
-                <Divider
-                  sx={{
-                    height: "2px",
-                    bgcolor: "#ee2222",
-                  }}
-                />
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                    maxWidth: 'full',
-                  }}
-                  className="w-full"
-                >
-                  Coffee Mugs
-                </Typography>
-                <Divider
-                  sx={{
-                    height: "2px",
-                    bgcolor: "#ee2222",
-                  }}
-                />
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                  }}
-                >
-                  Under 13
-                </Typography>
+                  </>
+                )
+              })}
               </div>
             </div>
           </li>

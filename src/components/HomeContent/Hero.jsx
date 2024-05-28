@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Puff, ThreeDots } from "react-loader-spinner";
 import { motion } from "framer-motion";
-import '../../index.css'
+import "../../index.css";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [countdown, setCountdown] = useState({
@@ -12,7 +13,7 @@ const Hero = () => {
     minutes: "",
     seconds: "",
   });
- 
+
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
 
@@ -64,19 +65,17 @@ const Hero = () => {
     const interval = setInterval(updateCountdown, 1000);
 
     setIsLoading(true);
-
-    async function getProductsData() {
-      await new Promise((resolve) => setTimeout(resolve, 2800));
+    async function getBannerData() {
+      
       await axios
         .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
         .then((item) => {
-          // console.log(item.data);
-          setFlashProducts(item.data);
+          setFlashProducts(item?.data);
+          console.log(flashProducts)
           setIsLoading(false);
         });
     }
-
-    getProductsData();
+    getBannerData();
     return () => clearInterval(interval);
   }, []);
 
@@ -208,46 +207,58 @@ const Hero = () => {
           </div>
         ) : (
           <Slider
-            {...settings}
-            className="w-full cat-slider flex flex-row shadow-3xl "
-          >
-            {flashProducts.map((item, index) => {
-              const isFlipped = index === flippedCardIndex;
-              return (
-                <div
-                  key={item.id}
-                  className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={handleMouseLeave}
+          {...settings}
+          className="w-full cat-slider flex flex-row shadow-3xl "
+        >
+          {flashProducts.reverse().map((item, index) => {
+            const isFlipped = index === flippedCardIndex;
+            return (
+              <div
+                key={item.id}
+                className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <motion.div
+                  className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
+                  initial={false}
+                  animate={{ rotateY: isFlipped ? 180 : 0 }}
+                  transition={{ duration: 0.6, animationDirection: "normal" }}
                 >
-                  <motion.div
-                    className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
-                    initial={false}
-                    animate={{ rotateY: isFlipped ? 180 : 0 }}
-                    transition={{ duration: 0.6, animationDirection: "normal" }}
-                  >
-                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
-                      <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
-                        <img
-                          src={item.img}
-                          alt="product-image"
-                          className=" w-full h-full object-cover"
-                        />
-                      </div>
+                  <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
+                    <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
+                      {item.images.slice(0, 1).map((item) => {
+                        return (
+                          <img
+                            key={item.id}
+                            src={item.url}
+                            alt="product-image"
+                            className=" w-full h-full object-cover"
+                          />
+                        );
+                      })}
                     </div>
-                    <div className="w-full h-full flex flex-col bg-white absolute upcmvs__bck">
-                      <h1 className="px-4 font-bold py-4 font-inter text-lg">{item.title}</h1>
-                      <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
-                      <span className="flex-row flex py-2 px-5 justify-between">
-                        <span className="text-sm font-bold font-inter gap-2">{item.rating}/10</span>
-                        <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md">Know more</button>
-                      </span>
-                    </div>
-                  </motion.div>
-                </div>
-              );
-            })}
-          </Slider>
+                  </div>
+                  <div className="w-full h-full items-center justify-center px-2 flex flex-col bg-white absolute upcmvs__bck">
+                    <h1 className="px-4 font-bold py-2 font-inter text-base">
+                      {item.name}
+                    </h1>
+                    <span className="flex px-4 pb-4 leading-snug tracking-tight font-inter text-sm font-medium">
+                      {item.description}
+                    </span>
+                      
+                    <span className="flex-row flex pb-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
+                    Color: <span className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}></span>
+                    </span>
+                      <button className="bg-red-500 text-white text-sm mt-2 self py-2 px-2 rounded-md">
+                       <Link to={`/product/${item.id}`}> Buy now</Link>
+                      </button>
+                  </div>
+                </motion.div>
+              </div>
+            );
+          })}
+        </Slider>
         )}
       </div>
     </div>
