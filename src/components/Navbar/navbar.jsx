@@ -40,7 +40,11 @@ const Navbar = () => {
       }
       getCategories();
     }, []);
-    console.log(categories);
+
+    const {carts} = useSelector((state) => state.product)
+   
+
+    
   return (
     <div className="navbar">
       <div className="navbar_box flex w-[9rem] cursor-pointer ">
@@ -137,7 +141,7 @@ const Navbar = () => {
               <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
               {categories.map((item) => {
                 return(
-                  <>
+                  <div key={item.id}>
                     <Typography
                   variant="subtitle2"
                   key={item.id}
@@ -155,8 +159,9 @@ const Navbar = () => {
                     height: "2px",
                     bgcolor: "#ee2222",
                   }}
+                  
                 />
-                  </>
+                  </div >
                 )
               })}
               </div>
@@ -216,7 +221,7 @@ const Navbar = () => {
             <ShoppingCart size={22} />
           </NavLink>
           <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
-            {cartLength}
+            {carts.length}
           </span>
         </motion.div>
         <motion.div

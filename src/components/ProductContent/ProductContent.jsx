@@ -21,6 +21,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 
 import { EffectFade, FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/slices/ProductSlice";
 
 const ProductContent = () => {
   // const [mainImage, setMainImage] = useState("card3.jpg");
@@ -58,7 +60,7 @@ const ProductContent = () => {
       await axios
         .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products/${id}`)
         .then((item) => {
-          console.log(item.data);
+          
           setProduct(item.data);
           setIsLoading(false);
         });
@@ -80,6 +82,13 @@ const ProductContent = () => {
   const stars = Array.from({ length: starsQuantity }).map((_, i) => (
     <Star key={i} size={20} color="#FFD700" />
   ));
+  
+
+  const dispatch = useDispatch();
+  const handleBuyNow = (item) => {
+
+      dispatch(addToCart(item))
+  }
 
   return (
     <div className="flex flex-col gap-16 items-center">
@@ -222,7 +231,7 @@ const ProductContent = () => {
                     <div className="buy bg-red-500 text-white font-semibold outline-none px-12 py-2 flex items-center rounded-md text-lg cursor-pointer">
                       <button>Buy</button>
                     </div>
-                    <div className="cart border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
+                    <div className="cart border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer" onClick={() => handleBuyNow(product)}>
                       <FiShoppingCart size={25} />
                     </div>
                     <div className="wishlist border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
