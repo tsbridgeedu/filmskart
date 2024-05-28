@@ -38,7 +38,7 @@ const UpcomingMovies = () => {
     async function getMovieData() {
       await new Promise((resolve) => setTimeout(resolve, 2800));
       await axios.get(`${BASE_URL}/movie-data`).then((item) => {
-        console.log(item.data);
+        
         setMovieList(item.data);
         setLoading(false);
       });

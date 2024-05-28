@@ -14,7 +14,7 @@ const getProduct = async () => {
   await axios
     .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
     .then((productList) => {
-      // console.log(item.data);
+      console.log(item.data);
       productList.data;
     })
     

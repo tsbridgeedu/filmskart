@@ -5,15 +5,10 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import "../../index.css";
 import { Link } from "react-router-dom";
-import getProduct from "../../../api/getProduct";
-// import { useProductContext } from "../../context/ProductContext";
 
 const ExploreProducts = () => {
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
-
-  // const products = useProductContext();
-  // console.log(products)
 
   const [exploreProducts, setExploreProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,9 +29,8 @@ const ExploreProducts = () => {
       await axios
         .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
         .then((item) => {
-          console.log(item.data);
           setExploreProducts(item.data);
-    setIsLoading(false);
+          setIsLoading(false);
         });
     }
     getBannerData();
@@ -92,8 +86,6 @@ const ExploreProducts = () => {
       },
     ],
   };
-
-  
 
   return (
     <div className="flex flex-col w-full px-4 md:px-20 mb-20">
