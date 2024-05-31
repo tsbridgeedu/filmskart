@@ -36,13 +36,13 @@ const AllProducts = () => {
   }, []);
 
   return (
-    <div className="lg:px-32 px-16 max- lg:my-24 my-12 flex flex-col">
+    <div className="lg:px-32 sm:px-16 px-10 lg:my-24 my-12 flex flex-col">
       <div className="flex-row flex w-full max-[590px]:px-0 px-16 justify-center">
         <span className="font-inter text-[32px] font-bold tracking-wide border-b-4 border-red-400">
           Explore All Products
         </span>
       </div>
-      <section className="flex flex-wrap max-[1024px]:items-center max-[1024px]:justify-center my-28 sm:mx-20 gap-16">
+      <section className="flex flex-wrap max-[1024px]:items-center max-[1024px]:justify-center my-28  gap-16">
         {products ? (
           products.map((item) => {
             const isFlipped = item.id === flippedCardIndex;
@@ -51,7 +51,7 @@ const AllProducts = () => {
                 key={item.id}
                 onMouseEnter={() => handleMouseEnter(item.id)}
                 onMouseLeave={handleMouseLeave}
-                className="flex flex-row border max-[768px]:w-[150px] max-[768px]:h-[200px] w-[280px] h-[400px] rounded-md shadow-lg upcmvs__crd__cntr"
+                className="flex flex-row border max-[768px]:w-[250px] max-[768px]:h-[350px] w-[350px] h-[400px] rounded-md shadow-lg upcmvs__crd__cntr"
               >
                 <motion.div
                   className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
