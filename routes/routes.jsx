@@ -30,6 +30,7 @@ import CheckoutContent from "../src/components/CheckoutContent";
 import { AuthenticateWithRedirectCallback, UserProfile } from "@clerk/clerk-react";
 import UserSettings from "../pages/UserSettings";
 import EventCreation from "../pages/EventCreation";
+import MovieDesc from "../src/components/MovieDesc/MovieDesc";
 
 const Router = () => {
 return useRoutes([
@@ -119,7 +120,12 @@ return useRoutes([
       },{
         path: '/event-creation',
         element: <EventCreation />
-      }
+      },
+      {
+        path: '/movie/:id',
+        element: <MovieDesc />
+      },
+      
     ],
   },
 ]);

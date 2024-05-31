@@ -5,6 +5,7 @@ import { Dot } from "lucide-react";
 const MovieDesc = () => {
   return (
     <div>
+      <div className=""><img src="/" alt="" /></div>
       <div className="flex justify-start ml-7">
         <div className="heading text-5xl">KALKI</div>
       </div>
