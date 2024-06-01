@@ -10,89 +10,104 @@ import { Puff, ThreeDots } from "react-loader-spinner";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
-import PropTypes from 'prop-types';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import PropTypes from 'prop-types';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
-import { useNavigate } from "react-router-dom";
+
 import { EffectFade, FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
 import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/slices/ProductSlice";
 
-const ProductContent = ({handleAddProduct}) => {
-  // const [mainImage, setMainImage] = useState("card3.jpg");
-  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
-  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
-
+const ProductContent = ({ handleAddProduct, product }) => {
   const [toggleState, setToggleState] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const { id } = useParams();
-  const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const incrementQuantity = () => {
+    setQuantity((val) => val + 1);
+  }
 
-  const handleAddToCart = () => {
-    handleAddProduct(product, quantity);
-};
-const navigate = useNavigate();
-const handleBuyNow = () => {
-  handleAddProduct(product, quantity);
-  navigate("/checkout"); // Navigate to the checkout page
-};
-const incrementQuantity = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-};
-
-const decrementQuantity = () => {
-    setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 0));
-};
+  const decrementQuantity = () => {
+    if (quantity > 0) {
+      setQuantity((val) => val - 1);
+    } else {
+      setQuantity(0);
+    }
+  }
 
   const toggleTab = (index) => {
     setToggleState(index);
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    async function getProduct() {
-      await new Promise((resolve) => setTimeout(resolve, 2800));
-      await axios
-        .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products/${id}`)
-        .then((item) => {
-          
-          setProduct(item.data);
-          setIsLoading(false);
-        });
-    }
-    getProduct();
-  }, []);
-  ProductContent.propTypes = {
-    handleAddProduct: PropTypes.func.isRequired,
-  };
-
- 
-  const productId=product.id
-  const category = product.category?.name;
-  const availableSize = product.size?.name;
-  const availableColor = product.color?.name;
-  const sizes = ["XS", "S", "M", "L", "XL"];
-
-  // const handleThumbnailChange = (image) => {
-  //   setMainImage(image);
-  // };
   const star = 4;
   const starsQuantity = parseInt(star, 10);
   const stars = Array.from({ length: starsQuantity }).map((_, i) => (
     <Star key={i} size={20} color="#FFD700" />
   ));
-  
 
+  ProductContent.propTypes = {
+    handleAddProduct: PropTypes.func.isRequired,
+    product: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      storeId: PropTypes.string.isRequired,
+      categoryId: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+      isFeatured: PropTypes.bool.isRequired,
+      isArchived: PropTypes.bool.isRequired,
+      sizeId: PropTypes.string.isRequired,
+      colorId: PropTypes.string.isRequired,
+      createdAt: PropTypes.string.isRequired,
+      updatedAt: PropTypes.string.isRequired,
+      images: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          productId: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired,
+          createdAt: PropTypes.string.isRequired,
+          updatedAt: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      category: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        storeId: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        createdAt: PropTypes.string.isRequired,
+        updatedAt: PropTypes.string.isRequired,
+      }).isRequired,
+      color: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        storeId: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+        createdAt: PropTypes.string.isRequired,
+        updatedAt: PropTypes.string.isRequired,
+      }).isRequired,
+      size: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        storeId: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+        createdAt: PropTypes.string.isRequired,
+        updatedAt: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  };
 
+  const images = product?.images || [];
+
+  const availableColor = product?.color?.value || " ";
+  const availableSize = product?.size?.name || " ";
+  const sizes = product?.size ? product?.size?.value : [];
 
   return (
     <div className="flex flex-col gap-16 items-center">
@@ -142,18 +157,17 @@ const decrementQuantity = () => {
                 modules={[FreeMode, Navigation]}
                 className="prod-thumb-slider w-[25%] h-full"
               >
-                {product.images?.map((image, index) => {
-                  return (
-                    <SwiperSlide key={index} className="w-[100%]">
-                      <img
-                        key={image.id}
-                        src={image.url}
-                        alt={product.name}
-                        className="w-full h-full object-contain  cursor-pointer transition duration-200 ease-in hover:scale-110"
-                      />
-                    </SwiperSlide>
-                  )
-                })}
+  {images.map((item, index) => (
+          <SwiperSlide key={index} className="w-[100%]">
+            <img
+              key={item.id}
+              src={item.url}
+              // alt={product.name}
+              className="w-full h-full object-contain cursor-pointer transition duration-200 ease-in hover:scale-110"
+            />
+          </SwiperSlide>
+        ))}
+
               </Swiper>
 
               <Swiper
@@ -166,18 +180,18 @@ const decrementQuantity = () => {
                 modules={[EffectFade, FreeMode, Thumbs, Pagination]}
                 className="prod-slider w-[60%] h-full"
               >
-                {product.images?.map((image, index) => {
-                  return (
+                {images.map((item, index) => (
+         
                     <SwiperSlide key={index} className="w-full">
                       <img
-                        key={image.id}
-                        src={image.url}
-                        alt={product.name}
+                        key={item.id}
+                        src={item.url}
+                        // alt={product.name}
                         className="w-full h-full object-contain object-center"
                       />
                     </SwiperSlide>
-                  )
-                })}
+                  
+                ))}
               </Swiper>
 
             </div>
@@ -202,7 +216,7 @@ const decrementQuantity = () => {
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <span className="text-base font-semibold ">Colors:</span>
-                  <div className={`w-[18px] h-[18px] rounded-lg border-[1px] shadow-gray-300 shadow-md border-gray-300 cursor-pointer bg-${availableColor}`}></div>
+                  <div className={`w-[18px] h-[18px] rounded-lg border-[1px] shadow-gray-300 shadow-md border-gray-300 cursor-pointer bg-[${availableColor}]`}></div>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-base font-semibold">Size:</span>
@@ -233,10 +247,10 @@ const decrementQuantity = () => {
                   </div>
                   <div className="flex gap-3">
                     <div className="buy bg-red-500 text-white font-semibold outline-none px-12 py-2 flex items-center rounded-md text-lg cursor-pointer">
-                      <button onClick={handleBuyNow}>Buy</button>
+                      <button>Buy</button>
                     </div>
-                    <div className="cart border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer" >
-                    <button onClick={handleAddToCart} ><FiShoppingCart size={25} /> </button>
+                    <div className="cart border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer" onClick={() => handleAddProduct(product)}>
+                      <FiShoppingCart size={25} />
                     </div>
                     <div className="wishlist border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
                       <IoMdHeartEmpty size={25} />
@@ -316,7 +330,7 @@ const decrementQuantity = () => {
           </div>
         </>
       )}
-      <RelatedProducts category={category} productId={productId} />
+      <RelatedProducts category={product?.category?.name} productId={id} />
     </div>
   );
 };

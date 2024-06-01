@@ -3,11 +3,11 @@ import Navbar from '../src/components/Navbar/navbar'
 import AddtoCartContent from '../src/components/AddToCart/AddtoCart'
 import Footer from '../src/components/Footer/footer'
 
-const AddtoCart = () => {
+const AddtoCart = (props) => {
   return (
     <div>
         
-        <AddtoCartContent />
+        <AddtoCartContent {...props} />
        
     </div>
   )
