@@ -19,7 +19,7 @@ import Account from "../pages/Account";
 import UserSettings from "../pages/UserSettings";
 import EventCreation from "../pages/EventCreation";
 import MovieDesc from "../src/components/MovieDesc/MovieDesc";
-
+import Faq from "../src/components/Faq";
 
 const Routers = (props) => {
 
@@ -38,6 +38,7 @@ const Routers = (props) => {
         <Route path="/product/:id" element={<Product {...props}/>} />
         <Route path="/products" element={<Products />} />
         <Route path="/movie" element={<Movie />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/cart" element={<AddtoCart  {...props}/>} />
         <Route
