@@ -3,10 +3,10 @@ import Navbar from "../components/Navbar/navbar";
 import Footer from "../components/Footer/footer";
 import { Outlet } from "react-router-dom";
 
-const Layout = () => {
+const Layout = (props) => {
   return (
     <div>
-      <Navbar />
+      <Navbar {...props} />
       <hr className="h-[5px]" />
       <Outlet />
       <Footer />

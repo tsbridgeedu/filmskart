@@ -68,7 +68,7 @@ const AccountContent = () => {
           <div className="flex flex-col  px-4">
             <h1 className="font-semibold pl-2">My Orders</h1>
             <ul className="flex flex-col text-sm py-3 gap-3 px-5">
-              <li
+              {/* <li
                 className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
                 onClick={() => {
                   setRoute("Returns");
@@ -76,7 +76,7 @@ const AccountContent = () => {
                 }}
               >
                 <span>My Returns</span>
-              </li>
+              </li> */}
               <li
                 className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
                 onClick={() => {
@@ -145,7 +145,7 @@ const AccountContent = () => {
                   <div className="flex flex-col  px-4">
                     <h1 className="font-semibold">My Orders</h1>
                     <ul className="flex flex-col text-sm py-3 gap-3 px-5">
-                      <li
+                      {/* <li
                         className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
                         onClick={() => {
                           setRoute("Returns");
@@ -153,7 +153,7 @@ const AccountContent = () => {
                         }}
                       >
                         <span>My Returns</span>
-                      </li>
+                      </li> */}
                       <li
                         className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
                         onClick={() => {

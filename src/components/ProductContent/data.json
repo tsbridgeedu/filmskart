@@ -1,0 +1,366 @@
+[
+    {
+        "id": "f1fd85bb-059b-4ee5-b801-58ae9464c49f",
+        "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+        "categoryId": "a3da0810-387c-4a51-a84c-2faaa7d14109",
+        "name": "Salaar Back Print T-shirt (White)",
+        "description": "Salaar movie exclusive : Banner printed Back Print T-shirt",
+        "price": "349",
+        "isFeatured": true,
+        "isArchived": false,
+        "sizeId": "0545a04b-7cd7-4773-a0b4-a72b5738dc7d",
+        "colorId": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+        "createdAt": "2024-05-21T08:15:12.547Z",
+        "updatedAt": "2024-05-21T08:15:12.547Z",
+        "images": [
+            {
+                "id": "b6aba4d0-387f-4dd7-abc1-b242b5a13b5a",
+                "productId": "f1fd85bb-059b-4ee5-b801-58ae9464c49f",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716279223/zaupgb3m50rddhxh1n7x.jpg",
+                "createdAt": "2024-05-21T08:15:12.547Z",
+                "updatedAt": "2024-05-21T08:15:12.547Z"
+            }
+        ],
+        "category": {
+            "id": "a3da0810-387c-4a51-a84c-2faaa7d14109",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "Caps",
+            "createdAt": "2024-05-21T07:55:35.862Z",
+            "updatedAt": "2024-05-25T14:53:51.182Z"
+        },
+        "color": {
+            "id": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "White",
+            "value": "#f2f2f2",
+            "createdAt": "2024-05-21T07:16:40.455Z",
+            "updatedAt": "2024-05-21T07:16:40.455Z"
+        },
+        "size": {
+            "id": "0545a04b-7cd7-4773-a0b4-a72b5738dc7d",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "XL",
+            "value": "XL",
+            "createdAt": "2024-05-21T07:14:53.476Z",
+            "updatedAt": "2024-05-21T07:14:53.476Z"
+        }
+    },
+    {
+        "id": "fe700afd-1073-410a-8e17-77efa57357e3",
+        "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+        "categoryId": "a3da0810-387c-4a51-a84c-2faaa7d14109",
+        "name": "Salaar Cap (Black)",
+        "description": "Salaar movie exclusive : Banner printed Cap",
+        "price": "149",
+        "isFeatured": true,
+        "isArchived": false,
+        "sizeId": "0fadd971-5a02-4aad-8b8d-47e05f262e4f",
+        "colorId": "9c3e724e-e662-43c3-a413-5bd64cf3e529",
+        "createdAt": "2024-05-21T08:12:34.750Z",
+        "updatedAt": "2024-05-21T08:12:34.750Z",
+        "images": [
+            {
+                "id": "17adf084-b8a6-44b5-b8b9-f5ac4fac4694",
+                "productId": "fe700afd-1073-410a-8e17-77efa57357e3",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716279143/l9s3w0n1g0ksogzkpqkr.jpg",
+                "createdAt": "2024-05-21T08:12:34.750Z",
+                "updatedAt": "2024-05-21T08:12:34.750Z"
+            },
+            {
+                "id": "8f43d31e-6fad-44c7-b674-c19d0a70c797",
+                "productId": "fe700afd-1073-410a-8e17-77efa57357e3",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716279121/dggi3yvehwcakam9ip5x.jpg",
+                "createdAt": "2024-05-21T08:12:34.750Z",
+                "updatedAt": "2024-05-21T08:12:34.750Z"
+            }
+        ],
+        "category": {
+            "id": "a3da0810-387c-4a51-a84c-2faaa7d14109",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "Caps",
+            "createdAt": "2024-05-21T07:55:35.862Z",
+            "updatedAt": "2024-05-25T14:53:51.182Z"
+        },
+        "color": {
+            "id": "9c3e724e-e662-43c3-a413-5bd64cf3e529",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "Black",
+            "value": "#000000",
+            "createdAt": "2024-05-21T08:04:28.915Z",
+            "updatedAt": "2024-05-21T08:04:28.915Z"
+        },
+        "size": {
+            "id": "0fadd971-5a02-4aad-8b8d-47e05f262e4f",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "S",
+            "value": "S",
+            "createdAt": "2024-05-21T07:15:30.373Z",
+            "updatedAt": "2024-05-21T07:15:30.373Z"
+        }
+    },
+    {
+        "id": "306a735a-8ff5-42a9-95b2-4562c888d31d",
+        "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+        "categoryId": "0033bb03-8a3a-43f6-968a-088e3f1627c4",
+        "name": "Salaar Sleeveless T-shirt (White) for Women",
+        "description": "Salaar movie exclusive : Banner printed Sleeveless T-shirt for Women",
+        "price": "299",
+        "isFeatured": true,
+        "isArchived": false,
+        "sizeId": "81e432e3-1abb-4439-ac89-3ff9a005d545",
+        "colorId": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+        "createdAt": "2024-05-21T07:42:11.948Z",
+        "updatedAt": "2024-05-21T07:42:11.948Z",
+        "images": [
+            {
+                "id": "8169e458-d2b2-4b4d-ac32-d060ae5c010f",
+                "productId": "306a735a-8ff5-42a9-95b2-4562c888d31d",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716277258/jbvhxf1lbdynm4qop6y9.jpg",
+                "createdAt": "2024-05-21T07:42:11.948Z",
+                "updatedAt": "2024-05-21T07:42:11.948Z"
+            }
+        ],
+        "category": {
+            "id": "0033bb03-8a3a-43f6-968a-088e3f1627c4",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "Women",
+            "createdAt": "2024-05-21T07:14:15.798Z",
+            "updatedAt": "2024-05-21T07:14:15.798Z"
+        },
+        "color": {
+            "id": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "White",
+            "value": "#f2f2f2",
+            "createdAt": "2024-05-21T07:16:40.455Z",
+            "updatedAt": "2024-05-21T07:16:40.455Z"
+        },
+        "size": {
+            "id": "81e432e3-1abb-4439-ac89-3ff9a005d545",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "M",
+            "value": "M",
+            "createdAt": "2024-05-21T07:15:19.333Z",
+            "updatedAt": "2024-05-21T07:15:19.333Z"
+        }
+    },
+    {
+        "id": "081630d1-0ac7-4391-905b-5f41fcfbcba0",
+        "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+        "categoryId": "5ee9d639-988c-4c83-ba5d-b3464940ed6e",
+        "name": "Salaar Sleeveless T-shirt (White)",
+        "description": "Salaar movie exclusive : Banner printed  Sleeveless T-shirt",
+        "price": "299",
+        "isFeatured": true,
+        "isArchived": false,
+        "sizeId": "81e432e3-1abb-4439-ac89-3ff9a005d545",
+        "colorId": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+        "createdAt": "2024-05-21T07:40:07.531Z",
+        "updatedAt": "2024-05-21T08:17:37.809Z",
+        "images": [
+            {
+                "id": "1b51ff47-4e40-43bb-aaf9-0fcea3f431a5",
+                "productId": "081630d1-0ac7-4391-905b-5f41fcfbcba0",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716276956/sehm5lrh0r5t4popivpq.jpg",
+                "createdAt": "2024-05-21T08:17:39.476Z",
+                "updatedAt": "2024-05-21T08:17:39.476Z"
+            },
+            {
+                "id": "74315f00-0f54-4c5a-8abf-1046efe07dd1",
+                "productId": "081630d1-0ac7-4391-905b-5f41fcfbcba0",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716277141/motffmn8ou0vldssa7vb.jpg",
+                "createdAt": "2024-05-21T08:17:39.476Z",
+                "updatedAt": "2024-05-21T08:17:39.476Z"
+            }
+        ],
+        "category": {
+            "id": "5ee9d639-988c-4c83-ba5d-b3464940ed6e",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "Men",
+            "createdAt": "2024-05-21T07:14:03.092Z",
+            "updatedAt": "2024-05-21T07:14:03.092Z"
+        },
+        "color": {
+            "id": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "White",
+            "value": "#f2f2f2",
+            "createdAt": "2024-05-21T07:16:40.455Z",
+            "updatedAt": "2024-05-21T07:16:40.455Z"
+        },
+        "size": {
+            "id": "81e432e3-1abb-4439-ac89-3ff9a005d545",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "M",
+            "value": "M",
+            "createdAt": "2024-05-21T07:15:19.333Z",
+            "updatedAt": "2024-05-21T07:15:19.333Z"
+        }
+    },
+    {
+        "id": "9fa992af-0c76-4527-80b2-de9c493b38ee",
+        "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+        "categoryId": "0033bb03-8a3a-43f6-968a-088e3f1627c4",
+        "name": "Salaar T-shirt (White) for Women",
+        "description": "Salaar movie exclusive : Banner printed T-shirt",
+        "price": "199",
+        "isFeatured": true,
+        "isArchived": false,
+        "sizeId": "5ffd9613-08bf-4035-bbe3-85a3a819f461",
+        "colorId": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+        "createdAt": "2024-05-21T07:33:20.186Z",
+        "updatedAt": "2024-05-21T07:33:20.186Z",
+        "images": [
+            {
+                "id": "30685f35-977f-4580-843c-dae7a8025ac7",
+                "productId": "9fa992af-0c76-4527-80b2-de9c493b38ee",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716276658/ewvaugtt1n3akmfieppj.jpg",
+                "createdAt": "2024-05-21T07:33:20.186Z",
+                "updatedAt": "2024-05-21T07:33:20.186Z"
+            }
+        ],
+        "category": {
+            "id": "0033bb03-8a3a-43f6-968a-088e3f1627c4",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "Women",
+            "createdAt": "2024-05-21T07:14:15.798Z",
+            "updatedAt": "2024-05-21T07:14:15.798Z"
+        },
+        "color": {
+            "id": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "White",
+            "value": "#f2f2f2",
+            "createdAt": "2024-05-21T07:16:40.455Z",
+            "updatedAt": "2024-05-21T07:16:40.455Z"
+        },
+        "size": {
+            "id": "5ffd9613-08bf-4035-bbe3-85a3a819f461",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "L",
+            "value": "L",
+            "createdAt": "2024-05-21T07:15:02.266Z",
+            "updatedAt": "2024-05-21T07:15:02.266Z"
+        }
+    },
+    {
+        "id": "23f966c2-0b6f-4655-9e44-46e6def99ccb",
+        "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+        "categoryId": "a3da0810-387c-4a51-a84c-2faaa7d14109",
+        "name": "Salaar Cap (White)",
+        "description": "Salaar movie exclusive : Banner printed Cap",
+        "price": "129",
+        "isFeatured": true,
+        "isArchived": false,
+        "sizeId": "81e432e3-1abb-4439-ac89-3ff9a005d545",
+        "colorId": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+        "createdAt": "2024-05-21T07:29:43.511Z",
+        "updatedAt": "2024-05-21T08:03:05.577Z",
+        "images": [
+            {
+                "id": "c223c98a-e887-4f99-af03-d11f84a862bc",
+                "productId": "23f966c2-0b6f-4655-9e44-46e6def99ccb",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716276273/llxlvuy5vfd4h57ftkvp.jpg",
+                "createdAt": "2024-05-21T08:03:07.843Z",
+                "updatedAt": "2024-05-21T08:03:07.843Z"
+            }
+        ],
+        "category": {
+            "id": "a3da0810-387c-4a51-a84c-2faaa7d14109",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "Caps",
+            "createdAt": "2024-05-21T07:55:35.862Z",
+            "updatedAt": "2024-05-25T14:53:51.182Z"
+        },
+        "color": {
+            "id": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "White",
+            "value": "#f2f2f2",
+            "createdAt": "2024-05-21T07:16:40.455Z",
+            "updatedAt": "2024-05-21T07:16:40.455Z"
+        },
+        "size": {
+            "id": "81e432e3-1abb-4439-ac89-3ff9a005d545",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "M",
+            "value": "M",
+            "createdAt": "2024-05-21T07:15:19.333Z",
+            "updatedAt": "2024-05-21T07:15:19.333Z"
+        }
+    },
+    {
+        "id": "b5e5deb1-1dc5-4127-ac3d-222c9921ba46",
+        "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+        "categoryId": "5ee9d639-988c-4c83-ba5d-b3464940ed6e",
+        "name": "Salaar T-Shirt (White)",
+        "description": "Salaar movie exclusive : Banner printed T-shirt",
+        "price": "199",
+        "isFeatured": true,
+        "isArchived": false,
+        "sizeId": "5ffd9613-08bf-4035-bbe3-85a3a819f461",
+        "colorId": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+        "createdAt": "2024-05-21T07:19:52.908Z",
+        "updatedAt": "2024-05-21T08:16:49.150Z",
+        "images": [
+            {
+                "id": "338f672f-463c-412c-b582-43629beb5334",
+                "productId": "b5e5deb1-1dc5-4127-ac3d-222c9921ba46",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716278936/u0lsayljrl0llurn7vti.jpg",
+                "createdAt": "2024-05-21T08:16:50.799Z",
+                "updatedAt": "2024-05-21T08:16:50.799Z"
+            },
+            {
+                "id": "5b98ce0b-72a7-4b54-84fc-15f44bae264a",
+                "productId": "b5e5deb1-1dc5-4127-ac3d-222c9921ba46",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716278708/xumbgpz3mv2kykivoaat.jpg",
+                "createdAt": "2024-05-21T08:16:50.799Z",
+                "updatedAt": "2024-05-21T08:16:50.799Z"
+            },
+            {
+                "id": "b16f9255-ff7f-4690-9139-716da3b91bef",
+                "productId": "b5e5deb1-1dc5-4127-ac3d-222c9921ba46",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716275849/re9ljcrn1snwpxxj0x1x.jpg",
+                "createdAt": "2024-05-21T08:16:50.799Z",
+                "updatedAt": "2024-05-21T08:16:50.799Z"
+            },
+            {
+                "id": "cf544354-2fc8-4c4c-b71f-bba59e0673ec",
+                "productId": "b5e5deb1-1dc5-4127-ac3d-222c9921ba46",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716278819/avczcvwsoy5bpsmbykz0.jpg",
+                "createdAt": "2024-05-21T08:16:50.799Z",
+                "updatedAt": "2024-05-21T08:16:50.799Z"
+            },
+            {
+                "id": "ef536697-b30c-40d6-a6ea-e68074ea5cdf",
+                "productId": "b5e5deb1-1dc5-4127-ac3d-222c9921ba46",
+                "url": "https://res.cloudinary.com/dufik2lal/image/upload/v1716279373/hhlukdkgc4ysaz0qttav.jpg",
+                "createdAt": "2024-05-21T08:16:50.799Z",
+                "updatedAt": "2024-05-21T08:16:50.799Z"
+            }
+        ],
+        "category": {
+            "id": "5ee9d639-988c-4c83-ba5d-b3464940ed6e",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "Men",
+            "createdAt": "2024-05-21T07:14:03.092Z",
+            "updatedAt": "2024-05-21T07:14:03.092Z"
+        },
+        "color": {
+            "id": "c3556b5c-8eea-4ff9-b4c2-54f322604db2",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "White",
+            "value": "#f2f2f2",
+            "createdAt": "2024-05-21T07:16:40.455Z",
+            "updatedAt": "2024-05-21T07:16:40.455Z"
+        },
+        "size": {
+            "id": "5ffd9613-08bf-4035-bbe3-85a3a819f461",
+            "storeId": "a6b3e99c-487e-431b-9dce-7927fa357ced",
+            "name": "L",
+            "value": "L",
+            "createdAt": "2024-05-21T07:15:02.266Z",
+            "updatedAt": "2024-05-21T07:15:02.266Z"
+        }
+    }
+]

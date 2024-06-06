@@ -18,16 +18,19 @@ import MobileSearch from "../MobileSearch";
 import { Divider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import axios from "axios";
-const Navbar = () => {
+import PropTypes from "prop-types";
+const Navbar = ({cartItems}) => {
 
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
   const [toggleCat, setToggleCat] = useState(false);
   const [toggleAbout, setToggleAbout] = useState(false);
-  const cartLength = useSelector((state) => state.product.carts.length);
+
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  Navbar.propTypes = {
+    cartItems: PropTypes.array,
+  };
   useEffect(() => {
     setIsLoading(true);
     async function getCategories() {
@@ -41,7 +44,7 @@ const Navbar = () => {
       getCategories();
     }, []);
 
-    const {carts} = useSelector((state) => state.product)
+  
    
 
     
@@ -221,7 +224,7 @@ const Navbar = () => {
             <ShoppingCart size={22} />
           </NavLink>
           <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
-            {carts.length}
+          {cartItems.length === 0 ? "" : cartItems.length}
           </span>
         </motion.div>
         <motion.div
