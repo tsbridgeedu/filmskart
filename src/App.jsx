@@ -1,17 +1,16 @@
 import React from "react";
-import { CartProvider } from './CartContext';
+import { CartProvider } from "./CartContext";
 import "./App.css";
 import Router from "../routes/RoutePath";
 import StairTransition from "./components/animation/StairTransition";
 import PageTransition from "./components/animation/PageTransition";
 const App = () => {
-  
   return (
     <>
       <StairTransition />
       <PageTransition>
         <CartProvider>
-        <Router />
+          <Router />
         </CartProvider>
       </PageTransition>
     </>

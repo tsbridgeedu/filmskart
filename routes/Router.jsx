@@ -22,29 +22,22 @@ import MovieDesc from "../src/components/MovieDesc/MovieDesc";
 import Faq from "../src/components/Faq";
 
 const Routers = (props) => {
-
-
-
-
   return (
     <Routes>
-      <Route path="/" element={<Layout  {...props}/>}>
-        <Route index element={<Home {...props}/>} />
+      <Route path="/" element={<Layout {...props} />}>
+        <Route index element={<Home {...props} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/fan-club" element={<FanClub />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/product/:id" element={<Product {...props}/>} />
+        <Route path="/product/:id" element={<Product {...props} />} />
         <Route path="/products" element={<Products />} />
         <Route path="/movie" element={<Movie />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/partners" element={<Partners />} />
-        <Route path="/cart" element={<AddtoCart  {...props}/>} />
-        <Route
-          path="/terms-and-conditions"
-          element={<TermsAndConditions />}
-        />
+        <Route path="/cart" element={<AddtoCart {...props} />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/user-profile" element={<UserSettings />} />

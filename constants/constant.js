@@ -148,7 +148,7 @@ export const productCards = [
 
 export const relatedProducts = [
   {
-    id:1,
+    id: 1,
     img: "card1.jpg",
     desc: "XL T-shirt",
     discprice: 800,
@@ -157,7 +157,7 @@ export const relatedProducts = [
     review: 15,
   },
   {
-    id:2,
+    id: 2,
     img: "card2.jpg",
     desc: "M Hoodie",
     discprice: 1200,
@@ -166,7 +166,7 @@ export const relatedProducts = [
     review: 10,
   },
   {
-    id:3,
+    id: 3,
     img: "card3.jpg",
     desc: "S Jeans",
     discprice: 900,
@@ -175,7 +175,7 @@ export const relatedProducts = [
     review: 20,
   },
   {
-    id:4,
+    id: 4,
     img: "card4.jpg",
     desc: "L Dress",
     discprice: 1500,
@@ -184,7 +184,7 @@ export const relatedProducts = [
     review: 12,
   },
   {
-    id:5,
+    id: 5,
     img: "Devara.jpg",
     desc: "M Dress",
     discprice: "800",
@@ -238,16 +238,30 @@ export const imagesProducts = [
   { src: "image2.jpg", key: 6 },
 ];
 
-
-
 export const bannerContent = [
   // {id:'1',img:'1.jpg', product:'tshirt.png',title:'We design', desc:'Style Inspired by Cinema'},
-  {id:'2',img:'2.jpg', product:'tshirt2.png',title:'Personalise Design', desc:'Customize Your Tshirt'},
-  {id:'3',img:'3.jpg', product:'tshirt3.png',title:'We design', desc:'Wear the Magic of Movies'},
-  {id:'4',img:'4.jpg', product:'tshirt4.png',title:'Personalise Design', desc:'Where Film Meets Fashion'},
+  {
+    id: "2",
+    img: "2.jpg",
+    product: "tshirt2.png",
+    title: "Personalise Design",
+    desc: "Customize Your Tshirt",
+  },
+  {
+    id: "3",
+    img: "3.jpg",
+    product: "tshirt3.png",
+    title: "We design",
+    desc: "Wear the Magic of Movies",
+  },
+  {
+    id: "4",
+    img: "4.jpg",
+    product: "tshirt4.png",
+    title: "Personalise Design",
+    desc: "Where Film Meets Fashion",
+  },
 ];
-
-
 
 //FAQ QUESTIONS
 export const questions = [
@@ -287,16 +301,13 @@ export const questions = [
       "Yes, we offer customization options for our t-shirts. You can choose from various designs, add text, and select your preferred colors. Visit our customization page to start creating your unique t-shirt..",
   },
   {
-    question:
-      "How do I care for my Filmskart t-shirt?",
+    question: "How do I care for my Filmskart t-shirt?",
     answer:
       "To keep your t-shirt in the best condition, wash it inside out in cold water, use mild detergent, and avoid bleach. Tumble dry on low heat or hang dry to prevent shrinking and fading.",
   },
   {
-    question:
-      "How can I contact customer support?",
+    question: "How can I contact customer support?",
     answer:
       "If you have any questions or need assistance, you can contact our customer support team via email at support@filmskart.com or call us at our toll-free number. We are available from Monday to Friday, 9 AM to 6 PM..",
   },
 ];
-

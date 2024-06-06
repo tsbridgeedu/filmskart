@@ -8,19 +8,28 @@ export default function SingleQuestion({ question, answer }) {
   return (
     <div className="border border-gray-400 rounded-lg bg-white">
       <article className="flex items-center justify-between p-4 lg:p-6">
-        <h2 className="cursor-pointer" onClick={() => setShowAnswer(!showAnswer)}>
+        <h2
+          className="cursor-pointer"
+          onClick={() => setShowAnswer(!showAnswer)}
+        >
           {question}
         </h2>
         <ul>
           {!showAnswer ? (
             <li>
-              <button  className=" bg-red-500 rounded-full" onClick={() => setShowAnswer(true)}>
-                <BsPlusLg className="text-white"/>
+              <button
+                className=" bg-red-500 rounded-full"
+                onClick={() => setShowAnswer(true)}
+              >
+                <BsPlusLg className="text-white" />
               </button>
             </li>
           ) : (
             <li>
-              <button className=" bg-red-500 rounded-full" onClick={() => setShowAnswer(false)}>
+              <button
+                className=" bg-red-500 rounded-full"
+                onClick={() => setShowAnswer(false)}
+              >
                 <BiMinus className="text-white" />
               </button>
             </li>
