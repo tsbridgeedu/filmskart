@@ -24,7 +24,8 @@ const Footer = () => {
               <NavLink to={'/contact'}><p>Email Us</p></NavLink>
               <NavLink to={'/contact'}><p>Chat with us</p></NavLink>
               <NavLink to={'/contact'}><p>Call Us</p></NavLink>
-              <NavLink to={'/contact'}><p>Report</p></NavLink>
+              <NavLink to={'/cancellation-policy'}><p>Cancellation Policy</p></NavLink>
+
               
             </div>
           </div>
@@ -59,10 +60,10 @@ const Footer = () => {
                     </div>
                   </div>
                   <div className="footer_data_icons">
-                      <FacebookIcon className="cursor-pointer hover:scale-110 hover:ease-in-out duration-300 transition-all"/>
-                      <TwitterIcon className="cursor-pointer hover:scale-110 hover:ease-in-out duration-300 transition-all"/>
-                      <Instagram className="cursor-pointer hover:scale-110 hover:ease-in-out duration-300 transition-all"/>
-                      <Linkedin className="cursor-pointer hover:scale-110 hover:ease-in-out duration-300 transition-all"/>
+                      <FacebookIcon className="cursor-pointer hover:scale-125 hover:ease-in-out duration-300 transition-all"/>
+                      <TwitterIcon className="cursor-pointer hover:scale-125 hover:ease-in-out duration-300 transition-all"/>
+                      <Instagram className="cursor-pointer hover:scale-125 hover:ease-in-out duration-300 transition-all"/>
+                      <Linkedin className="cursor-pointer hover:scale-125 hover:ease-in-out duration-300 transition-all"/>
                   </div> 
               </div>
           </div>        

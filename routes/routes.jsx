@@ -31,6 +31,7 @@ import { AuthenticateWithRedirectCallback, UserProfile } from "@clerk/clerk-reac
 import UserSettings from "../pages/UserSettings";
 import EventCreation from "../pages/EventCreation";
 import MovieDesc from "../src/components/MovieDesc/MovieDesc";
+import CancellationPolicy from "../src/components/cancellation-policy/CancellationPolicy";
 
 const Router = () => {
 return useRoutes([
@@ -125,6 +126,10 @@ return useRoutes([
         path: '/movie/:id',
         element: <MovieDesc />
       },
+      {
+        path: '/cancellation-policy',
+        element: <CancellationPolicy/>
+      }
       
     ],
   },
