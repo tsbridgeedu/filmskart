@@ -20,6 +20,8 @@ import UserSettings from "../pages/UserSettings";
 import EventCreation from "../pages/EventCreation";
 import MovieDesc from "../src/components/MovieDesc/MovieDesc";
 import Faq from "../src/components/Faq";
+import ReturnPolicy from "../src/components/AccountContent/ReturnPolicy";
+
 
 const Routers = (props) => {
   return (
@@ -35,6 +37,8 @@ const Routers = (props) => {
         <Route path="/products" element={<Products />} />
         <Route path="/movie" element={<Movie />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="/returnpolicy" element={<ReturnPolicy />} />
+
         <Route path="/partners" element={<Partners />} />
         <Route path="/cart" element={<AddtoCart {...props} />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

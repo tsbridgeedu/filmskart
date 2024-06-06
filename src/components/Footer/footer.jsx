@@ -36,8 +36,8 @@ const Footer = () => {
             <NavLink to={"/contact"}>
               <p>Chat with us</p>
             </NavLink>
-            <NavLink to={"/contact"}>
-              <p>Call Us</p>
+            <NavLink to={"/returnpolicy"}>
+              <p>Return Policy</p>
             </NavLink>
             <NavLink to={"/contact"}>
               <p>Report</p>
