@@ -21,6 +21,7 @@ import EventCreation from "../pages/EventCreation";
 import MovieDesc from "../src/components/MovieDesc/MovieDesc";
 import Faq from "../src/components/Faq";
 import ReturnPolicy from "../src/components/AccountContent/ReturnPolicy";
+import EventContent from "../src/components/EventContent/EventContent";
 
 
 const Routers = (props) => {
@@ -47,6 +48,7 @@ const Routers = (props) => {
         <Route path="/user-profile" element={<UserSettings />} />
         <Route path="/profile" element={<Account />} />
         <Route path="/event-creation" element={<EventCreation />} />
+        <Route path="/event" element={<EventContent />} />
         <Route path="/movie/:id" element={<MovieDesc />} />
       </Route>
     </Routes>
