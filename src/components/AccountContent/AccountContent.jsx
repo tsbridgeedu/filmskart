@@ -66,7 +66,7 @@ const AccountContent = () => {
             </ul>
           </div>
           <div className="flex flex-col  px-4">
-            <h1 className="font-semibold pl-2">My Orders</h1>
+            <h1 className="font-semibold pl-2">My History</h1>
             <ul className="flex flex-col text-sm py-3 gap-3 px-5">
               {/* <li
                 className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
@@ -85,6 +85,26 @@ const AccountContent = () => {
                 }}
               >
                 <span>My Cancellations</span>
+              </li>
+
+              <li
+                className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
+                onClick={() => {
+                  setRoute("Orders");
+                  setInnerCntnt(<OrderPolicy />);
+                }}
+              >
+                <span>My Orders</span>
+              </li>
+
+              <li
+                className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
+                onClick={() => {
+                  setRoute("Returns");
+                  setInnerCntnt(<ReturnPolicy />);
+                }}
+              >
+                <span>My Returns</span>
               </li>
             </ul>
           </div>
