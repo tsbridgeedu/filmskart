@@ -77,6 +77,18 @@ const AccountContent = () => {
               >
                 <span>My Returns</span>
               </li> */}
+              
+              <li
+                className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
+                onClick={() => {
+                  setRoute("Orders");
+                  setInnerCntnt(<OrderPolicy />);
+                }}
+              >
+                <span>My Orders</span>
+              </li>
+              
+              
               <li
                 className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
                 onClick={() => {
@@ -87,15 +99,7 @@ const AccountContent = () => {
                 <span>My Cancellations</span>
               </li>
 
-              <li
-                className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                onClick={() => {
-                  setRoute("Orders");
-                  setInnerCntnt(<OrderPolicy />);
-                }}
-              >
-                <span>My Orders</span>
-              </li>
+            
 
               <li
                 className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
