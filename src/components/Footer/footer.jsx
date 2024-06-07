@@ -30,20 +30,15 @@ const Footer = () => {
         <div>
           <div className="footer_data_inner-box">
             <h2>Support</h2>
+
             <NavLink to={"/contact"}>
-              <p>Email Us</p>
-            </NavLink>
-            <NavLink to={"/contact"}>
-              <p>Chat with us</p>
+              <p>Contact Us</p>
             </NavLink>
             <NavLink to={"/returnpolicy"}>
               <p>Return Policy</p>
             </NavLink>
-            <NavLink to={'/cancellation-policy'}>
+            <NavLink to={"/cancellation-policy"}>
               <p>Cancellation Policy</p>
-              </NavLink>
-            <NavLink to={"/contact"}>
-              <p>Report</p>
             </NavLink>
           </div>
         </div>
