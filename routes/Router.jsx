@@ -27,8 +27,8 @@ import CancellationPolicy from "../src/components/cancellation-policy/Cancellati
 
 const Routers = (props) => {
   return (
-    <Routes>
-      <Route path="/" element={<Layout {...props} />}>
+    <Layout {...props}>
+      <Routes>
         <Route index element={<Home {...props} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
@@ -51,8 +51,8 @@ const Routers = (props) => {
         <Route path="/event-creation" element={<EventCreation />} />
         <Route path="/event" element={<EventContent />} />
         <Route path="/movie/:id" element={<MovieDesc />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </Layout>
   );
 };
 
