@@ -8,6 +8,7 @@ const Layout = (props) => {
     <div>
       <Navbar {...props} />
       <hr className="h-[5px]" />
+      {props.children}
       <Outlet />
       <Footer />
     </div>
