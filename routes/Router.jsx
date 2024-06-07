@@ -18,6 +18,7 @@ import Layout from "../src/layout/Layout";
 import Account from "../pages/Account";
 import UserSettings from "../pages/UserSettings";
 import EventCreation from "../pages/EventCreation";
+import EventContent from "../src/components/EventContent/EventContent";
 import MovieDesc from "../src/components/MovieDesc/MovieDesc";
 import Faq from "../src/components/Faq";
 import ReturnPolicy from "../src/components/AccountContent/ReturnPolicy";
