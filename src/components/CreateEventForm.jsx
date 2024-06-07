@@ -3,9 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-
 import { Call, Stadium } from "@mui/icons-material";
-
 import { useUser } from "@clerk/clerk-react";
 import toast, { Toaster } from "react-hot-toast";
 import {
@@ -34,11 +32,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import CloseFullscreenIcon from "@mui/icons-material/CloseFullscreen";
-
-// import {use}
-
 import '../index.css'
-
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -71,10 +65,10 @@ export default function CreateEventForm() {
   ];
 
   const eventCategory = [
-    {value: 'Celebration', icon: <PartyPopper size={20} className="bg-red-500 text-white font-bold rounded-xl w-6 h-6" />},
-    {value: 'EDM Party', icon: <Speaker size={20} className="bg-red-500 text-white font-bold rounded-xl w-6 h-6" />},
-    {value: 'Show', icon: <Clapperboard size={20} className="bg-red-500 text-white font-bold rounded-xl w-6 h-6" />},
-    {value: 'Sports', icon: <Trophy size={20} className="bg-red-500 text-white font-bold rounded-xl w-6 h-6" />},
+    { value: 'Celebration', icon: <PartyPopper size={20} className="bg-red-500 text-white font-bold rounded-xl w-6 h-6" /> },
+    { value: 'EDM Party', icon: <Speaker size={20} className="bg-red-500 text-white font-bold rounded-xl w-6 h-6" /> },
+    { value: 'Show', icon: <Clapperboard size={20} className="bg-red-500 text-white font-bold rounded-xl w-6 h-6" /> },
+    { value: 'Sports', icon: <Trophy size={20} className="bg-red-500 text-white font-bold rounded-xl w-6 h-6" /> },
 
   ];
 
@@ -83,26 +77,33 @@ export default function CreateEventForm() {
   return (
     <div>
       <Toaster position="top-center" />
-      <NavLink to='/event-creation'>
-      <Button
-        
-       
-        sx={{
-          backgroundColor: "#ef4444",
-          ":hover": {
-            bgcolor: "#f87171",
-            color: "#ffffff",
-          },
-        }}
-        variant="contained"
-        startIcon={<Stadium className="" />}
-        className=""
-      >
-        Organize an Event
-      </Button>
+      <NavLink to={isSignedIn ? (
+        '/event-creation'
+      ) : (
+        "/login"
+      )}>
+        <Button
+          sx={{
+            backgroundColor: "#ef4444",
+            ":hover": {
+              bgcolor: "#f87171",
+              color: "#ffffff",
+            },
+          }}
+          variant="contained"
+          startIcon={<Stadium className="" />}
+          className=""
+        >
+          Organize an Event
+        </Button>
       </NavLink>
-
-    
     </div>
   );
 }
+
+
+// {isSignedIn ? (
+//   '/event-creation'
+// ) : (
+//   "/login"
+// )}

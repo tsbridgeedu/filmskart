@@ -147,3 +147,26 @@
 .slick-arrow.slick-next:before {
   content: "" !important;
 }
+
+.msg{
+  background-color: #ee2222;
+  color: white;
+  border-radius: 20px;
+  padding: 2px 20px;
+  position: absolute;
+  display: none;
+}
+
+.msg.active{
+  display: flex;
+}
+
+@media (max-width:1024px) {
+  .event-form-container,.event-form-image-container{
+    width: 100%;
+  }
+
+  .event-form-button{
+    justify-content: center;
+  }
+}
