@@ -39,6 +39,9 @@ const Footer = () => {
             <NavLink to={"/returnpolicy"}>
               <p>Return Policy</p>
             </NavLink>
+            <NavLink to={'/cancellation-policy'}>
+              <p>Cancellation Policy</p>
+              </NavLink>
             <NavLink to={"/contact"}>
               <p>Report</p>
             </NavLink>
