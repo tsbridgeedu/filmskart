@@ -40,7 +40,7 @@ const AddressEdit = () => {
                 </span>
                 <div className="w-[650px] h-[140px] max-[768px]:w-[250px] max-[768px]:h-[180px]  tracking-wide  flex flex-col">
                   <div className="px-5 py-3 rounded-md bg-black/10  flex flex-col shadow-md ">
-                    <span className="font-inter ">{user.fullName},</span>
+                    <span className="font-inter ">{user?.fullName},</span>
                     <span className="font-inter ">
                       Chudail Nagar, Bhoot Bangla, Shaitaan Gali
                     </span>
@@ -74,7 +74,7 @@ const AddressEdit = () => {
                 </span>
                 <div className="w-[650px] h-[140px] max-[768px]:w-[250px] max-[768px]:h-[180px]   tracking-wide  flex flex-col">
                   <div className="px-5 py-3 rounded-md bg-black/10  flex flex-col shadow-md">
-                    <span className="font-inter">{user.fullName},</span>
+                    <span className="font-inter">{user?.fullName},</span>
                     <span className="font-inter">
                       Chudail Nagar, Bhoot Bangla, Shaitaan Gali
                     </span>
@@ -104,7 +104,7 @@ const AddressEdit = () => {
                 </span>
                 <div className="w-[650px] max-[768px]:w-[250px] max-[768px]:h-[180px] h-[140px]  tracking-wide  flex flex-col">
                   <div className="px-5 py-3 rounded-md bg-black/10  flex flex-col shadow-md">
-                    <span className="font-inter">{user.fullName},</span>
+                    <span className="font-inter">{user?.fullName},</span>
                     <span className="font-inter">
                       Chudail Nagar, Bhoot Bangla, Shaitaan Gali
                     </span>
