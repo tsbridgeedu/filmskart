@@ -24,11 +24,7 @@ import { useNavigate } from "react-router-dom";
 import { EffectFade, FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
 import { useDispatch } from "react-redux";
 
-const ProductContent = ({handleAddProduct}) => {
-  // const [mainImage, setMainImage] = useState("card3.jpg");
-  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
-  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
-
+const ProductContent = ({handleAddProduct, fetchProductById}) => {
   const [toggleState, setToggleState] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -38,11 +34,12 @@ const ProductContent = ({handleAddProduct}) => {
 
 
   const handleAddToCart = () => {
-    handleAddProduct(product, quantity);
+    handleAddProduct(product.id || id, quantity);
 };
+
 const navigate = useNavigate();
 const handleBuyNow = () => {
-  handleAddProduct(product, quantity);
+  handleAddProduct(product.id || id, quantity);
   navigate("/checkout"); // Navigate to the checkout page
 };
 const incrementQuantity = () => {
@@ -61,13 +58,9 @@ const decrementQuantity = () => {
     setIsLoading(true);
     async function getProduct() {
       await new Promise((resolve) => setTimeout(resolve, 2800));
-      await axios
-        .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products/${id}`)
-        .then((item) => {
-          
-          setProduct(item.data);
-          setIsLoading(false);
-        });
+      const item = await fetchProductById(id);
+      setProduct(item);
+      setIsLoading(false);
     }
     getProduct();
   }, []);
