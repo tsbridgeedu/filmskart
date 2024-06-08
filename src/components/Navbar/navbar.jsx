@@ -19,7 +19,7 @@ import { Divider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import PropTypes from "prop-types";
-const Navbar = ({cartItems}) => {
+const Navbar = () => {
 
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
@@ -27,6 +27,8 @@ const Navbar = ({cartItems}) => {
   const [toggleAbout, setToggleAbout] = useState(false);
 
   const [categories, setCategories] = useState([]);
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
     async function getCategories() {

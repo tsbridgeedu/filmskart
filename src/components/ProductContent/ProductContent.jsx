@@ -23,8 +23,9 @@ import 'swiper/css/thumbs';
 import { useNavigate } from "react-router-dom";
 import { EffectFade, FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
 import { useDispatch } from "react-redux";
+import { addProduct } from "../../../redux/slices/cartSlice";
 
-const ProductContent = ({handleAddProduct, fetchProductById}) => {
+const ProductContent = ({fetchProductById}) => {
   const [toggleState, setToggleState] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -32,16 +33,19 @@ const ProductContent = ({handleAddProduct, fetchProductById}) => {
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const dispatch = useDispatch();
+
 
   const handleAddToCart = () => {
-    handleAddProduct(product.id || id, quantity);
+    dispatch(addProduct({ itemId: product.id || id, quantity: quantity}));
 };
 
 const navigate = useNavigate();
 const handleBuyNow = () => {
-  handleAddProduct(product.id || id, quantity);
+  dispatch(addProduct({ itemId: product.id || id, quantity: quantity}));
   navigate("/checkout"); // Navigate to the checkout page
 };
+
 const incrementQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
 };
@@ -64,10 +68,6 @@ const decrementQuantity = () => {
     }
     getProduct();
   }, []);
-  ProductContent.propTypes = {
-    handleAddProduct: PropTypes.func.isRequired,
-  };
-
  
   const productId=product.id
   const category = product.category?.name;

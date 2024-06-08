@@ -18,50 +18,10 @@ const RoutePath = () => {
     }
   }
 
-  const [cartItems, setCartItems] = useState(() => {
-    // Retrieve cart items from local storage or default to an empty array
-    const storedCartItems = localStorage.getItem("cartItems");
-    return storedCartItems ? JSON.parse(storedCartItems) : {};
-  });
-
-  useMemo(() => {
-    // Save cart items to local storage whenever it changes
-    console.log("cartItems have changed !!!", cartItems)
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  const handleAddProduct = (product_id, quantity) => {
-    if(cartItems[product_id] === undefined){
-      setCartItems((prev_cartItem)=> { return {...prev_cartItem, [product_id]: quantity}});
-    }else{
-      setCartItems((prev_cartItem)=> { return {...prev_cartItem, [product_id]: (prev_cartItem[product_id]+quantity)}});
-    }
-  };
-
-  const handleRemoveProduct = (product_id) => {
-    if (cartItems[product_id] === undefined){ return;}
-    else if(cartItems[product_id] <= 1){
-      const newCartItems = {...cartItems};
-      delete newCartItems[product_id];
-      setCartItems(newCartItems);
-    }
-    else{
-      setCartItems((prev_cartItem)=> { return {...prev_cartItem, [product_id]: (prev_cartItem[product_id]-1)}});
-    }
-  };
-
-  const handleCartClearance = () => {
-    setCartItems({});
-  };
-
   return (
     <div>
       <Routers
-        cartItems={cartItems}
         fetchProductById={fetchProductById}
-        handleAddProduct={handleAddProduct}
-        handleRemoveProduct={handleRemoveProduct}
-        handleCartClearance={handleCartClearance}
       />
     </div>
   );

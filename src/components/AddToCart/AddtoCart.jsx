@@ -4,33 +4,20 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import CartItems from "./CartItems";
+import { useSelector, useDispatch } from "react-redux";
+import { clearCart } from "../../../redux/slices/cartSlice";
 
-const Cart=({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, fetchProductById })=> {
-  // Cart.propTypes = {
-  //   cartItems: PropTypes.arrayOf(PropTypes.shape({
-  //     id: PropTypes.string.isRequired,
-  //     name: PropTypes.string.isRequired,
-  //     price: PropTypes.number.isRequired,
-  //     quantity: PropTypes.number.isRequired,
-  //     images: PropTypes.shape({
-  //       url: PropTypes.string.isRequired
-  //     }).isRequired
-  //   })).isRequired,
-  //   handleAddProduct: PropTypes.func.isRequired,
-  //   handleRemoveProduct: PropTypes.func.isRequired,
-  //   handleCartClearance: PropTypes.func.isRequired
-  // };
+const Cart=({ fetchProductById })=> {
 
   const history = useNavigate();
   const handleCheckout = () => {
-   
+    history("/paymentsuccess");
+  } 
 
-      history("/paymentsuccess");
-    } 
-
-   
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const cartItemsId = Object.keys(cartItems);
   const totalPrice = 0; // cartItems.reduce((price, item) => price + item.quantity * item.price, 0);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -51,8 +38,6 @@ const Cart=({ cartItems, handleAddProduct, handleRemoveProduct, handleCartCleara
                       return(
                           <CartItems 
                             key={item_id}
-                            handleAddProduct={handleAddProduct} 
-                            handleRemoveProduct = {handleRemoveProduct }
                             fetchProductById = {fetchProductById}
                             item_id = {item_id} 
                             quantity = {cartItems[item_id]}
@@ -69,7 +54,7 @@ const Cart=({ cartItems, handleAddProduct, handleRemoveProduct, handleCartCleara
               Cart Total : <span>₹{totalPrice}</span>
             </h3>
             <button onClick={handleCheckout}>checkout</button>
-            {cartItemsId.length >= 1 && <button className="clear-cart" onClick={handleCartClearance}>Clear Cart</button>}
+            {cartItemsId.length >= 1 && <button className="clear-cart" onClick={()=>dispatch(clearCart())}>Clear Cart</button>}
           </div>
 
         </section>
