@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Routers from "./Router";
@@ -6,82 +6,59 @@ import Routers from "./Router";
 const RoutePath = () => {
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
-  const { id } = useParams();
-  const [product, setProduct] = useState(null); // Initialize as null
-  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      setIsLoading(true);
-      try {
-        const response = await axios.get(
-          `${VITE_INVENTORY_URL}${VITE_STORE_ID}/products/${id}`
-        );
-        setProduct(response.data);
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchProduct();
-  }, [id]);
+  const fetchProductById = async (product_id) => {
+    try{
+      const response = await axios.get(
+        `${VITE_INVENTORY_URL}${VITE_STORE_ID}/products/${product_id}`
+      );      
+      return await response.data;      
+    }catch(error){
+      console.error("Error fetching product:", error);
+    }
+  }
 
   const [cartItems, setCartItems] = useState(() => {
     // Retrieve cart items from local storage or default to an empty array
     const storedCartItems = localStorage.getItem("cartItems");
-    return storedCartItems ? JSON.parse(storedCartItems) : [];
+    return storedCartItems ? JSON.parse(storedCartItems) : {};
   });
 
-  useEffect(() => {
+  useMemo(() => {
     // Save cart items to local storage whenever it changes
+    console.log("cartItems have changed !!!", cartItems)
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const handleAddProduct = (product, quantity) => {
-    const productIndex = cartItems.findIndex((item) => item.id === product.id);
-    if (productIndex !== -1) {
-      const updatedCartItems = [...cartItems];
-      updatedCartItems[productIndex] = {
-        ...updatedCartItems[productIndex],
-        quantity: updatedCartItems[productIndex].quantity + quantity,
-      };
-      setCartItems(updatedCartItems);
-    } else {
-      setCartItems([...cartItems, { ...product, quantity: quantity }]);
+  const handleAddProduct = (product_id, quantity) => {
+    if(cartItems[product_id] === undefined){
+      setCartItems((prev_cartItem)=> { return {...prev_cartItem, [product_id]: quantity}});
+    }else{
+      setCartItems((prev_cartItem)=> { return {...prev_cartItem, [product_id]: (prev_cartItem[product_id]+quantity)}});
     }
   };
-  const handleRemoveProduct = (product) => {
-    const ProductExist = cartItems.find((item) => item.id === product.id);
-    if (ProductExist.quantity === 1) {
-      setCartItems(cartItems.filter((item) => item.id !== product.id));
-    } else {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id
-            ? { ...ProductExist, quantity: ProductExist.quantity - 1 }
-            : item
-        )
-      );
+
+  const handleRemoveProduct = (product_id) => {
+    if (cartItems[product_id] === undefined){ return;}
+    else if(cartItems[product_id] <= 1){
+      const newCartItems = {...cartItems};
+      delete newCartItems[product_id];
+      setCartItems(newCartItems);
+    }
+    else{
+      setCartItems((prev_cartItem)=> { return {...prev_cartItem, [product_id]: (prev_cartItem[product_id]-1)}});
     }
   };
 
   const handleCartClearance = () => {
-    setCartItems([]);
+    setCartItems({});
   };
-
-  const totalPrice = cartItems.reduce(
-    (price, item) => price + item.quantity * item.price,
-    0
-  );
 
   return (
     <div>
       <Routers
-        product={product}
-        amount={totalPrice}
         cartItems={cartItems}
+        fetchProductById={fetchProductById}
         handleAddProduct={handleAddProduct}
         handleRemoveProduct={handleRemoveProduct}
         handleCartClearance={handleCartClearance}

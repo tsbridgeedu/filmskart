@@ -23,6 +23,9 @@ import MovieDesc from "../src/components/MovieDesc/MovieDesc";
 import Faq from "../src/components/Faq";
 import ReturnPolicy from "../src/components/AccountContent/ReturnPolicy";
 import CancellationPolicy from "../src/components/cancellation-policy/CancellationPolicy";
+import AccountEdit from "../src/components/AccountContent/AccountEdit";
+import AddressEdit from "../src/components/AccountContent/AddressEdit";
+import WishlistList from "../src/components/Wishlist/WishlistList";
 
 
 const Routers = (props) => {
@@ -47,7 +50,11 @@ const Routers = (props) => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/user-profile" element={<UserSettings />} />
-        <Route path="/profile" element={<Account />} />
+        <Route path="/profile" element={<Account />}>
+          <Route index element={<AccountEdit />} />
+          <Route path="address" element={<AddressEdit />} />
+          <Route path="wishlist" element={<WishlistList />} />
+        </Route>
         <Route path="/event-creation" element={<EventCreation />} />
         <Route path="/event" element={<EventContent />} />
         <Route path="/movie/:id" element={<MovieDesc />} />
