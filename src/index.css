@@ -147,3 +147,10 @@
 .slick-arrow.slick-next:before {
   content: "" !important;
 }
+
+@media (max-width:1024px){
+  .category-cards{
+    height: 300px;
+    width: 250px;
+  }
+}

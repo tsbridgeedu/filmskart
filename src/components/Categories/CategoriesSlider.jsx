@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "../../index.css";
 import { FcBusinessman, FcBusinesswoman } from "react-icons/fc";
 import { PiBaseballCapBold } from "react-icons/pi";
-
 import axios from "axios";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
@@ -64,8 +64,14 @@ function SampleNextArrow(props) {
 const categoryIcons = {
   "Women": <FcBusinesswoman />,
   "Men": <FcBusinessman />,
-  "Caps": <PiBaseballCapBold />, 
+  "Caps": <PiBaseballCapBold />,
 };
+
+const slugs = {
+  "Women": "women",
+  "Men": "men",
+  "Caps": "caps",
+}
 
 export const CategoriesSlider = () => {
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
@@ -161,22 +167,24 @@ export const CategoriesSlider = () => {
         </div>
         <div>
           <Slider {...settings} className="w-full cat-slider">
-                {categories.map((item) => (
-                  <div
-                    key={item.id}
-                    className="w-[150px] hover:scale-110 border-[1px] h-[150px] border-solid rounded border-[#0000004D] hover:bg-red-500 hover:text-white hover:cursor-pointer duration-300 ease-out"
-                  >
-                    <div className="flex h-full justify-center items-center flex-col p-2 gap-4">
-                      <div className="text-5xl">
-                        {categoryIcons[item.name] }
-                      </div>
-                      <div className="text-lg">{item.name}</div>
+            {categories.map((item) => (
+              <div
+                key={item.id}
+                className="w-[150px] hover:scale-110 border-[1px] h-[150px] border-solid rounded border-[#0000004D] hover:bg-red-500 hover:text-white hover:cursor-pointer duration-300 ease-out"
+              >
+                <Link to={`/category/${slugs[item.name]}`}>
+                  <div className="flex w-full h-full justify-center items-center flex-col p-2 gap-4">
+                    <div className="text-5xl">
+                      {categoryIcons[item.name]}
                     </div>
+                    <div className="text-lg">{item.name}</div>
                   </div>
-                ))}
-              </Slider>
-            </div>
-          </div>
+                </Link>
+              </div>
+            ))}
+          </Slider>
         </div>
-      );
-    };
+      </div>
+    </div>
+  );
+};
