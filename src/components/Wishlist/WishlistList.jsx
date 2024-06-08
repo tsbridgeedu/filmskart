@@ -2,9 +2,11 @@ import { Delete, ShoppingCart, Star, Trash } from "lucide-react";
 import React from "react";
 import '../../index.css'
 import WishlistListItem from "./Wishlistitem";
+import { useSelector } from "react-redux";
 
-const WishlistList = () => {
-  const starCount = [4];
+const WishlistList = ({fetchProductById}) => {
+  const wishListItem = useSelector((state) => state.wishlist.wishListItems);
+  
   return (
     <>
       <div className="flex    flex-col lg:py-8 rounded-md max-[1023px]:w-[470px] z-0 relative max-[768px]:ml-3 max-[768px]:w-[320px] max-[1023px]:items-center mng_pfl_crd">
@@ -17,7 +19,10 @@ const WishlistList = () => {
           </div>
           
          <div className="flex flex-col lg:px-10 max-[1023px]:px-16 max-[768px]:px-12 max-[1023px]:shadow-md max-[1023px]:rounded-b-md  py-6 scrollbar  lg:overflow-y-scroll lg:h-[450px] max-[1023px]:h-[650px] max-[1023px]:overflow-y-scroll w-full border-x-[1px] lg:mt-4 ">
-          <WishlistListItem />
+          { wishListItem.map((item)=> 
+            (<WishlistListItem key={item} itemId={item} fetchProductById={fetchProductById} />) 
+          )}
+          
           
          </div>
         </div>

@@ -29,6 +29,7 @@ const Navbar = () => {
   const [categories, setCategories] = useState([]);
 
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const wishlist = useSelector((state) => state.wishlist.wishListItems);
 
   useEffect(() => {
     async function getCategories() {
@@ -40,9 +41,6 @@ const Navbar = () => {
       }
       getCategories();
     }, []);
-  // Navbar.propTypes = {
-  //   cartItems: PropTypes.array,
-  // }; 
     
   return (
     <div className="navbar">
@@ -222,10 +220,16 @@ const Navbar = () => {
             transition: { duration: 0.3 },
           }}
           whileTap={{ scale: 0.9 }}
+          className="relative"
         >
           <NavLink to={"/profile/wishlist"}>
             <Heart size={22} />
           </NavLink>
+          { Object.keys(wishlist).length != 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
+              {Object.keys(wishlist).length}
+            </span>
+          )}
         </motion.div>
 
         <motion.div

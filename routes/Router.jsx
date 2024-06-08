@@ -53,7 +53,7 @@ const Routers = (props) => {
         <Route path="/profile" element={<Account />}>
           <Route index element={<AccountEdit />} />
           <Route path="address" element={<AddressEdit />} />
-          <Route path="wishlist" element={<WishlistList />} />
+          <Route path="wishlist" element={<WishlistList fetchProductById={props.fetchProductById} />} />
         </Route>
         <Route path="/event-creation" element={<EventCreation />} />
         <Route path="/event" element={<EventContent />} />

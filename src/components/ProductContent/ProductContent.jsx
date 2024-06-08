@@ -24,6 +24,7 @@ import { useNavigate } from "react-router-dom";
 import { EffectFade, FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../../redux/slices/cartSlice";
+import { toggleItem } from "../../../redux/slices/wishlistSlice";
 
 const ProductContent = ({fetchProductById}) => {
   const [toggleState, setToggleState] = useState(1);
@@ -232,7 +233,9 @@ const decrementQuantity = () => {
                     <button onClick={handleAddToCart} ><FiShoppingCart size={25} /> </button>
                     </div>
                     <div className="wishlist border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
-                      <IoMdHeartEmpty size={25} />
+                      <button onClick={()=>dispatch(toggleItem({itemId: productId}))}>
+                        <IoMdHeartEmpty size={25} />
+                      </button>
                     </div>
                   </div>
                 </div>
