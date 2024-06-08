@@ -6,34 +6,25 @@ import AccountEdit from "./AccountEdit";
 import AddressEdit from "./AddressEdit";
 import ReturnPolicy from "./ReturnPolicy";
 import CancellationPolicy from "./CancellationPolicy";
-import WishlistList from "./WishlistList";
+import WishlistList from "../Wishlist/WishlistList";
+import { Link, Outlet } from "react-router-dom";
 
 const AccountContent = () => {
-  const [route, setRoute] = useState("");
   const [sdbrOpen, setSdbrOpen] = useState(false);
-
-  const [innerCntnt, setInnerCntnt] = useState(<AccountEdit />);
-
   const { user } = useUser();
-
-  useEffect(() => {
-    const firstRoute =
-      window.location.pathname.slice(1).charAt(0).toUpperCase() +
-      window.location.pathname.slice(2);
-    setRoute(firstRoute);
-  }, []);
 
   return (
     <div className="h-full flex flex-col">
       <div className="flex flex-row w-full min-[600px]:px-16 px-5  py-8 justify-between">
         <div className="flex flex-row gap-1.5 sm:gap-2 text-sm ">
           <span>Home</span>/<span>Account</span>/
-          <span className="text-red-500">{route}</span>
+           {/* TODO */}
+          <span className="text-red-500">route</span>
         </div>
         <div className="flex flex-row gap-2">
           <span className="text-sm">
             Hello,{" "}
-            <span className="text-red-500">{user?.firstName || "user"}</span>
+            <span className="text-red-500">{user?.fTODOirstName || "user"}</span>
           </span>
         </div>
       </div>
@@ -47,63 +38,36 @@ const AccountContent = () => {
             <ul className="flex flex-col text-sm py-3 gap-3 px-5">
               <li
                 className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                onClick={() => {
-                  setRoute("Profile");
-                  setInnerCntnt(<AccountEdit />);
-                }}
               >
-                <span>My Profile</span>
+                <Link to={"/profile"}>My Profile</Link>
               </li>
               <li
                 className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                onClick={() => {
-                  setRoute("Address");
-                  setInnerCntnt(<AddressEdit />);
-                }}
               >
-                <span>Address Book</span>
+                <Link to="address">
+                  Address Book
+                </Link>
               </li>
             </ul>
           </div>
           <div className="flex flex-col  px-4">
-            <h1 className="font-semibold pl-2">My Orders</h1>
+            <h1 className="font-semibold pl-2">My History</h1>
             <ul className="flex flex-col text-sm py-3 gap-3 px-5">
-              {/* <li
-                className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                onClick={() => {
-                  setRoute("Returns");
-                  setInnerCntnt(<ReturnPolicy />);
-                }}
-              >
-                <span>My Returns</span>
-              </li> */}
-              <li
-                className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                onClick={() => {
-                  setRoute("Cancellations");
-                  setInnerCntnt(<CancellationPolicy />);
-                }}
-              >
-                <span>My Cancellations</span>
+              <li className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer">
+                <Link to={"orders"} >My Orders</Link>
               </li>
-            </ul>
-          </div>
-          <div className="flex flex-col pt-10  px-4">
-            <h1 className="font-semibold pl-2">My Wishlist</h1>
-            <ul className="flex flex-col text-sm py-3 gap-3 px-5">
-              <li
-                className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                onClick={() => {
-                  setRoute("Wishlist");
-                  setInnerCntnt(<WishlistList />);
-                }}
-              >
-                <span>Wishlist</span>
+              <li className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer">
+                <Link to={"wishlist"} >My Wishlist</Link>
+              </li>
+              <li className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer">
+                <Link to={"/returnpolicy"} >My Returns</Link>
+              </li>
+              <li className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer">
+                <Link to={"/cancellation-policy"} >My Cancellations</Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="max-[1023px]:hidden w-[830px] h-[600px] border rounded-md  ml-20">{innerCntnt}</div>
 
         {/* Mobile View */}
 
@@ -130,53 +94,30 @@ const AccountContent = () => {
                     <ul className="flex flex-col text-sm py-3 gap-3 px-5">
                       <li
                         className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                        onClick={() => {setRoute("Profile"); setInnerCntnt(<AccountEdit />)}}
                       >
-                        <span>My Profile</span>
+                        <Link to={"/profile"}>My Profile</Link>
                       </li>
                       <li
                         className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                        onClick={() => {setRoute("Address"); setInnerCntnt(<AddressEdit />)}}
                       >
-                        <span>Address Book</span>
+                        <Link to={"address"}>Address Book</Link>
                       </li>
                     </ul>
                   </div>
                   <div className="flex flex-col  px-4">
-                    <h1 className="font-semibold">My Orders</h1>
+                    <h1 className="font-semibold">My History</h1>
                     <ul className="flex flex-col text-sm py-3 gap-3 px-5">
-                      {/* <li
-                        className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                        onClick={() => {
-                          setRoute("Returns");
-                          setInnerCntnt(<ReturnPolicy />);
-                        }}
-                      >
-                        <span>My Returns</span>
-                      </li> */}
-                      <li
-                        className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                        onClick={() => {
-                          setRoute("Cancellations");
-                          setInnerCntnt(<CancellationPolicy />);
-                        }}
-                      >
-                        <span>My Cancellations</span>
+                      <li className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer">
+                        <Link to={"orders"}>My Orders</Link>
                       </li>
-                    </ul>
-                  </div>
-                  <div className="flex flex-col pt-10  px-4">
-                    <h1 className="font-semibold">My Wishlist</h1>
-                    <ul className="flex flex-col text-sm py-3 gap-3 px-5">
-                      <li
-                        className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer"
-                        onClick={() => {
-                          setRoute("Wishlist");
-                          setInnerCntnt(<WishlistList />);
-                          setSdbrOpen(!sdbrOpen);
-                        }}
-                      >
-                        <span>Wishlist</span>
+                      <li className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer">
+                        <Link to={"wishlist"}>My Wishlist</Link>
+                      </li>
+                      <li className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer">
+                        <Link to={"/returnpolicy"}>My Returns</Link>
+                      </li>
+                      <li className="hover:text-red-500 duration-300 transition-all ease-linear cursor-pointer">
+                        <Link to={"/cancellation-policy"}>My Cancellations</Link>
                       </li>
                     </ul>
                   </div>
@@ -184,8 +125,10 @@ const AccountContent = () => {
               )}
             </div>
           </div>
+        </div>
 
-          <div className="lg:hidden z-0 h-screen ">{innerCntnt}</div>
+        <div className="z-0 h-screen md:w-[830px] md:h-[600px] md:border md:rounded-md  md:ml-20">
+          <Outlet />
         </div>
       </div>
     </div>
