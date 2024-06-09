@@ -11,7 +11,7 @@ export const cartSlice = createSlice({
     addProduct: (state, action) => {
         const { itemId, quantity } = action.payload
         if(quantity === undefined){
-            quantity = 1
+            const quantity = 1
         }
         if(state.cartItems[itemId] === undefined){
             state.cartItems = {...state.cartItems, [itemId]: quantity}
