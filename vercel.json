@@ -1,14 +1,12 @@
 {
-  "routes": [
-    {
-      "src": "/(?!.*\\.).*",
-      "dest": "/index.html"
-    }
-  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "https://httpbin.org/get?url=$1"
+    },
+    {
+      "src": "/(?!.*\\.).*",
+      "dest": "/index.html"
     }
   ]
 }
