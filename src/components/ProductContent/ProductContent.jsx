@@ -23,12 +23,10 @@ import 'swiper/css/thumbs';
 import { useNavigate } from "react-router-dom";
 import { EffectFade, FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
 import { useDispatch } from "react-redux";
+import { addProduct } from "../../../redux/slices/cartSlice";
+import { toggleItem } from "../../../redux/slices/wishlistSlice";
 
-const ProductContent = ({handleAddProduct}) => {
-  // const [mainImage, setMainImage] = useState("card3.jpg");
-  const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
-  const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
-
+const ProductContent = ({fetchProductById}) => {
   const [toggleState, setToggleState] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -36,15 +34,19 @@ const ProductContent = ({handleAddProduct}) => {
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const dispatch = useDispatch();
+
 
   const handleAddToCart = () => {
-    handleAddProduct(product, quantity);
+    dispatch(addProduct({ itemId: product.id || id, quantity: quantity}));
 };
+
 const navigate = useNavigate();
 const handleBuyNow = () => {
-  handleAddProduct(product, quantity);
+  dispatch(addProduct({ itemId: product.id || id, quantity: quantity}));
   navigate("/checkout"); // Navigate to the checkout page
 };
+
 const incrementQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
 };
@@ -61,21 +63,15 @@ const decrementQuantity = () => {
     setIsLoading(true);
     async function getProduct() {
       await new Promise((resolve) => setTimeout(resolve, 2800));
-      await axios
-        .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products/${id}`)
-        .then((item) => {
-          
-          setProduct(item.data);
-          setIsLoading(false);
-        });
+      const item = await fetchProductById(id);
+      setProduct(item);
+      setIsLoading(false);
     }
     getProduct();
   }, []);
-  ProductContent.propTypes = {
-    handleAddProduct: PropTypes.func.isRequired,
-  };
-
-   const category = product.category?.name;
+ 
+  const productId=product.id
+  const category = product.category?.name;
   const availableSize = product.size?.name;
   const availableColor = product.color?.name;
   const sizes = ["XS", "S", "M", "L", "XL"];
@@ -237,7 +233,9 @@ const decrementQuantity = () => {
                     <button onClick={handleAddToCart} ><FiShoppingCart size={25} /> </button>
                     </div>
                     <div className="wishlist border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
-                      <IoMdHeartEmpty size={25} />
+                      <button onClick={()=>dispatch(toggleItem({itemId: productId}))}>
+                        <IoMdHeartEmpty size={25} />
+                      </button>
                     </div>
                   </div>
                 </div>

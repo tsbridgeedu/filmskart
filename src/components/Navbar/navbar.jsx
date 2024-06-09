@@ -19,7 +19,7 @@ import { Divider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import PropTypes from "prop-types";
-const Navbar = ({cartItems}) => {
+const Navbar = () => {
 
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
@@ -27,26 +27,20 @@ const Navbar = ({cartItems}) => {
   const [toggleAbout, setToggleAbout] = useState(false);
 
   const [categories, setCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  Navbar.propTypes = {
-    cartItems: PropTypes.array,
-  };
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const wishlist = useSelector((state) => state.wishlist.wishListItems);
+
   useEffect(() => {
-    setIsLoading(true);
     async function getCategories() {
       await axios
         .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/categories`)
         .then((item) => {
           setCategories(item.data);
-          setIsLoading(false);
         });
       }
       getCategories();
     }, []);
-
-  
-   
-
     
   return (
     <div className="navbar">
@@ -142,6 +136,26 @@ const Navbar = ({cartItems}) => {
                 {toggleCat ? <ChevronDown /> : <ChevronUp />}
               </div>
               <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
+              <div>
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    textAlign: "center",
+                    letterSpacing: "2px",
+                    fontFamily: "Poppins",
+                    fontWeight: "600",
+                  }}
+                >
+                  All
+                </Typography>
+                <Divider
+                  sx={{
+                    height: "2px",
+                    bgcolor: "#ee2222",
+                  }}
+                  
+                />
+              </div >
               {categories.map((item) => {
                 return(
                   <div key={item.id}>
@@ -206,10 +220,16 @@ const Navbar = ({cartItems}) => {
             transition: { duration: 0.3 },
           }}
           whileTap={{ scale: 0.9 }}
+          className="relative"
         >
-          <NavLink>
+          <NavLink to={"/profile/wishlist"}>
             <Heart size={22} />
           </NavLink>
+          { Object.keys(wishlist).length != 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
+              {Object.keys(wishlist).length}
+            </span>
+          )}
         </motion.div>
 
         <motion.div
@@ -223,9 +243,11 @@ const Navbar = ({cartItems}) => {
           <NavLink to="/cart">
             <ShoppingCart size={22} />
           </NavLink>
-          <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
-          {cartItems.length === 0 ? "" : cartItems.length}
-          </span>
+          { Object.keys(cartItems).length != 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
+              {Object.keys(cartItems).length}
+            </span>
+          )}
         </motion.div>
         <motion.div
           whileHover={{
