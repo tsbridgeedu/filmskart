@@ -5,8 +5,8 @@
       "destination": "https://httpbin.org/get?url=$1"
     },
     {
-      "src": "/(?!.*\\.).*",
-      "dest": "/index.html"
+      "source": "/(?!.*\\.).*",
+      "destination": "/index.html"
     }
   ]
 }
