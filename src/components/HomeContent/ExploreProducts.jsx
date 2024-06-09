@@ -131,7 +131,7 @@ const ExploreProducts = () => {
         ) : (
           <Slider
             {...settings}
-            className="w-full cat-slider flex flex-row shadow-3xl "
+            className="w-full explore-prod-slider flex flex-row shadow-3xl "
           >
             {exploreProducts.map((item, index) => {
               const isFlipped = index === flippedCardIndex;
