@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
 import "./navbar.css";
-
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -38,10 +37,16 @@ const Navbar = () => {
         .then((item) => {
           setCategories(item.data);
         });
-      }
-      getCategories();
-    }, []);
-    
+    }
+    getCategories();
+  }, []);
+
+  const slugs = {
+    "Women": "women",
+    "Men": "men",
+    "Caps": "caps",
+  }
+
   return (
     <div className="navbar">
       <div className="navbar_box flex w-[9rem] cursor-pointer ">
@@ -66,9 +71,8 @@ const Navbar = () => {
           >
             About Us
             <div
-              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${
-                toggleAbout ? "opacity-100" : "opacity-0 hidden"
-              } transition-opacity duration-500`}
+              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${toggleAbout ? "opacity-100" : "opacity-0 hidden"
+                } transition-opacity duration-500`}
             >
               <div className="flex justify-center w-full">
                 {toggleAbout ? <ChevronDown /> : <ChevronUp />}
@@ -128,59 +132,62 @@ const Navbar = () => {
           >
             Categories
             <div
-              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${
-                toggleCat ? "opacity-100" : "opacity-0 hidden"
-              } transition-opacity duration-500`}
+              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${toggleCat ? "opacity-100" : "opacity-0 hidden"
+                } transition-opacity duration-500`}
             >
               <div className="flex justify-center w-full">
                 {toggleCat ? <ChevronDown /> : <ChevronUp />}
               </div>
-              <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
-              <div>
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                  }}
-                >
-                  All
-                </Typography>
-                <Divider
-                  sx={{
-                    height: "2px",
-                    bgcolor: "#ee2222",
-                  }}
-                  
-                />
-              </div >
-              {categories.map((item) => {
-                return(
-                  <div key={item.id}>
+              <div className="flex flex-col bg-[#ffffff] backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
+                <div>
+                  <Link to="/products">
                     <Typography
-                  variant="subtitle2"
-                  key={item.id}
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                  }}
-                >
-                  {item.name}
-                </Typography>
-                <Divider
-                  sx={{
-                    height: "2px",
-                    bgcolor: "#ee2222",
-                  }}
-                  
-                />
-                  </div >
-                )
-              })}
+                      variant="subtitle2"
+                      sx={{
+                        textAlign: "center",
+                        letterSpacing: "2px",
+                        fontFamily: "Poppins",
+                        fontWeight: "600",
+                      }}
+                    >
+                      All
+                    </Typography>
+                  </Link>
+                  <Divider
+                    sx={{
+                      height: "2px",
+                      bgcolor: "#ee2222",
+                    }}
+
+                  />
+                </div >
+                {categories.map((item) => {
+                  return (
+                    <div key={item.id}>
+                      <Link to={`/category/${slugs[item.name]}`}>
+                        <Typography
+                          variant="subtitle2"
+                          key={item.id}
+                          sx={{
+                            textAlign: "center",
+                            letterSpacing: "2px",
+                            fontFamily: "Poppins",
+                            fontWeight: "600",
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                      <Divider
+                        sx={{
+                          height: "2px",
+                          bgcolor: "#ee2222",
+                        }}
+
+                      />
+                    </div >
+                  )
+                })}
               </div>
             </div>
           </li>
@@ -225,7 +232,7 @@ const Navbar = () => {
           <NavLink to={"/profile/wishlist"}>
             <Heart size={22} />
           </NavLink>
-          { Object.keys(wishlist).length != 0 && (
+          {Object.keys(wishlist).length != 0 && (
             <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
               {Object.keys(wishlist).length}
             </span>
@@ -243,7 +250,7 @@ const Navbar = () => {
           <NavLink to="/cart">
             <ShoppingCart size={22} />
           </NavLink>
-          { Object.keys(cartItems).length != 0 && (
+          {Object.keys(cartItems).length != 0 && (
             <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
               {Object.keys(cartItems).length}
             </span>

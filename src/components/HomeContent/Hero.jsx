@@ -208,7 +208,7 @@ const Hero = () => {
         ) : (
           <Slider
           {...settings}
-          className="w-full cat-slider flex flex-row shadow-3xl "
+          className="w-full flash-slider flex flex-row shadow-3xl "
         >
           {flashProducts.reverse().map((item, index) => {
             const isFlipped = index === flippedCardIndex;
