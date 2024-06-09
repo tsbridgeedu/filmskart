@@ -204,7 +204,7 @@ const ProductContent = ({fetchProductById}) => {
 
                   {sizes.map((size, index) =>  {
                     return(
-                      <div key={index} className={`size w-10 h-10 opacity-100 relative flex justify-center items-center rounded-md border-2 cursor-pointer ${availableSize !=size ? "size na" :"size"}`}>
+                      <div key={index} className={`size w-10 h-10 overflow-hidden opacity-100 relative flex justify-center items-center rounded-md border-2 cursor-pointer ${availableSize !=size ? "size na" :"size"}`}>
                         {size}
                         {availableSize !=size ? <FaSlash size={40} strokeWidth={1} className="absolute flex justify-center items-center opacity-70" /> : null}
                       </div>

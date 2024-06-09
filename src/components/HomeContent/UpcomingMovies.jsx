@@ -140,7 +140,7 @@ const UpcomingMovies = () => {
         ) : (
           <Slider
             {...settings}
-            className="w-full cat-slider flex flex-row shadow-3xl "
+            className="w-full upcomov-slider flex flex-row shadow-3xl "
           >
             {movieList.slice(0, 5).map((item, index) => {
               const isFlipped = index === flippedCardIndex;
