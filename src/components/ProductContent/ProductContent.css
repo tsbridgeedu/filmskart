@@ -39,6 +39,14 @@
 .size:hover,.buy:hover,.cart:hover,.wishlist:hover{
   transition: 0.3s ease;
   transform: scale(1.1);
+}
+
+.wishlist[data-existinwishlist="false"]:hover, .wishlist[data-existinwishlist="true"]{
+  background-color: #f87171;
+  color: white;
+}
+
+.wishlist[data-existinwishlist="false"]:hover, .wishlist[data-existinwishlist="true"]{
   background-color: #f87171;
   color: white;
 }
