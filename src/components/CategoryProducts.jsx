@@ -83,7 +83,7 @@ const CategoryProducts = () => {
             </span>
           </div>
         ) : (
-          <div className="flex max-[1024px]:items-center max-[1024px]:justify-center max-[1024px]:w-full gap-16 flex-wrap mx-5 my-10">
+          <div className="flex max-[1024px]:items-center max-[1024px]:justify-center justify-evenly items-center w-full gap-16 flex-wrap mx-5 my-10">
             {products.map((item, index) => {
               const isFlipped = index === flippedCardIndex;
               return (

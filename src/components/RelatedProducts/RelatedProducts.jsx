@@ -38,7 +38,7 @@ const RelatedProducts = ({ category}) => {
         });
     }
     getRelatedProducts();
-  }, [category,productId,VITE_INVENTORY_URL,VITE_STORE_ID]);
+  }, [category,productId]);
 
   // const filterProduct=(cat)=>{
   //   const ul=relatedProducts.filter((x)=>x.category?.name===cat);

@@ -5,6 +5,7 @@ import { PiBaseballCapBold } from "react-icons/pi";
 import axios from "axios";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Slider from "react-slick";
+import { MdCategory } from "react-icons/md";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
@@ -96,9 +97,8 @@ export const CategoriesSlider = () => {
 
   const settings = {
     dots: false,
-    infinite: true,
     speed: 2500,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     cssEase: "linear",
     slidesToShow: 5,
@@ -114,7 +114,6 @@ export const CategoriesSlider = () => {
         settings: {
           slidesToShow: 5,
           slidesToScroll: 1,
-          infinite: true,
         },
       },
       {
@@ -122,7 +121,6 @@ export const CategoriesSlider = () => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
-          infinite: true,
         },
       },
       {
@@ -130,7 +128,6 @@ export const CategoriesSlider = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
         },
       },
       {
@@ -167,6 +164,18 @@ export const CategoriesSlider = () => {
         </div>
         <div>
           <Slider {...settings} className="w-full cat-slider">
+            <div
+              className="min-w-[160px] hover:scale-110 border-[1px] h-[150px] border-solid rounded border-[#0000004D] hover:bg-red-500 hover:text-white hover:cursor-pointer duration-300 ease-out"
+            >
+              <Link to="/products">
+                <div className="flex w-full h-full justify-center items-center flex-col p-2 gap-4">
+                  <div className="text-5xl">
+                    <MdCategory />
+                  </div>
+                  <div className="text-lg">All</div>
+                </div>
+              </Link>
+            </div>
             {categories.map((item) => (
               <div
                 key={item.id}
