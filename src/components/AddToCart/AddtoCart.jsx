@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./cart.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
@@ -13,6 +14,9 @@ const Cart=({ fetchProductById })=> {
   const handleCheckout = () => {
     history("/paymentsuccess");
   } 
+
+  
+
 
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartItemsId = Object.keys(cartItems);
