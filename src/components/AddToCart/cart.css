@@ -513,4 +513,14 @@ header {
     font-size: 0.77rem;
     padding: 0.88rem 2.5rem;
   }
+.message-box {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
 }

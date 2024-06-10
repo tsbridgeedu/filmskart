@@ -101,9 +101,9 @@ const AllProducts = () => {
           </div>
         ) : (
           <section className="flex max-[1024px]:items-center max-[1024px]:justify-center items-center w-full gap-10 flex-wrap mx-5 mt-3">
-            {products ? (
-              filter.map((item) => {
-                const isFlipped = item.id === flippedCardIndex;
+            {filter ? (
+              filter.map((item,index) => {
+                const isFlipped = index === flippedCardIndex;
                 return (
                   <div
                     key={item.id}
