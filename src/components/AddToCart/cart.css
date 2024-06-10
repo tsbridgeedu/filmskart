@@ -513,6 +513,7 @@ header {
     font-size: 0.77rem;
     padding: 0.88rem 2.5rem;
   }
+}
 .message-box {
   position: fixed;
   bottom: 20px;
