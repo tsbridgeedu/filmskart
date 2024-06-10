@@ -27,8 +27,6 @@ import { EffectFade, FreeMode, Navigation, Thumbs, Pagination } from 'swiper/mod
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../../redux/slices/cartSlice";
 import { toggleItem } from "../../../redux/slices/wishlistSlice";
-import { ToastContainer, toast,Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 // Toastify
 import { toast,Slide } from 'react-toastify';
