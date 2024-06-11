@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from 'react'
 
 import '../../index.css'
+import { Link,NavLink } from "react-router-dom";
+import Viewmoremovie from "./Viewmoremovie";
+import { useNavigate } from "react-router-dom";
 
 const UpcomingMovies = () => {
   const [movieList, setMovieList] = useState([]);
@@ -12,15 +15,12 @@ const UpcomingMovies = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
+  const [showMoreMovies, setShowMoreMovies] = useState(false);
+  const navigate = useNavigate(); //added by me
 
   const BASE_URL = import.meta.env.VITE_NODE_URL;
 
-  // const cardFlip = () => {
-  //   if (!isAnimating) {
-  //     setIsFlipped(!isFlipped);
-  //     setIsAnimating(true);
-  //   }
-  // };
+ 
 
 
 
@@ -80,8 +80,11 @@ const UpcomingMovies = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 0,
+          // slidesToScroll: 1,
+           //initialSlide: 0,
+           
+           slidesToScroll: 2,
+ 
         },
       },
       {
@@ -93,6 +96,10 @@ const UpcomingMovies = () => {
       },
     ],
   };
+  // added by me
+  // if (showMoreMovies) {
+  //   return <ViewMoreMovies />;
+  // }
 
   return (
     <div className="flex flex-col w-full mt-20 px-4 md:px-20">
@@ -105,11 +112,13 @@ const UpcomingMovies = () => {
           <img src="/factory.gif" className="w-7" />
         </span>
       </div>
-      <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
+      {/* row->column */}
+      <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">   
         <span className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold">
           Upcoming Movies
         </span>
       </div>
+     
 
       <div className="my-10 container flex flex-row w-full h-full border-y-2">
         {loading ? (
@@ -173,11 +182,24 @@ const UpcomingMovies = () => {
                       </span>
                     </div>
                   </motion.div>
+                    
                 </div>
+                   
+                
               );
             })}
           </Slider>
         )}
+        
+      </div>
+      {/* button  added view More */}
+      <div className="flex w-full items-center justify-center my-10">
+      <button 
+        className="bg-red-500 hover:bg-red-500/70 transition-all duration-500 ease-linear py-3 px-3 text-white rounded-md hover:shadow-xl hover:scale-110"
+        onClick={() => navigate('/movies')} 
+      >
+        View More
+      </button>
       </div>
     </div>
   );
