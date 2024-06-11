@@ -27,7 +27,7 @@ import CancellationPolicy from "../src/components/cancellation-policy/Cancellati
 import AccountEdit from "../src/components/AccountContent/AccountEdit";
 import AddressEdit from "../src/components/AccountContent/AddressEdit";
 import WishlistList from "../src/components/Wishlist/WishlistList";
-import Viewmoremovie from "../src/components/HomeContent/Viewmoremovie";
+
 
 
 const Routers = (props) => {
@@ -61,7 +61,7 @@ const Routers = (props) => {
         <Route path="/event" element={<EventContent />} />
         <Route path="/movie/:id" element={<MovieDesc />} />
         <Route path="/category/:slug" element={<CategoryProducts />} />
-        <Route path="/movies" element={<Viewmoremovie />}></Route>
+        
       </Routes>
     </Layout>
   );

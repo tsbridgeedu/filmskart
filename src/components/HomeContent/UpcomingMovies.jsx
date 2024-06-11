@@ -2,29 +2,19 @@ import { Puff, ThreeDots } from "react-loader-spinner";
 import Slider from "react-slick";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { useState, useEffect } from 'react'
-
-import '../../index.css'
-import { Link,NavLink } from "react-router-dom";
-import Viewmoremovie from "./Viewmoremovie";
+import { useState, useEffect } from "react";
+import "../../index.css";
 import { useNavigate } from "react-router-dom";
 
 const UpcomingMovies = () => {
   const [movieList, setMovieList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
   const [showMoreMovies, setShowMoreMovies] = useState(false);
-  const navigate = useNavigate(); //added by me
+  const navigate = useNavigate();
 
   const BASE_URL = import.meta.env.VITE_NODE_URL;
 
- 
-
-
-
-  // ----------I added here----------
   const handleMouseEnter = (index) => {
     setFlippedCardIndex(index);
   };
@@ -38,7 +28,6 @@ const UpcomingMovies = () => {
     async function getMovieData() {
       await new Promise((resolve) => setTimeout(resolve, 2800));
       await axios.get(`${BASE_URL}/movie-data`).then((item) => {
-        
         setMovieList(item.data);
         setLoading(false);
       });
@@ -80,11 +69,7 @@ const UpcomingMovies = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          // slidesToScroll: 1,
-           //initialSlide: 0,
-           
-           slidesToScroll: 2,
- 
+          slidesToScroll: 2,
         },
       },
       {
@@ -96,10 +81,6 @@ const UpcomingMovies = () => {
       },
     ],
   };
-  // added by me
-  // if (showMoreMovies) {
-  //   return <ViewMoreMovies />;
-  // }
 
   return (
     <div className="flex flex-col w-full mt-20 px-4 md:px-20">
@@ -112,15 +93,13 @@ const UpcomingMovies = () => {
           <img src="/factory.gif" className="w-7" />
         </span>
       </div>
-      {/* row->column */}
-      <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">   
+      <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
         <span className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold">
           Upcoming Movies
         </span>
       </div>
-     
 
-      <div className="my-10 container flex flex-row w-full h-full border-y-2">
+      <div className="my-10 container flex flex-col w-full h-full border-y-2">
         {loading ? (
           <div className="w-full flex flex-col h-64 justify-center items-center">
             <Puff
@@ -147,65 +126,153 @@ const UpcomingMovies = () => {
             </span>
           </div>
         ) : (
-          <Slider
-            {...settings}
-            className="w-full upcomov-slider flex flex-row shadow-3xl "
-          >
-            {movieList.slice(0, 5).map((item, index) => {
-              const isFlipped = index === flippedCardIndex;
-              return (
-                <div
-                  key={item.id}
-                  className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={handleMouseLeave}
+          <>
+            <div className="hidden md:block w-full">
+              <Slider
+                {...settings}
+                className="w-full upcomov-slider flex flex-row shadow-3xl"
+              >
+                {movieList.slice(0, 5).map((item, index) => {
+                  const isFlipped = index === flippedCardIndex;
+                  return (
+                    <div
+                      key={item.id}
+                      className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <motion.div
+                        className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
+                        initial={false}
+                        animate={{ rotateY: isFlipped ? 180 : 0 }}
+                        transition={{
+                          duration: 0.6,
+                          animationDirection: "normal",
+                        }}
+                      >
+                        <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
+                          <img
+                            src={item.img}
+                            alt="product-image"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="w-full h-full flex flex-col bg-white  upcmvs__bck">
+                          <h1 className="px-4 font-bold py-4 font-inter text-lg">
+                            {item.title}
+                          </h1>
+                          <span className="flex px-4 py-4 font-inter text-base">
+                            {item.description}
+                          </span>
+                          <span className="flex-row flex py-2 px-5 justify-between">
+                            <span className="text-sm font-bold font-inter gap-2">
+                              {item.rating}/10
+                            </span>
+                            <button
+                  className="bg-red-500 text-white text-sm py-1 px-3 rounded-md mt-2"
                 >
-                  <motion.div
-                    className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
-                    initial={false}
-                    animate={{ rotateY: isFlipped ? 180 : 0 }}
-                    transition={{ duration: 0.6, animationDirection: "normal" }}
-                  >
-                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
-                      <img
-                        src={item.img}
-                        alt="product-image"
-                        className=" w-full h-full object-cover"
-                      />
+                  <a href={`/movie/${item.id}`} className="block text-center w-full h-full">
+                    Know more
+                  </a>
+                </button>
+                          </span>
+                        </div>
+                      </motion.div>
                     </div>
-                    <div className="w-full h-full flex flex-col bg-white absolute upcmvs__bck">
-                      <h1 className="px-4 font-bold py-4 font-inter text-lg">{item.title}</h1>
-                      <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
-                      <span className="flex-row flex py-2 px-5 justify-between">
-                        <span className="text-sm font-bold font-inter gap-2">{item.rating}/10</span>
-                        <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md"><a href={`/movie/${item.id}`}>Know more</a></button>
-                      </span>
-                    </div>
-                  </motion.div>
-                    
+                  );
+                })}
+              </Slider>
+            </div>
+            {/* REVISe CODE for mobile 🎯🎯*/}
+            <div className="container mx-auto">
+              {/* Mobile view */}
+              <div className="block md:hidden w-full">
+                <div className="flex flex-wrap justify-center">
+                  {movieList
+                    .slice(0, showMoreMovies ? 8 : 4)
+                    .map((item, index) => {
+                      const isFlipped = index === flippedCardIndex;
+                      return (
+                        <div
+                          key={item.id}
+                          className="flex flex-col w-40 h-56  m-2 cursor-pointer hover:scale-105 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl"
+                          onMouseEnter={() => handleMouseEnter(index)}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          <motion.div
+                            className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
+                            initial={false}
+                            animate={{ rotateY: isFlipped ? 180 : 0 }}
+                            transition={{
+                              duration: 0.6,
+                              animationDirection: "normal",
+                            }}
+                          >
+                          {/* removed  h-full w-full*/}
+                            <div className="w-40 h-56 flex justify-center bg-transparent backdrop-blur-md rounded-md  upcmvs__frt">
+                              <img
+                                src={item.img}
+                                alt="product-image"
+                                className="w-full h-full object-cover"
+                                style={{ borderRadius: "11px" }} //adding the border radius
+                              />
+                            </div>
+                            {/* Back side of the card */}
+                            <div
+                              className="w-40 h-56  flex flex-col bg-white absolute upcmvs__bck p-2 rounded-md"
+                              style={{ borderRadius: "11px" }} //added the border-radius
+                            >
+                              <h1 className="px-4 font-bold py-1 font-inter text-lg text-black ">
+                                {item.title}
+                              </h1>
+                              <span className="flex px-2 py-1 font-inter text-sm text-black font-semibold overflow-hidden">
+                                {item.description}
+                              </span>
+                              <span className="flex-row flex py-1 px-2 justify-between items-center">
+                                <span className="text-sm font-bold font-inter gap-2 text-black">
+                                  {item.rating}/10
+                                </span>
+                                {/* <button
+                                  className="bg-red-500 text-white text-sm py-1 px-2 rounded-md"
+                                  style={{ width: "70px", height: "30px" }} // Fix button size
+                                >
+                                  <a
+                                    href={`/movie/${item.id}`}
+                                    className="block text-center w-full h-full"
+                                  >
+                                    Know more
+                                  </a>
+                                </button> */}
+                                <button
+                        className="bg-red-500 text-white text-sm py-1 px-2 rounded-md mt-2"
+                        style={{ width: '70px', height: '30px' }} // Fix button size for mobile
+                      >
+                        <a href={`/movie/${item.id}`} className="block text-center w-full h-full">
+                          Know more
+                        </a>
+                      </button>
+                              </span>
+                            </div>
+                          </motion.div>
+                        </div>
+                      );
+                    })}
                 </div>
-                   
-                
-              );
-            })}
-          </Slider>
+                {!showMoreMovies && (
+                  <button
+                    className="bg-red-500 text-white py-2 px-4 rounded-md mt-4 mx-auto block"
+                    onClick={() => setShowMoreMovies(true)}
+                  >
+                    View More
+                  </button>
+                )}
+              </div>
+            </div>
+          </>
         )}
-        
-      </div>
-      {/* button  added view More */}
-      <div className="flex w-full items-center justify-center my-10">
-      <button 
-        className="bg-red-500 hover:bg-red-500/70 transition-all duration-500 ease-linear py-3 px-3 text-white rounded-md hover:shadow-xl hover:scale-110"
-        onClick={() => navigate('/movies')} 
-      >
-        View More
-      </button>
       </div>
     </div>
   );
 };
 
 export default UpcomingMovies;
-
-
-
