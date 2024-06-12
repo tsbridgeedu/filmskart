@@ -75,7 +75,6 @@ const ProductContent = ({fetchProductById}) => {
     dispatch(addProduct({ itemId: product.id || id, quantity: quantity}));
     navigate("/checkout"); // Navigate to the checkout page
   };
-
   const incrementQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
   };
@@ -256,7 +255,6 @@ const ProductContent = ({fetchProductById}) => {
 
                     
                    {/* WISHLIST FUNCTION ADDED */}
-
                     <div data-existInWishlist={wishListItem.includes(productId)} className="wishlist border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
                       <button onClick={handleAddToWishList}>
                         {product.inWishlist ? (

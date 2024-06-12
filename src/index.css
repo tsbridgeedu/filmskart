@@ -188,4 +188,26 @@
   }
 }
 
+/* Added the css */
+/* index.css */
+
+/* .upcomov-slider-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .upcomov-slider-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .upcmvs__crd__cntr {
+    width: 100%;
+  }
+} */
+
+
 

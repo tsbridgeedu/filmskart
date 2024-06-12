@@ -29,6 +29,7 @@ import AddressEdit from "../src/components/AccountContent/AddressEdit";
 import WishlistList from "../src/components/Wishlist/WishlistList";
 
 
+
 const Routers = (props) => {
   return (
     <Layout {...props}>
@@ -60,6 +61,7 @@ const Routers = (props) => {
         <Route path="/event" element={<EventContent />} />
         <Route path="/movie/:id" element={<MovieDesc />} />
         <Route path="/category/:slug" element={<CategoryProducts />} />
+        
       </Routes>
     </Layout>
   );

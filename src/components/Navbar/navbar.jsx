@@ -46,6 +46,22 @@ const Navbar = () => {
     "Men": "men",
     "Caps": "caps",
   }
+  // usestate added for it
+  // const [movies, setMovies] = useState([]);
+
+  
+  // useEffect(() => {
+  //   async function getMovies() {
+  //     await axios
+  //       .get(`${VITE_INVENTORY_URL}/pages/movies`)
+  //       .then((item) => {
+  //         setMovies(item.data);
+  //       });
+  //   }
+  //   getMovies();
+  // }, []);
+
+  // const [first, setfirst] = useState(second)
 
   return (
     <div className="navbar">
@@ -138,7 +154,7 @@ const Navbar = () => {
               <div className="flex justify-center w-full">
                 {toggleCat ? <ChevronDown /> : <ChevronUp />}
               </div>
-              <div className="flex flex-col bg-[#ffffff] backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
+              <div className="flex flex-col bg-[#ff4c4c] backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
                 <div>
                   <Link to="/products">
                     <Typography
@@ -189,6 +205,12 @@ const Navbar = () => {
                   )
                 })}
               </div>
+
+              {/* Added one div view more btn upcoming  🙋🙋*/}
+
+             
+
+              {/* ended that upcoming movies and all */}
             </div>
           </li>
           <li>
