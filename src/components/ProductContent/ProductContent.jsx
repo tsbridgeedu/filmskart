@@ -22,9 +22,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import { useNavigate } from "react-router-dom";
 import { EffectFade, FreeMode, Navigation, Thumbs, Pagination } from 'swiper/modules';
-import { useDispatch } from "react-redux";
+
+// Redux
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../../redux/slices/cartSlice";
 import { toggleItem } from "../../../redux/slices/wishlistSlice";
+
+// Toastify
+import { toast,Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductContent = ({fetchProductById}) => {
   const [toggleState, setToggleState] = useState(1);
@@ -36,24 +42,46 @@ const ProductContent = ({fetchProductById}) => {
 
   const dispatch = useDispatch();
 
+  //added the functionalityy
 
   const handleAddToCart = () => {
+    dispatch(addProduct({ itemId: product.id || id, quantity: quantity }));
+    toast.success("Item has been added to cart", {
+      position: 'top-center',
+      transition: Slide,
+    });
+  };
+
+  const handleAddToWishList = () => {
+    if(wishListItem.includes(productId)){
+      toast.success("Item has been removed from Wishlist", {
+        position: 'top-center',
+        transition: Slide,
+      });
+    }else{
+      toast.success("Item has been added to Wishlist", {
+        position: 'top-center',
+        transition: Slide,
+      });
+    }
+    dispatch(toggleItem({ itemId: productId })); 
+  }
+
+  const wishListItem = useSelector((state) => state.wishlist.wishListItems);
+  
+
+  const navigate = useNavigate();
+  const handleBuyNow = () => {
     dispatch(addProduct({ itemId: product.id || id, quantity: quantity}));
-};
-
-const navigate = useNavigate();
-const handleBuyNow = () => {
-  dispatch(addProduct({ itemId: product.id || id, quantity: quantity}));
-  navigate("/checkout"); // Navigate to the checkout page
-};
-
-const incrementQuantity = () => {
+    navigate("/checkout"); // Navigate to the checkout page
+  };
+  const incrementQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
-};
+  };
 
-const decrementQuantity = () => {
+  const decrementQuantity = () => {
     setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 0));
-};
+  };
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -70,23 +98,17 @@ const decrementQuantity = () => {
     getProduct();
   }, []);
  
-  const productId=product.id
+  const productId = product.id;
   const category = product.category?.name;
   const availableSize = product.size?.name;
   const availableColor = product.color?.name;
   const sizes = ["XS", "S", "M", "L", "XL"];
 
-  // const handleThumbnailChange = (image) => {
-  //   setMainImage(image);
-  // };
   const star = 4;
   const starsQuantity = parseInt(star, 10);
   const stars = Array.from({ length: starsQuantity }).map((_, i) => (
     <Star key={i} size={20} color="#FFD700" />
   ));
-  
-
-
 
   return (
     <div className="flex flex-col gap-16 items-center">
@@ -143,7 +165,7 @@ const decrementQuantity = () => {
                         key={image.id}
                         src={image.url}
                         alt={product.name}
-                        className="w-full h-full object-contain  cursor-pointer transition duration-200 ease-in hover:scale-110"
+                        className="w-full h-full object-contain cursor-pointer transition duration-200 ease-in hover:scale-110"
                       />
                     </SwiperSlide>
                   )
@@ -173,7 +195,6 @@ const decrementQuantity = () => {
                   )
                 })}
               </Swiper>
-
             </div>
 
             <div className="prod_info w-[50%] flex flex-col justify-center gap-2">
@@ -195,7 +216,7 @@ const decrementQuantity = () => {
 
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-base font-semibold ">Colors:</span>
+                  <span className="text-base font-semibold">Colors:</span>
                   <div className={`w-[18px] h-[18px] rounded-lg border-[1px] shadow-gray-300 shadow-md border-gray-300 cursor-pointer bg-${availableColor}`}></div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -209,7 +230,6 @@ const decrementQuantity = () => {
                       </div>
                     );
                   })}
-
                 </div>
                 <div className="highlight flex items-center justify-start gap-3">
                   <div className="add_sub flex">
@@ -217,7 +237,7 @@ const decrementQuantity = () => {
                       onClick={decrementQuantity}>
                       <FiMinus />
                     </button>
-                    <span className="digit px-6 py-2 flex justify-center items-center  border-[1px] border-[#808080]">
+                    <span className="digit px-6 py-2 flex justify-center items-center border-[1px] border-[#808080]">
                       {quantity}
                     </span>
                     <button className="bg-red-500 hover:bg-[#f45e5e] text-white px-2 py-[13px] flex justify-center items-center cursor-pointer border-[1px] border-[#808080] rounded-r-md"
@@ -229,14 +249,22 @@ const decrementQuantity = () => {
                     <div className="buy bg-red-500 text-white font-semibold outline-none px-12 py-2 flex items-center rounded-md text-lg cursor-pointer">
                       <button onClick={handleBuyNow}>Buy</button>
                     </div>
-                    <div className="cart border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer" >
-                    <button onClick={handleAddToCart} ><FiShoppingCart size={25} /> </button>
+                    <div className="cart border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
+                      <button onClick={handleAddToCart}><FiShoppingCart size={25} /></button>
                     </div>
-                    <div className="wishlist border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
-                      <button onClick={()=>dispatch(toggleItem({itemId: productId}))}>
-                        <IoMdHeartEmpty size={25} />
+
+                    
+                   {/* WISHLIST FUNCTION ADDED */}
+                    <div data-existInWishlist={wishListItem.includes(productId)} className="wishlist border-[1px] border-[#808080] rounded-md flex justify-center items-center p-2 cursor-pointer">
+                      <button onClick={handleAddToWishList}>
+                        {product.inWishlist ? (
+                          <IoMdHeart size={25} color="red" />
+                        ) : (
+                          <IoMdHeartEmpty size={25} />
+                        )}
                       </button>
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -305,16 +333,17 @@ const decrementQuantity = () => {
             <div
               className={toggleState === 3 ? "content active-content" : "content"}
             >
-              <h1 className="text-lg font-semibold text-red-500 ">
+              <h1 className="text-lg font-semibold text-red-500">
                 Customer Reviews
               </h1>
             </div>
           </div>
         </>
       )}
-      <RelatedProducts category={category}/>
+      <RelatedProducts category={category} productId={productId} />
     </div>
   );
 };
 
 export default ProductContent;
+

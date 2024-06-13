@@ -9,6 +9,7 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import { Provider } from "react-redux";
 import {store } from "../redux/store.js";
 import { PersistGate } from 'redux-persist/integration/react';
+import { ToastContainer } from "react-toastify";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!PUBLISHABLE_KEY) throw new Error("Key Missing");
@@ -16,6 +17,7 @@ if (!PUBLISHABLE_KEY) throw new Error("Key Missing");
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* <ProductProvider> */}
+    <ToastContainer />
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <BrowserRouter>
         <Provider store={store}>
