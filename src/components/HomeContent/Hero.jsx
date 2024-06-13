@@ -259,7 +259,7 @@ const Hero = () => {
               );
             })}
           </Slider>
-       <div className="flex-layout flex-wrap justify-center items-center gap-6 w-full m-4">
+       <div className="flex-layout flex-wrap justify-center items-center gap-6 w-full m-2">
               {flashProducts.slice(0, showMoreProducts ? 8 : 4).map((item, index) => {
               const isFlipped = index === flippedCardIndex;
               return (
