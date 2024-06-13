@@ -3,15 +3,18 @@ import Slider from "react-slick";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import '../../index.css'
-
 const UpcomingMovies = () => {
   const [movieList, setMovieList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
+  const [showDetails, setShowDetails] = useState(false)
+  const navigate = useNavigate();
+
 
   const BASE_URL = import.meta.env.VITE_NODE_URL;
 
@@ -32,6 +35,10 @@ const UpcomingMovies = () => {
   const handleMouseLeave = () => {
     setFlippedCardIndex(null);
   };
+  const handleClick = (id) => {
+    navigate(`/movie-detail/${id}`);
+  };
+
 
   useEffect(() => {
     setLoading(true);
@@ -45,6 +52,8 @@ const UpcomingMovies = () => {
     }
     getMovieData();
   }, []);
+
+ 
 
   const settings = {
     dots: false,
@@ -145,12 +154,14 @@ const UpcomingMovies = () => {
             {movieList.slice(0, 5).map((item, index) => {
               const isFlipped = index === flippedCardIndex;
               return (
+                
                 <div
-                  key={item.id}
+                key={item.id}
                   className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
-                >
+                  onClick={() => handleClick(item.id)}
+                > 
                   <motion.div
                     className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
                     initial={false}

@@ -23,6 +23,7 @@ import MovieDesc from "../src/components/MovieDesc/MovieDesc";
 import Faq from "../src/components/Faq";
 import ReturnPolicy from "../src/components/AccountContent/ReturnPolicy";
 import CancellationPolicy from "../src/components/cancellation-policy/CancellationPolicy";
+import MovieDetail from "../src/components/Movie-Detail/MovieDetail";
 
 
 const Routers = (props) => {
@@ -51,6 +52,7 @@ const Routers = (props) => {
         <Route path="/event-creation" element={<EventCreation />} />
         <Route path="/event" element={<EventContent />} />
         <Route path="/movie/:id" element={<MovieDesc />} />
+        <Route path="/movie-detail/:id" element={<MovieDetail/>}/>
       </Route>
     </Routes>
   );
