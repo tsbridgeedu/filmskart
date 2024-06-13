@@ -49,13 +49,13 @@ const AllProducts = () => {
   };
 
   return (
-    <div className="lg:px-20 sm:px-16 px-10 mt-10 mb-16 flex flex-col gap-10">
+    <div className="lg:px-20 sm:px-16 px-10 mt-10 mb-16 flex flex-col gap-10 mx-5">
       <div className="flex-row flex w-full max-[590px]:px-0 px-16 justify-center">
-        <span className="font-inter text-[32px] font-bold tracking-wide border-b-4 border-red-400">
+        <span className="font-inter text-[32px] font-bold tracking-wide border-b-4 border-red-400 max-[480px]:text-4xl">
           Explore All Products
         </span>
       </div>
-      <div className="flex gap-16 justify-center items-center">
+      <div className="flex gap-16 max-[480px]:gap-8 justify-center items-center flex-wrap">
         <button className={activeCategory==="All" ? "all-prod-btn active" :  "all-prod-btn"}
           onClick={()=>filterProduct("All")}>
           All
@@ -71,6 +71,10 @@ const AllProducts = () => {
         <button className={activeCategory==="Caps" ? "all-prod-btn active" :  "all-prod-btn"}
           onClick={()=>filterProduct("Caps")}
           >Caps
+        </button>
+        <button className={activeCategory==="Universal" ? "all-prod-btn active" :  "all-prod-btn"}
+          onClick={()=>filterProduct("Universal")}>
+          Universal
         </button>
       </div>
       <div className="mb-2 container flex w-full h-full">
@@ -100,14 +104,14 @@ const AllProducts = () => {
             </span>
           </div>
         ) : (
-          <section className="flex max-[1024px]:items-center max-[1024px]:justify-center items-center w-full gap-10 flex-wrap mx-5 mt-3">
+          <section className="flex max-[1024px]:items-center max-[1024px]:justify-center items-center w-full gap-10 max-[360px]:gap-9 flex-wrap mt-3">
             {filter ? (
               filter.map((item,index) => {
                 const isFlipped = index === flippedCardIndex;
                 return (
                   <div
                     key={item.id}
-                    className="category-cards flex justify-center items-center min-w-[180px] w-[220px] h-80 bg-none rounded-sm cursor-pointer shadow-lg shadow-gray-400 hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-4xl upcmvs__crd__cntr"
+                    className="category-cards flex justify-center items-center min-w-[130px] lg:w-[220px] h-80 max-[600px]:w-[150px] max-[400px]:w-[140px] max-[600px]:h-80 bg-none rounded-xl cursor-pointer shadow-lg shadow-gray-400 hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-4xl upcmvs__crd__cntr"
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -117,21 +121,21 @@ const AllProducts = () => {
                       animate={{ rotateY: isFlipped ? 180 : 0 }}
                       transition={{ duration: 0.6, animationDirection: "normal" }}
                     >
-                      <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-sm upcmvs__frt">
-                        <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
+                      <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-xl upcmvs__frt">
+                        <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative rounded-xl">
                           {item.images.slice(0, 1).map((item) => {
                             return (
                               <img
                                 key={item.id}
                                 src={item.url}
                                 alt="product-image"
-                                className="w-full h-full object cover rounded-sm"
+                                className="w-full h-full object-cover rounded-xl"
                               />
                             );
                           })}
                         </div>
                       </div>
-                      <div className="w-full h-full items-center justify-center gap-3 px-8 py-5 flex flex-col bg-white upcmvs__bck">
+                      <div className="w-full h-full items-center justify-center gap-3 px-8 py-5 flex flex-col rounded-xl bg-white upcmvs__bck">
                         <h1 className="font-bold font-inter text-sm">
                           {item.name}
                         </h1>

@@ -12,6 +12,8 @@ const UpcomingMovies = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
+  // const [cardCount,setCardCount]=useState(4);
+  // const [totalMovies,setTotalMovies]=useState(0);
 
   const BASE_URL = import.meta.env.VITE_NODE_URL;
 
@@ -177,6 +179,7 @@ const UpcomingMovies = () => {
               );
             })}
           </Slider>
+
         )}
       </div>
     </div>
