@@ -188,8 +188,18 @@
   }
 }
 
-/* Added the css */
-/* index.css */
+@media (max-width:480px){
+  .explore-prod-slider{
+    display: none !important;
+  }
+}
+
+@media (min-width:480px){
+  .explore-cards-container{
+    display: none;
+  }
+}
+
 
 /* .upcomov-slider-container {
   display: flex;

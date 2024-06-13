@@ -9,6 +9,7 @@ import { MdCategory } from "react-icons/md";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { PiCoatHangerBold } from "react-icons/pi";
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
@@ -66,12 +67,15 @@ const categoryIcons = {
   "Women": <FcBusinesswoman />,
   "Men": <FcBusinessman />,
   "Caps": <PiBaseballCapBold />,
+  "Universal":<PiCoatHangerBold />
+
 };
 
 const slugs = {
   "Women": "women",
   "Men": "men",
   "Caps": "caps",
+  "Universal": "universal"
 }
 
 export const CategoriesSlider = () => {

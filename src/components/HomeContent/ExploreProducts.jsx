@@ -102,7 +102,7 @@ const ExploreProducts = () => {
         </div>
       </div>
 
-      <div className="my-10 container flex flex-row w-full h-full border-y-2 ">
+      <div className="my-10 container flex flex-row w-full h-full border-y-2 max-[480px]:border-none relative">
         {isLoading ? (
           <div className="w-full flex flex-col h-64 justify-center items-center">
             <Puff
@@ -129,9 +129,10 @@ const ExploreProducts = () => {
             </span>
           </div>
         ) : (
+          <>
           <Slider
             {...settings}
-            className="w-full explore-prod-slider flex flex-row shadow-3xl "
+            className="w-full explore-prod-slider flex flex-row shadow-3xl"
           >
             {exploreProducts.map((item, index) => {
               const isFlipped = index === flippedCardIndex;
@@ -185,6 +186,65 @@ const ExploreProducts = () => {
               );
             })}
           </Slider>
+          <section className="explore-cards-container flex max-[1024px]:items-center max-[1024px]:justify-center items-center w-full gap-16 max-[360px]:gap-9 flex-wrap mx-3 mt-3">
+            {exploreProducts? (
+              exploreProducts.slice(0,8).map((item,index) => {
+                const isFlipped = index === flippedCardIndex;
+                return (
+                  <div
+                    key={item.id}
+                    className="explore-prod-cards flex justify-center items-center min-w-[100px] w-[150px] max-[380px]:w-[140px] h-72 bg-none rounded-xl cursor-pointer shadow-lg shadow-gray-400 hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-4xl upcmvs__crd__cntr"
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <motion.div
+                      className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
+                      initial={false}
+                      animate={{ rotateY: isFlipped ? 180 : 0 }}
+                      transition={{ duration: 0.6, animationDirection: "normal" }}
+                    >
+                      <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-xl upcmvs__frt">
+                        <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative rounded-xl">
+                          {item.images.slice(0, 1).map((item) => {
+                            return (
+                              <img
+                                key={item.id}
+                                src={item.url}
+                                alt="product-image"
+                                className="w-full h-full object-cover rounded-xl"
+                              />
+                            );
+                          })}
+                        </div>
+                      </div>
+                      <div className="w-full h-full items-center justify-center gap-3 px-8 py-5 flex flex-col rounded-xl bg-white upcmvs__bck">
+                        <h1 className="font-bold font-inter text-sm">
+                          {item.name}
+                        </h1>
+                        <div className="flex leading-snug tracking-tight font-inter text-sm font-medium">
+                          {item.description}
+                        </div>
+                        <div className="flex w-full item-center justify-start text-sm font-inter font-semibold">
+                          Color:&nbsp;
+                          <span
+                            className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}
+                          ></span>
+                        </div>
+                        <button className="bg-red-500 text-white text-sm self py-2 px-4 rounded-md">
+                          <Link to={`/product/${item.id}`}> Buy now</Link>
+                        </button>
+                      </div>
+                    </motion.div>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="flex flex-row justify-center items-center py-20 ">
+                <span>No Products found...</span>
+              </div>
+            )}
+          </section>
+          </>
         )}
       </div>
 

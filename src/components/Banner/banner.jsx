@@ -49,6 +49,9 @@ const Banner = () => {
   return (
     <Swiper
       centeredSlides={true}
+      slidesPerView={1}
+      initialSlide={0}
+      autoHeight={true}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
