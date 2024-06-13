@@ -20,7 +20,9 @@ const Hero = () => {
   const [flashProducts, setFlashProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
+  const [showMoreProducts, setShowMoreProducts] = useState(false);
 
+  
   const handleMouseEnter = (index) => {
     setFlippedCardIndex(index);
   };
@@ -206,59 +208,114 @@ const Hero = () => {
             </span>
           </div>
         ) : (
+          <>
           <Slider
-          {...settings}
-          className="w-full cat-slider flex flex-row shadow-3xl "
-        >
-          {flashProducts.reverse().map((item, index) => {
-            const isFlipped = index === flippedCardIndex;
-            return (
-              <div
-                key={item.id}
-                className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <motion.div
-                  className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
-                  initial={false}
-                  animate={{ rotateY: isFlipped ? 180 : 0 }}
-                  transition={{ duration: 0.6, animationDirection: "normal" }}
+            {...settings}
+            className="w-full cat-slider flash-sale flex flex-row shadow-3xl"
+          >
+            {flashProducts.map((item, index) => {
+              const isFlipped = index === flippedCardIndex;
+              return (
+                <div
+                  key={item.id}
+                  className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
-                    <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
-                      {item.images.slice(0, 1).map((item) => {
-                        return (
+                  <motion.div
+                    className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
+                    initial={false}
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
+                    transition={{ duration: 0.6, animationDirection: "normal" }}
+                  >
+                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
+                      <div className="w-full h-full flex justify-center bg-[#f5f5f5] relative">
+                        {item.images.slice(0, 1).map((image) => (
                           <img
-                            key={item.id}
-                            src={item.url}
+                            key={image.id}
+                            src={image.url}
                             alt="product-image"
-                            className=" w-full h-full object-cover"
+                            className="w-full h-full object-cover"
                           />
-                        );
-                      })}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div className="w-full h-full items-center justify-center px-2 flex flex-col bg-white absolute upcmvs__bck">
-                    <h1 className="px-4 font-bold py-2 font-inter text-base">
-                      {item.name}
-                    </h1>
-                    <span className="flex px-4 pb-4 leading-snug tracking-tight font-inter text-sm font-medium">
-                      {item.description}
-                    </span>
-                      
-                    <span className="flex-row flex pb-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
-                    Color: <span className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}></span>
-                    </span>
+                    <div className="w-full h-full items-center justify-center px-2 flex flex-col bg-white absolute upcmvs__bck">
+                      <h1 className="px-4 font-bold py-2 font-inter text-base">
+                        {item.name}
+                      </h1>
+                      <span className="flex px-4 pb-4 leading-snug tracking-tight font-inter text-sm font-medium">
+                        {item.description}
+                      </span>
+                      <span className="flex-row flex pb-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
+                        Color: <span className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}></span>
+                      </span>
                       <button className="bg-red-500 text-white text-sm mt-2 self py-2 px-2 rounded-md">
-                       <Link to={`/product/${item.id}`}> Buy now</Link>
+                        <Link to={`/product/${item.id}`}>Buy now</Link>
                       </button>
-                  </div>
-                </motion.div>
-              </div>
-            );
-          })}
-        </Slider>
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
+          </Slider>
+       <div className="flex-layout flex-wrap justify-center items-center gap-6 w-full m-4">
+              {flashProducts.slice(0, showMoreProducts ? 8 : 4).map((item, index) => {
+              const isFlipped = index === flippedCardIndex;
+              return (
+                <div
+                  key={item.id}
+                  className="flex flex-wrap w-[170px] h-[250px] border rounded-lg  cursor-pointer duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <motion.div
+                    className="w-full h-full  rounded-lg frt_prdct_flsh relative upcmvs__crd"
+                    initial={false}
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
+                    transition={{ duration: 0.6, animationDirection: "normal" }}
+                  >
+                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
+                      <div className="w-[170px] h-[250px] flex justify-center bg-[#f5f5f5] relative">
+                        {item.images.slice(0, 1).map((image) => (
+                          <img
+                            key={image.id}
+                            src={image.url}
+                            alt="product-image"
+                            className="w-[170px] h-[250px] object-cover rounded-lg"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <div className="w-full h-full items-center justify-center px-2 flex flex-col bg-white absolute upcmvs__bck">
+                      <h1 className="px-4 font-bold py-2 font-inter text-base">
+                        {item.name}
+                      </h1>
+                      <span className="flex px-4 pb-4 leading-snug tracking-tight font-inter text-sm font-medium">
+                        {item.description}
+                      </span>
+                      <span className="flex-row flex pb-4 gap-2 w-full px-5 item-center justify-start text-sm font-inter font-semibold">
+                        Color: <span className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}></span>
+                      </span>
+                      <button className="bg-red-500 text-white text-sm mt-2 self py-2 px-2 rounded-md">
+                        <Link to={`/product/${item.id}`}>Buy now</Link>
+                      </button>
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
+            
+            {!showMoreProducts && (
+                  <button
+                    className="bg-red-500 text-white py-2 px-4 rounded-md mt-4 mx-auto block"
+                    onClick={() => setShowMoreProducts(true)}
+                  >
+                    View More
+                  </button>
+                )}
+          </div>
+        </>
         )}
       </div>
     </div>

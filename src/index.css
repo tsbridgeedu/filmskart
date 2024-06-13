@@ -147,3 +147,22 @@
 .slick-arrow.slick-next:before {
   content: "" !important;
 }
+@media (max-width: 480px) {
+  .flash-sale {
+    display: none !important;
+  }
+
+  .flex-layout {
+    display: flex;    
+  }
+}
+/* Show the slider and hide the grid layout on larger screens */
+@media (min-width: 480px) {
+  .cat-slider {
+    display: flex;
+  }
+
+  .flex-layout {
+    display: none;
+  }
+}
