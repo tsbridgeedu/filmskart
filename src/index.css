@@ -148,7 +148,7 @@
   content: "" !important;
 }
 @media (max-width: 480px) {
-  .flash-sale {
+  .cat-slider {
     display: none !important;
   }
 

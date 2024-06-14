@@ -20,7 +20,6 @@ const Hero = () => {
   const [flashProducts, setFlashProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
-  const [showMoreProducts, setShowMoreProducts] = useState(false);
 
   
   const handleMouseEnter = (index) => {
@@ -260,7 +259,7 @@ const Hero = () => {
             })}
           </Slider>
        <div className="flex-layout flex-wrap justify-center items-center gap-6 w-full m-2">
-              {flashProducts.slice(0, showMoreProducts ? 8 : 4).map((item, index) => {
+              {flashProducts.map((item, index) => {
               const isFlipped = index === flippedCardIndex;
               return (
                 <div
@@ -305,15 +304,6 @@ const Hero = () => {
                 </div>
               );
             })}
-            
-            {!showMoreProducts && (
-                  <button
-                    className="bg-red-500 text-white py-2 px-4 rounded-md mt-4 mx-auto block"
-                    onClick={() => setShowMoreProducts(true)}
-                  >
-                    View More
-                  </button>
-                )}
           </div>
         </>
         )}
