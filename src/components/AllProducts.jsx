@@ -49,7 +49,7 @@ const AllProducts = () => {
   };
 
   return (
-    <div className="lg:px-20 sm:px-16 px-10 mt-10 mb-16 flex flex-col gap-10 mx-5">
+    <div className="lg:px-20 sm:px-16 mt-10 mb-16 flex flex-col gap-10 px-2">
       <div className="flex-row flex w-full max-[590px]:px-0 px-16 justify-center">
         <span className="font-inter text-[32px] font-bold tracking-wide border-b-4 border-red-400 max-[480px]:text-4xl">
           Explore All Products
@@ -104,14 +104,14 @@ const AllProducts = () => {
             </span>
           </div>
         ) : (
-          <section className="flex max-[1024px]:items-center max-[1024px]:justify-center items-center w-full gap-10 max-[360px]:gap-9 flex-wrap mt-3">
+          <section className="flex max-[1024px]:items-center max-[1024px]:justify-center items-center w-full gap-12 max-[480px]:gap-7 flex-wrap mt-3">
             {filter ? (
               filter.map((item,index) => {
                 const isFlipped = index === flippedCardIndex;
                 return (
                   <div
                     key={item.id}
-                    className="category-cards flex justify-center items-center min-w-[130px] lg:w-[220px] h-80 max-[600px]:w-[150px] max-[400px]:w-[140px] max-[600px]:h-80 bg-none rounded-xl cursor-pointer shadow-lg shadow-gray-400 hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-4xl upcmvs__crd__cntr"
+                    className="category-cards flex justify-center items-center min-w-[130px] lg:w-[220px] lg:h-80 max-[480px]:w-40 max-[480px]:h-64 max-[600px]:w-52 max-[600px]:h-64 bg-none rounded-xl cursor-pointer shadow-lg shadow-gray-400 hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-4xl upcmvs__crd__cntr"
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -139,16 +139,16 @@ const AllProducts = () => {
                         <h1 className="font-bold font-inter text-sm">
                           {item.name}
                         </h1>
-                        <div className="flex leading-snug tracking-tight font-inter text-sm font-medium">
+                        <div className="flex leading-snug tracking-tight font-inter text-sm max-[480px]:text-xs font-medium">
                           {item.description}
                         </div>
-                        <div className="flex w-full item-center justify-start text-sm font-inter font-semibold">
+                        <div className="flex w-full item-center justify-start text-sm max-[480px]:text-xs font-inter font-semibold">
                           Color:&nbsp;
                           <span
                             className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}
                           ></span>
                         </div>
-                        <button className="bg-red-500 text-white text-sm self py-2 px-4 rounded-md">
+                        <button className="bg-red-500 text-white text-sm max-[480px]:text-xs self py-2 px-4 rounded-md">
                           <Link to={`/product/${item.id}`}> Buy now</Link>
                         </button>
                       </div>
