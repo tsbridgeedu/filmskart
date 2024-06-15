@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 
 function MovieDetail() {
@@ -11,17 +10,25 @@ function MovieDetail() {
 
   const BASE_URL = import.meta.env.VITE_NODE_URL;
 
+
+
   useEffect(() => {
-    setLoading(true);
     async function getMovieData() {
       try {
-       
-        const movieData = await axios.get(`${BASE_URL}/movie-data`);
-        const movieList = movieData.data;
+        setLoading(true);
+        
+        const response = await fetch(`${BASE_URL}/movie-data`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const movieData = await response.json();
+        const movieList = movieData;
         const selectedMovie = movieList.find(movie => movie.id === parseInt(id));
+
         setMovie(selectedMovie);
         setRelatedMovies(movieList.filter(movie => movie.id !== parseInt(id)));
-        console.log(selectedMovie);
         
       } catch (error) {
         console.error("Error fetching movie data:", error);
@@ -80,7 +87,7 @@ function MovieDetail() {
          <div className="mt-8 flex justify-center items-center flex-col w-full mb-8">
         <h2 className="text-2xl font-bold mb-4">Related Movies</h2>
      <div className="w-[380px] sm:w-full grid justify-evenly items-center sm:grid-cols-4 lg:grid-cols-5 grid-cols-2  gap-4 p-6">
-          {relatedMovies.slice(0, 5).map(item => (
+          {relatedMovies.map(item => (
             <div key={item.id} className="bg-white w-full h-[250px] lg:w-[300px] sm:h-[350px] rounded-lg shadow-lg overflow-hidden">
               <img
                 src={`/${item.img}`}

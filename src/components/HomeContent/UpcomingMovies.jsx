@@ -3,7 +3,8 @@ import Slider from "react-slick";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '../../index.css'
 const UpcomingMovies = () => {
@@ -13,7 +14,7 @@ const UpcomingMovies = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
   const [showDetails, setShowDetails] = useState(false)
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
 
   const BASE_URL = import.meta.env.VITE_NODE_URL;
@@ -35,24 +36,35 @@ const UpcomingMovies = () => {
   const handleMouseLeave = () => {
     setFlippedCardIndex(null);
   };
-  const handleClick = (id) => {
-    navigate(`/movie-detail/${id}`);
-  };
+  // const handleClick = (id) => {
+  //   navigate(`/movie-detail/${id}`);
+  // };
 
 
   useEffect(() => {
-    setLoading(true);
     async function getMovieData() {
-      await new Promise((resolve) => setTimeout(resolve, 2800));
-      await axios.get(`${BASE_URL}/movie-data`).then((item) => {
+      try {
+        // Simulate delay
+        await new Promise((resolve) => setTimeout(resolve, 2800));
         
-        setMovieList(item.data);
+        const response = await fetch(`${BASE_URL}/movie-data`);
+        
+        // Check if the response is successful
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setMovieList(data);
+      } catch (error) {
+        console.error("Error fetching movie data:", error);
+      } finally {
         setLoading(false);
-      });
+      }
     }
+
     getMovieData();
   }, []);
-
  
 
   const settings = {
@@ -160,14 +172,14 @@ const UpcomingMovies = () => {
                   className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
-                  onClick={() => handleClick(item.id)}
+                  // onClick={() => handleClick(item.id)}
                 > 
                   <motion.div
                     className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
                     initial={false}
                     animate={{ rotateY: isFlipped ? 180 : 0 }}
                     transition={{ duration: 0.6, animationDirection: "normal" }}
-                  >
+                  >   <Link to={`/movie-detail/${item.id}`}>
                     <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
                       <img
                         src={item.img}
@@ -183,6 +195,7 @@ const UpcomingMovies = () => {
                         <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md"><a href={`/movie/${item.id}`}>Know more</a></button>
                       </span>
                     </div>
+                    </Link>
                   </motion.div>
                 </div>
               );
