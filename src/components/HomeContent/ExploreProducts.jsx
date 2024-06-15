@@ -86,7 +86,7 @@ const ExploreProducts = () => {
   };
 
   return (
-    <div className="flex flex-col w-full px-4 md:px-20 mb-20">
+    <div className="flex flex-col w-full px-2 md:px-20 mb-20">
       <div className="w-full h-full flex flex-row items-center gap-2">
         <div className="w-2 rounded-md h-10 bg-red-500"></div>
         <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
@@ -186,14 +186,14 @@ const ExploreProducts = () => {
               );
             })}
           </Slider>
-          <section className="explore-cards-container flex max-[1024px]:items-center max-[1024px]:justify-center items-center w-full gap-16 max-[360px]:gap-9 flex-wrap mx-3 mt-3">
-            {exploreProducts? (
+          <section className="explore-cards-container flex max-[1024px]:items-center max-[1024px]:justify-center items-center w-full gap-7 flex-wrap mt-3">
+            {exploreProducts ? (
               exploreProducts.slice(0,8).map((item,index) => {
                 const isFlipped = index === flippedCardIndex;
                 return (
                   <div
                     key={item.id}
-                    className="explore-prod-cards flex justify-center items-center min-w-[100px] w-[150px] max-[380px]:w-[140px] h-72 bg-none rounded-xl cursor-pointer shadow-lg shadow-gray-400 hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-4xl upcmvs__crd__cntr"
+                    className="flex justify-center items-center min-w-[130px] w-40 h-64 bg-none rounded-xl cursor-pointer shadow-lg shadow-gray-400 hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-4xl upcmvs__crd__cntr"
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -221,16 +221,16 @@ const ExploreProducts = () => {
                         <h1 className="font-bold font-inter text-sm">
                           {item.name}
                         </h1>
-                        <div className="flex leading-snug tracking-tight font-inter text-sm font-medium">
+                        <div className="flex leading-snug tracking-tight font-inter text-sm max-[480px]:text-xs font-medium">
                           {item.description}
                         </div>
-                        <div className="flex w-full item-center justify-start text-sm font-inter font-semibold">
+                        <div className="flex w-full item-center justify-start text-sm max-[480px]:text-xs font-inter font-semibold">
                           Color:&nbsp;
                           <span
                             className={`w-5 h-5 rounded-full bg-${item.color.value} border-2 shadow-md`}
                           ></span>
                         </div>
-                        <button className="bg-red-500 text-white text-sm self py-2 px-4 rounded-md">
+                        <button className="bg-red-500 text-white text-sm max-[480px]:text-xs self py-2 px-4 rounded-md">
                           <Link to={`/product/${item.id}`}> Buy now</Link>
                         </button>
                       </div>

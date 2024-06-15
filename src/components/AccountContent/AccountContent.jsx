@@ -127,7 +127,7 @@ const AccountContent = () => {
           </div>
         </div>
 
-        <div className="z-0 h-screen md:w-[830px] md:h-[600px] md:border md:rounded-md  md:ml-20">
+        <div className="z-0 md:w-[830px] md:h-[800px] md:border max-[768px]:mx-5 md:rounded-md md:mx-6 flex justify-center items-center">
           <Outlet />
         </div>
       </div>
