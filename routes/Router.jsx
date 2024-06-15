@@ -21,15 +21,20 @@ import EventCreation from "../pages/EventCreation";
 import EventContent from "../src/components/EventContent/EventContent";
 import MovieDesc from "../src/components/MovieDesc/MovieDesc";
 import Faq from "../src/components/Faq";
+import CategoryProducts from "../src/components/CategoryProducts";
 import ReturnPolicy from "../src/components/AccountContent/ReturnPolicy";
 import CancellationPolicy from "../src/components/cancellation-policy/CancellationPolicy";
 import MovieDetail from "../src/components/Movie-Detail/MovieDetail";
+import AccountEdit from "../src/components/AccountContent/AccountEdit";
+import AddressEdit from "../src/components/AccountContent/AddressEdit";
+import WishlistList from "../src/components/Wishlist/WishlistList";
+
 
 
 const Routers = (props) => {
   return (
-    <Routes>
-      <Route path="/" element={<Layout {...props} />}>
+    <Layout {...props}>
+      <Routes>
         <Route index element={<Home {...props} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
@@ -48,13 +53,19 @@ const Routers = (props) => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/user-profile" element={<UserSettings />} />
-        <Route path="/profile" element={<Account />} />
+        <Route path="/profile" element={<Account />}>
+          <Route index element={<AccountEdit />} />
+          <Route path="address" element={<AddressEdit />} />
+          <Route path="wishlist" element={<WishlistList fetchProductById={props.fetchProductById} />} />
+        </Route>
         <Route path="/event-creation" element={<EventCreation />} />
         <Route path="/event" element={<EventContent />} />
         <Route path="/movie/:id" element={<MovieDesc />} />
-        <Route path="/movie-detail/:id" element={<MovieDetail/>}/>
-      </Route>
-    </Routes>
+        <Route path="/movie-detail/:id" element={<MovieDetail/>} />
+        <Route path="/category/:slug" element={<CategoryProducts />} />
+        
+      </Routes>
+    </Layout>
   );
 };
 

@@ -1,19 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
-import "../Hero/hero.css";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Puff, ThreeDots } from "react-loader-spinner";
 import axios from "axios";
 import { motion } from "framer-motion";
-import '../../index.css'
-import { relatedProducts } from "../../../constants/constant";
-import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import "../index.css";
 
-const RelatedProducts = ({ category}) => {
-
+const CategoryProducts = () => {
+  const { slug } = useParams();
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
-  const productId=useParams();
-  const [relatedProducts, setRelatedProducts] = useState([]);
+
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
 
@@ -27,80 +25,38 @@ const RelatedProducts = ({ category}) => {
 
   useEffect(() => {
     setIsLoading(true);
-    async function getRelatedProducts() {
+    async function getCategoryProducts() {
       await new Promise((resolve) => setTimeout(resolve, 2800));
       await axios
         .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/products`)
         .then((item) => {
-          const filteredProducts = item.data.filter((x) => x.category?.name === category && x.id !== productId);
-          setRelatedProducts(filteredProducts);
+          const filteredProducts = item.data.filter(
+            (x) => x.category?.name === toTitleCase(slug)
+          );
+          setProducts(filteredProducts);
           setIsLoading(false);
         });
     }
-    getRelatedProducts();
-  }, [category,productId]);
+    getCategoryProducts();
+  }, [slug]);
 
-  // const filterProduct=(cat)=>{
-  //   const ul=relatedProducts.filter((x)=>x.category?.name===cat);
-  //   setFilter(ul);
-  // }
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 2500,
-    autoplay: false,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    pauseOnHover: true,
-    swipeToSlide: true,
-    responsive: [
-      {
-        breakpoint: 1600,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 0,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  // const updatedProducts=products.filter((x)=>x.category?.name===slug);
+  // setProducts(updatedProducts);
 
   return (
-    <div className="flex flex-col w-full px-8 md:px-20 mb-20">
+    <div className="flex flex-col w-full px-8 md:px-20 my-16">
       <div className="w-full h-full flex flex-row items-center gap-2">
         <div className="w-2 rounded-md h-10 bg-red-500"></div>
-        <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
-          Related Products
+        <span className="text-xl text-red-500 font-semibold flex flex-row justify-center items-center">
+          Products
         </span>
       </div>
+      <div className="flex flex-row my-4 gap-2 items-center md:text-3xl text-xl font-inter font-semibold ">
+        <span>Category -</span>
+        <span className="text-green-500">{toTitleCase(slug)}</span>
+      </div>
 
-      <div className="my-10 container flex flex-row w-full h-full border-y-2 ">
+      <div className="mb-2 container flex w-full h-full border-t-2 border-red-300 border-solid border-opacity-80">
         {isLoading ? (
           <div className="w-full flex flex-col h-64 justify-center items-center">
             <Puff
@@ -127,8 +83,8 @@ const RelatedProducts = ({ category}) => {
             </span>
           </div>
         ) : (
-          <div className="flex max-[1024px]:items-center max-[1024px]:justify-center max-[1024px]:w-full gap-16 flex-wrap mx-5 my-10">
-            {relatedProducts.map((item, index) => {
+          <div className="flex max-[1024px]:items-center max-[1024px]:justify-center justify-evenly items-center w-full gap-16 flex-wrap mx-5 my-10">
+            {products.map((item, index) => {
               const isFlipped = index === flippedCardIndex;
               return (
                 <div
@@ -185,4 +141,10 @@ const RelatedProducts = ({ category}) => {
   );
 };
 
-export default RelatedProducts;
+const toTitleCase = (str) => {
+  return str.replace(/\w\S*/g, (txt) => {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+};
+
+export default CategoryProducts;

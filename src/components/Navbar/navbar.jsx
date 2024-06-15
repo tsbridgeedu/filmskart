@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
 import "./navbar.css";
-
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -19,7 +18,7 @@ import { Divider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import PropTypes from "prop-types";
-const Navbar = ({cartItems}) => {
+const Navbar = () => {
 
   const VITE_INVENTORY_URL = import.meta.env.VITE_INVENTORY_URL;
   const VITE_STORE_ID = import.meta.env.VITE_STORE_ID;
@@ -27,27 +26,43 @@ const Navbar = ({cartItems}) => {
   const [toggleAbout, setToggleAbout] = useState(false);
 
   const [categories, setCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  Navbar.propTypes = {
-    cartItems: PropTypes.array,
-  };
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const wishlist = useSelector((state) => state.wishlist.wishListItems);
+
   useEffect(() => {
-    setIsLoading(true);
     async function getCategories() {
       await axios
         .get(`${VITE_INVENTORY_URL}${VITE_STORE_ID}/categories`)
         .then((item) => {
           setCategories(item.data);
-          setIsLoading(false);
         });
-      }
-      getCategories();
-    }, []);
+    }
+    getCategories();
+  }, []);
+
+  const slugs = {
+    "Women": "women",
+    "Men": "men",
+    "Caps": "caps",
+  }
+  // usestate added for it
+  // const [movies, setMovies] = useState([]);
 
   
-   
+  // useEffect(() => {
+  //   async function getMovies() {
+  //     await axios
+  //       .get(`${VITE_INVENTORY_URL}/pages/movies`)
+  //       .then((item) => {
+  //         setMovies(item.data);
+  //       });
+  //   }
+  //   getMovies();
+  // }, []);
 
-    
+  // const [first, setfirst] = useState(second)
+
   return (
     <div className="navbar">
       <div className="navbar_box flex w-[9rem] cursor-pointer ">
@@ -72,9 +87,8 @@ const Navbar = ({cartItems}) => {
           >
             About Us
             <div
-              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${
-                toggleAbout ? "opacity-100" : "opacity-0 hidden"
-              } transition-opacity duration-500`}
+              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${toggleAbout ? "opacity-100" : "opacity-0 hidden"
+                } transition-opacity duration-500`}
             >
               <div className="flex justify-center w-full">
                 {toggleAbout ? <ChevronDown /> : <ChevronUp />}
@@ -134,40 +148,69 @@ const Navbar = ({cartItems}) => {
           >
             Categories
             <div
-              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${
-                toggleCat ? "opacity-100" : "opacity-0 hidden"
-              } transition-opacity duration-500`}
+              className={`flex flex-col items-center max-w-full absolute w-36 top-6 ${toggleCat ? "opacity-100" : "opacity-0 hidden"
+                } transition-opacity duration-500`}
             >
               <div className="flex justify-center w-full">
                 {toggleCat ? <ChevronDown /> : <ChevronUp />}
               </div>
-              <div className="flex flex-col bg-[#ffffff]  backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
-              {categories.map((item) => {
-                return(
-                  <div key={item.id}>
+              <div className="flex flex-col bg-[#ff4c4c] backdrop-blur-md bg-opacity-30 border-2 border-red-500 mt-2 ring-1 ring-gray-900/5 py-8 px-14 rounded-md text-[#222] gap-4">
+                <div>
+                  <Link to="/products">
                     <Typography
-                  variant="subtitle2"
-                  key={item.id}
-                  sx={{
-                    textAlign: "center",
-                    letterSpacing: "2px",
-                    fontFamily: "Poppins",
-                    fontWeight: "600",
-                  }}
-                >
-                  {item.name}
-                </Typography>
-                <Divider
-                  sx={{
-                    height: "2px",
-                    bgcolor: "#ee2222",
-                  }}
-                  
-                />
-                  </div >
-                )
-              })}
+                      variant="subtitle2"
+                      sx={{
+                        textAlign: "center",
+                        letterSpacing: "2px",
+                        fontFamily: "Poppins",
+                        fontWeight: "600",
+                      }}
+                    >
+                      All
+                    </Typography>
+                  </Link>
+                  <Divider
+                    sx={{
+                      height: "2px",
+                      bgcolor: "#ee2222",
+                    }}
+
+                  />
+                </div >
+                {categories.map((item) => {
+                  return (
+                    <div key={item.id}>
+                      <Link to={`/category/${slugs[item.name]}`}>
+                        <Typography
+                          variant="subtitle2"
+                          key={item.id}
+                          sx={{
+                            textAlign: "center",
+                            letterSpacing: "2px",
+                            fontFamily: "Poppins",
+                            fontWeight: "600",
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                      <Divider
+                        sx={{
+                          height: "2px",
+                          bgcolor: "#ee2222",
+                        }}
+
+                      />
+                    </div >
+                  )
+                })}
               </div>
+
+              {/* Added one div view more btn upcoming  🙋🙋*/}
+
+             
+
+              {/* ended that upcoming movies and all */}
             </div>
           </li>
           <li>
@@ -206,10 +249,16 @@ const Navbar = ({cartItems}) => {
             transition: { duration: 0.3 },
           }}
           whileTap={{ scale: 0.9 }}
+          className="relative"
         >
-          <NavLink>
+          <NavLink to={"/profile/wishlist"}>
             <Heart size={22} />
           </NavLink>
+          {Object.keys(wishlist).length != 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
+              {Object.keys(wishlist).length}
+            </span>
+          )}
         </motion.div>
 
         <motion.div
@@ -223,9 +272,11 @@ const Navbar = ({cartItems}) => {
           <NavLink to="/cart">
             <ShoppingCart size={22} />
           </NavLink>
-          <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
-          {cartItems.length === 0 ? "" : cartItems.length}
-          </span>
+          {Object.keys(cartItems).length != 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-lg font-medium text-white text-center text-xs justify-center flex items-center">
+              {Object.keys(cartItems).length}
+            </span>
+          )}
         </motion.div>
         <motion.div
           whileHover={{
