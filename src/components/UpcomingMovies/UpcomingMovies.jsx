@@ -1,158 +1,199 @@
-import React, { useState, useEffect } from "react";
-import { upcomingMovies } from "../../../constants/constant";
+import { Puff, ThreeDots } from "react-loader-spinner";
+import Slider from "react-slick";
+import axios from "axios";
+import { motion } from "framer-motion";
+import { useState, useEffect } from 'react'
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-import '../Banner/banner.css'
-
-import { Star } from "lucide-react";
-
-import "../Hero/hero.css";
+import '../../index.css'
+import { NavLink } from "react-router-dom";
 
 const UpcomingMovies = () => {
-  const [countdown, setCountdown] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [movieList, setMovieList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [flippedCardIndex, setFlippedCardIndex] = useState(null);
+  const [showDetails, setShowDetails] = useState(false)
 
-  const formatTime = (timeInSeconds) => {
-    const hours = Math.floor(timeInSeconds / 3600);
-    const minutes = Math.floor((timeInSeconds % 3600) / 60);
-    const seconds = Math.floor(timeInSeconds % 60);
-    return `${hours < 10 ? "0" + hours : hours}:${
-      minutes < 10 ? "0" + minutes : minutes
-    }:${seconds < 10 ? "0" + seconds : seconds}`;
+  const BASE_URL = import.meta.env.VITE_NODE_URL;
+
+  // const cardFlip = () => {
+  //   if (!isAnimating) {
+  //     setIsFlipped(!isFlipped);
+  //     setIsAnimating(true);
+  //   }
+  // };
+
+
+
+  // ----------I added here----------
+  const handleMouseEnter = (index) => {
+    setFlippedCardIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setFlippedCardIndex(null);
   };
 
   useEffect(() => {
-    const initialCountdownTime = 3600;
-    setCountdown(initialCountdownTime);
-
-    const timer = setInterval(() => {
-      setCountdown((prevCountdown) => prevCountdown - 1);
-    }, 1000);
-
-    return () => clearInterval(timer);
+    setLoading(true);
+    async function getMovieData() {
+      await new Promise((resolve) => setTimeout(resolve, 2800));
+      await axios.get(`${BASE_URL}/movie-data`).then((item) => {
+        
+        setMovieList(item.data);
+        setLoading(false);
+      });
+    }
+    getMovieData();
   }, []);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === upcomingMovies.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+ 
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? upcomingMovies.length - 1 : prevIndex - 1
-    );
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 2500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    pauseOnHover: true,
+    rtl: false,
+    swipeToSlide: true,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 0,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="mb-26 mt-20 w-full">
-      <div className="flex justify-evenly items-center w-full ">
-        <div className="start flex justify-center items-center">
-          <div className="bg-red-500 w-2 h-10 rounded-md"> </div>
-          <div className="text-red-500 font-semibold lg:text-2xl   ml-3 tracking-wider">
-            Hot Deals
-          </div>
-        </div>
-
-        <div className="flex">
-          <p className="text-black lg:text-6xl   font-bold tracking-wide ">
-            Upcoming Movies
-          </p>
-        </div>
-
-        <div className="start flex justify-center items-center ">
-          <div className="text-red-500 font-semibold lg:text-2xl md:text-xl mr-3 tracking-wider ">
-            {formatTime(countdown)}
-          </div>
-          <div className="bg-red-500 w-[10px] h-10 rounded-md"> </div>
-        </div>
+    <div className="flex flex-col w-full mt-20 px-4 md:px-20">
+      <div className="w-full h-full flex flex-row items-center gap-2">
+        <div className="w-2 rounded-md h-10 bg-red-500"></div>
+        <span className="text-lg text-red-500 font-semibold flex flex-row justify-center items-center">
+          Factory Built
+        </span>
+        <span className="flex flex-row justify-center items-center">
+          <img src="/factory.gif" className="w-7" />
+        </span>
+      </div>
+      <div className="flex flex-row mt-1 px-2 gap-5 md:gap-20 items-center">
+        <span className="md:text-4xl text-xl flex flex-row mt-3 font-inter font-semibold">
+          Upcoming Movies
+        </span>
       </div>
 
-      <div className="card-slider lg:mt-20">
-        <div
-          className="card-container"
-          
-        >
-          <Swiper
-          // spaceBetween={200}
-           breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 30,
-            },
-            768: {
-              slidesPerView: 1,
-              spaceBetween: 100,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
-            1440: {
-              slidesPerView: 5,
-              spaceBetween: 30,
-            },
-          }}
-            centeredSlides={true}
-            // centerInsufficientSlides
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: true,
-            }}
-            
-            navigation={true}
-            modules={[Autoplay, Navigation]}
-            className="mySwiper "
+      <div className="my-10 container flex flex-row w-full h-full border-y-2">
+        {loading ? (
+          <div className="w-full flex flex-col h-64 justify-center items-center">
+            <Puff
+              visible={true}
+              height="80"
+              width="80"
+              color="#4fa94d"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            <span className="text-sm mt-2 flex flex-row items-center gap-1 justify-center">
+              Spawning Upcoming Movies{" "}
+              <ThreeDots
+                height="15"
+                width="15"
+                color="#ee2222"
+                radius="9"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            </span>
+          </div>
+        ) : (
+          <Slider
+            {...settings}
+            className="w-full cat-slider flex flex-row shadow-3xl "
           >
-            {upcomingMovies.map((card) => {
+            {movieList.slice(0, 5).map((item, index) => {
+              const isFlipped = index === flippedCardIndex;
               return (
-                <>
-                <SwiperSlide key={card.desc}  className=" ">
+                <NavLink to={`/movie-detail/${item.id}`} key={item.id}
+                className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}>
+{/*                   
                 <div
-                  className="card transform hover:scale-110 duration-300 transition cursor-pointer"
-                  key={card.desc}
-                >
-                  <img src={card.img} className="w-full h-full object-cover" />
-                  <div className="card-content">
-                    <h3 className="font-medium text-2xl">{card.desc}</h3>
-                    <hr className="w-full mb-3" />
-                    <div className="price flex justify-between items-center">
-                      <p className="text-red-500">₹{card.discprice}</p>
-                      <p className="mr-4 text-[#b6b7b7]">
-                        ₹<s>{card.orgprice}</s>
-                      </p>
-                    </div>
-                    <div className="flex justify-start mt-4">
-                      <div className="flex justify-center items-center reviews">
-                        {[...Array(parseInt(card.star, 10))].map((_, i) => (
-                          <Star key={i} size={24} color="#FFD700" />
-                        ))}
-                      </div>
-                      <div className="flex ml-2">({card.review})</div>
-                    </div>
-                  </div>
-                </div>
-                </SwiperSlide>
                 
-                </>
+                  className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                > */}
+                  <motion.div
+                    className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
+                    initial={false}
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
+                    transition={{ duration: 0.6, animationDirection: "normal" }}
+                  >
+                    <div className="w-full h-full flex justify-center bg-transparent backdrop-blur-md rounded-md absolute upcmvs__frt">
+                      <img
+                        src={item.img}
+                        alt="product-image"
+                        className=" w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="w-full h-full flex flex-col bg-white absolute upcmvs__bck">
+                      <h1 className="px-4 font-bold py-4 font-inter text-lg">{item.title}</h1>
+                      <span className="flex px-4 py-4 font-inter text-base">{item.description}</span>
+                      <span className="flex-row flex py-2 px-5 justify-between">
+                        <span className="text-sm font-bold font-inter gap-2">{item.rating}/10</span>
+                        <button className="bg-red-500 text-white text-sm py-1 px-2 rounded-md"><a href={`/movie/${item.id}`}>Know more</a></button>
+                      </span>
+                    </div>
+                  </motion.div>
+                {/* </div> */}
+                </NavLink>
               );
             })}
-          </Swiper>
-        </div>
-      </div>
-
-      <div className="flex  items-center justify-center">
-        <div className="bg-red-500 pt-4 pb-4 pr-10 pl-10 text-white rounded-lg cursor-pointer font-bold text-lg transform hover:scale-110 duration-300 ">
-          <button>Explore more</button>
-        </div>
+          </Slider>
+        )}
       </div>
     </div>
   );
 };
 
 export default UpcomingMovies;
+
+
+

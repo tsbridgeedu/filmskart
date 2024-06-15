@@ -24,6 +24,7 @@ import Faq from "../src/components/Faq";
 import CategoryProducts from "../src/components/CategoryProducts";
 import ReturnPolicy from "../src/components/AccountContent/ReturnPolicy";
 import CancellationPolicy from "../src/components/cancellation-policy/CancellationPolicy";
+import MovieDetail from "../src/components/Movie-Detail/MovieDetail";
 import AccountEdit from "../src/components/AccountContent/AccountEdit";
 import AddressEdit from "../src/components/AccountContent/AddressEdit";
 import WishlistList from "../src/components/Wishlist/WishlistList";
@@ -60,6 +61,7 @@ const Routers = (props) => {
         <Route path="/event-creation" element={<EventCreation />} />
         <Route path="/event" element={<EventContent />} />
         <Route path="/movie/:id" element={<MovieDesc />} />
+        <Route path="/movie-detail/:id" element={<MovieDetail/>} />
         <Route path="/category/:slug" element={<CategoryProducts />} />
         
       </Routes>

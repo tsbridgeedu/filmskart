@@ -20,7 +20,6 @@ const Hero = () => {
   const [flashProducts, setFlashProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [flippedCardIndex, setFlippedCardIndex] = useState(null);
-  const [showMoreProducts, setShowMoreProducts] = useState(false);
 
   
   const handleMouseEnter = (index) => {
@@ -210,18 +209,18 @@ const Hero = () => {
         ) : (
           <>
           <Slider
-          {...settings}
-          className="w-full flash-slider flex flex-row shadow-3xl "
-        >
-          {flashProducts.reverse().map((item, index) => {
-            const isFlipped = index === flippedCardIndex;
-            return (
-              <div
-                key={item.id}
-                className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
+            {...settings}
+            className="w-full cat-slider flash-sale flex flex-row shadow-3xl"
+          >
+            {flashProducts.map((item, index) => {
+              const isFlipped = index === flippedCardIndex;
+              return (
+                <div
+                  key={item.id}
+                  className="flex flex-col w-[320px] h-80 border rounded-sm cursor-pointer hover:scale-110 duration-300 ease-out hover:drop-shadow-xl hover:shadow-3xl upcmvs__crd__cntr"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <motion.div
                     className="w-full h-full frt_prdct_flsh relative upcmvs__crd"
                     initial={false}
@@ -259,8 +258,8 @@ const Hero = () => {
               );
             })}
           </Slider>
-       <div className="flex-layout flex-wrap justify-center items-center gap-6 w-full m-4">
-              {flashProducts.slice(0, showMoreProducts ? 8 : 4).map((item, index) => {
+       <div className="flex-layout flex-wrap justify-center items-center gap-6 w-full m-2">
+              {flashProducts.map((item, index) => {
               const isFlipped = index === flippedCardIndex;
               return (
                 <div
@@ -305,15 +304,6 @@ const Hero = () => {
                 </div>
               );
             })}
-            
-            {!showMoreProducts && (
-                  <button
-                    className="bg-red-500 text-white py-2 px-4 rounded-md mt-4 mx-auto block"
-                    onClick={() => setShowMoreProducts(true)}
-                  >
-                    View More
-                  </button>
-                )}
           </div>
         </>
         )}
